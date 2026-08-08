@@ -37,8 +37,7 @@ public final class Classic10000LevelsEngine {
         return items
     }
     
-    /// 获取所有 17 个已加载的 JSON 种子库集合
-    public static var allCombinedSeeds: [ClassicalSeedItem] {
+    private static let cachedAllSeeds: [ClassicalSeedItem] = {
         let fileNames = [
             "shihan", "shijing", "tangsong", "lunyu", "daodejing",
             "mengzi", "zhongyong", "guoyu", "chunqiu", "yanshijiaxun",
@@ -50,6 +49,11 @@ public final class Classic10000LevelsEngine {
             combined.append(contentsOf: loadSeeds(named: fn))
         }
         return combined
+    }()
+    
+    /// 获取所有 17 个已加载的 JSON 种子库集合（已优化为静态只读缓存）
+    public static var allCombinedSeeds: [ClassicalSeedItem] {
+        return cachedAllSeeds
     }
     
     /// 核心方法：基于确定性算法获取第 `1` 到第 `10,000` 关中的任意关卡 (0-indexed)

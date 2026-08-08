@@ -40,32 +40,35 @@ public final class GameDataRepository: ObservableObject {
         return Classic10000LevelsEngine.level(at: n - 1).targetPhrase
     }
     
+    private static let cachedLevels: [LevelModel] = (0..<10000).map { Classic10000LevelsEngine.level(at: $0) }
+    
     public var levels: [LevelModel] {
-        return (0..<10000).map { Classic10000LevelsEngine.level(at: $0) }
+        return GameDataRepository.cachedLevels
     }
     
     public func isLevelCompleted(_ levelId: String) -> Bool {
-        if userProgress.completedLevelIds.contains(levelId) { return true }
-        if let phrase = phrase(forLevelId: levelId) {
-            return userProgress.learnedPhrases.contains(phrase)
-        }
-        return false
+        return userProgress.completedLevelIds.contains(levelId)
     }
     
     public func nextUncompletedLevel(for theme: CultureTheme) -> LevelModel? {
-        let themeLevels = levels.filter { $0.theme == theme }
+        let themeLevels = themeLevels(for: theme)
         return themeLevels.first { !isLevelCompleted($0.id) } ?? themeLevels.first
     }
     
     public func nextSequentialLevel(after current: LevelModel) -> LevelModel? {
-        if let idx = levels.firstIndex(where: { $0.id == current.id }), idx + 1 < levels.count {
+        if let idx = levelIndex(from: current.id), idx + 1 < levels.count {
             return levels[idx + 1]
         }
         return nil
     }
     
+    private func levelIndex(from levelId: String) -> Int? {
+        guard levelId.hasPrefix("level_"), let num = Int(levelId.dropFirst(6)) else { return nil }
+        return num - 1
+    }
+    
     public func levelIndexInfo(for level: LevelModel) -> (index: Int, total: Int) {
-        if let idx = levels.firstIndex(where: { $0.id == level.id }) {
+        if let idx = levelIndex(from: level.id) {
             return (idx + 1, levels.count)
         }
         return (1, levels.count)
@@ -92,7 +95,7 @@ public final class GameDataRepository: ObservableObject {
         if let idx = tLevels.firstIndex(where: { $0.id == current.id }), idx > 0 {
             return tLevels[idx - 1]
         }
-        if let globalIdx = levels.firstIndex(where: { $0.id == current.id }), globalIdx > 0 {
+        if let globalIdx = levelIndex(from: current.id), globalIdx > 0 {
             return levels[globalIdx - 1]
         }
         return nil
@@ -111,11 +114,8 @@ public final class GameDataRepository: ObservableObject {
         if let idx = tLevels.firstIndex(where: { $0.id == current.id }), idx + 1 < tLevels.count {
             return tLevels[idx + 1]
         }
-        if let globalIdx = levels.firstIndex(where: { $0.id == current.id }), globalIdx + 1 < levels.count {
+        if let globalIdx = levelIndex(from: current.id), globalIdx + 1 < levels.count {
             return levels[globalIdx + 1]
-        }
-        if let currentIdx = levels.firstIndex(where: { $0.targetPhrase == current.targetPhrase }), currentIdx + 1 < levels.count {
-            return levels[currentIdx + 1]
         }
         return levels.first(where: { !isLevelCompleted($0.id) }) ?? levels.first
     }
