@@ -7,7 +7,7 @@ public struct PetEvolutionView: View {
     public init() {}
     
     private var pet: PetModel {
-        PetModel(completedLevelCount: repository.userProgress.completedLevelIds.count)
+        PetModel(completedLevelCount: repository.userProgress.learnedPhrases.count)
     }
     
     public var body: some View {

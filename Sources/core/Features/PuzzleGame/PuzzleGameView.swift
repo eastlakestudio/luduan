@@ -72,8 +72,8 @@ public struct PuzzleGameView: View {
         }
         .sheet(isPresented: $showingMilestoneModal) {
             MilestoneCelebrationModalView(
-                completedCount: repository.userProgress.completedLevelIds.count,
-                currentStageName: PetModel(completedLevelCount: repository.userProgress.completedLevelIds.count).currentStage.rawValue,
+                completedCount: repository.userProgress.learnedPhrases.count,
+                currentStageName: PetModel(completedLevelCount: repository.userProgress.learnedPhrases.count).currentStage.rawValue,
                 onDismiss: {
                     showingMilestoneModal = false
                 },
@@ -104,7 +104,7 @@ public struct PuzzleGameView: View {
             if completed {
                 // 1. 先保存关卡进度，让答题槽把全量文字完好落位并展示给玩家
                 repository.completeLevel(currentLevel)
-                let count = repository.userProgress.completedLevelIds.count
+                let count = repository.userProgress.learnedPhrases.count
                 
                 let isMilestone = count > 0 && count % 10 == 0
 
@@ -328,7 +328,7 @@ public struct PuzzleGameView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 12)
                         .strokeBorder(Color.borderAncient, lineWidth: 2)
-                        .background(RoundedRectangle(cornerRadius: 12).fill(Color.white))
+                        .background(RoundedRectangle(cornerRadius: 12).fill(Color.cardSurface))
                         .frame(height: slotHeight)
                     
                     if idx < engine.selectedIndices.count {
@@ -409,7 +409,7 @@ public struct PuzzleGameView: View {
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(isSelected ? Color.cinnabarRed.opacity(0.1) : Color.white)
+                            .fill(isSelected ? Color.cinnabarRed.opacity(0.1) : Color.cardSurface)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12)
                                     .strokeBorder(

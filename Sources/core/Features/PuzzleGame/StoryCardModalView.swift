@@ -45,7 +45,7 @@ public struct StoryCardModalView: View {
                 }
                 .padding(.top, 16)
                 
-                Text("顺利解开典故名句！")
+                Text("「\(level.targetPhrase)」出自《\(level.source)》")
                     .font(.system(.title2, design: .serif))
                     .bold()
                     .foregroundColor(.xuanBlack)
@@ -71,7 +71,7 @@ public struct StoryCardModalView: View {
                                 }
                                 .padding(.vertical, 4)
                                 .frame(maxWidth: .infinity)
-                                .background(Color.white)
+                                .background(Color.cardSurface)
                                 .cornerRadius(8)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
@@ -80,7 +80,7 @@ public struct StoryCardModalView: View {
                             }
                         }
                         .padding(12)
-                        .background(Color.white)
+                        .background(Color.cardSurface)
                         .cornerRadius(12)
                         .overlay(
                             RoundedRectangle(cornerRadius: 12)

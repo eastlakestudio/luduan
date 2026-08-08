@@ -40,7 +40,7 @@ public struct MainDashboardView: View {
                 }
                 .ipadAdaptiveContainer(maxWidth: 780)
             }
-            .navigationTitle("《甪端字游》卷轴地图")
+            .navigationTitle("《甪端字游》")
             .inlineNavigationBarTitle()
             .toolbar {
                 ToolbarItem(placement: .adaptiveLeading) {
@@ -125,7 +125,7 @@ public struct MainDashboardView: View {
                     Text("解破关数")
                         .font(.caption2)
                         .foregroundColor(.gray)
-                    Text("\(repository.userProgress.completedLevelIds.count)")
+                    Text("\(repository.userProgress.learnedPhrases.count)")
                         .font(.system(.title2, design: .serif))
                         .bold()
                         .foregroundColor(.cinnabarRed)
@@ -153,7 +153,7 @@ public struct MainDashboardView: View {
                     .foregroundColor(selectedDimension == dimension ? .white : .xuanBlack)
                     .padding(.vertical, 10)
                     .frame(maxWidth: .infinity)
-                    .background(selectedDimension == dimension ? Color.cinnabarRed : Color.white)
+                    .background(selectedDimension == dimension ? Color.cinnabarRed : Color.cardSurface)
                     .cornerRadius(12)
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
@@ -166,37 +166,42 @@ public struct MainDashboardView: View {
     }
     
     // ----------------------------------------------------
-    // 1. 【学阶功名】模式：童生 -> 秀才 -> 举人 -> 进士 -> 翰林 -> 首辅 纵向排列
+    // 1. 【学阶功名】模式：与勋章馆「功名学阶」一致（童生·上/中/下 … 帝师）
     // ----------------------------------------------------
     private var academicModeCards: some View {
-        VStack(spacing: 16) {
-            academicRankCard(rank: .tongSheng, startIndex: 0, count: 500)
-            academicRankCard(rank: .xiuCai, startIndex: 500, count: 2000)
-            academicRankCard(rank: .juRen, startIndex: 2500, count: 3000)
-            academicRankCard(rank: .jinShi, startIndex: 5500, count: 3000)
-            academicRankCard(rank: .hanLin, startIndex: 8500, count: 1000)
-            academicRankCard(rank: .shouFu, startIndex: 9500, count: 500)
-        }
+        sectionCards(for: repository.badges.filter { $0.category == .academic })
     }
     
-    private func academicRankCard(rank: AcademicRank, startIndex: Int, count: Int) -> some View {
+    private func sectionCards(for items: [BadgeModel]) -> some View {
+        let n = max(1, items.count)
+        let per = max(1, 10000 / n)
+        return VStack(spacing: 16) {
+            ForEach(items) { badge in
+                let idx = items.firstIndex(where: { $0.id == badge.id }) ?? 0
+                let start = idx * per
+                let cnt = (idx == n - 1) ? max(1, 10000 - start) : per
+                badgeSectionCard(badge: badge, startIndex: start, count: cnt)
+            }
+        }
+    }
+
+    private func badgeSectionCard(badge: BadgeModel, startIndex: Int, count: Int) -> some View {
         let endIndex = min(10000, startIndex + count)
         let completed = (startIndex..<endIndex).filter { repository.isLevelCompleted("level_\($0 + 1)") }.count
-        let ratio = Double(completed) / Double(count)
-        
+        let ratio = count > 0 ? Double(completed) / Double(count) : 0
+
         return PaperCardView(borderColor: ratio >= 1.0 ? Color.cloudGold : Color.borderAncient) {
             HStack(spacing: 16) {
-                // 左侧：80pt 超大 3 态勋章 (明朝风骨童生/秀才/官服卡通)
                 ThreeStateBadgeView(
-                    sealText: rank.badgeSealText,
-                    imageName: rank.mingDynastyCartoonImageName,
+                    sealText: badge.sealText,
+                    imageName: badge.imageName,
                     progressRatio: ratio,
                     size: 80
                 )
-                
+
                 VStack(alignment: .leading, spacing: 6) {
                     HStack {
-                        Text(rank.rawValue)
+                        Text(badge.name)
                             .font(.system(.title3, design: .serif))
                             .bold()
                             .foregroundColor(.cinnabarRed)
@@ -206,12 +211,12 @@ public struct MainDashboardView: View {
                             .bold()
                             .foregroundColor(.gray)
                     }
-                    
-                    Text(rank.curriculumMapping)
+
+                    Text(badge.description)
                         .font(.system(.footnote, design: .serif))
                         .foregroundColor(.xuanBlack)
-                    
-                    // 进度条
+                        .lineLimit(1)
+
                     ProgressView(value: ratio)
                         .tint(ratio >= 1.0 ? Color.cloudGold : Color.cinnabarRed)
                 }
@@ -219,65 +224,15 @@ public struct MainDashboardView: View {
         }
         .onTapGesture {
             let nextIndex = (startIndex..<endIndex).first { !repository.isLevelCompleted("level_\($0 + 1)") } ?? startIndex
-            activeGameLevel = Classic10000LevelsEngine.level(at: nextIndex, categoryName: rank.rawValue)
+            activeGameLevel = Classic10000LevelsEngine.level(at: nextIndex, categoryName: badge.name)
         }
     }
     
     // ----------------------------------------------------
-    // 2. 【典籍名篇】模式：严格按历史朝代先后顺序纵向排列
+    // 2. 【典籍名篇】模式：与勋章馆「典籍名篇」一致（诗经 / 尚书 … 每本一枚）
     // ----------------------------------------------------
     private var classicsModeCards: some View {
-        VStack(spacing: 16) {
-            classicsSectionCard(title: "1. 先秦典籍源头", subtitle: "《诗经》《楚辞》《尚书》《周易》《十三经》《诸子》", startIndex: 0, count: 2500, sealText: "先秦\n源头")
-            classicsSectionCard(title: "2. 两汉三国史册", subtitle: "《史记》《汉书》《后汉书》《三国志》《战国策》", startIndex: 2500, count: 3000, sealText: "两汉\n三国")
-            classicsSectionCard(title: "3. 魏晋南北朝", subtitle: "《颜氏家训》《世说新语》魏晋风骨", startIndex: 5500, count: 1500, sealText: "魏晋\n南北")
-            classicsSectionCard(title: "4. 唐宋诗词史鉴", subtitle: "《资治通鉴》《唐诗三百首》《宋词名篇》", startIndex: 7000, count: 1800, sealText: "唐宋\n诗词")
-            classicsSectionCard(title: "5. 明清名著与家书", subtitle: "《传习录》《菜根谭》《曾国藩家书》《四大名著》", startIndex: 8800, count: 1200, sealText: "明清\n名著")
-        }
-    }
-    
-    private func classicsSectionCard(title: String, subtitle: String, startIndex: Int, count: Int, sealText: String) -> some View {
-        let endIndex = min(10000, startIndex + count)
-        let completed = (startIndex..<endIndex).filter { repository.isLevelCompleted("level_\($0 + 1)") }.count
-        let ratio = Double(completed) / Double(count)
-        let cleanTitle = title.components(separatedBy: " ").last ?? title
-        
-        return PaperCardView(borderColor: ratio >= 1.0 ? Color.cloudGold : Color.borderAncient) {
-            HStack(spacing: 16) {
-                // 80pt 超大 3 态勋章
-                ThreeStateBadgeView(
-                    sealText: sealText,
-                    imageName: nil,
-                    progressRatio: ratio,
-                    size: 80
-                )
-                
-                VStack(alignment: .leading, spacing: 6) {
-                    HStack {
-                        Text(title)
-                            .font(.system(.title3, design: .serif))
-                            .bold()
-                            .foregroundColor(.cinnabarRed)
-                        Spacer()
-                        Text("\(completed) / \(count) 关")
-                            .font(.system(.subheadline, design: .serif))
-                            .bold()
-                            .foregroundColor(.gray)
-                    }
-                    
-                    Text(subtitle)
-                        .font(.system(.footnote, design: .serif))
-                        .foregroundColor(.xuanBlack)
-                    
-                    ProgressView(value: ratio)
-                        .tint(ratio >= 1.0 ? Color.cloudGold : Color.cinnabarRed)
-                }
-            }
-        }
-        .onTapGesture {
-            let nextIndex = (startIndex..<endIndex).first { !repository.isLevelCompleted("level_\($0 + 1)") } ?? startIndex
-            activeGameLevel = Classic10000LevelsEngine.level(at: nextIndex, categoryName: cleanTitle)
-        }
+        sectionCards(for: repository.badges.filter { $0.category == .classics })
     }
     
     // ----------------------------------------------------

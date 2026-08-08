@@ -69,7 +69,7 @@ public struct BadgeGalleryView: View {
                 }
                 .ipadAdaptiveContainer(maxWidth: 840)
             }
-            .navigationTitle("两百杰勋章馆")
+            .navigationTitle("勋章馆")
             .inlineNavigationBarTitle()
             .toolbar {
                 ToolbarItem(placement: .adaptiveTrailing) {
@@ -87,10 +87,18 @@ public struct BadgeGalleryView: View {
         PaperCardView {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("百杰历史勋章解锁进度")
-                        .font(.system(.subheadline, design: .serif))
-                        .bold()
-                        .foregroundColor(.xuanBlack)
+                    HStack(spacing: 6) {
+                        Image(systemName: "seal.fill")
+                            .font(.system(size: 15))
+                            .foregroundColor(.cinnabarRed)
+                        Text("勋章解锁进度")
+                            .font(.system(.subheadline, design: .serif))
+                            .bold()
+                            .foregroundColor(.xuanBlack)
+                        Image(systemName: "seal.fill")
+                            .font(.system(size: 15))
+                            .foregroundColor(.cloudGold)
+                    }
                     
                     Text("通过解锁典故与诗词关卡获得古风特色印章")
                         .font(.caption)
@@ -194,7 +202,7 @@ public struct BadgeGalleryView: View {
                     }
                 }
                 .padding(20)
-                .background(Color.white)
+                .background(Color.cardSurface)
                 .cornerRadius(16)
                 .padding(.horizontal, 20)
                 
