@@ -3,7 +3,7 @@ import Security
 
 /// 轻量 Keychain 封装：用于持久化需要「跨卸载/重装保留」的数据（如通关进度）。
 public enum KeychainStore {
-    private static let service = "com.eastlakestudio.luDuan"
+    private static let service = "com.eastlakestudio.luduan"
 
     public static func load(key: String) -> Data? {
         let query: [String: Any] = [

@@ -1,5 +1,7 @@
 import SwiftUI
+#if canImport(luDuanCore)
 import luDuanCore
+#endif
 
 @main
 struct LuduanApp: App {
