@@ -2,36 +2,36 @@
 import PackageDescription
 
 let package = Package(
-    name: "HornedFoxWords",
+    name: "luDuan",
     platforms: [
         .iOS(.v17),
         .macOS(.v14)
     ],
     products: [
         .library(
-            name: "HornedFoxCore",
-            targets: ["HornedFoxCore"]
+            name: "luDuanCore",
+            targets: ["luDuanCore"]
         ),
         .executable(
-            name: "HornedFoxApp",
-            targets: ["HornedFoxApp"]
+            name: "luDuan",
+            targets: ["luDuan"]
         )
     ],
     targets: [
         .target(
-            name: "HornedFoxCore",
+            name: "luDuanCore",
             path: "Sources/core",
             resources: [.process("Resources")]
         ),
         .executableTarget(
-            name: "HornedFoxApp",
-            dependencies: ["HornedFoxCore"],
+            name: "luDuan",
+            dependencies: ["luDuanCore"],
             path: "Sources/app"
         ),
         .testTarget(
-            name: "HornedFoxTests",
-            dependencies: ["HornedFoxCore"],
-            path: "Tests/HornedFoxTests"
+            name: "luDuanTests",
+            dependencies: ["luDuanCore"],
+            path: "Tests/luDuanTests"
         )
     ]
 )

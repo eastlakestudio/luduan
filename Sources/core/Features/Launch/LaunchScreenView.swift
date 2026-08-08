@@ -8,15 +8,15 @@ public struct LaunchScreenView: View {
         self._isPresented = isPresented
     }
     
-    private var luduanImage: Image {
+    private var luDuanImage: Image {
         #if canImport(UIKit)
-        if let url = Bundle.module.url(forResource: "luduan_mascot_user", withExtension: "png") ??
-                     Bundle.module.url(forResource: "luduan_splash_banner", withExtension: "jpg", subdirectory: "BadgeImages"),
+        if let url = Bundle.module.url(forResource: "luDuan_mascot_user", withExtension: "png") ??
+                     Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg", subdirectory: "BadgeImages"),
            let data = try? Data(contentsOf: url),
            let uiImage = UIImage(data: data) {
             return Image(uiImage: uiImage)
         }
-        if let uiImage = UIImage(named: "luduan_mascot_user") ?? UIImage(named: "luduan_splash_banner") {
+        if let uiImage = UIImage(named: "luDuan_mascot_user") ?? UIImage(named: "luDuan_splash_banner") {
             return Image(uiImage: uiImage)
         }
         #endif
@@ -36,7 +36,7 @@ public struct LaunchScreenView: View {
                         .fill(Color.cloudGold.opacity(0.18))
                         .frame(width: 240, height: 240)
                     
-                    luduanImage
+                    luDuanImage
                         .resizable()
                         .scaledToFill()
                         .frame(width: 220, height: 220)
@@ -47,14 +47,20 @@ public struct LaunchScreenView: View {
                 .padding(.top, 20)
                 
                 VStack(spacing: 6) {
-                    Text("lù  duān  zì  yóu")
-                        .font(.system(size: 16, weight: .bold, design: .serif))
-                        .foregroundColor(.cloudGold)
-                        .tracking(6)
-                    
-                    Text("《甪端字游》")
-                        .font(.system(size: 42, weight: .bold, design: .serif))
-                        .foregroundColor(.cinnabarRed)
+                    HStack(spacing: 6) {
+                        let titlePairs: [(String, String)] = [("lù", "甪"), ("duān", "端"), ("zì", "字"), ("yóu", "游")]
+                        ForEach(titlePairs, id: \.0) { pinyin, hanzi in
+                            VStack(spacing: 4) {
+                                Text(pinyin)
+                                    .font(.system(size: 16, weight: .bold, design: .serif))
+                                    .foregroundColor(.cloudGold)
+                                Text(hanzi)
+                                    .font(.system(size: 42, weight: .bold, design: .serif))
+                                    .foregroundColor(.cinnabarRed)
+                            }
+                            .frame(width: 58)
+                        }
+                    }
                     
                     Text("神兽甪端伴学 · 典籍名篇关卡古风手游")
                         .font(.system(size: 17, weight: .bold, design: .serif))

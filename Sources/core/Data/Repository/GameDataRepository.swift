@@ -8,12 +8,16 @@ public final class GameDataRepository: ObservableObject {
     @Published public private(set) var userProgress: UserProgressModel
     @Published public private(set) var badges: [BadgeModel] = []
     
-    private let userProgressKey = "HornedFoxUserProgress_v2"
+    private let userProgressKey = "luDuanUserProgress_v2"
     
     public init() {
-        if let data = UserDefaults.standard.data(forKey: userProgressKey),
-           let decoded = try? JSONDecoder().decode(UserProgressModel.self, from: data) {
+        if let kcData = KeychainStore.load(key: userProgressKey),
+           let decoded = try? JSONDecoder().decode(UserProgressModel.self, from: kcData) {
             self.userProgress = decoded
+        } else if let udData = UserDefaults.standard.data(forKey: userProgressKey),
+                  let decoded = try? JSONDecoder().decode(UserProgressModel.self, from: udData) {
+            self.userProgress = decoded
+            saveProgress()
         } else {
             self.userProgress = UserProgressModel()
         }
@@ -145,6 +149,7 @@ public final class GameDataRepository: ObservableObject {
     
     private func saveProgress() {
         if let encoded = try? JSONEncoder().encode(userProgress) {
+            KeychainStore.save(key: userProgressKey, data: encoded)
             UserDefaults.standard.set(encoded, forKey: userProgressKey)
         }
     }

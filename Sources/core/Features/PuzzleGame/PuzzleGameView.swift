@@ -106,11 +106,11 @@ public struct PuzzleGameView: View {
                 repository.completeLevel(currentLevel)
                 let count = repository.userProgress.completedLevelIds.count
                 
-                // 2. 延迟 0.35 秒，确保玩家视觉上完全看清全量文字呈现后再播放成功音效与弹出捷报/故事卡
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                    SoundManager.shared.playSuccessSound()
+                let isMilestone = count > 0 && count % 10 == 0
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + (isMilestone ? 0.4 : 0.25)) {
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
-                        if count > 0 && count % 10 == 0 {
+                        if isMilestone {
                             showingMilestoneModal = true
                         } else {
                             showingStoryModal = true

@@ -122,8 +122,8 @@ public struct StoryCardModalView: View {
                         .background(Color.cloudGold.opacity(0.08))
                         .cornerRadius(12)
                         
-                        // 广告级社交裂变分享海报 (含甪端神兽图标、学过的典籍出处《level.source》与 App Store 专属二维码)
-                        SharePosterCardView(level: level)
+                        // 满 10 关才在「金榜题名捷报」中分享，单关不再弹出分享
+
                         
                         // 解锁百杰勋章提示
                         if let badge = unlockedBadge {
@@ -149,11 +149,6 @@ public struct StoryCardModalView: View {
                 }
                 
                 VStack(spacing: 10) {
-                    AncientButtonView(title: "分享典故海报 (微信/朋友圈)", iconName: "square.and.arrow.up.fill", style: .secondary) {
-                        let shareText = "【甪端字游·典故卡片】我刚刚在《甪端字游》研读完典籍《\(level.source)》中的【\(level.targetPhrase)】！典故故事：“\(level.story)”。快来体验神兽伴学与万关典籍古风手游！App Store 下载链接：https://apps.apple.com/us/app/%E7%94%AA%E7%AB%AF/id6799431765"
-                        ShareSheetHelper.share(items: [shareText])
-                    }
-                    
                     if let next = nextLevel {
                         AncientButtonView(title: "进入下一关 >", iconName: "arrow.right.circle.fill", style: .primary) {
                             onNextLevel?(next)

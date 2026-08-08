@@ -6,6 +6,7 @@ public struct MainDashboardView: View {
     @State private var selectedDimension: ThemeDimension = .academic
     @State private var activeGameLevel: LevelModel? = nil
     @State private var showingBadgeGallery = false
+    @AppStorage(SoundManager.soundEnabledKey) private var soundEnabled = true
     
     public init() {}
     
@@ -42,6 +43,14 @@ public struct MainDashboardView: View {
             .navigationTitle("《甪端字游》卷轴地图")
             .inlineNavigationBarTitle()
             .toolbar {
+                ToolbarItem(placement: .adaptiveLeading) {
+                    Button(action: {
+                        soundEnabled.toggle()
+                    }) {
+                        Image(systemName: soundEnabled ? "speaker.wave.2.fill" : "speaker.slash.fill")
+                            .foregroundColor(.bambooGreen)
+                    }
+                }
                 ToolbarItem(placement: .adaptiveTrailing) {
                     Button(action: { showingBadgeGallery = true }) {
                         HStack(spacing: 4) {
@@ -78,8 +87,8 @@ public struct MainDashboardView: View {
             HStack(spacing: 16) {
                 // 甪端神兽伴学头像
                 #if canImport(UIKit)
-                if let url = Bundle.module.url(forResource: "luduan_splash_banner", withExtension: "jpg") ??
-                             Bundle.module.url(forResource: "luduan_splash_banner", withExtension: "jpg", subdirectory: "BadgeImages"),
+                if let url = Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg") ??
+                             Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg", subdirectory: "BadgeImages"),
                    let data = try? Data(contentsOf: url),
                    let uiImage = UIImage(data: data) {
                     Image(uiImage: uiImage)

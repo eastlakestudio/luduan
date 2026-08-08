@@ -28,4 +28,12 @@ public extension ToolbarItemPlacement {
         return .automatic
         #endif
     }
+
+    static var adaptiveLeading: ToolbarItemPlacement {
+        #if os(iOS)
+        return .topBarLeading
+        #else
+        return .automatic
+        #endif
+    }
 }
