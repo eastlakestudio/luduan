@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《甪端字游》LuDuan</title>
+<style>
+  :root { --red:#9a2a2a; --gold:#8b6914; --ink:#2b2620; --line:#e3dcc8; --bg:#fbf7ee; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero { text-align: center; padding: 70px 22px 30px; border-bottom: 2px solid var(--gold); }
+  .hero h1 { font-size: 34px; color: var(--red); margin: 0 0 8px; letter-spacing: 4px; }
+  .hero .pinyin { color: var(--gold); letter-spacing: 6px; font-size: 15px; margin-bottom: 14px; }
+  .hero .tag { color: var(--ink); font-size: 16px; opacity: .85; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 36px 22px 70px; }
+  .desc { font-size: 15.5px; line-height: 1.9; margin: 0 0 26px; }
+  .links { display: flex; flex-direction: column; gap: 12px; }
+  .card {
+    display: block; background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 20px; text-decoration: none; color: var(--ink);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(139,105,20,.12); }
+  .card .t { color: var(--red); font-weight: 700; font-size: 16px; }
+  .card .s { color: #8a8174; font-size: 13.5px; margin-top: 4px; }
+  footer { text-align: center; color: #8a8174; font-size: 13px; margin-top: 44px; }
+</style>
+</head>
+<body>
+  <section class="hero">
+    <div class="pinyin">lù&nbsp;&nbsp;duān&nbsp;&nbsp;zì&nbsp;&nbsp;yóu</div>
+    <h1>《甪端字游》</h1>
+    <div class="tag">神兽甪端伴学 · 万关典籍名篇古风拼字手游</div>
+  </section>
+  <main class="wrap">
+    <p class="desc">
+      《甪端字游》是一款以中华典籍名篇为关底的古风拼字闯关手游。日行万八千里的神兽甪端伴你博通关，在《论语》《诗经》《史记》及唐诗宋词中拼字解谜、研读典故、收集百杰勋章。单机畅玩，无需联网。
+    </p>
+    <nav class="links">
+      <a class="card" href="privacy.html">
+        <div class="t">隐私政策</div>
+        <div class="s">了解《甪端字游》如何处理（或不处理）您的数据</div>
+      </a>
+      <a class="card" href="https://apps.apple.com/us/app/%E7%94%AA%E7%AB%AF/id6799431765" target="_blank" rel="noopener">
+        <div class="t">App Store 下载</div>
+        <div class="s">在 App Store 体验《甪端字游》</div>
+      </a>
+      <a class="card" href="https://github.com/eastlakestudio/luduan" target="_blank" rel="noopener">
+        <div class="t">GitHub 项目</div>
+        <div class="s">查看源码与更新</div>
+      </a>
+    </nav>
+    <footer>© 2026 《甪端字游》LuDuan · 保留所有权利</footer>
+  </main>
+</body>
+</html>
