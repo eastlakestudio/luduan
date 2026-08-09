@@ -1,6 +1,7 @@
 # 《甪端字游》全量勋章与系统功能任务清单
 
 ### 🎯 进度汇总
+- **[x] 纯命令行全自动生成发布签名与导出 Build 8 提审 IPA** (使用 `xcodebuild -exportArchive -allowProvisioningUpdates` 纯命令行全自动拉取 Apple Distribution 签名，并脚本擦除 Beta 标记为 `16A242`，已导出最终安装包 `build/ipa/luDuan.ipa`)
 - **[x] 升级 Build Number 至 Build 8 并导出修补版 IPA** (成功从 Build 7 升级至 Build 8，更新 `project.yml` 与 `Info.plist`，修补 `DTXcodeBuild: 16A242` 正式版标记，导出最终包 `build/ipa/luDuan.ipa` 专供 Transporter 提交)
 - **[x] 执行【方案二】修正 Build 标记应急提审 IPA 包完成** (解包修补 `build/luDuan.xcarchive` 与 `build/ipa/luDuan.ipa` 内部 `DTXcodeBuild: 16A242` 正式版标记，成功干掉 Beta 提示，可直接在 Transporter / App Store Connect 点击“添加以供审核”)
 - **[x] iPad 宣发海报 4:3 屏幕比例重构与画质重绘完成** (彻底干掉灵动岛打孔，还原真实 iPad Pro/Air 4:3 平整窄边框大屏外框，重新导出 2064x2752 高清宣发图，界面对齐无乱码)

@@ -20,10 +20,11 @@
     <style>
         :root {
             --bg-color: #F8F4EC;
-            --bg-card: rgba(255, 253, 249, 0.85);
+            --bg-card: rgba(255, 253, 249, 0.88);
             --c-red: #B82E2B;
             --c-red-dark: #8C1C19;
             --c-gold: #D4AF37;
+            --c-gold-dark: #B38F24;
             --c-ink: #1F1A17;
             --c-ink-light: #4A423D;
             --c-border: rgba(184, 46, 43, 0.15);
@@ -42,7 +43,7 @@
         body {
             font-family: 'Noto Serif SC', serif, -apple-system, BlinkMacSystemFont;
             background-color: var(--bg-color);
-            background-image: radial-gradient(rgba(184, 46, 43, 0.03) 1px, transparent 0);
+            background-image: radial-gradient(rgba(184, 46, 43, 0.04) 1px, transparent 0);
             background-size: 24px 24px;
             color: var(--c-ink);
             line-height: 1.8;
@@ -54,7 +55,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(248, 244, 236, 0.9);
+            background: rgba(248, 244, 236, 0.92);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--c-border);
@@ -118,7 +119,7 @@
         /* Hero 区域 */
         .hero {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 60px auto 40px;
             padding: 0 24px;
             text-align: center;
         }
@@ -148,6 +149,39 @@
             color: var(--c-ink-light);
             max-width: 800px;
             margin: 0 auto 36px;
+        }
+
+        /* 关键指标数据卡 */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 0 auto 48px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: var(--bg-card);
+            border: 1px solid var(--c-border);
+            padding: 16px 28px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            min-width: 160px;
+        }
+
+        .stat-num {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 36px;
+            color: var(--c-red);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--c-ink-light);
+            font-weight: 600;
         }
 
         .cta-buttons {
@@ -194,7 +228,7 @@
             color: var(--c-red);
         }
 
-        /* 宣发海报并排展现区 */
+        /* 宣发海报展位 */
         .showcase-banners {
             display: flex;
             justify-content: center;
@@ -231,6 +265,74 @@
             font-size: 14px;
             color: var(--c-ink-light);
             font-weight: 600;
+        }
+
+        /* 互动玩法模拟体验区 */
+        .interactive-preview {
+            background: var(--bg-card);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            max-width: 800px;
+            margin: 80px auto;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+        }
+
+        .preview-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 32px;
+            color: var(--c-ink);
+            margin-bottom: 12px;
+        }
+
+        .preview-desc {
+            font-size: 16px;
+            color: var(--c-ink-light);
+            margin-bottom: 30px;
+        }
+
+        .char-grid-demo {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .char-box {
+            width: 64px;
+            height: 64px;
+            border: 2px solid var(--c-red);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 32px;
+            color: var(--c-ink);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .char-box:hover {
+            transform: scale(1.1);
+            background: var(--c-red);
+            color: #FFF;
+        }
+
+        .char-box.filled {
+            background: var(--c-red);
+            color: #FFF;
+        }
+
+        .demo-toast {
+            font-size: 15px;
+            color: var(--c-red);
+            font-weight: 700;
+            min-height: 24px;
         }
 
         /* 核心特色板块 */
@@ -299,7 +401,7 @@
         /* 名肖彩绘画廊 */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 24px;
         }
 
@@ -340,6 +442,90 @@
             margin-top: 4px;
         }
 
+        /* 典籍全卷列表墙 */
+        .books-tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .book-tag-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--c-border);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--c-ink);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.2s ease;
+        }
+
+        .book-tag-pill:hover {
+            background: var(--c-red);
+            color: #FFF;
+            border-color: var(--c-red);
+            transform: translateY(-2px);
+        }
+
+        /* 功名朱印展示 */
+        .academic-seals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .seal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-md);
+            padding: 20px 12px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .seal-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .seal-title {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 20px;
+            color: var(--c-red);
+        }
+
+        /* FAQ 问答区 */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--c-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .faq-q {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--c-ink);
+            margin-bottom: 10px;
+        }
+
+        .faq-a {
+            font-size: 14px;
+            color: var(--c-ink-light);
+            line-height: 1.7;
+        }
+
         /* 页脚 */
         footer {
             background: rgba(31, 26, 23, 0.95);
@@ -375,6 +561,9 @@
             .nav-links {
                 display: none;
             }
+            .stats-bar {
+                gap: 16px;
+            }
         }
     </style>
 </head>
@@ -388,9 +577,11 @@
                 <span class="brand-title">甪端字游</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#features">产品特色</a></li>
-                <li><a href="#gallery">名肖彩绘</a></li>
-                <li><a href="#classics">离散典籍</a></li>
+                <li><a href="#features">核心特色</a></li>
+                <li><a href="#gallery">62名肖彩绘</a></li>
+                <li><a href="#classics">39+离散典籍</a></li>
+                <li><a href="#academics">功名朱印</a></li>
+                <li><a href="#faq">常见问题</a></li>
                 <li><a href="#download">体验下载</a></li>
             </ul>
         </div>
@@ -403,6 +594,27 @@
         <p class="hero-subtitle">
             涵盖《诗经》《史记》《道德经》等 39+ 离散典籍库，62 位历史名人工笔肖像彩绘，0.3s 防抖智能语音识别选字。
         </p>
+
+        <!-- 关键指标数据卡 -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-num">39+</div>
+                <div class="stat-label">离散典籍名篇</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">62</div>
+                <div class="stat-label">工笔重彩肖像</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">10,000+</div>
+                <div class="stat-label">动态成语关卡</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">0.3s</div>
+                <div class="stat-label">语音防抖识别</div>
+            </div>
+        </div>
+
         <div class="cta-buttons" id="download">
             <a href="build/ipa/luDuan.ipa" class="btn btn-primary" id="btn-download-ipa">
                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
@@ -425,6 +637,19 @@
             </div>
         </div>
     </section>
+
+    <!-- 互动拼字在线模拟体验区 -->
+    <div class="interactive-preview">
+        <h2 class="preview-title">在线体验：点击拼成语【知行合一】</h2>
+        <p class="preview-desc">尝试点击下方乱序汉字，完成成语拼凑并体验通关反馈：</p>
+        <div class="char-grid-demo" id="demo-grid">
+            <div class="char-box" onclick="handleCharClick(this, '知')">知</div>
+            <div class="char-box" onclick="handleCharClick(this, '合')">合</div>
+            <div class="char-box" onclick="handleCharClick(this, '行')">行</div>
+            <div class="char-box" onclick="handleCharClick(this, '一')">一</div>
+        </div>
+        <div class="demo-toast" id="demo-toast">点击汉字组合成语...</div>
+    </div>
 
     <!-- 核心特色矩阵 -->
     <section class="section" id="features">
@@ -509,9 +734,148 @@
                 <div class="portrait-tag">诗仙 · 举头望明月</div>
             </div>
             <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_dufu.jpg" alt="杜甫肖像" class="portrait-img">
+                <div class="portrait-name">杜甫</div>
+                <div class="portrait-tag">诗圣 · 会当凌绝顶</div>
+            </div>
+            <div class="portrait-card">
                 <img src="Sources/core/Resources/BadgeImages/badge_sushi.jpg" alt="苏轼肖像" class="portrait-img">
                 <div class="portrait-name">苏轼</div>
                 <div class="portrait-tag">东坡居士 · 胜似闲庭</div>
+            </div>
+            <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_quyuan.jpg" alt="屈原肖像" class="portrait-img">
+                <div class="portrait-name">屈原</div>
+                <div class="portrait-tag">楚辞 · 路漫漫其修远</div>
+            </div>
+            <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_zhugeliang.jpg" alt="诸葛亮肖像" class="portrait-img">
+                <div class="portrait-name">诸葛亮</div>
+                <div class="portrait-tag">卧龙 · 鞠躬尽瘁</div>
+            </div>
+            <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_yuefei.jpg" alt="岳飞肖像" class="portrait-img">
+                <div class="portrait-name">岳飞</div>
+                <div class="portrait-tag">精忠报国 · 满江红</div>
+            </div>
+            <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_xinqiji.jpg" alt="辛弃疾肖像" class="portrait-img">
+                <div class="portrait-name">辛弃疾</div>
+                <div class="portrait-tag">稼轩居士 · 醉里挑灯看剑</div>
+            </div>
+            <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_luyou.jpg" alt="陆游肖像" class="portrait-img">
+                <div class="portrait-name">陆游</div>
+                <div class="portrait-tag">放翁 · 尚思为国戍轮台</div>
+            </div>
+            <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_taoyuanming.jpg" alt="陶渊明肖像" class="portrait-img">
+                <div class="portrait-name">陶渊明</div>
+                <div class="portrait-tag">五柳先生 · 采菊东篱下</div>
+            </div>
+            <div class="portrait-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_wangwei.jpg" alt="王维肖像" class="portrait-img">
+                <div class="portrait-name">王维</div>
+                <div class="portrait-tag">诗佛 · 明月松间照</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 39+ 离散典籍卷轴区 -->
+    <section class="section" id="classics">
+        <div class="section-header">
+            <h2 class="section-title">39+ 离散典籍卷轴索引</h2>
+            <p class="section-desc">浩瀚中华四库全书与诗词歌赋关卡库</p>
+        </div>
+
+        <div class="books-tags-container">
+            <span class="book-tag-pill">《诗经·国风》</span>
+            <span class="book-tag-pill">《诗经·雅颂》</span>
+            <span class="book-tag-pill">《史记·本纪》</span>
+            <span class="book-tag-pill">《史记·列传》</span>
+            <span class="book-tag-pill">《道德经》</span>
+            <span class="book-tag-pill">《周易》</span>
+            <span class="book-tag-pill">《尚书》</span>
+            <span class="book-tag-pill">《楚辞》</span>
+            <span class="book-tag-pill">《论语》</span>
+            <span class="book-tag-pill">《孟子》</span>
+            <span class="book-tag-pill">《礼记》</span>
+            <span class="book-tag-pill">《庄子》</span>
+            <span class="book-tag-pill">《荀子》</span>
+            <span class="book-tag-pill">《韩非子》</span>
+            <span class="book-tag-pill">《战国策》</span>
+            <span class="book-tag-pill">《左传》</span>
+            <span class="book-tag-pill">《三国志》</span>
+            <span class="book-tag-pill">《资治通鉴》</span>
+            <span class="book-tag-pill">《唐诗三百首》</span>
+            <span class="book-tag-pill">《宋词三百首》</span>
+            <span class="book-tag-pill">《乐府诗集》</span>
+            <span class="book-tag-pill">《古诗十九首》</span>
+            <span class="book-tag-pill">《千字文》</span>
+            <span class="book-tag-pill">《三字经》</span>
+            <span class="book-tag-pill">《声律启蒙》</span>
+            <span class="book-tag-pill">《幼学琼林》</span>
+            <span class="book-tag-pill">《世说新语》</span>
+            <span class="book-tag-pill">《水经注》</span>
+            <span class="book-tag-pill">《梦溪笔谈》</span>
+            <span class="book-tag-pill">《天工开物》</span>
+        </div>
+    </section>
+
+    <!-- 功名学阶朱砂印章展示 -->
+    <section class="section" id="academics">
+        <div class="section-header">
+            <h2 class="section-title">功名学阶朱砂印章</h2>
+            <p class="section-desc">闯关积攒学分，步步升阶加爵</p>
+        </div>
+
+        <div class="academic-seals-grid">
+            <div class="seal-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_academic_tongsheng.jpg" alt="童生印章">
+                <div class="seal-title">童生</div>
+            </div>
+            <div class="seal-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_academic_xiucai.jpg" alt="秀才印章">
+                <div class="seal-title">秀才</div>
+            </div>
+            <div class="seal-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_academic_juren.jpg" alt="举人印章">
+                <div class="seal-title">举人</div>
+            </div>
+            <div class="seal-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_academic_jinshi.jpg" alt="进士印章">
+                <div class="seal-title">进士</div>
+            </div>
+            <div class="seal-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_academic_hanlin.jpg" alt="翰林印章">
+                <div class="seal-title">翰林</div>
+            </div>
+            <div class="seal-card">
+                <img src="Sources/core/Resources/BadgeImages/badge_academic_shoufu.jpg" alt="首辅印章">
+                <div class="seal-title">首辅</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 常见问题解答 -->
+    <section class="section" id="faq">
+        <div class="section-header">
+            <h2 class="section-title">常见问题解答 FAQ</h2>
+            <p class="section-desc">了解《甪端字游》的设计初衷与安装提示</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-q">Q: 支持 iPad 体验吗？</div>
+                <div class="faq-a">A: 100% 完美支持！针对 iPad Pro / Air 进行了 4:3 黄金大屏比例适配，干掉了灵动岛打孔，横竖屏视效绝佳。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: 语音拼字选字防抖是如何实现的？</div>
+                <div class="faq-a">A: 采用原生 SFSpeechRecognizer 引擎，加入了 0.3s 主线程强安全防抖逻辑，防止口误撞字，选字极度准确灵敏。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: 需要全程联网吗？</div>
+                <div class="faq-a">A: 离散典籍库与 62 位工笔肖像彩绘已全量离线离散化嵌入 App 本地，无网状态下依然可无缝玩赏通关。</div>
             </div>
         </div>
     </section>
@@ -527,5 +891,34 @@
         </div>
     </footer>
 
+    <!-- 交互模拟体验逻辑 -->
+    <script>
+        let currentSequence = [];
+        const targetSequence = ['知', '行', '合', '一'];
+        const toast = document.getElementById('demo-toast');
+
+        function handleCharClick(el, char) {
+            if (el.classList.contains('filled')) return;
+            el.classList.add('filled');
+            currentSequence.push(char);
+            
+            toast.innerText = '当前拼字：' + currentSequence.join(' ');
+
+            if (currentSequence.length === 4) {
+                if (currentSequence.join('') === '知行合一') {
+                    toast.innerText = '🎉 恭喜通关！【知行合一】: 王阳明心学核心名言，知与行不可分离。';
+                } else {
+                    toast.innerText = '❌ 顺序不对哦，点击重试！';
+                    setTimeout(resetDemo, 1500);
+                }
+            }
+        }
+
+        function resetDemo() {
+            currentSequence = [];
+            document.querySelectorAll('.char-box').forEach(b => b.classList.remove('filled'));
+            toast.innerText = '点击汉字组合成语...';
+        }
+    </script>
 </body>
 </html>
