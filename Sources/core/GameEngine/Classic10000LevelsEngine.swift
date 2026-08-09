@@ -68,35 +68,37 @@ public final class Classic10000LevelsEngine {
         let allSeeds = allCombinedSeeds
         let seedCount = max(1, allSeeds.count)
         
-        // 5 大朝代年代种子库归类
-        let theme: CultureTheme
         let rawSeed: ClassicalSeedItem
         
         if safeIndex < 2500 {
-            // 先秦典籍源头 (0..<2500)：仅包含《诗经》《论语》《道德经》《孟子》《中庸》《国语》《春秋》
-            theme = .shijing
-            let items = loadSeeds(named: "shijing") + loadSeeds(named: "lunyu") + loadSeeds(named: "daodejing") + loadSeeds(named: "mengzi") + loadSeeds(named: "zhongyong") + loadSeeds(named: "guoyu") + loadSeeds(named: "chunqiu")
+            // 先秦与诗经典籍源头 (0..<2500)
+            let items = loadSeeds(named: "shijing") + loadSeeds(named: "lunyu") + loadSeeds(named: "daodejing") + loadSeeds(named: "mengzi") + loadSeeds(named: "zhouyi") + loadSeeds(named: "shangshu") + loadSeeds(named: "liji") + loadSeeds(named: "daxue") + loadSeeds(named: "zhongyong") + loadSeeds(named: "guoyu") + loadSeeds(named: "chunqiu")
             rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[safeIndex % items.count]
         } else if safeIndex < 5500 {
-            // 两汉三国史册 (2500..<5500)：包含《史记》《汉书》《战国策》《三国志》成语典故
-            theme = .shihan
-            let items = loadSeeds(named: "shihan")
+            // 两汉三国史册 (2500..<5500)
+            let items = loadSeeds(named: "shiji") + loadSeeds(named: "hanshu") + loadSeeds(named: "houhanshu") + loadSeeds(named: "sanguozhi") + loadSeeds(named: "zhanguoce") + loadSeeds(named: "zizhitongjian") + loadSeeds(named: "shihan")
             rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 2500) % items.count]
         } else if safeIndex < 7000 {
-            // 魏晋南北朝 (5500..<7000)：包含《颜氏家训》与魏晋风骨
-            theme = .shihan
-            let items = loadSeeds(named: "yanshijiaxun") + loadSeeds(named: "shihan")
+            // 魏晋南北朝 (5500..<7000)
+            let items = loadSeeds(named: "yanshijiaxun") + loadSeeds(named: "wenxindiaolong") + loadSeeds(named: "zhaomingwenxuan") + loadSeeds(named: "chuci")
             rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 5500) % items.count]
         } else if safeIndex < 8800 {
-            // 唐宋诗词史鉴 (7000..<8800)：专门包含《唐诗三百首》与《宋词名篇》
-            theme = .tangsong
-            let items = loadSeeds(named: "tangsong")
+            // 唐宋诗词史鉴 (7000..<8800)
+            let items = loadSeeds(named: "tangshi") + loadSeeds(named: "songci") + loadSeeds(named: "huajianyuefu") + loadSeeds(named: "tangsong")
             rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 7000) % items.count]
         } else {
-            // 明清名著与家书 (8800..<10000)：包含《传习录》《菜根谭》《曾国藩家书》《四大名著》
-            theme = .shijing
-            let items = loadSeeds(named: "chuanxilu") + loadSeeds(named: "caigentan") + loadSeeds(named: "rizhilu") + loadSeeds(named: "xiaochuangyouji") + loadSeeds(named: "zengguofanjiashu") + loadSeeds(named: "xiyouji") + loadSeeds(named: "hongloumeng")
+            // 明清名著与家书 (8800..<10000)
+            let items = loadSeeds(named: "chuanxilu") + loadSeeds(named: "caigentan") + loadSeeds(named: "rizhilu") + loadSeeds(named: "xiaochuangyouji") + loadSeeds(named: "zengguofanjiashu") + loadSeeds(named: "zhuzijiaxun") + loadSeeds(named: "xiyouji") + loadSeeds(named: "sanguoyanyi") + loadSeeds(named: "shuihuzhuan") + loadSeeds(named: "hongloumeng") + loadSeeds(named: "liaozhaizhiyi")
             rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 8800) % items.count]
+        }
+        
+        let theme: CultureTheme
+        if rawSeed.source.contains("诗经") {
+            theme = .shijing
+        } else if rawSeed.source.contains("唐") || rawSeed.source.contains("宋") || rawSeed.source.contains("词") || rawSeed.source.contains("李白") || rawSeed.source.contains("杜甫") || rawSeed.source.contains("王维") || rawSeed.source.contains("花间") || rawSeed.source.contains("诗") {
+            theme = .tangsong
+        } else {
+            theme = .shihan
         }
         
         let levelId = "level_\(levelNumber)"

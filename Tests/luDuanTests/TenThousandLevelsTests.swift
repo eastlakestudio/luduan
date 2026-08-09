@@ -25,7 +25,7 @@ final class TenThousandLevelsTests: XCTestCase {
         
         let level10000 = Classic10000LevelsEngine.level(at: 9999)
         XCTAssertEqual(level10000.id, "level_10000")
-        XCTAssertEqual(level10000.theme, .shijing)
+        XCTAssertEqual(level10000.theme, .shihan)
         XCTAssertEqual(level10000.tileMatrix.count, 16)
     }
     
