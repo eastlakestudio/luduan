@@ -2,6 +2,9 @@
 .build/
 .swiftpm/
 *.xcodeproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/xcshareddata/xcschemes/
+!*.xcodeproj/xcshareddata/xcschemes/*.xcscheme
 *.xcworkspace
 xcuserdata/
 DerivedData/
