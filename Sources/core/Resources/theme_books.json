@@ -245,142 +245,115 @@
     "tangsong"
   ],
   "badge_acad_1_1": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "shijing"
   ],
   "badge_acad_1_2": [
-    "lunyu",
     "shijing",
-    "mengzi",
-    "tangsong"
+    "lunyu"
   ],
   "badge_acad_1_3": [
-    "lunyu",
     "shijing",
-    "mengzi",
-    "tangsong"
+    "lunyu",
+    "mengzi"
   ],
   "badge_acad_2_1": [
     "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "daxue"
   ],
   "badge_acad_2_2": [
     "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "daxue",
+    "zhongyong"
   ],
   "badge_acad_2_3": [
     "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "daxue",
+    "zhongyong",
+    "mengzi"
   ],
   "badge_acad_3_1": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "shangshu",
+    "zhouyi"
   ],
   "badge_acad_3_2": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "shangshu",
+    "zhouyi",
+    "liji"
   ],
   "badge_acad_3_3": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "shangshu",
+    "zhouyi",
+    "liji",
+    "chunqiu"
   ],
   "badge_acad_4_1": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "shiji",
+    "hanshu"
   ],
   "badge_acad_4_2": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "shiji",
+    "hanshu",
+    "houhanshu"
   ],
   "badge_acad_4_3": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "shiji",
+    "hanshu",
+    "houhanshu",
+    "sanguozhi"
   ],
   "badge_acad_5_1": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "zizhitongjian",
+    "zhanguoce"
   ],
   "badge_acad_5_2": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "zizhitongjian",
+    "zhanguoce",
+    "guoyu"
   ],
   "badge_acad_5_3": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "zizhitongjian",
+    "zhanguoce",
+    "guoyu",
+    "daodejing"
   ],
   "badge_acad_6": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "zhuangzi",
+    "xunzi",
+    "hanfeizi"
   ],
   "badge_acad_7": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "sunzibingfa",
+    "huainanzi",
+    "lvshichunqiu"
   ],
   "badge_acad_8": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "chuci",
+    "zhaomingwenxuan",
+    "wenxindiaolong"
   ],
   "badge_acad_9": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "tangshi",
+    "songci",
+    "huajianyuefu"
   ],
   "badge_acad_10": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "yanshijiaxun",
+    "chuanxilu",
+    "caigentan"
   ],
   "badge_acad_11": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "xiaochuangyouji",
+    "zengguofanjiashu",
+    "zhuzijiaxun"
   ],
   "badge_acad_12": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "xiyouji",
+    "sanguoyanyi",
+    "shuihuzhuan"
   ],
   "badge_acad_13": [
-    "lunyu",
-    "shijing",
-    "mengzi",
-    "tangsong"
+    "hongloumeng",
+    "liaozhaizhiyi"
   ],
   "badge_class_1": [
     "shangshu"

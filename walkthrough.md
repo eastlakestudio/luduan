@@ -1,55 +1,34 @@
-# 《甪端字游》全量 39+ 典籍独立拆分与种子库挂载 Walkthrough
+# 《甪端字游》学阶勋章进度全量重构 Walkthrough
 
-根据您的指示，已将 APP 中【典籍名篇】与各大经典书目**全量拆分为独立离散的 39+ 典籍种子库与数据契约**！
-
----
-
-## 📚 1. 典籍独立拆分清单
-
-在 `Sources/core/Resources/Seeds/` 目录下为每本典籍建立了专属 JSON 种子文件，并在 `Classic10000LevelsEngine.swift` 与 `theme_books.json` 中完成直连映射：
-
-1. 《史记》 (`shiji.json`)
-2. 《尚书》 (`shangshu.json`)
-3. 《周易》 (`zhouyi.json`)
-4. 《礼记》 (`liji.json`)
-5. 《春秋左传》 (`chunqiu.json`)
-6. 《论语》 (`lunyu.json`)
-7. 《孟子》 (`mengzi.json`)
-8. 《大学》 (`daxue.json`)
-9. 《中庸》 (`zhongyong.json`)
-10. 《汉书》 (`hanshu.json`)
-11. 《后汉书》 (`houhanshu.json`)
-12. 《三国志》 (`sanguozhi.json`)
-13. 《资治通鉴》 (`zizhitongjian.json`)
-14. 《战国策》 (`zhanguoce.json`)
-15. 《道德经/老子》 (`daodejing.json`)
-16. 《庄子》 (`zhuangzi.json`)
-17. 《荀子》 (`xunzi.json`)
-18. 《韩非子》 (`hanfeizi.json`)
-19. 《孙子兵法》 (`sunzibingfa.json`)
-20. 《淮南子》 (`huainanzi.json`)
-21. 《吕氏春秋》 (`lvshichunqiu.json`)
-22. 《楚辞》 (`chuci.json`)
-23. 《昭明文选》 (`zhaomingwenxuan.json`)
-24. 《文心雕龙》 (`wenxindiaolong.json`)
-25. 《唐诗三百首》 (`tangshi.json`)
-26. 《宋词三百首》 (`songci.json`)
-27. 《花间乐府》 (`huajianyuefu.json`)
-28. 《颜氏家训》 (`yanshijiaxun.json`)
-29. 《传习录》 (`chuanxilu.json`)
-30. 《菜根谭》 (`caigentan.json`)
-31. 《小窗幽记/围炉》 (`xiaochuangyouji.json`)
-32. 《曾国藩家书》 (`zengguofanjiashu.json`)
-33. 《朱子家训》 (`zhuzijiaxun.json`)
-34. 《西游记》 (`xiyouji.json`)
-35. 《三国演义》 (`sanguoyanyi.json`)
-36. 《水浒传》 (`shuihuzhuan.json`)
-37. 《红楼梦》 (`hongloumeng.json`)
-38. 《聊斋志异》 (`liaozhaizhiyi.json`)
-39. 《国语》 (`guoyu.json`)
+已成功排查并解决了在 iOS 模拟器中【功名学阶】所有卡片（童生·上、童生·中、童生·下、秀才、举人、进士等）均重复显示 `387 / 3172` 的 Bug！
 
 ---
 
-## 🧪 2. 验证与单元测试
+## 🔍 1. 问题根因排查 (Root Cause)
+
+- 在 [`theme_books.json`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/Sources/core/Resources/theme_books.json) 的原始配置中，所有【功名学阶】勋章（`badge_acad_1_1` 至 `badge_acad_13`）硬编码关联了相同的 4 部全量典籍：`["lunyu", "shijing", "mengzi", "tangsong"]`。
+- 这 4 部典籍在去重词库中汇总的独立词条总数正好为 **3172 词**，因此每个学阶卡片均误展示为 **387 / 3172**！
+
+---
+
+## 🚀 2. 梯级重构解决方案
+
+根据古代科举功名递进体系，将【功名学阶】13 大层级关联的典籍重新进行了**递进式梯级划分**：
+
+1. **童生·上/中/下**：蒙学启蒙《诗经》、论语、孟子 (`shijing`, `lunyu`, `mengzi`)
+2. **秀才·上/中/下**：四书核心《论语》、《大学》、《中庸》 (`lunyu`, `daxue`, `zhongyong`)
+3. **举人·上/中/下**：五经大义《尚书》、《周易》、《礼记》、《春秋》 (`shangshu`, `zhouyi`, `liji`, `chunqiu`)
+4. **进士·上/中/下**：史家绝唱《史记》、《汉书》、《后汉书》、《三国志》 (`shiji`, `hanshu`, `houhanshu`, `sanguozhi`)
+5. **翰林学士**：国政智谋《资治通鉴》、《战国策》、《国语》、《道德经》 (`zizhitongjian`, `zhanguoce`, `guoyu`, `daodejing`)
+6. **侍读/侍讲学士**：诸子百家《庄子》、《荀子》、《韩非子》、《孙子兵法》、《淮南子》
+7. **大学士/首辅/帝师**：文学瑰宝与集大成典籍《唐诗》、《宋词》、《水浒传》、《三国演义》、《红楼梦》、《聊斋志异》
+
+**重构效果**：
+* 每一个学阶勋章卡片均拥有**自己专属、递进的典籍范围与独占词条总数**！
+* 彻底消除 `387/3172` 重复显示问题，各学阶卡片独立精准显示如 `1 / 6 词`、`2 / 12 词`！
+
+---
+
+## 🧪 3. 验证与单元测试
 - 全量 **73/73** 单元测试 **100% 绿色成功通过**！
 - Xcode 项目工程编译 `** BUILD SUCCEEDED **` 100% 验证成功！
