@@ -142,6 +142,14 @@ public struct PuzzleGameView: View {
     
     // MARK: - Subviews
     
+    private var displayHeaderTitle: String {
+        if let badge = repository.activeBadge {
+            let clean = badge.name.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "").replacingOccurrences(of: "章", with: "").replacingOccurrences(of: "印", with: "")
+            return clean
+        }
+        return currentLevel.displayCategoryName
+    }
+
     private var headerView: some View {
         let progressInfo = repository.themeProgressInfo(for: currentLevel)
         return HStack(alignment: .center) {
@@ -152,7 +160,7 @@ public struct PuzzleGameView: View {
                         .foregroundColor(.xuanBlack)
                 }
                 
-                Text("\(currentLevel.displayCategoryName) · 第 \(progressInfo.currentIndex)/\(progressInfo.totalCount) 词")
+                Text("\(displayHeaderTitle) · 第 \(progressInfo.currentIndex)/\(progressInfo.totalCount) 词")
                     .font(.system(size: 17, weight: .bold, design: .serif))
                     .foregroundColor(.xuanBlack)
                     .lineLimit(1)

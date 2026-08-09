@@ -7,6 +7,11 @@ public final class GameDataRepository: ObservableObject {
     
     @Published public private(set) var userProgress: UserProgressModel
     @Published public private(set) var badges: [BadgeModel] = []
+    @Published public var activeBadge: BadgeModel?
+    
+    public func setActiveBadge(_ badge: BadgeModel?) {
+        self.activeBadge = badge
+    }
     
     private var completedCountCache: [String: Int] = [:]
     

@@ -240,6 +240,7 @@ public struct MainDashboardView: View {
             }
         }
         .onTapGesture {
+            repository.setActiveBadge(badge)
             let nextLevel = isFreshPlay ? bLevels.first : (bLevels.first { !repository.isLevelCompleted($0.id) } ?? bLevels.first)
             activeGameLevel = nextLevel
         }
