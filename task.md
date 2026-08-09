@@ -1,14 +1,12 @@
 # 《甪端字游》全量勋章与系统功能任务清单
 
 ### 🎯 进度汇总
+- **[x] 典籍去重词条实时绑定与勋章极速统计** (彻底排除重复关卡干扰，精准显示 `X / Y 词`)
 - **[x] 全量 Code Review 与切换闯关类型/进入页面极速性能重构**
-  - [x] 增加 `completedCount(for:key:)` 进度缓存
-  - [x] 增加 `ChineseSealView.imageCache` 静态内存缓存 (消除磁盘 I/O)
-  - [x] 增加 `headerBannerView` 静态内存缓存
-  - [x] 修正全工程 `mport` 语法拼写
 - **[x] 清除 UIDeviceFamily Xcode 构建警告 (使用 TARGETED_DEVICE_FAMILY: "1,2")**
 - **[x] 勋章详情弹窗图像大幅放大至 140pt** (人物肖像与古风朱印威严高质感呈现)
 - **[x] 勋章馆网格图标同步放大** (68pt / 56pt)
+- **[x] iOS 模拟器/真机 60 FPS 极速流畅度性能优化 (O(1) 字典缓存)**
 - **[x] “甪端学游”中国传统朱砂印章组件**
 - **[x] 分享海报展示本次闯关古文原文节选**
 - **[x] 真实 iOS 原生系统图片分享 (`UIImage` 合成渲染 + `UIActivityViewController`)**

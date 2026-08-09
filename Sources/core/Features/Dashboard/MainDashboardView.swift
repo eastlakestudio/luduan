@@ -184,9 +184,10 @@ public struct MainDashboardView: View {
 
     private func badgeSectionCard(badge: BadgeModel) -> some View {
         let bLevels = repository.levelsForBadge(badge)
-        let count = bLevels.count > 0 ? bLevels.count : 1
-        let completed = repository.completedCount(for: bLevels, key: badge.id)
-        let ratio = Double(completed) / Double(count)
+        let progress = repository.badgeProgressInfo(badge)
+        let completed = progress.completed
+        let count = progress.total
+        let ratio = progress.ratio
         let isFreshPlay = repository.isThemeInFreshPlay(badge.id)
 
         return PaperCardView(borderColor: ratio >= 1.0 ? Color.cloudGold : Color.borderAncient) {
@@ -222,7 +223,7 @@ public struct MainDashboardView: View {
                             .cornerRadius(10)
                         }
                         
-                        Text("\(completed) / \(count) 关")
+                        Text("\(completed) / \(count) 词")
                             .font(.system(.subheadline, design: .serif))
                             .bold()
                             .foregroundColor(.gray)
@@ -268,9 +269,10 @@ public struct MainDashboardView: View {
     
     private func practicalThemeCard(theme: PracticalTheme, subtitle: String, startIndex: Int, count: Int, sealText: String) -> some View {
         let pLevels = repository.levelsForCategory(theme.rawValue)
-        let totalCount = pLevels.count > 0 ? pLevels.count : count
-        let completed = repository.completedCount(for: pLevels, key: theme.rawValue)
-        let ratio = Double(completed) / Double(totalCount)
+        let progress = repository.practicalThemeProgressInfo(theme: theme)
+        let completed = progress.completed
+        let totalCount = progress.total
+        let ratio = progress.ratio
         let cleanTheme = theme.rawValue.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "")
         let isFreshPlay = repository.isThemeInFreshPlay(cleanTheme)
         
@@ -307,7 +309,7 @@ public struct MainDashboardView: View {
                             .cornerRadius(10)
                         }
                         
-                        Text("\(completed) / \(totalCount) 关")
+                        Text("\(completed) / \(totalCount) 词")
                             .font(.system(.subheadline, design: .serif))
                             .bold()
                             .foregroundColor(.gray)

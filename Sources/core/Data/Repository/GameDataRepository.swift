@@ -53,6 +53,69 @@ public final class GameDataRepository: ObservableObject {
         return mapping
     }()
     
+    private struct BookPhraseItemDecoder: Decodable {
+        let phrase: String
+    }
+    
+    private static let bookPhrasesMapping: [String: [String]] = {
+        guard let url = Bundle.module.url(forResource: "book_phrases", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let dict = try? JSONDecoder().decode([String: [BookPhraseItemDecoder]].self, from: data) else {
+            return [:]
+        }
+        var res: [String: [String]] = [:]
+        for (key, items) in dict {
+            res[key] = items.map { $0.phrase }
+        }
+        return res
+    }()
+    
+    /// 获取某部典籍收录的所有去重词汇名句
+    public func uniquePhrases(forBook bookKey: String) -> [String] {
+        return GameDataRepository.bookPhrasesMapping[bookKey] ?? []
+    }
+    
+    /// 获取某部典籍的去重词汇完成进度 (已完成词数, 总词数, 比例 0.0~1.0)
+    public func bookProgressInfo(forBook bookKey: String) -> (completed: Int, total: Int, ratio: Double) {
+        let phrases = uniquePhrases(forBook: bookKey)
+        guard !phrases.isEmpty else { return (0, 1, 0.0) }
+        let completed = phrases.filter { userProgress.learnedPhrases.contains($0) }.count
+        let ratio = Double(completed) / Double(phrases.count)
+        return (completed, phrases.count, min(1.0, max(0.0, ratio)))
+    }
+    
+    /// 获取某个勋章/主题的去重词条统计完成进度 (基于绑定的典籍映射)
+    public func badgeProgressInfo(_ badge: BadgeModel) -> (completed: Int, total: Int, ratio: Double) {
+        let bookKeys = GameDataRepository.themeBooksMapping[badge.id] ?? []
+        if bookKeys.isEmpty {
+            let bLevels = levelsForBadge(badge)
+            let totalPhrasesSet = Set(bLevels.map { $0.targetPhrase })
+            guard !totalPhrasesSet.isEmpty else { return (0, 1, 0.0) }
+            let completedCount = totalPhrasesSet.filter { userProgress.learnedPhrases.contains($0) }.count
+            let ratio = Double(completedCount) / Double(totalPhrasesSet.count)
+            return (completedCount, totalPhrasesSet.count, min(1.0, max(0.0, ratio)))
+        }
+        
+        var totalPhrasesSet = Set<String>()
+        for key in bookKeys {
+            totalPhrasesSet.formUnion(uniquePhrases(forBook: key))
+        }
+        guard !totalPhrasesSet.isEmpty else { return (0, 1, 0.0) }
+        let completedCount = totalPhrasesSet.filter { userProgress.learnedPhrases.contains($0) }.count
+        let ratio = Double(completedCount) / Double(totalPhrasesSet.count)
+        return (completedCount, totalPhrasesSet.count, min(1.0, max(0.0, ratio)))
+    }
+    
+    /// 获取处世修养主题的去重词条统计完成进度
+    public func practicalThemeProgressInfo(theme: PracticalTheme) -> (completed: Int, total: Int, ratio: Double) {
+        let pLevels = levelsForCategory(theme.rawValue)
+        let totalPhrasesSet = Set(pLevels.map { $0.targetPhrase })
+        guard !totalPhrasesSet.isEmpty else { return (0, 1, 0.0) }
+        let completedCount = totalPhrasesSet.filter { userProgress.learnedPhrases.contains($0) }.count
+        let ratio = Double(completedCount) / Double(totalPhrasesSet.count)
+        return (completedCount, totalPhrasesSet.count, min(1.0, max(0.0, ratio)))
+    }
+    
     public var levels: [LevelModel] {
         return GameDataRepository.cachedLevels
     }
