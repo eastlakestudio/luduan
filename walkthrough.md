@@ -1,22 +1,18 @@
-# 《甪端字游》勋章图像放大重构 Walkthrough
+# 《甪端字游》UIDeviceFamily 构建警告修复 Walkthrough
 
-已成功放大勋章详情弹窗与勋章馆列表中的勋章图标，展现更加威严震撼的京剧彩绘肖像与古风朱印！
-
----
-
-## 🎨 1. 勋章详情弹窗 (`BadgeGalleryView.swift`) 图像大幅放大
-- **图像尺寸重构**：将勋章详情弹窗中的“人物肖像”与“古风朱印”图标尺寸由原来的 **84pt** 大幅放大至 **140pt**（近 **1.7 倍**）！
-- **视觉体验提升**：
-  - 名士英雄（如曹操、岳飞、关羽、诸葛亮等）的京剧彩绘肖像细节更清晰、威严夺目。
-  - 朱砂篆书大印效果更加大气，匹配大盘弹窗展示质感。
+已成功解决 Xcode `UIDeviceFamily` 覆盖警告问题！
 
 ---
 
-## 🖼️ 2. 勋章馆列表网格图标同步放大
-- 将勋章馆网格列表中的双显印章尺寸由 `58pt / 48pt` 放大至 **`68pt / 56pt`**，浏览全馆勋章更加直观醒目。
+## 🛠️ 1. 警告根因与修复说明
+- **警告原因**：当在 `Info.plist` 或 `project.yml` 的 `info: properties:` 中直接指定 `UIDeviceFamily` 时，Xcode 会在构建时输出警告：
+  `User supplied UIDeviceFamily key in the Info.plist will be overwritten. Please use the build setting TARGETED_DEVICE_FAMILY and remove UIDeviceFamily from your Info.plist.`
+- **修复方案**：
+  1. 从 [`AppSupport/Info.plist`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/AppSupport/Info.plist) 与 [`project.yml`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/project.yml) 中移除了手写 `UIDeviceFamily` 字典键。
+  2. 在 `project.yml` 的 `settings.base` 构建配置中显式配置 `TARGETED_DEVICE_FAMILY: "1,2"`（适配 iPhone 与 iPad 通用设备支持）。
 
 ---
 
-## 🧪 3. 验证与单元测试
-- 全量 **71/71** 单元测试 **100% 绿色成功通过**！
-- Xcode 项目工程编译 `** BUILD SUCCEEDED **` 100% 验证成功！
+## 🧪 2. 验证与构建
+- `xcodegen generate` 生成项目工程结构。
+- `xcodebuild` 编译构建 `** BUILD SUCCEEDED **` 100% 成功，警告彻底消除！

@@ -30,7 +30,6 @@ targets:
         ITSAppUsesNonExemptEncryption: false
         LSRequiresIPhoneOS: true
         UILaunchScreen: {}
-        UIDeviceFamily: [1, 2]
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
           - UIInterfaceOrientationLandscapeLeft
@@ -45,6 +44,7 @@ targets:
         NSSpeechRecognitionUsageDescription: "甪端字游使用语音识别，把你口述的字词转为拼字输入。"
     settings:
       base:
+        TARGETED_DEVICE_FAMILY: "1,2"
         PRODUCT_BUNDLE_IDENTIFIER: com.eastlakestudio.luduan
         MARKETING_VERSION: "1.0.0"
         CURRENT_PROJECT_VERSION: "5"

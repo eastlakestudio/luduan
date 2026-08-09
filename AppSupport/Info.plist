@@ -28,11 +28,7 @@
 	<string>甪端字游需要使用麦克风，让你用语音拼字闯关。</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>甪端字游使用语音识别，把你口述的字词转为拼字输入。</string>
-	<key>UIDeviceFamily</key>
-	<array>
-		<integer>1</integer>
-		<integer>2</integer>
-	</array>
+
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UIRequiresFullScreen</key>
