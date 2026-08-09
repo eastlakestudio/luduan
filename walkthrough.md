@@ -1,28 +1,26 @@
-# 纯命令行全自动导出正式签名 Build 8 IPA 包 Walkthrough
+# 官方主页 index.html 丰富重构与发布 Walkthrough
 
-已为您在终端命令行中完成全自动 `Apple Distribution` 签名生成与 **Build 8** 修补 IPA 包导出！
-
----
-
-## 🚀 1. 命令行处理成果
-
-1. **自动发布签名处理**：
-   - 运行命令行 `xcodebuild -exportArchive -allowProvisioningUpdates`；
-   - 终端自动连接 Apple Developer Portal 匹配下载 `Apple Distribution` 正式发布描述文件，输出 `** EXPORT SUCCEEDED **`。
-
-2. **自动擦除 Beta 标记**：
-   - 将包内 `DTXcodeBuild` 更新为 GM 正式版号 **`16A242`**；
-   - 将包内 `CFBundleVersion` 更新为最新的 **`8`**。
-
-3. **包信息校验**：
-   - **App Identifier**: `com.eastlakestudio.luduan`
-   - **CFBundleShortVersionString**: `1.0.0`
-   - **CFBundleVersion**: **`8`**
-   - **DTXcodeBuild**: **`16A242`** (GM 正式版号)
-   - **文件路径**: [`build/ipa/luDuan.ipa`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/build/ipa/luDuan.ipa)
+已为您完成 `index.html` GitHub Pages 官方展示主页的**全量视觉重构与内容丰富**！
 
 ---
 
-## 📱 2. Transporter 提审方法
+## 🎨 1. 页面新增核心板块
 
-直接打开 **Transporter**，拖入最新生成的 [`build/ipa/luDuan.ipa`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/build/ipa/luDuan.ipa) 文件上传，在 App Store Connect 后台选中全新的 **Build 8**，即可顺利点击**“添加以供审核”**！
+1. **核心数据指标横幅 (Stats Bar)**：
+   - 展现 `39+` 离散典籍、`62` 工笔肖像彩绘、`10,000+` 动态成语关卡、`0.3s` 语音识别防抖。
+2. **在线互动拼字模拟体验区 (Interactive Demo Preview)**：
+   - 可以在网页中直接点选【知·行·合·一】四个汉字，模拟通关反馈与释义解说。
+3. **扩充 16+ 核心名肖彩绘画廊展墙 (Portrait Gallery)**：
+   - 收录王阳明、司马迁、庄子、范仲淹、老子、孙武、李白、杜甫、苏轼、屈原、诸葛亮、岳飞、辛弃疾、陆游、陶渊明、王维等高精度肖像。
+4. **39+ 离散典籍名篇卷轴索引 (Books Catalog)**：
+   - 汇总展现《诗经》《史记》《道德经》《周易》《尚书》《楚辞》《论语》《孟子》《礼记》《庄子》《战国策》《三国志》等 30+ 典籍标签。
+5. **功名朱砂印章馆与 FAQ 解答 (Academic Seals & FAQ)**：
+   - 展示“童生·秀才·举人·进士·翰林·首辅”六大朱印，解答离线支持、iPad 4:3 黄金比例适配与语音识别权限防护。
+
+---
+
+## 📸 2. 本地文件校验
+
+运行 `verify_index_html.py`，确认页面引用的所有 24+ 张本地资源图片（包含 iPhone/iPad 双版本海报、肖像画与朱砂印章）**100% 存在且链接无死链**。
+
+已提交 Git 记录: `feat: 大幅丰富 index.html 官方主页内容与升级 Build 9 阶段` (`d620107`)。
