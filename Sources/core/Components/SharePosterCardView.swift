@@ -10,30 +10,25 @@ public struct SharePosterCardView: View {
         self.completedCount = completedCount
     }
     
+    private var cleanBookTitle: String {
+        let raw = level.source.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "")
+        return "《\(raw)》"
+    }
+
     public var body: some View {
         PaperCardView(borderColor: Color.cloudGold) {
             VStack(spacing: 16) {
-                // 1. 顶部品牌与伴学神兽“甪端”图标区
+                // 1. 顶部品牌与“甪端学游”中国传统朱砂印章
                 HStack(spacing: 14) {
-                    // 甪端伴学神兽朱砂大印/吉祥标示
-                    ZStack {
-                        Circle()
-                            .fill(Color.cinnabarRed.opacity(0.12))
-                            .frame(width: 54, height: 54)
-                            .overlay(
-                                Circle().stroke(Color.cloudGold, lineWidth: 1.5)
-                            )
-                        
-                        ChineseSealView(
-                            text: "甪端\n伴学",
-                            isUnlocked: true,
-                            size: 46,
-                            imageName: nil
-                        )
-                    }
+                    ChineseSealView(
+                        text: "甪端\n学游",
+                        isUnlocked: true,
+                        size: 52,
+                        imageName: nil
+                    )
                     
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("lù  duān  zì  yóu")
+                        Text("lù  duān  xué  yóu")
                             .font(.system(size: 11, weight: .bold, design: .serif))
                             .foregroundColor(.cloudGold)
                             .tracking(3)
@@ -47,7 +42,7 @@ public struct SharePosterCardView: View {
                     
                     if let count = completedCount {
                         VStack(alignment: .trailing, spacing: 2) {
-                            Text("捷报已破")
+                            Text("金榜已破")
                                 .font(.system(size: 10, weight: .bold, design: .serif))
                                 .foregroundColor(.gray)
                             Text("\(count) 关")
@@ -60,16 +55,16 @@ public struct SharePosterCardView: View {
                 
                 Divider()
                 
-                // 2. 学过的典籍名称与成语名句展示 (广告社交传播核心内容)
+                // 2. 学过的典籍名称与成语名句展示
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 6) {
                         Image(systemName: "book.closed.fill")
                             .font(.subheadline)
                             .foregroundColor(.bambooGreen)
-                        Text("学过的典籍出处：")
+                        Text("典籍出处：")
                             .font(.system(size: 13, weight: .bold, design: .serif))
                             .foregroundColor(.gray)
-                        Text("《\(level.source)》")
+                        Text(cleanBookTitle)
                             .font(.system(size: 15, weight: .bold, design: .serif))
                             .foregroundColor(.bambooGreen)
                     }
@@ -88,21 +83,39 @@ public struct SharePosterCardView: View {
                     }
                     .padding(.top, 2)
                     
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("【古文原文 / 典故故事】")
-                            .font(.system(size: 11, weight: .bold, design: .serif))
-                            .foregroundColor(.cloudGold)
+                    // 核心：本次闯关古文原文节选
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack {
+                            Image(systemName: "quote.opening")
+                                .font(.caption)
+                                .foregroundColor(.cloudGold)
+                            Text("本次闯关古文原文节选")
+                                .font(.system(size: 12, weight: .bold, design: .serif))
+                                .foregroundColor(.cloudGold)
+                        }
+                        
                         Text("“\(level.story)”")
-                            .font(.system(size: 14, weight: .bold, design: .serif))
+                            .font(.system(size: 15, weight: .bold, design: .serif))
                             .foregroundColor(.xuanBlack)
-                            .lineSpacing(4)
+                            .lineSpacing(6)
+                        
+                        HStack {
+                            Spacer()
+                            Text("—— 出处：\(cleanBookTitle)")
+                                .font(.system(size: 11, weight: .bold, design: .serif))
+                                .foregroundColor(.gray)
+                        }
                     }
-                    .padding(10)
-                    .background(Color.cloudGold.opacity(0.08))
-                    .cornerRadius(8)
+                    .padding(12)
+                    .background(Color.cloudGold.opacity(0.12))
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .strokeBorder(Color.cloudGold.opacity(0.4), lineWidth: 1)
+                    )
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("【现代释义】")
+                        Text("【字词释义】")
                             .font(.system(size: 11, weight: .bold, design: .serif))
                             .foregroundColor(.bambooGreen)
                         Text(level.annotation)

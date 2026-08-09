@@ -25,6 +25,21 @@ public struct ShareSheetView: UIViewControllerRepresentable {
 #endif
 
 public struct ShareSheetHelper {
+    #if canImport(UIKit)
+    @MainActor
+    public static func renderViewToImage<V: View>(_ view: V, width: CGFloat = 390, height: CGFloat = 680) -> UIImage? {
+        let controller = UIHostingController(rootView: view)
+        let targetSize = CGSize(width: width, height: height)
+        controller.view.bounds = CGRect(origin: .zero, size: targetSize)
+        controller.view.backgroundColor = .clear
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        return renderer.image { _ in
+            controller.view.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
+        }
+    }
+    #endif
+    
     public static func share(items: [Any]) {
         #if canImport(UIKit)
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

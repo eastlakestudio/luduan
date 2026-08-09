@@ -158,9 +158,7 @@ public struct MilestoneCelebrationModalView: View {
                         .font(.system(size: 11, weight: .bold, design: .serif))
                         .foregroundColor(.gray)
                     Spacer()
-                    Text("《甪端字游》印")
-                        .font(.system(size: 11, weight: .bold, design: .serif))
-                        .foregroundColor(.cinnabarRed.opacity(0.8))
+                    ChineseSealView(text: "甪端\n学游", isUnlocked: true, size: 36, imageName: nil)
                 }
             }
         }
@@ -184,8 +182,21 @@ public struct MilestoneCelebrationModalView: View {
         return Image(systemName: "crown.fill")
     }
     
+    @MainActor
     private func shareMilestonePoster() {
         let shareText = "【甪端字游】我已累计通关 \(completedCount) 词古风字游！神兽甪端伴学，万关典籍名篇。快来一起体验《甪端字游》！App Store下载：https://apps.apple.com/us/app/%E7%94%AA%E7%AB%AF/id6799431765"
+        
+        #if canImport(UIKit)
+        let sampleLevel = Classic10000LevelsEngine.level(at: max(0, completedCount - 1))
+        let posterView = SharePosterCardView(level: sampleLevel, completedCount: completedCount)
+        
+        var shareItems: [Any] = [shareText]
+        if let image = ShareSheetHelper.renderViewToImage(posterView, width: 380, height: 680) {
+            shareItems.insert(image, at: 0)
+        }
+        ShareSheetHelper.share(items: shareItems)
+        #else
         ShareSheetHelper.share(items: [shareText])
+        #endif
     }
 }

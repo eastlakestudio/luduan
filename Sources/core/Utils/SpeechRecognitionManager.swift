@@ -22,16 +22,27 @@ public class SpeechRecognitionManager: ObservableObject {
     
     public init() {}
     
-    /// 请求麦克风与语音识别权限
+    /// 请求麦克风与语音识别双重权限
     public func requestAuthorization(completion: @escaping (Bool) -> Void = { _ in }) {
         #if canImport(Speech)
-        SFSpeechRecognizer.requestAuthorization { status in
-            DispatchQueue.main.async {
-                switch status {
-                case .authorized:
+        SFSpeechRecognizer.requestAuthorization { [weak self] status in
+            guard let self = self else { return }
+            if status == .authorized {
+                #if os(iOS)
+                AVAudioSession.sharedInstance().requestRecordPermission { micGranted in
+                    DispatchQueue.main.async {
+                        self.permissionDenied = !micGranted
+                        completion(micGranted)
+                    }
+                }
+                #else
+                DispatchQueue.main.async {
                     self.permissionDenied = false
                     completion(true)
-                default:
+                }
+                #endif
+            } else {
+                DispatchQueue.main.async {
                     self.permissionDenied = true
                     completion(false)
                 }
@@ -72,12 +83,16 @@ public class SpeechRecognitionManager: ObservableObject {
         #if os(iOS)
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+            try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("AVAudioSession error: \(error)")
         }
         #endif
+        
+        if speechRecognizer == nil || !(speechRecognizer?.isAvailable ?? false) {
+            speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "zh-CN")) ?? SFSpeechRecognizer()
+        }
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else { return }
@@ -100,8 +115,10 @@ public class SpeechRecognitionManager: ObservableObject {
         }
         
         let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
-            self.recognitionRequest?.append(buffer)
+        if recordingFormat.sampleRate > 0 && recordingFormat.channelCount > 0 {
+            inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+                self.recognitionRequest?.append(buffer)
+            }
         }
         
         audioEngine.prepare()
