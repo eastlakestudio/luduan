@@ -23,7 +23,7 @@ public struct SharePosterCardView: View {
                     ChineseSealView(
                         text: "甪端\n学游",
                         isUnlocked: true,
-                        size: 52,
+                        size: 78,
                         imageName: nil
                     )
                     
@@ -85,14 +85,7 @@ public struct SharePosterCardView: View {
                     
                     // 核心：本次闯关古文原文节选
                     VStack(alignment: .leading, spacing: 6) {
-                        HStack {
-                            Image(systemName: "quote.opening")
-                                .font(.caption)
-                                .foregroundColor(.cloudGold)
-                            Text("本次闯关古文原文节选")
-                                .font(.system(size: 12, weight: .bold, design: .serif))
-                                .foregroundColor(.cloudGold)
-                        }
+
                         
                         Text("“\(level.story)”")
                             .font(.system(size: 15, weight: .bold, design: .serif))
@@ -146,7 +139,7 @@ public struct SharePosterCardView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "sparkles")
                                 .foregroundColor(.cloudGold)
-                            Text("《甪端字游》App Store 正式版")
+                            Text("《甪端字游》App Store下载")
                                 .font(.system(size: 13, weight: .bold, design: .serif))
                                 .foregroundColor(.cinnabarRed)
                         }

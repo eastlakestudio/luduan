@@ -29,7 +29,7 @@ public class SpeechRecognitionManager: ObservableObject {
             guard let self = self else { return }
             if status == .authorized {
                 #if os(iOS)
-                AVAudioSession.sharedInstance().requestRecordPermission { micGranted in
+                AVAudioApplication.requestRecordPermission { micGranted in
                     DispatchQueue.main.async {
                         self.permissionDenied = !micGranted
                         completion(micGranted)
@@ -83,7 +83,7 @@ public class SpeechRecognitionManager: ObservableObject {
         #if os(iOS)
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetooth, .mixWithOthers])
+            try audioSession.setCategory(.playAndRecord, mode: .measurement, options: [.defaultToSpeaker, .allowBluetoothHFP, .mixWithOthers])
             try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             print("AVAudioSession error: \(error)")

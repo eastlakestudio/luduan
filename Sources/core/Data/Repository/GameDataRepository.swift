@@ -294,24 +294,25 @@ public final class GameDataRepository: ObservableObject {
     }
     
     public func nextLevel(after current: LevelModel) -> LevelModel? {
-        let tLevels = themeLevels(for: current.theme)
         let isFreshPlay = isThemeInFreshPlay(current.theme.rawValue) || isThemeInFreshPlay(current.categoryName)
-        
-        if let idx = tLevels.firstIndex(where: { $0.id == current.id }) {
-            let remaining = tLevels.suffix(from: idx + 1)
-            if isFreshPlay {
-                return remaining.first
-            } else {
-                return remaining.first(where: { !isLevelCompleted($0.id) }) ?? remaining.first
+        if isFreshPlay, let idx = themeLevels(for: current.theme).firstIndex(where: { $0.id == current.id }) {
+            return themeLevels(for: current.theme).suffix(from: idx + 1).first
+        }
+        if let startIdx = levelIndex(from: current.id) {
+            for i in (startIdx + 1)..<10000 {
+                let candidate = Classic10000LevelsEngine.level(at: i)
+                if !userProgress.learnedPhrases.contains(candidate.targetPhrase) {
+                    return candidate
+                }
             }
         }
-        
-        if let globalIdx = levelIndex(from: current.id) {
-            let remaining = levels.suffix(from: globalIdx + 1)
-            return remaining.first(where: { !isLevelCompleted($0.id) }) ?? remaining.first
+        for i in 0..<10000 {
+            let candidate = Classic10000LevelsEngine.level(at: i)
+            if !userProgress.learnedPhrases.contains(candidate.targetPhrase) {
+                return candidate
+            }
         }
-        
-        return levels.first(where: { !isLevelCompleted($0.id) }) ?? levels.first
+        return Classic10000LevelsEngine.level(at: 0)
     }
     
     public func isThemeInFreshPlay(_ themeKey: String) -> Bool {

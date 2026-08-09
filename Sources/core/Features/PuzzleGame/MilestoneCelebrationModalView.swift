@@ -7,6 +7,7 @@ import UIKit
 public struct MilestoneCelebrationModalView: View {
     public let completedCount: Int
     public let currentStageName: String
+    public let lastLevel: LevelModel?
     public let onDismiss: () -> Void
     public let onNextLevel: (() -> Void)?
     
@@ -17,11 +18,13 @@ public struct MilestoneCelebrationModalView: View {
     public init(
         completedCount: Int,
         currentStageName: String,
+        lastLevel: LevelModel? = nil,
         onDismiss: @escaping () -> Void,
         onNextLevel: (() -> Void)? = nil
     ) {
         self.completedCount = completedCount
         self.currentStageName = currentStageName
+        self.lastLevel = lastLevel
         self.onDismiss = onDismiss
         self.onNextLevel = onNextLevel
     }
@@ -41,7 +44,7 @@ public struct MilestoneCelebrationModalView: View {
                 // 操作按钮组：分享微信捷报 + 继续闯关
                 VStack(spacing: 12) {
                     AncientButtonView(
-                        title: "分享金榜题名捷报 (微信/朋友圈)",
+                        title: "分享捷报",
                         iconName: "square.and.arrow.up.fill",
                         style: .primary
                     ) {
@@ -88,7 +91,7 @@ public struct MilestoneCelebrationModalView: View {
                     appIconImage
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 54, height: 54)
+                        .frame(width: 81, height: 81)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.cloudGold, lineWidth: 2))
                     VStack(alignment: .leading, spacing: 2) {
@@ -99,25 +102,36 @@ public struct MilestoneCelebrationModalView: View {
                         Text("神兽甪端伴学 · 万关典籍古风手游")
                             .font(.system(size: 11, weight: .medium, design: .serif))
                             .foregroundColor(.gray)
+                        Text("“通解百家语言，专守千古书案”")
+                            .font(.system(size: 10, weight: .medium, design: .serif))
+                            .foregroundColor(.cloudGold)
                     }
                     Spacer()
                 }
                 .padding(.top, 6)
                 
                 Divider()
-                
-                // 累计通关词语数量 + 甪端文案
-                VStack(spacing: 8) {
-                    Text("累计通关 \(completedCount) 词")
-                        .font(.system(size: 24, weight: .bold, design: .serif))
-                        .foregroundColor(.cinnabarRed)
-                    Text("“日行万八千里，通解百家语言，专守千古书案。”")
-                        .font(.system(.footnote, design: .serif))
-                        .foregroundColor(.gray)
-                        .lineSpacing(4)
-                        .multilineTextAlignment(.center)
+                if let lvl = lastLevel {
+                    VStack(alignment: .leading, spacing: 6) {
+
+                        
+                        Text("“\(lvl.story)”")
+                            .font(.system(size: 17, weight: .semibold, design: .serif))
+                            .foregroundColor(.xuanBlack)
+                            .lineSpacing(4)
+                            .lineLimit(3)
+                        
+                        HStack {
+                            Spacer()
+                            Text("—— 出处：\(lvl.source)")
+                                .font(.system(size: 11, weight: .bold, design: .serif))
+                                .foregroundColor(.cinnabarRed)
+                        }
+                    }
+                    .padding(10)
+                    .background(Color.bambooGreen.opacity(0.08))
+                    .cornerRadius(8)
                 }
-                .padding(.vertical, 8)
                 
                 Divider()
                 
@@ -187,8 +201,7 @@ public struct MilestoneCelebrationModalView: View {
         let shareText = "【甪端字游】我已累计通关 \(completedCount) 词古风字游！神兽甪端伴学，万关典籍名篇。快来一起体验《甪端字游》！App Store下载：https://apps.apple.com/us/app/%E7%94%AA%E7%AB%AF/id6799431765"
         
         #if canImport(UIKit)
-        let sampleLevel = Classic10000LevelsEngine.level(at: max(0, completedCount - 1))
-        let posterView = SharePosterCardView(level: sampleLevel, completedCount: completedCount)
+        let posterView = posterCardView
         
         var shareItems: [Any] = [shareText]
         if let image = ShareSheetHelper.renderViewToImage(posterView, width: 380, height: 680) {

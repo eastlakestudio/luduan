@@ -74,6 +74,7 @@ public struct PuzzleGameView: View {
             MilestoneCelebrationModalView(
                 completedCount: repository.userProgress.learnedPhrases.count,
                 currentStageName: PetModel(completedLevelCount: repository.userProgress.learnedPhrases.count).currentStage.rawValue,
+                lastLevel: currentLevel,
                 onDismiss: {
                     showingMilestoneModal = false
                 },

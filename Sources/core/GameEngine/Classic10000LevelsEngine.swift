@@ -131,7 +131,7 @@ public final class Classic10000LevelsEngine {
             "巨", "阙", "珠", "称", "夜", "光", "果", "珍", "李", "柰"
         ]
         
-        var targetChars = Array(phrase).map { String($0) }
+        let targetChars = Array(phrase).map { String($0) }
         var result = targetChars
         
         let targetGridCount = max(16, targetChars.count + 4)
