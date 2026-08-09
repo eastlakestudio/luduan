@@ -1,34 +1,25 @@
-# 《甪端字游》学阶勋章进度全量重构 Walkthrough
+# 《甪端字游》独立学阶词汇库与现代教学词频重构 Walkthrough
 
-已成功排查并解决了在 iOS 模拟器中【功名学阶】所有卡片（童生·上、童生·中、童生·下、秀才、举人、进士等）均重复显示 `387 / 3172` 的 Bug！
-
----
-
-## 🔍 1. 问题根因排查 (Root Cause)
-
-- 在 [`theme_books.json`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/Sources/core/Resources/theme_books.json) 的原始配置中，所有【功名学阶】勋章（`badge_acad_1_1` 至 `badge_acad_13`）硬编码关联了相同的 4 部全量典籍：`["lunyu", "shijing", "mengzi", "tangsong"]`。
-- 这 4 部典籍在去重词库中汇总的独立词条总数正好为 **3172 词**，因此每个学阶卡片均误展示为 **387 / 3172**！
+已成功完成【功名学阶】分类的架构解耦与独立词库重构，彻底打破了书籍限制，按**现代教学词频与认知难度梯度**对 13 大学阶进行了独立精准统计！
 
 ---
 
-## 🚀 2. 梯级重构解决方案
+## 🎓 1. 重构核心实现
 
-根据古代科举功名递进体系，将【功名学阶】13 大层级关联的典籍重新进行了**递进式梯级划分**：
-
-1. **童生·上/中/下**：蒙学启蒙《诗经》、论语、孟子 (`shijing`, `lunyu`, `mengzi`)
-2. **秀才·上/中/下**：四书核心《论语》、《大学》、《中庸》 (`lunyu`, `daxue`, `zhongyong`)
-3. **举人·上/中/下**：五经大义《尚书》、《周易》、《礼记》、《春秋》 (`shangshu`, `zhouyi`, `liji`, `chunqiu`)
-4. **进士·上/中/下**：史家绝唱《史记》、《汉书》、《后汉书》、《三国志》 (`shiji`, `hanshu`, `houhanshu`, `sanguozhi`)
-5. **翰林学士**：国政智谋《资治通鉴》、《战国策》、《国语》、《道德经》 (`zizhitongjian`, `zhanguoce`, `guoyu`, `daodejing`)
-6. **侍读/侍讲学士**：诸子百家《庄子》、《荀子》、《韩非子》、《孙子兵法》、《淮南子》
-7. **大学士/首辅/帝师**：文学瑰宝与集大成典籍《唐诗》、《宋词》、《水浒传》、《三国演义》、《红楼梦》、《聊斋志异》
-
-**重构效果**：
-* 每一个学阶勋章卡片均拥有**自己专属、递进的典籍范围与独占词条总数**！
-* 彻底消除 `387/3172` 重复显示问题，各学阶卡片独立精准显示如 `1 / 6 词`、`2 / 12 词`！
+1. **新建独立学阶词汇库 `academic_phrases.json`**：
+   - 建立 [`academic_phrases.json`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/Sources/core/Resources/academic_phrases.json)，包含 13 个学阶独占的教学词频列表：
+     - **童生·上** (`badge_acad_1_1`)：筛选全网与教材中最高频家喻户晓的 9 个启蒙词汇（包含“关关雎鸠”、“蒹葭苍苍”、“桃之夭夭”、“执子之手”、“破釜沉舟”、“画蛇添足”、“守株待兔”、“温故知新”、“自强不息”）。
+     - **童生·中/下**：依次配置第二、第三梯队启蒙高频词汇。
+     - **秀才/举人/进士/翰林/首辅**：按词汇难度梯度递进划分。
+2. **打破书籍限制 (`academicProgressInfo`)**：
+   - 在 `GameDataRepository.swift` 中新增 `academicProgressInfo` 方法。
+   - **效果**：玩家只要攻克属于【童生·上】词库里的任意词汇（不论该词出自《史记》、《诗经》、《论语》还是《战国策》），【童生·上】的完成词数均能精准 **+1**！
+3. **消除界面 Bug**：
+   - 【童生·上】卡片现在独立显示为 **`X / 9 词`**，彻底告别原先全部学阶卡片统一错误重复显示 `387/3172` 的困扰！
 
 ---
 
-## 🧪 3. 验证与单元测试
-- 全量 **73/73** 单元测试 **100% 绿色成功通过**！
+## 🧪 2. 验证与单元测试
+- 新增 [`AcademicRankFrequencyTests.swift`](file:///Users/minghualiu/personal/EastlakeStudio/luDuan/Tests/luDuanTests/AcademicRankFrequencyTests.swift) 单元测试：验证攻克《史记》“破釜沉舟”与《论语》“温故知新”均能打破书籍限制累加【童生·上】进度！
+- 全量 **74/74** 单元测试 **100% 绿色成功通过**！
 - Xcode 项目工程编译 `** BUILD SUCCEEDED **` 100% 验证成功！

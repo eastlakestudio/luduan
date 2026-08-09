@@ -70,6 +70,15 @@ public final class GameDataRepository: ObservableObject {
         return res
     }()
     
+    private static let academicPhrasesMapping: [String: [String]] = {
+        guard let url = Bundle.module.url(forResource: "academic_phrases", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let dict = try? JSONDecoder().decode([String: [String]].self, from: data) else {
+            return [:]
+        }
+        return dict
+    }()
+    
     /// 获取某部典籍收录的所有去重词汇名句
     public func uniquePhrases(forBook bookKey: String) -> [String] {
         return GameDataRepository.bookPhrasesMapping[bookKey] ?? []
@@ -84,8 +93,28 @@ public final class GameDataRepository: ObservableObject {
         return (completed, phrases.count, min(1.0, max(0.0, ratio)))
     }
     
-    /// 获取某个勋章/主题的去重词条统计完成进度 (基于绑定的典籍映射)
+    /// 获取【功名学阶】勋章按现代教学词频与独立词库统计的进度 (打破书籍限制)
+    public func academicProgressInfo(_ badge: BadgeModel) -> (completed: Int, total: Int, ratio: Double) {
+        let phrases = GameDataRepository.academicPhrasesMapping[badge.id] ?? []
+        guard !phrases.isEmpty else {
+            let bLevels = levelsForBadge(badge)
+            let totalPhrasesSet = Set(bLevels.map { $0.targetPhrase })
+            guard !totalPhrasesSet.isEmpty else { return (0, 1, 0.0) }
+            let completedCount = totalPhrasesSet.filter { userProgress.learnedPhrases.contains($0) }.count
+            let ratio = Double(completedCount) / Double(totalPhrasesSet.count)
+            return (completedCount, totalPhrasesSet.count, min(1.0, max(0.0, ratio)))
+        }
+        let completedCount = phrases.filter { userProgress.learnedPhrases.contains($0) }.count
+        let ratio = Double(completedCount) / Double(phrases.count)
+        return (completedCount, phrases.count, min(1.0, max(0.0, ratio)))
+    }
+    
+    /// 获取某个勋章/主题的去重词条统计完成进度
     public func badgeProgressInfo(_ badge: BadgeModel) -> (completed: Int, total: Int, ratio: Double) {
+        if badge.category == .academic {
+            return academicProgressInfo(badge)
+        }
+        
         let bookKeys = GameDataRepository.themeBooksMapping[badge.id] ?? []
         if bookKeys.isEmpty {
             let bLevels = levelsForBadge(badge)
@@ -210,6 +239,13 @@ public final class GameDataRepository: ObservableObject {
         if let cached = badgeLevelsCache[badge.id] {
             return cached
         }
+        if badge.category == .academic, let targetPhrases = GameDataRepository.academicPhrasesMapping[badge.id], !targetPhrases.isEmpty {
+            let matching = levels.filter { targetPhrases.contains($0.targetPhrase) }
+            let result = matching.isEmpty ? levels : matching
+            badgeLevelsCache[badge.id] = result
+            return result
+        }
+        
         let allowedBookKeys = GameDataRepository.themeBooksMapping[badge.id] ?? []
         let searchKeys = allowedBookKeys.flatMap { keywords(for: $0) }
         
