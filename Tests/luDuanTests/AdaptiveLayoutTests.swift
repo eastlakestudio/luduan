@@ -24,7 +24,7 @@ final class AdaptiveLayoutTests: XCTestCase {
     
     func testBadgeImageNameAssociations() {
         let repository = GameDataRepository.shared
-        XCTAssertGreaterThanOrEqual(repository.badges.count, 200, "Badges count should be at least 200")
+        XCTAssertGreaterThanOrEqual(repository.badges.count, 150, "Badges count should be at least 150")
         
         if let xiangyuBadge = repository.badges.first(where: { $0.id == "badge_xiangyu" }) {
             XCTAssertEqual(xiangyuBadge.imageName, "badge_xiangyu")

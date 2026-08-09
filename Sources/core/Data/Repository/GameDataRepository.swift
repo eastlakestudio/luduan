@@ -30,6 +30,8 @@ public final class GameDataRepository: ObservableObject {
         }
         migrateLegacyLevelProgress()
         self.badges = PresetData.defaultBadges
+        let validIds = Set(self.badges.map { $0.id })
+        userProgress.unlockedBadgeIds = userProgress.unlockedBadgeIds.intersection(validIds)
     }
 
     private func migrateLegacyLevelProgress() {
@@ -359,21 +361,16 @@ public final class GameDataRepository: ObservableObject {
     
     private func unlockMilestoneBadges() {
         let count = userProgress.learnedPhrases.count
-        for badge in badges {
-            if let reqCount = extractRequirementCount(from: badge.id), count >= reqCount {
-                userProgress.unlockedBadgeIds.insert(badge.id)
+        let grouped = Dictionary(grouping: badges, by: { $0.category })
+        for (_, catBadges) in grouped {
+            let sorted = catBadges.sorted { $0.id < $1.id }
+            let step = max(1, 200 / max(1, sorted.count))
+            for (i, badge) in sorted.enumerated() {
+                if count >= (i + 1) * step {
+                    userProgress.unlockedBadgeIds.insert(badge.id)
+                }
             }
         }
-    }
-    
-    private func extractRequirementCount(from badgeId: String) -> Int? {
-        if badgeId.hasPrefix("badge_char_") || badgeId.hasPrefix("badge_acad_") || badgeId.hasPrefix("badge_class_") || badgeId.hasPrefix("badge_prac_") {
-            let components = badgeId.components(separatedBy: "_")
-            if let last = components.last, let num = Int(last) {
-                return num
-            }
-        }
-        return nil
     }
     
     public func isBadgeUnlocked(_ badgeId: String) -> Bool {

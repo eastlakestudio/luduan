@@ -117,7 +117,7 @@ public enum AcademicRank: String, Codable, CaseIterable, Identifiable {
     }
 }
 
-/// 处世修养七大古汉语主题
+/// 处世修养八大古汉语主题
 public enum PracticalTheme: String, Codable, CaseIterable, Identifiable {
     case xiushen = "《修身立德》"
     case qijia = "《齐家修业》"
@@ -126,9 +126,10 @@ public enum PracticalTheme: String, Codable, CaseIterable, Identifiable {
     case bingfa = "《兵法韬略》"
     case zhiguo = "《治国理政》"
     case pingtianxia = "《平天下怀》"
-    
+    case wenxue = "《文学修养》"
+
     public var id: String { rawValue }
-    
+
     public var iconName: String {
         switch self {
         case .xiushen: return "person.fill.checkmark"
@@ -138,6 +139,7 @@ public enum PracticalTheme: String, Codable, CaseIterable, Identifiable {
         case .bingfa: return "shield.fill"
         case .zhiguo: return "building.columns.fill"
         case .pingtianxia: return "globe.asia.australia.fill"
+        case .wenxue: return "book.fill"
         }
     }
 }

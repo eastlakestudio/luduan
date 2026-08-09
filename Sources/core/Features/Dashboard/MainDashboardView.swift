@@ -254,18 +254,10 @@ public struct MainDashboardView: View {
     }
     
     // ----------------------------------------------------
-    // 3. 【处世修养】模式：按 7 大古汉语主题纵向排列
+    // 3. 【处世修养】模式：与勋章馆「处世修养」一致（从 badges.json 取）
     // ----------------------------------------------------
     private var practicalModeCards: some View {
-        VStack(spacing: 16) {
-            practicalThemeCard(theme: .xiushen, subtitle: "吾日三省吾身 · 我心匪石 · 天下难事必作于易", startIndex: 0, count: 1500, sealText: "修身\n立德")
-            practicalThemeCard(theme: .qijia, subtitle: "家勤则兴人勤则俭 · 桃之夭夭 · 颜氏家训", startIndex: 1500, count: 1400, sealText: "齐家\n修业")
-            practicalThemeCard(theme: .jiaoyou, subtitle: "海内存知己 · 喜时之言多失信 · 爱人者人恒爱之", startIndex: 2900, count: 1400, sealText: "处世\n交友")
-            practicalThemeCard(theme: .huozhi, subtitle: "奇货可居 · 日中则移月满则亏 · 周身针砭", startIndex: 4300, count: 1400, sealText: "计然\n货殖")
-            practicalThemeCard(theme: .bingfa, subtitle: "知己知彼 · 破釜沉舟 · 草船借箭 · 刮骨疗毒", startIndex: 5700, count: 1500, sealText: "兵法\n韬略")
-            practicalThemeCard(theme: .zhiguo, subtitle: "德胜才谓之君子 · 先天下之忧而忧 · 勿以恶小而为之", startIndex: 7200, count: 1400, sealText: "治国\n理政")
-            practicalThemeCard(theme: .pingtianxia, subtitle: "大江东去浪淘尽 · 长风破浪会有时 · 会当凌绝顶", startIndex: 8600, count: 1400, sealText: "平天\n下怀")
-        }
+        sectionCards(for: repository.badges.filter { $0.category == .practical })
     }
     
     private func practicalThemeCard(theme: PracticalTheme, subtitle: String, startIndex: Int, count: Int, sealText: String) -> some View {

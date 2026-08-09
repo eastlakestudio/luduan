@@ -201,13 +201,22 @@ public struct MilestoneCelebrationModalView: View {
         let shareText = "【甪端字游】我已累计通关 \(completedCount) 词古风字游！神兽甪端伴学，万关典籍名篇。快来一起体验《甪端字游》！App Store下载：https://apps.apple.com/us/app/%E7%94%AA%E7%AB%AF/id6799431765"
         
         #if canImport(UIKit)
-        let posterView = posterCardView
-        
+        // 只截取金框卡片内容 + 适当外延（固定宽度，高度自适应）
+        let cardContent = posterCardView
+            .padding(4)
+            .frame(width: 390)
+            .background(Color.paperWhite)
+
+        let renderer = ImageRenderer(content: cardContent)
+        renderer.scale = 2
+
         var shareItems: [Any] = [shareText]
-        if let image = ShareSheetHelper.renderViewToImage(posterView, width: 380, height: 680) {
+        if let image = renderer.uiImage {
             shareItems.insert(image, at: 0)
         }
-        ShareSheetHelper.share(items: shareItems)
+        DispatchQueue.main.async {
+            ShareSheetHelper.share(items: shareItems)
+        }
         #else
         ShareSheetHelper.share(items: [shareText])
         #endif

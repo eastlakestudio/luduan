@@ -14,7 +14,7 @@ final class DataRepositoryTests: XCTestCase {
         XCTAssertFalse(repository.levels.isEmpty)
         XCTAssertFalse(repository.badges.isEmpty)
         XCTAssertGreaterThanOrEqual(repository.levels.count, 10)
-        XCTAssertGreaterThanOrEqual(repository.badges.count, 200)
+        XCTAssertGreaterThanOrEqual(repository.badges.count, 150)
     }
     
     func testCompleteLevelUpdatesProgressAndScore() {

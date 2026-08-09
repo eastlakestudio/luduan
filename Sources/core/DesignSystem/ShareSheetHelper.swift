@@ -28,15 +28,9 @@ public struct ShareSheetHelper {
     #if canImport(UIKit)
     @MainActor
     public static func renderViewToImage<V: View>(_ view: V, width: CGFloat = 390, height: CGFloat = 680) -> UIImage? {
-        let controller = UIHostingController(rootView: view)
-        let targetSize = CGSize(width: width, height: height)
-        controller.view.bounds = CGRect(origin: .zero, size: targetSize)
-        controller.view.backgroundColor = .clear
-
-        let renderer = UIGraphicsImageRenderer(size: targetSize)
-        return renderer.image { _ in
-            controller.view.drawHierarchy(in: controller.view.bounds, afterScreenUpdates: true)
-        }
+        let renderer = ImageRenderer(content: view.frame(width: width, height: height))
+        renderer.scale = 2
+        return renderer.uiImage
     }
     #endif
     
@@ -46,16 +40,21 @@ public struct ShareSheetHelper {
               let rootViewController = windowScene.windows.first?.rootViewController else {
             return
         }
+        // 找到最顶层正在展示的 VC（root 可能已经在 present fullScreenCover + sheet）
+        var topVC = rootViewController
+        while let presented = topVC.presentedViewController {
+            topVC = presented
+        }
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        
+
         // iPad popover 居中展示
         if let popover = activityVC.popoverPresentationController {
-            popover.sourceView = rootViewController.view
-            popover.sourceRect = CGRect(x: rootViewController.view.bounds.midX, y: rootViewController.view.bounds.midY, width: 0, height: 0)
+            popover.sourceView = topVC.view
+            popover.sourceRect = CGRect(x: topVC.view.bounds.midX, y: topVC.view.bounds.midY, width: 0, height: 0)
             popover.permittedArrowDirections = []
         }
-        
-        rootViewController.present(activityVC, animated: true)
+
+        topVC.present(activityVC, animated: true)
         #endif
     }
 }

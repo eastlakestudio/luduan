@@ -5,3 +5,5 @@
 *.xcworkspace
 xcuserdata/
 DerivedData/
+build/*.xcarchive
+build/ipa_temp/

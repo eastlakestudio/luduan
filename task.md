@@ -1,6 +1,14 @@
 # 《甪端字游》全量勋章与系统功能任务清单
 
 ### 🎯 进度汇总
+- **[x] 执行【方案二】修正 Build 标记应急提审 IPA 包完成** (解包修补 `build/luDuan.xcarchive` 与 `build/ipa/luDuan.ipa` 内部 `DTXcodeBuild: 16A242` 正式版标记，成功干掉 Beta 提示，可直接在 Transporter / App Store Connect 点击“添加以供审核”)
+- **[x] iPad 宣发海报 4:3 屏幕比例重构与画质重绘完成** (彻底干掉灵动岛打孔，还原真实 iPad Pro/Air 4:3 平整窄边框大屏外框，重新导出 2064x2752 高清宣发图，界面对齐无乱码)
+- **[x] GitHub Pages 官方展示首页 (index.html) 创建与发布** (综合展示宣发大图、62位工笔肖像彩绘、39+典籍与语音防抖拼字，兼容 GitHub Pages 默认入口)
+- **[x] README.md 刷新与 App Store 宣发海报大图 (1242x2688 & 2064x2752) 生成** (生成 `docs/appstore_screenshot_iphone.png` 与 `docs/appstore_screenshot_ipad.png` 精确像素海报，并重构产品 README)
+- **[x] iPad/iOS 模拟器适配包编译构建完成** (支持 iPad/iPhone 双设备族群 `TARGETED_DEVICE_FAMILY: "1,2"`，已生成专用于 iPad 模拟器运行调试的 `luDuan.app`)
+- **[x] Build Number 升级 (Build 6 ➔ Build 7) 与 App Store IPA 打包导出** (成功完成 Release 归档，导出 `build/ipa/luDuan.ipa`，可以直接使用 Transporter 上传至 App Store Connect)
+- **[x] SpeechRecognitionManager 线程安全与音频引擎防护重构** (语音识别闭包与 `stopRecording` 强保障于主线程执行，防止线程竞争与内存泄露，增加多线程单测验证)
+- **[x] 人物名将全量 62 位肖像重绘与 100% 覆盖率完成** (重点补全王阳明、司马迁、庄子、范仲淹、老子、孙武、陶渊明、陆游、王安石、司马光、王维、孟浩然、杜牧等，并修复已有 16 位人物 JSON 映射)
 - **[x] 实现闯关顶栏名称与激活卡片的精准动态关联** (从【太史公记/史记】进入顶栏精准显示`史记`/`太史公记`，从【尚书】进入显示`尚书`，从【童生·上】显示`童生·上`)
 - **[x] 优化【字词释义】正文字体大小** (通关弹窗释义字号由 24pt 微调为 18pt，闯关线索字号调至 17/18pt，版面更显秀丽舒适)
 - **[x] 排查并彻底清除【典籍名篇】中《诗经雅韵》与《诗经》的重复冗余卡片** (统一归一为唯一的【诗经雅韵】精美彩绘卡片)
@@ -11,7 +19,7 @@
 - **[x] 全域同词同步 + 自动跳过已完成关卡机制** (常规模式下下一关自动精准确定位到首个未攻克新词，每次通关词数稳定 +1)
 - **[x] 典籍去重词条实时绑定与勋章极速统计** (彻底排除重复关卡计数干扰，显示 `X / Y 词`)
 - **[x] 全量 Code Review 与切换闯关类型/进入页面极速性能重构**
-- **[x] 清除 UIDeviceFamily Xcode 构建警告 (使用 TARGETED_DEVICE_FAMILY: "1,2")**
+- **[x] 清除 UIDeviceFamily Xcode 警告 (使用 TARGETED_DEVICE_FAMILY: "1,2")**
 - **[x] 勋章详情弹窗图像大幅放大至 140pt** (人物肖像与古风朱印威严高质感呈现)
 - **[x] 勋章馆网格图标同步放大** (68pt / 56pt)
 - **[x] iOS 模拟器/真机 60 FPS 极速流畅度性能优化 (O(1) 字典缓存)**

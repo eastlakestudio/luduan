@@ -6,6 +6,7 @@ import AVFoundation
 #endif
 
 /// 语音识别与录音管理器 (Speech & Voice Input Manager)
+/// 遵循主线程安全规范 (Main Thread Safe)
 public class SpeechRecognitionManager: ObservableObject {
     public static let shared = SpeechRecognitionManager()
     
@@ -17,6 +18,7 @@ public class SpeechRecognitionManager: ObservableObject {
     private var speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "zh-CN"))
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
+    private var processDebounce: DispatchWorkItem?
     private let audioEngine = AVAudioEngine()
     #endif
     
@@ -102,15 +104,28 @@ public class SpeechRecognitionManager: ObservableObject {
         
         recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest) { [weak self] result, error in
             guard let self = self else { return }
-            if let result = result {
-                let text = result.bestTranscription.formattedString
-                DispatchQueue.main.async {
+            
+            // 强线程安全保证：子线程识别回调一律派发至主线程
+            DispatchQueue.main.async {
+                if let result = result {
+                    let text = result.bestTranscription.formattedString
                     self.recognizedText = text
-                    onTextRecognized(text)
+                    
+                    // 主线程防抖控制：0.3s 无新吐字后才触发高层文本解析
+                    self.processDebounce?.cancel()
+                    let work = DispatchWorkItem {
+                        onTextRecognized(text)
+                    }
+                    self.processDebounce = work
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: work)
                 }
-            }
-            if error != nil || (result?.isFinal ?? false) {
-                self.stopRecording()
+                
+                if error != nil || (result?.isFinal ?? false) {
+                    self.processDebounce?.cancel()
+                    let finalText = result?.bestTranscription.formattedString ?? self.recognizedText
+                    onTextRecognized(finalText)
+                    self.stopRecording()
+                }
             }
         }
         
@@ -138,9 +153,22 @@ public class SpeechRecognitionManager: ObservableObject {
         #endif
     }
     
-    /// 停止语音倾听录音
+    /// 停止语音倾听录音 (主线程强安全访问)
     public func stopRecording() {
+        if Thread.isMainThread {
+            performStopRecording()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.performStopRecording()
+            }
+        }
+    }
+    
+    private func performStopRecording() {
         #if canImport(Speech)
+        processDebounce?.cancel()
+        processDebounce = nil
+        
         if audioEngine.isRunning {
             audioEngine.stop()
             audioEngine.inputNode.removeTap(onBus: 0)
@@ -150,9 +178,8 @@ public class SpeechRecognitionManager: ObservableObject {
         recognitionTask?.cancel()
         recognitionTask = nil
         #endif
-        DispatchQueue.main.async {
-            self.isRecording = false
-        }
+        
+        self.isRecording = false
     }
     
     /// 切换录音状态

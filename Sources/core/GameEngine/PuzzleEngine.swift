@@ -181,7 +181,24 @@ public final class PuzzleEngine: ObservableObject {
     public func processVoiceInputString(_ voiceText: String) -> Int {
         let cleanText = voiceText.filter { !$0.isWhitespace && !$0.isPunctuation }
         let chars = Array(cleanText).map { String($0) }
-        
+        let targetChars = Array(level.targetPhrase).map { String($0) }
+
+        // 语音乱序容错：识别出的字符集合（忽略顺序）与目标一致时，按目标正确顺序直接选入
+        if chars.count == targetChars.count, chars.sorted() == targetChars.sorted() {
+            selectedIndices.removeAll()
+            for targetChar in targetChars {
+                if let idx = tiles.enumerated().first(where: { (i, t) in
+                    !selectedIndices.contains(i) && t == targetChar
+                })?.offset {
+                    selectedIndices.append(idx)
+                }
+            }
+            if selectedIndices.count == targetChars.count {
+                checkAnswer()
+            }
+            return selectedIndices.count
+        }
+
         var count = 0
         for charStr in chars {
             guard selectedIndices.count < level.targetPhrase.count else { break }

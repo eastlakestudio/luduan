@@ -87,7 +87,7 @@
     "category": "人物名将",
     "description": "老骥伏枥，志在千里。烈士暮年，壮心不已。",
     "requirementDescription": "破解第 1 关或收集专属典故解锁",
-    "imageName": "badge_char_1"
+    "imageName": "badge_caocao"
   },
   {
     "id": "badge_char_2",
@@ -96,7 +96,7 @@
     "category": "人物名将",
     "description": "忠义震华夏，刮骨疗毒威。",
     "requirementDescription": "破解第 2 关或收集专属典故解锁",
-    "imageName": "badge_char_2"
+    "imageName": "badge_guanyu"
   },
   {
     "id": "badge_char_3",
@@ -105,7 +105,7 @@
     "category": "人物名将",
     "description": "羽扇纶巾，谈笑间，樯橹灰飞烟灭。",
     "requirementDescription": "破解第 3 关或收集专属典故解锁",
-    "imageName": "badge_char_3"
+    "imageName": "badge_zhouyu"
   },
   {
     "id": "badge_char_4",
@@ -114,7 +114,7 @@
     "category": "人物名将",
     "description": "究天人之际，通古今之变，成一家之言。",
     "requirementDescription": "破解第 4 关或收集专属典故解锁",
-    "imageName": "badge_char_4"
+    "imageName": "badge_simaqian"
   },
   {
     "id": "badge_char_5",
@@ -123,7 +123,7 @@
     "category": "人物名将",
     "description": "路漫漫其修远兮，吾将上下而求索。",
     "requirementDescription": "破解第 5 关或收集专属典故解锁",
-    "imageName": "badge_char_5"
+    "imageName": "badge_quyuan"
   },
   {
     "id": "badge_char_6",
@@ -132,7 +132,7 @@
     "category": "人物名将",
     "description": "知行合一，无善无恶心之体。",
     "requirementDescription": "破解第 6 关或收集专属典故解锁",
-    "imageName": "badge_char_6"
+    "imageName": "badge_wangyangming"
   },
   {
     "id": "badge_char_7",
@@ -141,7 +141,7 @@
     "category": "人物名将",
     "description": "满纸荒唐言，一把辛酸泪。",
     "requirementDescription": "破解第 7 关或收集专属典故解锁",
-    "imageName": "badge_char_7"
+    "imageName": "badge_caoxueqin"
   },
   {
     "id": "badge_char_8",
@@ -150,7 +150,7 @@
     "category": "人物名将",
     "description": "家勤则兴，人勤则俭，永不贫贱。",
     "requirementDescription": "破解第 8 关或收集专属典故解锁",
-    "imageName": "badge_char_8"
+    "imageName": "badge_zengguofan"
   },
   {
     "id": "badge_char_9",
@@ -159,7 +159,7 @@
     "category": "人物名将",
     "description": "道生一，一生二，二生三，三生万物。",
     "requirementDescription": "破解第 9 关或收集专属典故解锁",
-    "imageName": "badge_char_9"
+    "imageName": "badge_laozi"
   },
   {
     "id": "badge_char_10",
@@ -168,7 +168,7 @@
     "category": "人物名将",
     "description": "乘天地之正，而御六气之辩，以游无穷者。",
     "requirementDescription": "破解第 10 关或收集专属典故解锁",
-    "imageName": "badge_char_10"
+    "imageName": "badge_zhuangzi"
   },
   {
     "id": "badge_char_11",
@@ -177,7 +177,7 @@
     "category": "人物名将",
     "description": "知己知彼，百战不殆。",
     "requirementDescription": "破解第 11 关或收集专属典故解锁",
-    "imageName": "badge_char_11"
+    "imageName": "badge_sunwu"
   },
   {
     "id": "badge_char_12",
@@ -186,7 +186,7 @@
     "category": "人物名将",
     "description": "世异则事异，事异则备变。",
     "requirementDescription": "破解第 12 关或收集专属典故解锁",
-    "imageName": "badge_char_12"
+    "imageName": "badge_hanfeizi"
   },
   {
     "id": "badge_char_13",
@@ -195,7 +195,7 @@
     "category": "人物名将",
     "description": "清正廉明，铁面无私。",
     "requirementDescription": "破解第 13 关或收集专属典故解锁",
-    "imageName": "badge_char_13"
+    "imageName": "badge_baozheng"
   },
   {
     "id": "badge_char_14",
@@ -204,7 +204,7 @@
     "category": "人物名将",
     "description": "采菊东篱下，悠然见南山。",
     "requirementDescription": "破解第 14 关或收集专属典故解锁",
-    "imageName": "badge_char_14"
+    "imageName": "badge_taoyuanming"
   },
   {
     "id": "badge_char_15",
@@ -213,7 +213,7 @@
     "category": "人物名将",
     "description": "醉里挑灯看剑，梦回吹角连营。",
     "requirementDescription": "破解第 15 关或收集专属典故解锁",
-    "imageName": "badge_char_15"
+    "imageName": "badge_xinqiji"
   },
   {
     "id": "badge_char_16",
@@ -222,7 +222,7 @@
     "category": "人物名将",
     "description": "醉翁之意不在酒，在乎山水之间也。",
     "requirementDescription": "破解第 16 关或收集专属典故解锁",
-    "imageName": "badge_char_16"
+    "imageName": "badge_ouyangxiu"
   },
   {
     "id": "badge_char_17",
@@ -231,7 +231,7 @@
     "category": "人物名将",
     "description": "先天下之忧而忧，后天下之乐而乐。",
     "requirementDescription": "破解第 17 关或收集专属典故解锁",
-    "imageName": "badge_char_17"
+    "imageName": "badge_fanzhongyan"
   },
   {
     "id": "badge_char_18",
@@ -240,7 +240,7 @@
     "category": "人物名将",
     "description": "王师北定中原日，家祭无忘告乃翁。",
     "requirementDescription": "破解第 18 关或收集专属典故解锁",
-    "imageName": "badge_char_18"
+    "imageName": "badge_luyou"
   },
   {
     "id": "badge_char_19",
@@ -249,7 +249,7 @@
     "category": "人物名将",
     "description": "生当作人杰，死亦为鬼雄。",
     "requirementDescription": "破解第 19 关或收集专属典故解锁",
-    "imageName": "badge_char_19"
+    "imageName": "badge_liqingzhao"
   },
   {
     "id": "badge_char_20",
@@ -258,7 +258,7 @@
     "category": "人物名将",
     "description": "不畏浮云遮望眼，自缘身在最高层。",
     "requirementDescription": "破解第 20 关或收集专属典故解锁",
-    "imageName": "badge_char_20"
+    "imageName": "badge_wanganshi"
   },
   {
     "id": "badge_char_21",
@@ -267,7 +267,7 @@
     "category": "人物名将",
     "description": "德胜才谓之君子，才胜德谓之小人。",
     "requirementDescription": "破解第 21 关或收集专属典故解锁",
-    "imageName": "badge_char_21"
+    "imageName": "badge_simaguang"
   },
   {
     "id": "badge_char_22",
@@ -276,7 +276,7 @@
     "category": "人物名将",
     "description": "萧规曹随，汉书留名。",
     "requirementDescription": "破解第 22 关或收集专属典故解锁",
-    "imageName": "badge_char_22"
+    "imageName": "badge_bangu"
   },
   {
     "id": "badge_char_23",
@@ -285,7 +285,7 @@
     "category": "人物名将",
     "description": "疾风知劲草，板荡识诚臣。",
     "requirementDescription": "破解第 23 关或收集专属典故解锁",
-    "imageName": "badge_char_23"
+    "imageName": "badge_fanye"
   },
   {
     "id": "badge_char_24",
@@ -294,7 +294,7 @@
     "category": "人物名将",
     "description": "三国鼎立，折冲樽俎。",
     "requirementDescription": "破解第 24 关或收集专属典故解锁",
-    "imageName": "badge_char_24"
+    "imageName": "badge_chenshou"
   },
   {
     "id": "badge_char_25",
@@ -303,7 +303,7 @@
     "category": "人物名将",
     "description": "战国策勋，古今传承。",
     "requirementDescription": "破解第 25 关或收集专属典故解锁",
-    "imageName": "badge_char_25"
+    "imageName": "badge_liuxiang"
   },
   {
     "id": "badge_char_26",
@@ -312,7 +312,7 @@
     "category": "人物名将",
     "description": "野火烧不尽，春风吹又生。",
     "requirementDescription": "破解第 26 关或收集专属典故解锁",
-    "imageName": "badge_char_26"
+    "imageName": "badge_baijuyi"
   },
   {
     "id": "badge_char_27",
@@ -321,7 +321,7 @@
     "category": "人物名将",
     "description": "行到水穷处，坐看云起时。",
     "requirementDescription": "破解第 27 关或收集专属典故解锁",
-    "imageName": "badge_char_27"
+    "imageName": "badge_wangwei"
   },
   {
     "id": "badge_char_28",
@@ -330,7 +330,7 @@
     "category": "人物名将",
     "description": "春眠不觉晓，处处闻啼鸟。",
     "requirementDescription": "破解第 28 关或收集专属典故解锁",
-    "imageName": "badge_char_28"
+    "imageName": "badge_menghaoran"
   },
   {
     "id": "badge_char_29",
@@ -339,7 +339,7 @@
     "category": "人物名将",
     "description": "停车坐爱枫林晚，霜叶红于二月花。",
     "requirementDescription": "破解第 29 关或收集专属典故解锁",
-    "imageName": "badge_char_29"
+    "imageName": "badge_dumu"
   },
   {
     "id": "badge_char_30",
@@ -348,7 +348,7 @@
     "category": "人物名将",
     "description": "身无彩凤双飞翼，心有灵犀一点通。",
     "requirementDescription": "破解第 30 关或收集专属典故解锁",
-    "imageName": "badge_char_30"
+    "imageName": "badge_lishangyin"
   },
   {
     "id": "badge_char_31",
@@ -357,7 +357,7 @@
     "category": "人物名将",
     "description": "千山鸟飞绝，万径人踪灭。",
     "requirementDescription": "破解第 31 关或收集专属典故解锁",
-    "imageName": "badge_char_31"
+    "imageName": "badge_liuzongyuan"
   },
   {
     "id": "badge_char_32",
@@ -366,7 +366,7 @@
     "category": "人物名将",
     "description": "业精于勤，荒于嬉；行成于思，毁于随。",
     "requirementDescription": "破解第 32 关或收集专属典故解锁",
-    "imageName": "badge_char_32"
+    "imageName": "badge_hanyu"
   },
   {
     "id": "badge_char_33",
@@ -375,7 +375,7 @@
     "category": "人物名将",
     "description": "少年才俊，宣室求贤。",
     "requirementDescription": "破解第 33 关或收集专属典故解锁",
-    "imageName": "badge_char_33"
+    "imageName": "badge_jiayi"
   },
   {
     "id": "badge_char_34",
@@ -384,7 +384,7 @@
     "category": "人物名将",
     "description": "兼听则明，偏信则暗。",
     "requirementDescription": "破解第 34 关或收集专属典故解锁",
-    "imageName": "badge_char_34"
+    "imageName": "badge_weizheng"
   },
   {
     "id": "badge_char_35",
@@ -393,7 +393,7 @@
     "category": "人物名将",
     "description": "房谋杜断，贞观名相。",
     "requirementDescription": "破解第 35 关或收集专属典故解锁",
-    "imageName": "badge_char_35"
+    "imageName": "badge_fangxuanling"
   },
   {
     "id": "badge_char_36",
@@ -402,7 +402,7 @@
     "category": "人物名将",
     "description": "运筹帷幄，断大事捷。",
     "requirementDescription": "破解第 36 关或收集专属典故解锁",
-    "imageName": "badge_char_36"
+    "imageName": "badge_duruhui"
   },
   {
     "id": "badge_char_37",
@@ -411,7 +411,7 @@
     "category": "人物名将",
     "description": "算无遗策，才策谋略。",
     "requirementDescription": "破解第 37 关或收集专属典故解锁",
-    "imageName": "badge_char_37"
+    "imageName": "badge_guojia"
   },
   {
     "id": "badge_char_38",
@@ -420,7 +420,7 @@
     "category": "人物名将",
     "description": "王佐之才，坚贞守节。",
     "requirementDescription": "破解第 38 关或收集专属典故解锁",
-    "imageName": "badge_char_38"
+    "imageName": "badge_xunyu"
   },
   {
     "id": "badge_char_39",
@@ -429,7 +429,7 @@
     "category": "人物名将",
     "description": "火烧连营，社稷之臣。",
     "requirementDescription": "破解第 39 关或收集专属典故解锁",
-    "imageName": "badge_char_39"
+    "imageName": "badge_luxun"
   },
   {
     "id": "badge_char_40",
@@ -438,7 +438,7 @@
     "category": "人物名将",
     "description": "澹泊明志，宁静致远。",
     "requirementDescription": "破解第 40 关或收集专属典故解锁",
-    "imageName": "badge_char_40"
+    "imageName": "badge_jiangwei"
   },
   {
     "id": "badge_char_41",
@@ -447,7 +447,7 @@
     "category": "人物名将",
     "description": "榻上对策，大智若愚。",
     "requirementDescription": "破解第 41 关或收集专属典故解锁",
-    "imageName": "badge_char_41"
+    "imageName": "badge_lusu"
   },
   {
     "id": "badge_char_42",
@@ -456,7 +456,7 @@
     "category": "人物名将",
     "description": "运筹帷幄之中，决胜千里之外。",
     "requirementDescription": "破解第 42 关或收集专属典故解锁",
-    "imageName": "badge_char_42"
+    "imageName": "badge_zhangliang"
   },
   {
     "id": "badge_char_43",
@@ -465,7 +465,7 @@
     "category": "人物名将",
     "description": "镇国家，抚百姓，给饷馈。",
     "requirementDescription": "破解第 43 关或收集专属典故解锁",
-    "imageName": "badge_char_43"
+    "imageName": "badge_xiaohe"
   },
   {
     "id": "badge_char_44",
@@ -474,7 +474,7 @@
     "category": "人物名将",
     "description": "多多益善，背水一战。",
     "requirementDescription": "破解第 44 关或收集专属典故解锁",
-    "imageName": "badge_char_44"
+    "imageName": "badge_hanxin"
   },
   {
     "id": "badge_char_45",
@@ -483,7 +483,7 @@
     "category": "人物名将",
     "description": "匈奴未灭，何以家为！",
     "requirementDescription": "破解第 45 关或收集专属典故解锁",
-    "imageName": "badge_char_45"
+    "imageName": "badge_huoqubing"
   },
   {
     "id": "badge_char_46",
@@ -492,7 +492,7 @@
     "category": "人物名将",
     "description": "龙城飞将，大漠驱匈。",
     "requirementDescription": "破解第 46 关或收集专属典故解锁",
-    "imageName": "badge_char_46"
+    "imageName": "badge_weiqing"
   },
   {
     "id": "badge_char_47",
@@ -501,7 +501,7 @@
     "category": "人物名将",
     "description": "精忠报国，莫须有撼。",
     "requirementDescription": "破解第 47 关或收集专属典故解锁",
-    "imageName": "badge_char_47"
+    "imageName": "badge_yuefei"
   },
   {
     "id": "badge_char_48",
@@ -510,7 +510,7 @@
     "category": "人物名将",
     "description": "人生自古谁无死？留取丹心照汗青。",
     "requirementDescription": "破解第 48 关或收集专属典故解锁",
-    "imageName": "badge_char_48"
+    "imageName": "badge_wentianxiang"
   },
   {
     "id": "badge_char_49",
@@ -519,7 +519,7 @@
     "category": "人物名将",
     "description": "开台宏业，千古英雄。",
     "requirementDescription": "破解第 49 关或收集专属典故解锁",
-    "imageName": "badge_char_49"
+    "imageName": "badge_zhengchenggong"
   },
   {
     "id": "badge_char_50",
@@ -528,7 +528,7 @@
     "category": "人物名将",
     "description": "苟利国家生死以，岂因祸福避趋之。",
     "requirementDescription": "破解第 50 关或收集专属典故解锁",
-    "imageName": "badge_char_50"
+    "imageName": "badge_linzexu"
   },
   {
     "id": "badge_char_51",
@@ -537,7 +537,7 @@
     "category": "人物名将",
     "description": "四库全书，文章巨公。",
     "requirementDescription": "破解第 51 关或收集专属典故解锁",
-    "imageName": "badge_char_51"
+    "imageName": "badge_jixiaolan"
   },
   {
     "id": "badge_char_52",
@@ -546,7 +546,7 @@
     "category": "人物名将",
     "description": "兼相爱，交相利。",
     "requirementDescription": "破解第 52 关或收集专属典故解锁",
-    "imageName": "badge_char_52"
+    "imageName": "badge_mozi"
   },
   {
     "id": "badge_char_53",
@@ -555,7 +555,7 @@
     "category": "人物名将",
     "description": "青，取之于蓝，而青于蓝。",
     "requirementDescription": "破解第 53 关或收集专属典故解锁",
-    "imageName": "badge_char_53"
+    "imageName": "badge_xunzi"
   },
   {
     "id": "badge_char_54",
@@ -564,7 +564,7 @@
     "category": "人物名将",
     "description": "地动天机，精巧绝伦。",
     "requirementDescription": "破解第 54 关或收集专属典故解锁",
-    "imageName": "badge_char_54"
+    "imageName": "badge_zhangheng"
   },
   {
     "id": "badge_char_55",
@@ -573,7 +573,7 @@
     "category": "人物名将",
     "description": "圆周密率，千古神算。",
     "requirementDescription": "破解第 55 关或收集专属典故解锁",
-    "imageName": "badge_char_55"
+    "imageName": "badge_zuchongzhi"
   },
   {
     "id": "badge_acad_1_1",
@@ -782,7 +782,15 @@
     "requirementDescription": "破解第 39 关·帝师阶解锁",
     "imageName": "badge_acad_13"
   },
-
+  {
+    "id": "badge_class_1",
+    "name": "诗经",
+    "sealText": "典籍\n诗经",
+    "category": "典籍名篇",
+    "description": "千古名篇博大精深，汇聚中华典籍智慧精髓。",
+    "requirementDescription": "破解第 3 关·研读《诗经》解锁",
+    "imageName": "badge_class_1"
+  },
   {
     "id": "badge_class_2",
     "name": "尚书",
@@ -1126,1083 +1134,363 @@
     "imageName": "badge_class_39"
   },
   {
-    "id": "badge_prac_1_1",
-    "name": "修身立德·上",
-    "sealText": "修养\n修身上",
+    "id": "badge_prac_1",
+    "name": "修身立德",
+    "sealText": "修养\n修身",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 4 关·上境解锁",
-    "imageName": "badge_prac_1_1"
+    "requirementDescription": "破解第 4 关·修身立德境解锁",
+    "imageName": "badge_prac_1"
   },
   {
-    "id": "badge_prac_1_2",
-    "name": "修身立德·中",
-    "sealText": "修养\n修身中",
+    "id": "badge_prac_2",
+    "name": "修身静心",
+    "sealText": "修养\n修身",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 4 关·中境解锁",
-    "imageName": "badge_prac_1_2"
+    "requirementDescription": "破解第 8 关·修身静心境解锁",
+    "imageName": "badge_prac_2"
   },
   {
-    "id": "badge_prac_1_3",
-    "name": "修身立德·下",
-    "sealText": "修养\n修身下",
+    "id": "badge_prac_3",
+    "name": "修身省吾",
+    "sealText": "修养\n修身",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 4 关·下境解锁",
-    "imageName": "badge_prac_1_3"
+    "requirementDescription": "破解第 12 关·修身省吾境解锁",
+    "imageName": "badge_prac_3"
   },
   {
-    "id": "badge_prac_2_1",
-    "name": "修身静心·上",
-    "sealText": "修养\n修身上",
+    "id": "badge_prac_4",
+    "name": "修身克己",
+    "sealText": "修养\n修身",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 8 关·上境解锁",
-    "imageName": "badge_prac_2_1"
+    "requirementDescription": "破解第 16 关·修身克己境解锁",
+    "imageName": "badge_prac_4"
   },
   {
-    "id": "badge_prac_2_2",
-    "name": "修身静心·中",
-    "sealText": "修养\n修身中",
+    "id": "badge_prac_5",
+    "name": "齐家和顺",
+    "sealText": "修养\n齐家",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 8 关·中境解锁",
-    "imageName": "badge_prac_2_2"
+    "requirementDescription": "破解第 20 关·齐家和顺境解锁",
+    "imageName": "badge_prac_5"
   },
   {
-    "id": "badge_prac_2_3",
-    "name": "修身静心·下",
-    "sealText": "修养\n修身下",
+    "id": "badge_prac_6",
+    "name": "齐家宜室",
+    "sealText": "修养\n齐家",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 8 关·下境解锁",
-    "imageName": "badge_prac_2_3"
+    "requirementDescription": "破解第 24 关·齐家宜室境解锁",
+    "imageName": "badge_prac_6"
   },
   {
-    "id": "badge_prac_3_1",
-    "name": "修身省吾·上",
-    "sealText": "修养\n修身上",
+    "id": "badge_prac_7",
+    "name": "齐家教子",
+    "sealText": "修养\n齐家",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 12 关·上境解锁",
-    "imageName": "badge_prac_3_1"
+    "requirementDescription": "破解第 28 关·齐家教子境解锁",
+    "imageName": "badge_prac_7"
   },
   {
-    "id": "badge_prac_3_2",
-    "name": "修身省吾·中",
-    "sealText": "修养\n修身中",
+    "id": "badge_prac_8",
+    "name": "齐家勤俭",
+    "sealText": "修养\n齐家",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 12 关·中境解锁",
-    "imageName": "badge_prac_3_2"
+    "requirementDescription": "破解第 32 关·齐家勤俭境解锁",
+    "imageName": "badge_prac_8"
   },
   {
-    "id": "badge_prac_3_3",
-    "name": "修身省吾·下",
-    "sealText": "修养\n修身下",
+    "id": "badge_prac_9",
+    "name": "治国经纶",
+    "sealText": "修养\n治国",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 12 关·下境解锁",
-    "imageName": "badge_prac_3_3"
+    "requirementDescription": "破解第 36 关·治国经纶境解锁",
+    "imageName": "badge_prac_9"
   },
   {
-    "id": "badge_prac_4_1",
-    "name": "修身克己·上",
-    "sealText": "修养\n修身上",
+    "id": "badge_prac_10",
+    "name": "治国安邦",
+    "sealText": "修养\n治国",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 16 关·上境解锁",
-    "imageName": "badge_prac_4_1"
+    "requirementDescription": "破解第 40 关·治国安邦境解锁",
+    "imageName": "badge_prac_10"
   },
   {
-    "id": "badge_prac_4_2",
-    "name": "修身克己·中",
-    "sealText": "修养\n修身中",
+    "id": "badge_prac_11",
+    "name": "治国尚贤",
+    "sealText": "修养\n治国",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 16 关·中境解锁",
-    "imageName": "badge_prac_4_2"
+    "requirementDescription": "破解第 44 关·治国尚贤境解锁",
+    "imageName": "badge_prac_11"
   },
   {
-    "id": "badge_prac_4_3",
-    "name": "修身克己·下",
-    "sealText": "修养\n修身下",
+    "id": "badge_prac_12",
+    "name": "治国利民",
+    "sealText": "修养\n治国",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 16 关·下境解锁",
-    "imageName": "badge_prac_4_3"
+    "requirementDescription": "破解第 48 关·治国利民境解锁",
+    "imageName": "badge_prac_12"
   },
   {
-    "id": "badge_prac_5_1",
-    "name": "齐家和顺·上",
-    "sealText": "修养\n齐家上",
+    "id": "badge_prac_13",
+    "name": "平天下雄心",
+    "sealText": "修养\n平天",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 20 关·上境解锁",
-    "imageName": "badge_prac_5_1"
+    "requirementDescription": "破解第 52 关·平天下雄心境解锁",
+    "imageName": "badge_prac_13"
   },
   {
-    "id": "badge_prac_5_2",
-    "name": "齐家和顺·中",
-    "sealText": "修养\n齐家中",
+    "id": "badge_prac_14",
+    "name": "平天下抱负",
+    "sealText": "修养\n平天",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 20 关·中境解锁",
-    "imageName": "badge_prac_5_2"
+    "requirementDescription": "破解第 56 关·平天下抱负境解锁",
+    "imageName": "badge_prac_14"
   },
   {
-    "id": "badge_prac_5_3",
-    "name": "齐家和顺·下",
-    "sealText": "修养\n齐家下",
+    "id": "badge_prac_15",
+    "name": "平天下风云",
+    "sealText": "修养\n平天",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 20 关·下境解锁",
-    "imageName": "badge_prac_5_3"
+    "requirementDescription": "破解第 60 关·平天下风云境解锁",
+    "imageName": "badge_prac_15"
   },
   {
-    "id": "badge_prac_6_1",
-    "name": "齐家宜室·上",
-    "sealText": "修养\n齐家上",
+    "id": "badge_prac_16",
+    "name": "平天下功名",
+    "sealText": "修养\n平天",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 24 关·上境解锁",
-    "imageName": "badge_prac_6_1"
+    "requirementDescription": "破解第 64 关·平天下功名境解锁",
+    "imageName": "badge_prac_16"
   },
   {
-    "id": "badge_prac_6_2",
-    "name": "齐家宜室·中",
-    "sealText": "修养\n齐家中",
+    "id": "badge_prac_17",
+    "name": "经商奇货",
+    "sealText": "修养\n经商",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 24 关·中境解锁",
-    "imageName": "badge_prac_6_2"
+    "requirementDescription": "破解第 68 关·经商奇货境解锁",
+    "imageName": "badge_prac_17"
   },
   {
-    "id": "badge_prac_6_3",
-    "name": "齐家宜室·下",
-    "sealText": "修养\n齐家下",
+    "id": "badge_prac_18",
+    "name": "经商诚信",
+    "sealText": "修养\n经商",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 24 关·下境解锁",
-    "imageName": "badge_prac_6_3"
+    "requirementDescription": "破解第 72 关·经商诚信境解锁",
+    "imageName": "badge_prac_18"
   },
   {
-    "id": "badge_prac_7_1",
-    "name": "齐家教子·上",
-    "sealText": "修养\n齐家上",
+    "id": "badge_prac_19",
+    "name": "经商物盛",
+    "sealText": "修养\n经商",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 28 关·上境解锁",
-    "imageName": "badge_prac_7_1"
+    "requirementDescription": "破解第 76 关·经商物盛境解锁",
+    "imageName": "badge_prac_19"
   },
   {
-    "id": "badge_prac_7_2",
-    "name": "齐家教子·中",
-    "sealText": "修养\n齐家中",
+    "id": "badge_prac_20",
+    "name": "经商未雨",
+    "sealText": "修养\n经商",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 28 关·中境解锁",
-    "imageName": "badge_prac_7_2"
+    "requirementDescription": "破解第 80 关·经商未雨境解锁",
+    "imageName": "badge_prac_20"
   },
   {
-    "id": "badge_prac_7_3",
-    "name": "齐家教子·下",
-    "sealText": "修养\n齐家下",
+    "id": "badge_prac_21",
+    "name": "处世交友",
+    "sealText": "修养\n处世",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 28 关·下境解锁",
-    "imageName": "badge_prac_7_3"
+    "requirementDescription": "破解第 84 关·处世交友境解锁",
+    "imageName": "badge_prac_21"
   },
   {
-    "id": "badge_prac_8_1",
-    "name": "齐家勤俭·上",
-    "sealText": "修养\n齐家上",
+    "id": "badge_prac_22",
+    "name": "处世恒爱",
+    "sealText": "修养\n处世",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 32 关·上境解锁",
-    "imageName": "badge_prac_8_1"
+    "requirementDescription": "破解第 88 关·处世恒爱境解锁",
+    "imageName": "badge_prac_22"
   },
   {
-    "id": "badge_prac_8_2",
-    "name": "齐家勤俭·中",
-    "sealText": "修养\n齐家中",
+    "id": "badge_prac_23",
+    "name": "处世知己",
+    "sealText": "修养\n处世",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 32 关·中境解锁",
-    "imageName": "badge_prac_8_2"
+    "requirementDescription": "破解第 92 关·处世知己境解锁",
+    "imageName": "badge_prac_23"
   },
   {
-    "id": "badge_prac_8_3",
-    "name": "齐家勤俭·下",
-    "sealText": "修养\n齐家下",
+    "id": "badge_prac_24",
+    "name": "处世慎言",
+    "sealText": "修养\n处世",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 32 关·下境解锁",
-    "imageName": "badge_prac_8_3"
+    "requirementDescription": "破解第 96 关·处世慎言境解锁",
+    "imageName": "badge_prac_24"
   },
   {
-    "id": "badge_prac_9_1",
-    "name": "治国经纶·上",
-    "sealText": "修养\n治国上",
+    "id": "badge_prac_25",
+    "name": "处世豁达",
+    "sealText": "修养\n处世",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 36 关·上境解锁",
-    "imageName": "badge_prac_9_1"
+    "requirementDescription": "破解第 100 关·处世豁达境解锁",
+    "imageName": "badge_prac_25"
   },
   {
-    "id": "badge_prac_9_2",
-    "name": "治国经纶·中",
-    "sealText": "修养\n治国中",
+    "id": "badge_prac_26",
+    "name": "兵法神算",
+    "sealText": "修养\n兵法",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 36 关·中境解锁",
-    "imageName": "badge_prac_9_2"
+    "requirementDescription": "破解第 104 关·兵法神算境解锁",
+    "imageName": "badge_prac_26"
   },
   {
-    "id": "badge_prac_9_3",
-    "name": "治国经纶·下",
-    "sealText": "修养\n治国下",
+    "id": "badge_prac_27",
+    "name": "兵法借箭",
+    "sealText": "修养\n兵法",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 36 关·下境解锁",
-    "imageName": "badge_prac_9_3"
+    "requirementDescription": "破解第 108 关·兵法借箭境解锁",
+    "imageName": "badge_prac_27"
   },
   {
-    "id": "badge_prac_10_1",
-    "name": "治国安邦·上",
-    "sealText": "修养\n治国上",
+    "id": "badge_prac_28",
+    "name": "兵法破釜",
+    "sealText": "修养\n兵法",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 40 关·上境解锁",
-    "imageName": "badge_prac_10_1"
+    "requirementDescription": "破解第 112 关·兵法破釜境解锁",
+    "imageName": "badge_prac_28"
   },
   {
-    "id": "badge_prac_10_2",
-    "name": "治国安邦·中",
-    "sealText": "修养\n治国中",
+    "id": "badge_prac_29",
+    "name": "兵法攻心",
+    "sealText": "修养\n兵法",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 40 关·中境解锁",
-    "imageName": "badge_prac_10_2"
+    "requirementDescription": "破解第 116 关·兵法攻心境解锁",
+    "imageName": "badge_prac_29"
   },
   {
-    "id": "badge_prac_10_3",
-    "name": "治国安邦·下",
-    "sealText": "修养\n治国下",
+    "id": "badge_prac_30",
+    "name": "兵法出奇",
+    "sealText": "修养\n兵法",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 40 关·下境解锁",
-    "imageName": "badge_prac_10_3"
+    "requirementDescription": "破解第 120 关·兵法出奇境解锁",
+    "imageName": "badge_prac_30"
   },
   {
-    "id": "badge_prac_11_1",
-    "name": "治国尚贤·上",
-    "sealText": "修养\n治国上",
+    "id": "badge_prac_31",
+    "name": "德胜君子",
+    "sealText": "修养\n德胜",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 44 关·上境解锁",
-    "imageName": "badge_prac_11_1"
+    "requirementDescription": "破解第 124 关·德胜君子境解锁",
+    "imageName": "badge_prac_31"
   },
   {
-    "id": "badge_prac_11_2",
-    "name": "治国尚贤·中",
-    "sealText": "修养\n治国中",
+    "id": "badge_prac_32",
+    "name": "才胜小人",
+    "sealText": "修养\n才胜",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 44 关·中境解锁",
-    "imageName": "badge_prac_11_2"
+    "requirementDescription": "破解第 128 关·才胜小人境解锁",
+    "imageName": "badge_prac_32"
   },
   {
-    "id": "badge_prac_11_3",
-    "name": "治国尚贤·下",
-    "sealText": "修养\n治国下",
+    "id": "badge_prac_33",
+    "name": "戒玩物志",
+    "sealText": "修养\n戒玩",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 44 关·下境解锁",
-    "imageName": "badge_prac_11_3"
+    "requirementDescription": "破解第 132 关·戒玩物志境解锁",
+    "imageName": "badge_prac_33"
   },
   {
-    "id": "badge_prac_12_1",
-    "name": "治国利民·上",
-    "sealText": "修养\n治国上",
+    "id": "badge_prac_34",
+    "name": "戒欲壑深",
+    "sealText": "修养\n戒欲",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 48 关·上境解锁",
-    "imageName": "badge_prac_12_1"
+    "requirementDescription": "破解第 136 关·戒欲壑深境解锁",
+    "imageName": "badge_prac_34"
   },
   {
-    "id": "badge_prac_12_2",
-    "name": "治国利民·中",
-    "sealText": "修养\n治国中",
+    "id": "badge_prac_35",
+    "name": "喜时慎言",
+    "sealText": "修养\n喜时",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 48 关·中境解锁",
-    "imageName": "badge_prac_12_2"
+    "requirementDescription": "破解第 140 关·喜时慎言境解锁",
+    "imageName": "badge_prac_35"
   },
   {
-    "id": "badge_prac_12_3",
-    "name": "治国利民·下",
-    "sealText": "修养\n治国下",
+    "id": "badge_prac_36",
+    "name": "怒时慎体",
+    "sealText": "修养\n怒时",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 48 关·下境解锁",
-    "imageName": "badge_prac_12_3"
+    "requirementDescription": "破解第 144 关·怒时慎体境解锁",
+    "imageName": "badge_prac_36"
   },
   {
-    "id": "badge_prac_13_1",
-    "name": "平天下雄心·上",
-    "sealText": "修养\n平天上",
+    "id": "badge_prac_37",
+    "name": "山高客路",
+    "sealText": "修养\n山高",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 52 关·上境解锁",
-    "imageName": "badge_prac_13_1"
+    "requirementDescription": "破解第 148 关·山高客路境解锁",
+    "imageName": "badge_prac_37"
   },
   {
-    "id": "badge_prac_13_2",
-    "name": "平天下雄心·中",
-    "sealText": "修养\n平天中",
+    "id": "badge_prac_38",
+    "name": "水深渡船",
+    "sealText": "修养\n水深",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 52 关·中境解锁",
-    "imageName": "badge_prac_13_2"
+    "requirementDescription": "破解第 152 关·水深渡船境解锁",
+    "imageName": "badge_prac_38"
   },
   {
-    "id": "badge_prac_13_3",
-    "name": "平天下雄心·下",
-    "sealText": "修养\n平天下",
+    "id": "badge_prac_39",
+    "name": "黄金容易",
+    "sealText": "修养\n黄金",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 52 关·下境解锁",
-    "imageName": "badge_prac_13_3"
+    "requirementDescription": "破解第 156 关·黄金容易境解锁",
+    "imageName": "badge_prac_39"
   },
   {
-    "id": "badge_prac_14_1",
-    "name": "平天下抱负·上",
-    "sealText": "修养\n平天上",
+    "id": "badge_prac_40",
+    "name": "知心难求",
+    "sealText": "修养\n知心",
     "category": "处世修养",
     "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 56 关·上境解锁",
-    "imageName": "badge_prac_14_1"
-  },
-  {
-    "id": "badge_prac_14_2",
-    "name": "平天下抱负·中",
-    "sealText": "修养\n平天中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 56 关·中境解锁",
-    "imageName": "badge_prac_14_2"
-  },
-  {
-    "id": "badge_prac_14_3",
-    "name": "平天下抱负·下",
-    "sealText": "修养\n平天下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 56 关·下境解锁",
-    "imageName": "badge_prac_14_3"
-  },
-  {
-    "id": "badge_prac_15_1",
-    "name": "平天下风云·上",
-    "sealText": "修养\n平天上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 60 关·上境解锁",
-    "imageName": "badge_prac_15_1"
-  },
-  {
-    "id": "badge_prac_15_2",
-    "name": "平天下风云·中",
-    "sealText": "修养\n平天中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 60 关·中境解锁",
-    "imageName": "badge_prac_15_2"
-  },
-  {
-    "id": "badge_prac_15_3",
-    "name": "平天下风云·下",
-    "sealText": "修养\n平天下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 60 关·下境解锁",
-    "imageName": "badge_prac_15_3"
-  },
-  {
-    "id": "badge_prac_16_1",
-    "name": "平天下功名·上",
-    "sealText": "修养\n平天上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 64 关·上境解锁",
-    "imageName": "badge_prac_16_1"
-  },
-  {
-    "id": "badge_prac_16_2",
-    "name": "平天下功名·中",
-    "sealText": "修养\n平天中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 64 关·中境解锁",
-    "imageName": "badge_prac_16_2"
-  },
-  {
-    "id": "badge_prac_16_3",
-    "name": "平天下功名·下",
-    "sealText": "修养\n平天下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 64 关·下境解锁",
-    "imageName": "badge_prac_16_3"
-  },
-  {
-    "id": "badge_prac_17_1",
-    "name": "经商奇货·上",
-    "sealText": "修养\n经商上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 68 关·上境解锁",
-    "imageName": "badge_prac_17_1"
-  },
-  {
-    "id": "badge_prac_17_2",
-    "name": "经商奇货·中",
-    "sealText": "修养\n经商中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 68 关·中境解锁",
-    "imageName": "badge_prac_17_2"
-  },
-  {
-    "id": "badge_prac_17_3",
-    "name": "经商奇货·下",
-    "sealText": "修养\n经商下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 68 关·下境解锁",
-    "imageName": "badge_prac_17_3"
-  },
-  {
-    "id": "badge_prac_18_1",
-    "name": "经商诚信·上",
-    "sealText": "修养\n经商上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 72 关·上境解锁",
-    "imageName": "badge_prac_18_1"
-  },
-  {
-    "id": "badge_prac_18_2",
-    "name": "经商诚信·中",
-    "sealText": "修养\n经商中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 72 关·中境解锁",
-    "imageName": "badge_prac_18_2"
-  },
-  {
-    "id": "badge_prac_18_3",
-    "name": "经商诚信·下",
-    "sealText": "修养\n经商下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 72 关·下境解锁",
-    "imageName": "badge_prac_18_3"
-  },
-  {
-    "id": "badge_prac_19_1",
-    "name": "经商物盛·上",
-    "sealText": "修养\n经商上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 76 关·上境解锁",
-    "imageName": "badge_prac_19_1"
-  },
-  {
-    "id": "badge_prac_19_2",
-    "name": "经商物盛·中",
-    "sealText": "修养\n经商中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 76 关·中境解锁",
-    "imageName": "badge_prac_19_2"
-  },
-  {
-    "id": "badge_prac_19_3",
-    "name": "经商物盛·下",
-    "sealText": "修养\n经商下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 76 关·下境解锁",
-    "imageName": "badge_prac_19_3"
-  },
-  {
-    "id": "badge_prac_20_1",
-    "name": "经商未雨·上",
-    "sealText": "修养\n经商上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 80 关·上境解锁",
-    "imageName": "badge_prac_20_1"
-  },
-  {
-    "id": "badge_prac_20_2",
-    "name": "经商未雨·中",
-    "sealText": "修养\n经商中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 80 关·中境解锁",
-    "imageName": "badge_prac_20_2"
-  },
-  {
-    "id": "badge_prac_20_3",
-    "name": "经商未雨·下",
-    "sealText": "修养\n经商下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 80 关·下境解锁",
-    "imageName": "badge_prac_20_3"
-  },
-  {
-    "id": "badge_prac_21_1",
-    "name": "处世交友·上",
-    "sealText": "修养\n处世上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 84 关·上境解锁",
-    "imageName": "badge_prac_21_1"
-  },
-  {
-    "id": "badge_prac_21_2",
-    "name": "处世交友·中",
-    "sealText": "修养\n处世中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 84 关·中境解锁",
-    "imageName": "badge_prac_21_2"
-  },
-  {
-    "id": "badge_prac_21_3",
-    "name": "处世交友·下",
-    "sealText": "修养\n处世下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 84 关·下境解锁",
-    "imageName": "badge_prac_21_3"
-  },
-  {
-    "id": "badge_prac_22_1",
-    "name": "处世恒爱·上",
-    "sealText": "修养\n处世上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 88 关·上境解锁",
-    "imageName": "badge_prac_22_1"
-  },
-  {
-    "id": "badge_prac_22_2",
-    "name": "处世恒爱·中",
-    "sealText": "修养\n处世中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 88 关·中境解锁",
-    "imageName": "badge_prac_22_2"
-  },
-  {
-    "id": "badge_prac_22_3",
-    "name": "处世恒爱·下",
-    "sealText": "修养\n处世下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 88 关·下境解锁",
-    "imageName": "badge_prac_22_3"
-  },
-  {
-    "id": "badge_prac_23_1",
-    "name": "处世知己·上",
-    "sealText": "修养\n处世上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 92 关·上境解锁",
-    "imageName": "badge_prac_23_1"
-  },
-  {
-    "id": "badge_prac_23_2",
-    "name": "处世知己·中",
-    "sealText": "修养\n处世中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 92 关·中境解锁",
-    "imageName": "badge_prac_23_2"
-  },
-  {
-    "id": "badge_prac_23_3",
-    "name": "处世知己·下",
-    "sealText": "修养\n处世下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 92 关·下境解锁",
-    "imageName": "badge_prac_23_3"
-  },
-  {
-    "id": "badge_prac_24_1",
-    "name": "处世慎言·上",
-    "sealText": "修养\n处世上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 96 关·上境解锁",
-    "imageName": "badge_prac_24_1"
-  },
-  {
-    "id": "badge_prac_24_2",
-    "name": "处世慎言·中",
-    "sealText": "修养\n处世中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 96 关·中境解锁",
-    "imageName": "badge_prac_24_2"
-  },
-  {
-    "id": "badge_prac_24_3",
-    "name": "处世慎言·下",
-    "sealText": "修养\n处世下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 96 关·下境解锁",
-    "imageName": "badge_prac_24_3"
-  },
-  {
-    "id": "badge_prac_25_1",
-    "name": "处世豁达·上",
-    "sealText": "修养\n处世上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 100 关·上境解锁",
-    "imageName": "badge_prac_25_1"
-  },
-  {
-    "id": "badge_prac_25_2",
-    "name": "处世豁达·中",
-    "sealText": "修养\n处世中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 100 关·中境解锁",
-    "imageName": "badge_prac_25_2"
-  },
-  {
-    "id": "badge_prac_25_3",
-    "name": "处世豁达·下",
-    "sealText": "修养\n处世下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 100 关·下境解锁",
-    "imageName": "badge_prac_25_3"
-  },
-  {
-    "id": "badge_prac_26_1",
-    "name": "兵法神算·上",
-    "sealText": "修养\n兵法上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 104 关·上境解锁",
-    "imageName": "badge_prac_26_1"
-  },
-  {
-    "id": "badge_prac_26_2",
-    "name": "兵法神算·中",
-    "sealText": "修养\n兵法中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 104 关·中境解锁",
-    "imageName": "badge_prac_26_2"
-  },
-  {
-    "id": "badge_prac_26_3",
-    "name": "兵法神算·下",
-    "sealText": "修养\n兵法下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 104 关·下境解锁",
-    "imageName": "badge_prac_26_3"
-  },
-  {
-    "id": "badge_prac_27_1",
-    "name": "兵法借箭·上",
-    "sealText": "修养\n兵法上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 108 关·上境解锁",
-    "imageName": "badge_prac_27_1"
-  },
-  {
-    "id": "badge_prac_27_2",
-    "name": "兵法借箭·中",
-    "sealText": "修养\n兵法中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 108 关·中境解锁",
-    "imageName": "badge_prac_27_2"
-  },
-  {
-    "id": "badge_prac_27_3",
-    "name": "兵法借箭·下",
-    "sealText": "修养\n兵法下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 108 关·下境解锁",
-    "imageName": "badge_prac_27_3"
-  },
-  {
-    "id": "badge_prac_28_1",
-    "name": "兵法破釜·上",
-    "sealText": "修养\n兵法上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 112 关·上境解锁",
-    "imageName": "badge_prac_28_1"
-  },
-  {
-    "id": "badge_prac_28_2",
-    "name": "兵法破釜·中",
-    "sealText": "修养\n兵法中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 112 关·中境解锁",
-    "imageName": "badge_prac_28_2"
-  },
-  {
-    "id": "badge_prac_28_3",
-    "name": "兵法破釜·下",
-    "sealText": "修养\n兵法下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 112 关·下境解锁",
-    "imageName": "badge_prac_28_3"
-  },
-  {
-    "id": "badge_prac_29_1",
-    "name": "兵法攻心·上",
-    "sealText": "修养\n兵法上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 116 关·上境解锁",
-    "imageName": "badge_prac_29_1"
-  },
-  {
-    "id": "badge_prac_29_2",
-    "name": "兵法攻心·中",
-    "sealText": "修养\n兵法中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 116 关·中境解锁",
-    "imageName": "badge_prac_29_2"
-  },
-  {
-    "id": "badge_prac_29_3",
-    "name": "兵法攻心·下",
-    "sealText": "修养\n兵法下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 116 关·下境解锁",
-    "imageName": "badge_prac_29_3"
-  },
-  {
-    "id": "badge_prac_30_1",
-    "name": "兵法出奇·上",
-    "sealText": "修养\n兵法上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 120 关·上境解锁",
-    "imageName": "badge_prac_30_1"
-  },
-  {
-    "id": "badge_prac_30_2",
-    "name": "兵法出奇·中",
-    "sealText": "修养\n兵法中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 120 关·中境解锁",
-    "imageName": "badge_prac_30_2"
-  },
-  {
-    "id": "badge_prac_30_3",
-    "name": "兵法出奇·下",
-    "sealText": "修养\n兵法下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 120 关·下境解锁",
-    "imageName": "badge_prac_30_3"
-  },
-  {
-    "id": "badge_prac_31_1",
-    "name": "德胜君子·上",
-    "sealText": "修养\n德胜上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 124 关·上境解锁",
-    "imageName": "badge_prac_31_1"
-  },
-  {
-    "id": "badge_prac_31_2",
-    "name": "德胜君子·中",
-    "sealText": "修养\n德胜中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 124 关·中境解锁",
-    "imageName": "badge_prac_31_2"
-  },
-  {
-    "id": "badge_prac_31_3",
-    "name": "德胜君子·下",
-    "sealText": "修养\n德胜下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 124 关·下境解锁",
-    "imageName": "badge_prac_31_3"
-  },
-  {
-    "id": "badge_prac_32_1",
-    "name": "才胜小人·上",
-    "sealText": "修养\n才胜上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 128 关·上境解锁",
-    "imageName": "badge_prac_32_1"
-  },
-  {
-    "id": "badge_prac_32_2",
-    "name": "才胜小人·中",
-    "sealText": "修养\n才胜中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 128 关·中境解锁",
-    "imageName": "badge_prac_32_2"
-  },
-  {
-    "id": "badge_prac_32_3",
-    "name": "才胜小人·下",
-    "sealText": "修养\n才胜下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 128 关·下境解锁",
-    "imageName": "badge_prac_32_3"
-  },
-  {
-    "id": "badge_prac_33_1",
-    "name": "戒玩物志·上",
-    "sealText": "修养\n戒玩上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 132 关·上境解锁",
-    "imageName": "badge_prac_33_1"
-  },
-  {
-    "id": "badge_prac_33_2",
-    "name": "戒玩物志·中",
-    "sealText": "修养\n戒玩中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 132 关·中境解锁",
-    "imageName": "badge_prac_33_2"
-  },
-  {
-    "id": "badge_prac_33_3",
-    "name": "戒玩物志·下",
-    "sealText": "修养\n戒玩下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 132 关·下境解锁",
-    "imageName": "badge_prac_33_3"
-  },
-  {
-    "id": "badge_prac_34_1",
-    "name": "戒欲壑深·上",
-    "sealText": "修养\n戒欲上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 136 关·上境解锁",
-    "imageName": "badge_prac_34_1"
-  },
-  {
-    "id": "badge_prac_34_2",
-    "name": "戒欲壑深·中",
-    "sealText": "修养\n戒欲中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 136 关·中境解锁",
-    "imageName": "badge_prac_34_2"
-  },
-  {
-    "id": "badge_prac_34_3",
-    "name": "戒欲壑深·下",
-    "sealText": "修养\n戒欲下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 136 关·下境解锁",
-    "imageName": "badge_prac_34_3"
-  },
-  {
-    "id": "badge_prac_35_1",
-    "name": "喜时慎言·上",
-    "sealText": "修养\n喜时上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 140 关·上境解锁",
-    "imageName": "badge_prac_35_1"
-  },
-  {
-    "id": "badge_prac_35_2",
-    "name": "喜时慎言·中",
-    "sealText": "修养\n喜时中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 140 关·中境解锁",
-    "imageName": "badge_prac_35_2"
-  },
-  {
-    "id": "badge_prac_35_3",
-    "name": "喜时慎言·下",
-    "sealText": "修养\n喜时下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 140 关·下境解锁",
-    "imageName": "badge_prac_35_3"
-  },
-  {
-    "id": "badge_prac_36_1",
-    "name": "怒时慎体·上",
-    "sealText": "修养\n怒时上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 144 关·上境解锁",
-    "imageName": "badge_prac_36_1"
-  },
-  {
-    "id": "badge_prac_36_2",
-    "name": "怒时慎体·中",
-    "sealText": "修养\n怒时中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 144 关·中境解锁",
-    "imageName": "badge_prac_36_2"
-  },
-  {
-    "id": "badge_prac_36_3",
-    "name": "怒时慎体·下",
-    "sealText": "修养\n怒时下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 144 关·下境解锁",
-    "imageName": "badge_prac_36_3"
-  },
-  {
-    "id": "badge_prac_37_1",
-    "name": "山高客路·上",
-    "sealText": "修养\n山高上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 148 关·上境解锁",
-    "imageName": "badge_prac_37_1"
-  },
-  {
-    "id": "badge_prac_37_2",
-    "name": "山高客路·中",
-    "sealText": "修养\n山高中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 148 关·中境解锁",
-    "imageName": "badge_prac_37_2"
-  },
-  {
-    "id": "badge_prac_37_3",
-    "name": "山高客路·下",
-    "sealText": "修养\n山高下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 148 关·下境解锁",
-    "imageName": "badge_prac_37_3"
-  },
-  {
-    "id": "badge_prac_38_1",
-    "name": "水深渡船·上",
-    "sealText": "修养\n水深上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 152 关·上境解锁",
-    "imageName": "badge_prac_38_1"
-  },
-  {
-    "id": "badge_prac_38_2",
-    "name": "水深渡船·中",
-    "sealText": "修养\n水深中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 152 关·中境解锁",
-    "imageName": "badge_prac_38_2"
-  },
-  {
-    "id": "badge_prac_38_3",
-    "name": "水深渡船·下",
-    "sealText": "修养\n水深下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 152 关·下境解锁",
-    "imageName": "badge_prac_38_3"
-  },
-  {
-    "id": "badge_prac_39_1",
-    "name": "黄金容易·上",
-    "sealText": "修养\n黄金上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 156 关·上境解锁",
-    "imageName": "badge_prac_39_1"
-  },
-  {
-    "id": "badge_prac_39_2",
-    "name": "黄金容易·中",
-    "sealText": "修养\n黄金中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 156 关·中境解锁",
-    "imageName": "badge_prac_39_2"
-  },
-  {
-    "id": "badge_prac_39_3",
-    "name": "黄金容易·下",
-    "sealText": "修养\n黄金下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 156 关·下境解锁",
-    "imageName": "badge_prac_39_3"
-  },
-  {
-    "id": "badge_prac_40_1",
-    "name": "知心难求·上",
-    "sealText": "修养\n知心上",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 160 关·上境解锁",
-    "imageName": "badge_prac_40_1"
-  },
-  {
-    "id": "badge_prac_40_2",
-    "name": "知心难求·中",
-    "sealText": "修养\n知心中",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 160 关·中境解锁",
-    "imageName": "badge_prac_40_2"
-  },
-  {
-    "id": "badge_prac_40_3",
-    "name": "知心难求·下",
-    "sealText": "修养\n知心下",
-    "category": "处世修养",
-    "description": "学以致用，知行合一。内圣外王，圆融处世。",
-    "requirementDescription": "破解第 160 关·下境解锁",
-    "imageName": "badge_prac_40_3"
+    "requirementDescription": "破解第 160 关·知心难求境解锁",
+    "imageName": "badge_prac_40"
   }
 ]
