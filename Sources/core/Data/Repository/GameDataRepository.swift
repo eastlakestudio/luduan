@@ -87,27 +87,17 @@ public final class GameDataRepository: ObservableObject {
         return level.title
     }
     
+    private var themeLevelsCache: [CultureTheme: [LevelModel]] = [:]
+    private var badgeLevelsCache: [String: [LevelModel]] = [:]
+    private var categoryLevelsCache: [String: [LevelModel]] = [:]
+    
     public func themeLevels(for theme: CultureTheme) -> [LevelModel] {
-        return levels.filter { $0.theme == theme }
-    }
-    
-    public func themeProgressInfo(for level: LevelModel) -> (currentIndex: Int, totalCount: Int, completedCount: Int) {
-        let tLevels = themeLevels(for: level.theme)
-        let total = tLevels.count > 0 ? tLevels.count : 1
-        let idx = (tLevels.firstIndex(where: { $0.id == level.id }) ?? 0) + 1
-        let completed = tLevels.filter { isLevelCompleted($0.id) }.count
-        return (idx, total, completed)
-    }
-    
-    public func previousLevel(before current: LevelModel) -> LevelModel? {
-        let tLevels = themeLevels(for: current.theme)
-        if let idx = tLevels.firstIndex(where: { $0.id == current.id }), idx > 0 {
-            return tLevels[idx - 1]
+        if let cached = themeLevelsCache[theme] {
+            return cached
         }
-        if let globalIdx = levelIndex(from: current.id), globalIdx > 0 {
-            return levels[globalIdx - 1]
-        }
-        return nil
+        let filtered = levels.filter { $0.theme == theme }
+        themeLevelsCache[theme] = filtered
+        return filtered
     }
     
     private func keywords(for bookKey: String) -> [String] {
@@ -131,8 +121,30 @@ public final class GameDataRepository: ObservableObject {
         default: return [bookKey]
         }
     }
+    
+    public func themeProgressInfo(for level: LevelModel) -> (currentIndex: Int, totalCount: Int, completedCount: Int) {
+        let tLevels = themeLevels(for: level.theme)
+        let total = tLevels.count > 0 ? tLevels.count : 1
+        let idx = (tLevels.firstIndex(where: { $0.id == level.id }) ?? 0) + 1
+        let completed = tLevels.filter { isLevelCompleted($0.id) }.count
+        return (idx, total, completed)
+    }
+    
+    public func previousLevel(before current: LevelModel) -> LevelModel? {
+        let tLevels = themeLevels(for: current.theme)
+        if let idx = tLevels.firstIndex(where: { $0.id == current.id }), idx > 0 {
+            return tLevels[idx - 1]
+        }
+        if let globalIdx = levelIndex(from: current.id), globalIdx > 0 {
+            return levels[globalIdx - 1]
+        }
+        return nil
+    }
 
     public func levelsForBadge(_ badge: BadgeModel) -> [LevelModel] {
+        if let cached = badgeLevelsCache[badge.id] {
+            return cached
+        }
         let allowedBookKeys = GameDataRepository.themeBooksMapping[badge.id] ?? []
         let searchKeys = allowedBookKeys.flatMap { keywords(for: $0) }
         
@@ -145,13 +157,20 @@ public final class GameDataRepository: ObservableObject {
                 level.source.contains(kw) || level.annotation.contains(kw) || level.story.contains(kw)
             })
         }
-        return matching.isEmpty ? levelsForCategory(badge.name) : matching
+        let result = matching.isEmpty ? levelsForCategory(badge.name) : matching
+        badgeLevelsCache[badge.id] = result
+        return result
     }
 
     public func levelsForCategory(_ categoryName: String) -> [LevelModel] {
+        if let cached = categoryLevelsCache[categoryName] {
+            return cached
+        }
         let cleanName = categoryName.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "").replacingOccurrences(of: "章", with: "").replacingOccurrences(of: "印", with: "")
         let filtered = levels.filter { $0.source.contains(cleanName) || $0.categoryName.contains(cleanName) || $0.story.contains(cleanName) }
-        return filtered.isEmpty ? levels : filtered
+        let result = filtered.isEmpty ? levels : filtered
+        categoryLevelsCache[categoryName] = result
+        return result
     }
 
     public func nextThemeLevel(after current: LevelModel) -> LevelModel? {
