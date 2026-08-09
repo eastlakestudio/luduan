@@ -233,7 +233,7 @@ public struct PuzzleGameView: View {
                 }
                 Divider()
                 Text(currentLevel.annotation)
-                    .font(.system(size: isMultiRowPhrase ? 20 : 22, weight: .bold, design: .serif))
+                    .font(.system(size: isMultiRowPhrase ? 17 : 18, weight: .semibold, design: .serif))
                     .foregroundColor(.xuanBlack)
                     .lineSpacing(4)
                     .lineLimit(2)

@@ -112,16 +112,16 @@ public struct StoryCardModalView: View {
                         .background(Color.cloudGold.opacity(0.08))
                         .cornerRadius(12)
                         
-                        // 2. 注音与字词释义 (调至下方，24pt 超大护眼大字)
+                        // 2. 注音与字词释义
                         VStack(alignment: .leading, spacing: 8) {
                             Text("【字词释义】")
                                 .font(.system(.headline, design: .serif))
                                 .bold()
                                 .foregroundColor(.bambooGreen)
                             Text(level.annotation)
-                                .font(.system(size: 24, weight: .bold, design: .serif))
+                                .font(.system(size: 18, weight: .semibold, design: .serif))
                                 .foregroundColor(.xuanBlack)
-                                .lineSpacing(10)
+                                .lineSpacing(6)
                         }
                         .padding(18)
                         .background(Color.bambooGreen.opacity(0.08))
