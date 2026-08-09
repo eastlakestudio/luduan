@@ -8,6 +8,8 @@ public struct MainDashboardView: View {
     @State private var showingBadgeGallery = false
     @AppStorage(SoundManager.soundEnabledKey) private var soundEnabled = true
     
+    private static var bannerCache: Image? = nil
+    
     public init() {}
     
     public var body: some View {
@@ -82,31 +84,31 @@ public struct MainDashboardView: View {
         }
     }
     
+    private var mascotBannerImage: Image {
+        if let cached = Self.bannerCache { return cached }
+        #if canImport(UIKit)
+        if let url = Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg") ??
+                     Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg", subdirectory: "BadgeImages"),
+           let data = try? Data(contentsOf: url),
+           let uiImage = UIImage(data: data) {
+            let img = Image(uiImage: uiImage)
+            Self.bannerCache = img
+            return img
+        }
+        #endif
+        return Image(systemName: "crown.fill")
+    }
+
     private var headerBannerView: some View {
         PaperCardView(borderColor: Color.cloudGold) {
             HStack(spacing: 16) {
                 // 甪端神兽伴学头像
-                #if canImport(UIKit)
-                if let url = Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg") ??
-                             Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg", subdirectory: "BadgeImages"),
-                   let data = try? Data(contentsOf: url),
-                   let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 56, height: 56)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.cloudGold, lineWidth: 2))
-                } else {
-                    Image(systemName: "crown.fill")
-                        .font(.title)
-                        .foregroundColor(.cloudGold)
-                }
-                #else
-                Image(systemName: "crown.fill")
-                    .font(.title)
-                    .foregroundColor(.cloudGold)
-                #endif
+                mascotBannerImage
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 56, height: 56)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.cloudGold, lineWidth: 2))
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("神兽甪端伴学护航")
@@ -183,7 +185,7 @@ public struct MainDashboardView: View {
     private func badgeSectionCard(badge: BadgeModel) -> some View {
         let bLevels = repository.levelsForBadge(badge)
         let count = bLevels.count > 0 ? bLevels.count : 1
-        let completed = bLevels.filter { repository.isLevelCompleted($0.id) }.count
+        let completed = repository.completedCount(for: bLevels, key: badge.id)
         let ratio = Double(completed) / Double(count)
         let isFreshPlay = repository.isThemeInFreshPlay(badge.id)
 
@@ -267,7 +269,7 @@ public struct MainDashboardView: View {
     private func practicalThemeCard(theme: PracticalTheme, subtitle: String, startIndex: Int, count: Int, sealText: String) -> some View {
         let pLevels = repository.levelsForCategory(theme.rawValue)
         let totalCount = pLevels.count > 0 ? pLevels.count : count
-        let completed = pLevels.filter { repository.isLevelCompleted($0.id) }.count
+        let completed = repository.completedCount(for: pLevels, key: theme.rawValue)
         let ratio = Double(completed) / Double(totalCount)
         let cleanTheme = theme.rawValue.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "")
         let isFreshPlay = repository.isThemeInFreshPlay(cleanTheme)

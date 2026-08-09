@@ -97,89 +97,98 @@ public struct ChineseSealView: View {
         .frame(width: size, height: size)
     }
     
-    private func loadCartoonImage(named name: String) -> Image? {
-        var targetName = name
-        if name.hasPrefix("badge_acad_1") {
+        private static var imageCache: [String: Image] = [:]
+
+    private func loadCartoonImage(named imageName: String) -> Image? {
+        let cleanName = imageName.replacingOccurrences(of: ".png", with: "").replacingOccurrences(of: ".jpg", with: "")
+        var targetName = cleanName
+        
+        if cleanName.hasPrefix("badge_acad_1") {
             targetName = "badge_academic_tongsheng"
-        } else if name.hasPrefix("badge_acad_2") {
+        } else if cleanName.hasPrefix("badge_acad_2") {
             targetName = "badge_academic_xiucai"
-        } else if name.hasPrefix("badge_acad_3") {
+        } else if cleanName.hasPrefix("badge_acad_3") {
             targetName = "badge_academic_juren"
-        } else if name.hasPrefix("badge_acad_4") {
+        } else if cleanName.hasPrefix("badge_acad_4") {
             targetName = "badge_academic_jinshi"
-        } else if name.hasPrefix("badge_acad_5") {
+        } else if cleanName.hasPrefix("badge_acad_5") {
             targetName = "badge_academic_hanlin"
-        } else if name.hasPrefix("badge_acad_6") || name.hasPrefix("badge_acad_7") || name.hasPrefix("badge_acad_8") || name.hasPrefix("badge_acad_9") || name.hasPrefix("badge_acad_10") || name.hasPrefix("badge_acad_11") || name.hasPrefix("badge_acad_12") || name.hasPrefix("badge_acad_13") {
+        } else if cleanName.hasPrefix("badge_acad_6") || cleanName.hasPrefix("badge_acad_7") || cleanName.hasPrefix("badge_acad_8") || cleanName.hasPrefix("badge_acad_9") || cleanName.hasPrefix("badge_acad_10") || cleanName.hasPrefix("badge_acad_11") || cleanName.hasPrefix("badge_acad_12") || cleanName.hasPrefix("badge_acad_13") {
             targetName = "badge_academic_shoufu"
-        } else if name == "badge_char_1" {
+        } else if cleanName == "badge_char_1" {
             targetName = "badge_caocao"
-        } else if name == "badge_char_2" {
+        } else if cleanName == "badge_char_2" {
             targetName = "badge_guanyu"
-        } else if name == "badge_char_3" || name == "badge_zhouyu" {
-            targetName = "badge_zhouyu"
-        } else if name == "badge_lubu" {
-            targetName = "badge_lubu"
-        } else if name == "badge_char_5" {
-            targetName = "badge_zhangfei"
-        } else if name == "badge_char_47" || name == "badge_yuefei" {
-            targetName = "badge_yuefei"
-        } else if name == "badge_char_13" || name == "badge_baozheng" {
+        } else if cleanName == "badge_char_3" || cleanName == "badge_baozheng" {
             targetName = "badge_baozheng"
-        } else if name == "badge_char_44" || name == "badge_hanxin" {
-            targetName = "badge_hanxin"
-        } else if name == "badge_char_45" || name == "badge_huoqubing" {
-            targetName = "badge_huoqubing"
-        } else if name == "badge_char_46" || name == "badge_weiqing" {
-            targetName = "badge_weiqing"
-        } else if name == "badge_char_48" || name == "badge_wentianxiang" {
-            targetName = "badge_wentianxiang"
-        } else if name == "badge_char_49" || name == "badge_zhengchenggong" {
-            targetName = "badge_zhengchenggong"
-        } else if name == "badge_char_50" || name == "badge_linzexu" {
-            targetName = "badge_linzexu"
-        } else if name == "badge_char_15" || name == "badge_xinqiji" {
-            targetName = "badge_xinqiji"
-        } else if name == "badge_char_16" || name == "badge_ouyangxiu" {
-            targetName = "badge_ouyangxiu"
-        } else if name == "badge_char_19" || name == "badge_liqingzhao" {
-            targetName = "badge_liqingzhao"
-        } else if name == "badge_char_26" || name == "badge_baijuyi" {
-            targetName = "badge_baijuyi"
-        } else if name == "badge_char_5" || name == "badge_quyuan" {
+        } else if cleanName == "badge_lubu" {
+            targetName = "badge_lubu"
+        } else if cleanName == "badge_char_5" || cleanName == "badge_quyuan" {
             targetName = "badge_quyuan"
+        } else if cleanName == "badge_char_47" || cleanName == "badge_yuefei" {
+            targetName = "badge_yuefei"
+        } else if cleanName == "badge_char_7" || cleanName == "badge_hanxin" {
+            targetName = "badge_hanxin"
+        } else if cleanName == "badge_char_8" || cleanName == "badge_huoqubing" {
+            targetName = "badge_huoqubing"
+        } else if cleanName == "badge_char_9" || cleanName == "badge_weiqing" {
+            targetName = "badge_weiqing"
+        } else if cleanName == "badge_char_11" || cleanName == "badge_wentianxiang" {
+            targetName = "badge_wentianxiang"
+        } else if cleanName == "badge_char_12" || cleanName == "badge_zhengchenggong" {
+            targetName = "badge_zhengchenggong"
+        } else if cleanName == "badge_char_14" || cleanName == "badge_zhouyu" {
+            targetName = "badge_zhouyu"
+        } else if cleanName == "badge_char_15" || cleanName == "badge_linzexu" {
+            targetName = "badge_linzexu"
+        } else if cleanName == "badge_char_18" || cleanName == "badge_xinqiji" {
+            targetName = "badge_xinqiji"
+        } else if cleanName == "badge_char_16" || cleanName == "badge_ouyangxiu" {
+            targetName = "badge_ouyangxiu"
+        } else if cleanName == "badge_char_19" || cleanName == "badge_liqingzhao" {
+            targetName = "badge_liqingzhao"
+        } else if cleanName == "badge_char_26" || cleanName == "badge_baijuyi" {
+            targetName = "badge_baijuyi"
         }
+        
+        if let cached = Self.imageCache[targetName] {
+            return cached
+        }
+        
+        var loadedImage: Image? = nil
         
         #if canImport(UIKit)
         if let uiImage = UIImage(named: targetName, in: .module, compatibleWith: nil) ?? UIImage(named: targetName) {
-            return Image(uiImage: uiImage)
-        }
-        if let url = Bundle.module.url(forResource: targetName, withExtension: "jpg") ??
-                     Bundle.module.url(forResource: targetName, withExtension: "jpg", subdirectory: "BadgeImages"),
-           let data = try? Data(contentsOf: url),
-           let uiImage = UIImage(data: data) {
-            return Image(uiImage: uiImage)
-        }
-        if let url = Bundle.module.url(forResource: targetName, withExtension: "png") ??
-                     Bundle.module.url(forResource: targetName, withExtension: "png", subdirectory: "BadgeImages"),
-           let data = try? Data(contentsOf: url),
-           let uiImage = UIImage(data: data) {
-            return Image(uiImage: uiImage)
+            loadedImage = Image(uiImage: uiImage)
+        } else if let url = Bundle.module.url(forResource: targetName, withExtension: "jpg") ??
+                             Bundle.module.url(forResource: targetName, withExtension: "jpg", subdirectory: "BadgeImages"),
+                   let data = try? Data(contentsOf: url),
+                   let uiImage = UIImage(data: data) {
+            loadedImage = Image(uiImage: uiImage)
+        } else if let url = Bundle.module.url(forResource: targetName, withExtension: "png") ??
+                             Bundle.module.url(forResource: targetName, withExtension: "png", subdirectory: "BadgeImages"),
+                   let data = try? Data(contentsOf: url),
+                   let uiImage = UIImage(data: data) {
+            loadedImage = Image(uiImage: uiImage)
         }
         #elseif canImport(AppKit)
         if let url = Bundle.module.url(forResource: targetName, withExtension: "jpg") ??
                      Bundle.module.url(forResource: targetName, withExtension: "jpg", subdirectory: "BadgeImages"),
            let data = try? Data(contentsOf: url),
            let nsImage = NSImage(data: data) {
-            return Image(nsImage: nsImage)
-        }
-        if let url = Bundle.module.url(forResource: targetName, withExtension: "png") ??
+            loadedImage = Image(nsImage: nsImage)
+        } else if let url = Bundle.module.url(forResource: targetName, withExtension: "png") ??
                      Bundle.module.url(forResource: targetName, withExtension: "png", subdirectory: "BadgeImages"),
            let data = try? Data(contentsOf: url),
            let nsImage = NSImage(data: data) {
-            return Image(nsImage: nsImage)
+            loadedImage = Image(nsImage: nsImage)
         }
         #endif
-        return nil
+        
+        if let img = loadedImage {
+            Self.imageCache[targetName] = img
+        }
+        return loadedImage
     }
     
     private func isLegacyLineDrawing(_ imageName: String?) -> Bool {

@@ -8,6 +8,8 @@ public final class GameDataRepository: ObservableObject {
     @Published public private(set) var userProgress: UserProgressModel
     @Published public private(set) var badges: [BadgeModel] = []
     
+    private var completedCountCache: [String: Int] = [:]
+    
     private let userProgressKey = "luDuanUserProgress_v2"
     
     public init() {
@@ -205,7 +207,17 @@ public final class GameDataRepository: ObservableObject {
         saveProgress()
     }
     
+    public func completedCount(for levels: [LevelModel], key: String) -> Int {
+        if let cached = completedCountCache[key] {
+            return cached
+        }
+        let count = levels.filter { isLevelCompleted($0.id) }.count
+        completedCountCache[key] = count
+        return count
+    }
+    
     public func completeLevel(_ level: LevelModel) {
+        completedCountCache.removeAll()
         userProgress.completedLevelIds.insert(level.id)
         userProgress.learnedPhrases.insert(level.targetPhrase)
         userProgress.totalScore += 10
