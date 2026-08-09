@@ -1,11 +1,14 @@
 #!/bin/sh
 set -e
 
-echo '=== Xcode Cloud: 安装 XcodeGen ==='
-brew install xcodegen
+# Xcode Cloud post-clone: 从 project.yml 生成/更新 Xcode 工程
+# 如果 xcodegen 不可用则跳过（使用仓库中已提交的 .xcodeproj）
 
-echo '=== Xcode Cloud: 生成 xcodeproj ==='
-xcodegen generate
+if ! command -v xcodegen >/dev/null 2>&1; then
+    brew install xcodegen 2>/dev/null || true
+fi
 
-echo '=== xcodeproj 生成完毕 ==='
-ls -la luDuan.xcodeproj
+if command -v xcodegen >/dev/null 2>&1; then
+    cd "$CI_PRIMARY_REPOSITORY_PATH"
+    xcodegen generate
+fi
