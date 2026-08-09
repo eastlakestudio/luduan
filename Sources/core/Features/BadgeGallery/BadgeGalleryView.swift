@@ -48,12 +48,12 @@ public struct BadgeGalleryView: View {
                                 }) {
                                     VStack(spacing: 8) {
                                         // 肖像图与印章双显模块
-                                        HStack(spacing: -14) {
+                                        HStack(spacing: -16) {
                                             // 1. 名士卡通肖像图
-                                            ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 58, imageName: badge.imageName)
+                                            ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 68, imageName: badge.imageName)
                                             
                                             // 2. 古风朱砂印章
-                                            ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 48, imageName: nil)
+                                            ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 56, imageName: nil)
                                         }
                                         
                                         Text(badge.name)
@@ -153,25 +153,25 @@ public struct BadgeGalleryView: View {
             Color.paperWhite.ignoresSafeArea()
             
             VStack(spacing: 20) {
-                HStack(spacing: 20) {
-                    VStack(spacing: 6) {
-                        ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 84, imageName: badge.imageName)
+                HStack(spacing: 24) {
+                    VStack(spacing: 8) {
+                        ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 140, imageName: badge.imageName)
                         Text("人物肖像")
-                            .font(.caption2)
+                            .font(.system(.caption, design: .serif))
                             .foregroundColor(.gray)
                     }
                     
-                    VStack(spacing: 6) {
-                        ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 84, imageName: nil)
+                    VStack(spacing: 8) {
+                        ChineseSealView(text: badge.sealText, isUnlocked: isUnlocked, size: 140, imageName: nil)
                         Text("古风朱印")
-                            .font(.caption2)
+                            .font(.system(.caption, design: .serif))
                             .foregroundColor(.gray)
                     }
                 }
-                .padding(.top, 30)
+                .padding(.top, 24)
                 
                 Text(badge.name)
-                    .font(.system(.title2, design: .serif))
+                    .font(.system(.title, design: .serif))
                     .bold()
                     .foregroundColor(.xuanBlack)
                 
