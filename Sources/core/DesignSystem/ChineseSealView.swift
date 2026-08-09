@@ -115,12 +115,38 @@ public struct ChineseSealView: View {
             targetName = "badge_caocao"
         } else if name == "badge_char_2" {
             targetName = "badge_guanyu"
-        } else if name == "badge_char_3" {
+        } else if name == "badge_char_3" || name == "badge_zhouyu" {
+            targetName = "badge_zhouyu"
+        } else if name == "badge_lubu" {
             targetName = "badge_lubu"
         } else if name == "badge_char_5" {
             targetName = "badge_zhangfei"
         } else if name == "badge_char_47" || name == "badge_yuefei" {
             targetName = "badge_yuefei"
+        } else if name == "badge_char_13" || name == "badge_baozheng" {
+            targetName = "badge_baozheng"
+        } else if name == "badge_char_44" || name == "badge_hanxin" {
+            targetName = "badge_hanxin"
+        } else if name == "badge_char_45" || name == "badge_huoqubing" {
+            targetName = "badge_huoqubing"
+        } else if name == "badge_char_46" || name == "badge_weiqing" {
+            targetName = "badge_weiqing"
+        } else if name == "badge_char_48" || name == "badge_wentianxiang" {
+            targetName = "badge_wentianxiang"
+        } else if name == "badge_char_49" || name == "badge_zhengchenggong" {
+            targetName = "badge_zhengchenggong"
+        } else if name == "badge_char_50" || name == "badge_linzexu" {
+            targetName = "badge_linzexu"
+        } else if name == "badge_char_15" || name == "badge_xinqiji" {
+            targetName = "badge_xinqiji"
+        } else if name == "badge_char_16" || name == "badge_ouyangxiu" {
+            targetName = "badge_ouyangxiu"
+        } else if name == "badge_char_19" || name == "badge_liqingzhao" {
+            targetName = "badge_liqingzhao"
+        } else if name == "badge_char_26" || name == "badge_baijuyi" {
+            targetName = "badge_baijuyi"
+        } else if name == "badge_char_5" || name == "badge_quyuan" {
+            targetName = "badge_quyuan"
         }
         
         #if canImport(UIKit)
