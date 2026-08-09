@@ -240,20 +240,36 @@ public final class GameDataRepository: ObservableObject {
 
     public func nextThemeLevel(after current: LevelModel) -> LevelModel? {
         let tLevels = themeLevels(for: current.theme)
-        if let idx = tLevels.firstIndex(where: { $0.id == current.id }), idx + 1 < tLevels.count {
-            return tLevels[idx + 1]
+        let isFreshPlay = isThemeInFreshPlay(current.theme.rawValue) || isThemeInFreshPlay(current.categoryName)
+        if let idx = tLevels.firstIndex(where: { $0.id == current.id }) {
+            let remaining = tLevels.suffix(from: idx + 1)
+            if isFreshPlay {
+                return remaining.first
+            } else {
+                return remaining.first(where: { !isLevelCompleted($0.id) }) ?? remaining.first
+            }
         }
         return nextSequentialLevel(after: current)
     }
     
     public func nextLevel(after current: LevelModel) -> LevelModel? {
         let tLevels = themeLevels(for: current.theme)
-        if let idx = tLevels.firstIndex(where: { $0.id == current.id }), idx + 1 < tLevels.count {
-            return tLevels[idx + 1]
+        let isFreshPlay = isThemeInFreshPlay(current.theme.rawValue) || isThemeInFreshPlay(current.categoryName)
+        
+        if let idx = tLevels.firstIndex(where: { $0.id == current.id }) {
+            let remaining = tLevels.suffix(from: idx + 1)
+            if isFreshPlay {
+                return remaining.first
+            } else {
+                return remaining.first(where: { !isLevelCompleted($0.id) }) ?? remaining.first
+            }
         }
-        if let globalIdx = levelIndex(from: current.id), globalIdx + 1 < levels.count {
-            return levels[globalIdx + 1]
+        
+        if let globalIdx = levelIndex(from: current.id) {
+            let remaining = levels.suffix(from: globalIdx + 1)
+            return remaining.first(where: { !isLevelCompleted($0.id) }) ?? remaining.first
         }
+        
         return levels.first(where: { !isLevelCompleted($0.id) }) ?? levels.first
     }
     
