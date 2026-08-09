@@ -42,6 +42,15 @@ public final class GameDataRepository: ObservableObject {
     
     private static let cachedLevels: [LevelModel] = (0..<10000).map { Classic10000LevelsEngine.level(at: $0) }
     
+    private static let themeBooksMapping: [String: [String]] = {
+        guard let url = Bundle.module.url(forResource: "theme_books", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let mapping = try? JSONDecoder().decode([String: [String]].self, from: data) else {
+            return [:]
+        }
+        return mapping
+    }()
+    
     public var levels: [LevelModel] {
         return GameDataRepository.cachedLevels
     }
@@ -101,6 +110,50 @@ public final class GameDataRepository: ObservableObject {
         return nil
     }
     
+    private func keywords(for bookKey: String) -> [String] {
+        switch bookKey {
+        case "shiji", "shihan": return ["史记", "汉书", "战国策", "资治通鉴", "三国志", "史籍"]
+        case "shijing": return ["诗经", "周南", "秦风", "邶风", "卫风", "小雅", "大雅", "国风"]
+        case "lunyu": return ["论语"]
+        case "daodejing": return ["道德经", "老子"]
+        case "mengzi": return ["孟子"]
+        case "tangsong": return ["唐诗", "宋词", "诗包", "词包", "律诗", "绝句", "李白", "杜甫", "苏轼", "辛弃疾", "白居易", "李清照", "欧阳修", "屈原"]
+        case "hongloumeng": return ["红楼梦"]
+        case "xiyouji": return ["西游记"]
+        case "caigentan": return ["菜根谭"]
+        case "chuanxilu": return ["传习录"]
+        case "yanshijiaxun": return ["颜氏家训"]
+        case "zengguofanjiashu": return ["曾国藩家书"]
+        case "xiaochuangyouji": return ["小窗幽记"]
+        case "zhongyong": return ["中庸", "大学"]
+        case "chunqiu": return ["春秋", "左传"]
+        case "guoyu": return ["国语"]
+        default: return [bookKey]
+        }
+    }
+
+    public func levelsForBadge(_ badge: BadgeModel) -> [LevelModel] {
+        let allowedBookKeys = GameDataRepository.themeBooksMapping[badge.id] ?? []
+        let searchKeys = allowedBookKeys.flatMap { keywords(for: $0) }
+        
+        let cleanBadgeName = badge.name.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "").replacingOccurrences(of: "章", with: "").replacingOccurrences(of: "印", with: "")
+        
+        let allKeywords = searchKeys + [cleanBadgeName]
+        
+        let matching = levels.filter { level in
+            allKeywords.contains(where: { kw in
+                level.source.contains(kw) || level.annotation.contains(kw) || level.story.contains(kw)
+            })
+        }
+        return matching.isEmpty ? levelsForCategory(badge.name) : matching
+    }
+
+    public func levelsForCategory(_ categoryName: String) -> [LevelModel] {
+        let cleanName = categoryName.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "").replacingOccurrences(of: "章", with: "").replacingOccurrences(of: "印", with: "")
+        let filtered = levels.filter { $0.source.contains(cleanName) || $0.categoryName.contains(cleanName) || $0.story.contains(cleanName) }
+        return filtered.isEmpty ? levels : filtered
+    }
+
     public func nextThemeLevel(after current: LevelModel) -> LevelModel? {
         let tLevels = themeLevels(for: current.theme)
         if let idx = tLevels.firstIndex(where: { $0.id == current.id }), idx + 1 < tLevels.count {
@@ -120,10 +173,28 @@ public final class GameDataRepository: ObservableObject {
         return levels.first(where: { !isLevelCompleted($0.id) }) ?? levels.first
     }
     
+    public func isThemeInFreshPlay(_ themeKey: String) -> Bool {
+        return userProgress.freshReplayThemeIds.contains(themeKey)
+    }
+
+    public func toggleFreshReplayMode(for themeKey: String) {
+        if userProgress.freshReplayThemeIds.contains(themeKey) {
+            userProgress.freshReplayThemeIds.remove(themeKey)
+        } else {
+            userProgress.freshReplayThemeIds.insert(themeKey)
+        }
+        saveProgress()
+    }
+    
     public func completeLevel(_ level: LevelModel) {
         userProgress.completedLevelIds.insert(level.id)
         userProgress.learnedPhrases.insert(level.targetPhrase)
         userProgress.totalScore += 10
+        
+        // 跨主题同词全域同步完成
+        for l in GameDataRepository.cachedLevels where l.targetPhrase == level.targetPhrase {
+            userProgress.completedLevelIds.insert(l.id)
+        }
         
         if let badgeId = level.rewardBadgeId {
             userProgress.unlockedBadgeIds.insert(badgeId)

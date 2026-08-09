@@ -173,22 +173,19 @@ public struct MainDashboardView: View {
     }
     
     private func sectionCards(for items: [BadgeModel]) -> some View {
-        let n = max(1, items.count)
-        let per = max(1, 10000 / n)
         return VStack(spacing: 16) {
             ForEach(items) { badge in
-                let idx = items.firstIndex(where: { $0.id == badge.id }) ?? 0
-                let start = idx * per
-                let cnt = (idx == n - 1) ? max(1, 10000 - start) : per
-                badgeSectionCard(badge: badge, startIndex: start, count: cnt)
+                badgeSectionCard(badge: badge)
             }
         }
     }
 
-    private func badgeSectionCard(badge: BadgeModel, startIndex: Int, count: Int) -> some View {
-        let endIndex = min(10000, startIndex + count)
-        let completed = (startIndex..<endIndex).filter { repository.isLevelCompleted("level_\($0 + 1)") }.count
-        let ratio = count > 0 ? Double(completed) / Double(count) : 0
+    private func badgeSectionCard(badge: BadgeModel) -> some View {
+        let bLevels = repository.levelsForBadge(badge)
+        let count = bLevels.count > 0 ? bLevels.count : 1
+        let completed = bLevels.filter { repository.isLevelCompleted($0.id) }.count
+        let ratio = Double(completed) / Double(count)
+        let isFreshPlay = repository.isThemeInFreshPlay(badge.id)
 
         return PaperCardView(borderColor: ratio >= 1.0 ? Color.cloudGold : Color.borderAncient) {
             HStack(spacing: 16) {
@@ -206,6 +203,23 @@ public struct MainDashboardView: View {
                             .bold()
                             .foregroundColor(.cinnabarRed)
                         Spacer()
+                        
+                        Button(action: {
+                            repository.toggleFreshReplayMode(for: badge.id)
+                        }) {
+                            HStack(spacing: 3) {
+                                Image(systemName: isFreshPlay ? "arrow.clockwise.circle.fill" : "arrow.clockwise.circle")
+                                Text(isFreshPlay ? "全新模式" : "全新开发")
+                            }
+                            .font(.caption2)
+                            .bold()
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(isFreshPlay ? Color.bambooGreen.opacity(0.18) : Color.borderAncient.opacity(0.3))
+                            .foregroundColor(isFreshPlay ? .bambooGreen : .xuanBlack.opacity(0.7))
+                            .cornerRadius(10)
+                        }
+                        
                         Text("\(completed) / \(count) 关")
                             .font(.system(.subheadline, design: .serif))
                             .bold()
@@ -223,8 +237,8 @@ public struct MainDashboardView: View {
             }
         }
         .onTapGesture {
-            let nextIndex = (startIndex..<endIndex).first { !repository.isLevelCompleted("level_\($0 + 1)") } ?? startIndex
-            activeGameLevel = Classic10000LevelsEngine.level(at: nextIndex, categoryName: badge.name)
+            let nextLevel = isFreshPlay ? bLevels.first : (bLevels.first { !repository.isLevelCompleted($0.id) } ?? bLevels.first)
+            activeGameLevel = nextLevel
         }
     }
     
@@ -251,14 +265,15 @@ public struct MainDashboardView: View {
     }
     
     private func practicalThemeCard(theme: PracticalTheme, subtitle: String, startIndex: Int, count: Int, sealText: String) -> some View {
-        let endIndex = min(10000, startIndex + count)
-        let completed = (startIndex..<endIndex).filter { repository.isLevelCompleted("level_\($0 + 1)") }.count
-        let ratio = Double(completed) / Double(count)
+        let pLevels = repository.levelsForCategory(theme.rawValue)
+        let totalCount = pLevels.count > 0 ? pLevels.count : count
+        let completed = pLevels.filter { repository.isLevelCompleted($0.id) }.count
+        let ratio = Double(completed) / Double(totalCount)
         let cleanTheme = theme.rawValue.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "")
+        let isFreshPlay = repository.isThemeInFreshPlay(cleanTheme)
         
         return PaperCardView(borderColor: ratio >= 1.0 ? Color.cloudGold : Color.borderAncient) {
             HStack(spacing: 16) {
-                // 80pt 超大 3 态勋章
                 ThreeStateBadgeView(
                     sealText: sealText,
                     imageName: nil,
@@ -273,7 +288,24 @@ public struct MainDashboardView: View {
                             .bold()
                             .foregroundColor(.cinnabarRed)
                         Spacer()
-                        Text("\(completed) / \(count) 关")
+                        
+                        Button(action: {
+                            repository.toggleFreshReplayMode(for: cleanTheme)
+                        }) {
+                            HStack(spacing: 3) {
+                                Image(systemName: isFreshPlay ? "arrow.clockwise.circle.fill" : "arrow.clockwise.circle")
+                                Text(isFreshPlay ? "全新模式" : "全新开发")
+                            }
+                            .font(.caption2)
+                            .bold()
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(isFreshPlay ? Color.bambooGreen.opacity(0.18) : Color.borderAncient.opacity(0.3))
+                            .foregroundColor(isFreshPlay ? .bambooGreen : .xuanBlack.opacity(0.7))
+                            .cornerRadius(10)
+                        }
+                        
+                        Text("\(completed) / \(totalCount) 关")
                             .font(.system(.subheadline, design: .serif))
                             .bold()
                             .foregroundColor(.gray)
@@ -289,8 +321,8 @@ public struct MainDashboardView: View {
             }
         }
         .onTapGesture {
-            let nextIndex = (startIndex..<endIndex).first { !repository.isLevelCompleted("level_\($0 + 1)") } ?? startIndex
-            activeGameLevel = Classic10000LevelsEngine.level(at: nextIndex, categoryName: cleanTheme)
+            let nextLevel = isFreshPlay ? pLevels.first : (pLevels.first { !repository.isLevelCompleted($0.id) } ?? pLevels.first)
+            activeGameLevel = nextLevel
         }
     }
 }

@@ -28,6 +28,11 @@ public struct StoryCardModalView: View {
         repository.nextLevel(after: level)
     }
     
+    private var cleanBookTitle: String {
+        let raw = level.source.replacingOccurrences(of: "《", with: "").replacingOccurrences(of: "》", with: "")
+        return "《\(raw)》"
+    }
+    
     public var body: some View {
         ZStack {
             Color.paperWhite.ignoresSafeArea()
@@ -45,7 +50,7 @@ public struct StoryCardModalView: View {
                 }
                 .padding(.top, 16)
                 
-                Text("「\(level.targetPhrase)」出自《\(level.source)》")
+                Text(cleanBookTitle)
                     .font(.system(.title2, design: .serif))
                     .bold()
                     .foregroundColor(.xuanBlack)
@@ -87,7 +92,27 @@ public struct StoryCardModalView: View {
                                 .strokeBorder(Color.borderAncient, lineWidth: 1.5)
                         )
                         
-                        // 注音与释义 (24pt 超大护眼大字)
+                        // 1. 历史典故古文原文 (调至上方，23pt 超大护眼大字)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("【古文原文 / 典故故事】")
+                                .font(.system(.headline, design: .serif))
+                                .bold()
+                                .foregroundColor(.cloudGold)
+                            Text(level.story)
+                                .font(.system(size: 23, weight: .bold, design: .serif))
+                                .foregroundColor(.xuanBlack)
+                                .lineSpacing(10)
+                            
+                            Text("—— 出处：\(cleanBookTitle)")
+                                .font(.system(size: 16, weight: .bold, design: .serif))
+                                .foregroundColor(.gray)
+                                .padding(.top, 4)
+                        }
+                        .padding(18)
+                        .background(Color.cloudGold.opacity(0.08))
+                        .cornerRadius(12)
+                        
+                        // 2. 注音与字词释义 (调至下方，24pt 超大护眼大字)
                         VStack(alignment: .leading, spacing: 8) {
                             Text("【字词释义】")
                                 .font(.system(.headline, design: .serif))
@@ -100,26 +125,6 @@ public struct StoryCardModalView: View {
                         }
                         .padding(18)
                         .background(Color.bambooGreen.opacity(0.08))
-                        .cornerRadius(12)
-                        
-                        // 历史典故古文原文 (23pt 超大护眼大字)
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text("【古文原文 / 典故故事】")
-                                .font(.system(.headline, design: .serif))
-                                .bold()
-                                .foregroundColor(.cloudGold)
-                            Text(level.story)
-                                .font(.system(size: 23, weight: .bold, design: .serif))
-                                .foregroundColor(.xuanBlack)
-                                .lineSpacing(10)
-                            
-                            Text("—— 出处：\(level.source)")
-                                .font(.system(size: 16, weight: .bold, design: .serif))
-                                .foregroundColor(.gray)
-                                .padding(.top, 4)
-                        }
-                        .padding(18)
-                        .background(Color.cloudGold.opacity(0.08))
                         .cornerRadius(12)
                         
                         // 满 10 关才在「金榜题名捷报」中分享，单关不再弹出分享

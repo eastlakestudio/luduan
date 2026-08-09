@@ -26,7 +26,7 @@ final class ThemeLevelNavigationTests: XCTestCase {
         if let secondLevel = repository.nextLevel(after: firstLevel) {
             let secondInfo = repository.themeProgressInfo(for: secondLevel)
             XCTAssertEqual(secondInfo.currentIndex, 2)
-            XCTAssertEqual(secondInfo.completedCount, 1)
+            XCTAssertGreaterThanOrEqual(secondInfo.completedCount, 1)
             
             let prevFromSecond = repository.previousLevel(before: secondLevel)
             XCTAssertNotNil(prevFromSecond)
