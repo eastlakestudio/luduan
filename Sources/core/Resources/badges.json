@@ -782,15 +782,7 @@
     "requirementDescription": "破解第 39 关·帝师阶解锁",
     "imageName": "badge_acad_13"
   },
-  {
-    "id": "badge_class_1",
-    "name": "诗经",
-    "sealText": "典籍\n诗经",
-    "category": "典籍名篇",
-    "description": "千古名篇博大精深，汇聚中华典籍智慧精髓。",
-    "requirementDescription": "破解第 3 关·研读《诗经》解锁",
-    "imageName": "badge_class_1"
-  },
+
   {
     "id": "badge_class_2",
     "name": "尚书",
