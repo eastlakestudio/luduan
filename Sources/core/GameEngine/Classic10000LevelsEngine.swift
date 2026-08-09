@@ -39,7 +39,11 @@ public final class Classic10000LevelsEngine {
     
     private static let cachedAllSeeds: [ClassicalSeedItem] = {
         let fileNames = [
-            "shihan", "shijing", "tangsong", "lunyu", "daodejing",
+            "shiji", "shangshu", "zhouyi", "liji", "daxue", "hanshu", "houhanshu",
+            "sanguozhi", "zizhitongjian", "zhanguoce", "zhuangzi", "xunzi", "hanfeizi",
+            "sunzibingfa", "huainanzi", "lvshichunqiu", "chuci", "zhaomingwenxuan", "wenxindiaolong",
+            "tangshi", "songci", "huajianyuefu", "zhuzijiaxun", "sanguoyanyi", "shuihuzhuan",
+            "liaozhaizhiyi", "shihan", "shijing", "tangsong", "lunyu", "daodejing",
             "mengzi", "zhongyong", "guoyu", "chunqiu", "yanshijiaxun",
             "chuanxilu", "caigentan", "rizhilu", "xiaochuangyouji",
             "zengguofanjiashu", "xiyouji", "hongloumeng"

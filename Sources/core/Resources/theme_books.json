@@ -383,25 +383,16 @@
     "tangsong"
   ],
   "badge_class_1": [
-    "shijing"
+    "shangshu"
   ],
   "badge_class_2": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "shangshu"
   ],
   "badge_class_3": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "zhouyi"
   ],
   "badge_class_4": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "liji"
   ],
   "badge_class_5": [
     "chunqiu"
@@ -413,100 +404,71 @@
     "mengzi"
   ],
   "badge_class_8": [
+    "daxue",
     "zhongyong"
   ],
   "badge_class_9": [
     "shijing",
     "lunyu",
-    "daodejing",
-    "tangsong"
+    "daodejing"
   ],
   "badge_class_10": [
-    "shihan"
+    "shiji"
   ],
   "badge_class_11": [
-    "shihan"
+    "hanshu"
   ],
   "badge_class_12": [
-    "shihan"
+    "houhanshu"
   ],
   "badge_class_13": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "sanguozhi"
   ],
   "badge_class_14": [
-    "shihan"
+    "zizhitongjian"
   ],
   "badge_class_15": [
-    "shihan"
+    "guoyu",
+    "zhanguoce"
   ],
   "badge_class_16": [
     "daodejing"
   ],
   "badge_class_17": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "zhuangzi"
   ],
   "badge_class_18": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "xunzi"
   ],
   "badge_class_19": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "hanfeizi"
   ],
   "badge_class_20": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "sunzibingfa"
   ],
   "badge_class_21": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "huainanzi"
   ],
   "badge_class_22": [
-    "chunqiu"
+    "lvshichunqiu"
   ],
   "badge_class_23": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "chuci"
   ],
   "badge_class_24": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "zhaomingwenxuan"
   ],
   "badge_class_25": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "wenxindiaolong"
   ],
   "badge_class_26": [
-    "tangsong"
+    "tangshi"
   ],
   "badge_class_27": [
-    "tangsong"
+    "songci"
   ],
   "badge_class_28": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "huajianyuefu"
   ],
   "badge_class_29": [
     "yanshijiaxun"
@@ -524,34 +486,22 @@
     "zengguofanjiashu"
   ],
   "badge_class_34": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "zhuzijiaxun"
   ],
   "badge_class_35": [
     "xiyouji"
   ],
   "badge_class_36": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "sanguoyanyi"
   ],
   "badge_class_37": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "shuihuzhuan"
   ],
   "badge_class_38": [
     "hongloumeng"
   ],
   "badge_class_39": [
-    "shijing",
-    "lunyu",
-    "daodejing",
-    "tangsong"
+    "liaozhaizhiyi"
   ],
   "badge_prac_1_1": [
     "shijing",
