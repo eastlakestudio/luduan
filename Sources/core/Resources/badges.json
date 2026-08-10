@@ -57,7 +57,7 @@
     "id": "badge_shiji",
     "name": "太史公印",
     "sealText": "史记\n典藏",
-    "category": "典籍名篇",
+    "category": "人物名将",
     "description": "史家之绝唱，无韵之离骚。",
     "requirementDescription": "通关史汉典故关卡【纸上谈兵】解锁",
     "imageName": "badge_shiji"
@@ -684,31 +684,13 @@
     "imageName": "badge_acad_4_3"
   },
   {
-    "id": "badge_acad_5_1",
-    "name": "贡士·上",
-    "sealText": "功名\n贡士上",
+    "id": "badge_acad_5",
+    "name": "贡士",
+    "sealText": "功名\n贡士",
     "category": "功名学阶",
     "description": "科举功名递进，学阶登科之荣。",
     "requirementDescription": "破解第 15 关·上阶解锁",
-    "imageName": "badge_acad_5_1"
-  },
-  {
-    "id": "badge_acad_5_2",
-    "name": "贡士·中",
-    "sealText": "功名\n贡士中",
-    "category": "功名学阶",
-    "description": "科举功名递进，学阶登科之荣。",
-    "requirementDescription": "破解第 15 关·中阶解锁",
-    "imageName": "badge_acad_5_2"
-  },
-  {
-    "id": "badge_acad_5_3",
-    "name": "贡士·下",
-    "sealText": "功名\n贡士下",
-    "category": "功名学阶",
-    "description": "科举功名递进，学阶登科之荣。",
-    "requirementDescription": "破解第 15 关·下阶解锁",
-    "imageName": "badge_acad_5_3"
+    "imageName": "badge_acad_5"
   },
   {
     "id": "badge_acad_6",
@@ -736,33 +718,6 @@
     "description": "科举功名递进，学阶登科之荣。",
     "requirementDescription": "破解第 24 关·翰林阶解锁",
     "imageName": "badge_acad_8"
-  },
-  {
-    "id": "badge_acad_9",
-    "name": "学官",
-    "sealText": "功名\n学官",
-    "category": "功名学阶",
-    "description": "科举功名递进，学阶登科之荣。",
-    "requirementDescription": "破解第 27 关·学官阶解锁",
-    "imageName": "badge_acad_9"
-  },
-  {
-    "id": "badge_acad_10",
-    "name": "科道",
-    "sealText": "功名\n科道",
-    "category": "功名学阶",
-    "description": "科举功名递进，学阶登科之荣。",
-    "requirementDescription": "破解第 30 关·科道阶解锁",
-    "imageName": "badge_acad_10"
-  },
-  {
-    "id": "badge_acad_11",
-    "name": "部堂",
-    "sealText": "功名\n部堂",
-    "category": "功名学阶",
-    "description": "科举功名递进，学阶登科之荣。",
-    "requirementDescription": "破解第 33 关·部堂阶解锁",
-    "imageName": "badge_acad_11"
   },
   {
     "id": "badge_acad_12",

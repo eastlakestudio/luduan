@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.LuDuan" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#F8F6EC</item>
         <item name="android:statusBarColor">#F8F6EC</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowSplashScreenBackground">#F8F6EC</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon_transparent</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">#F8F6EC</item>
+        <item name="android:windowSplashScreenAnimationDuration">0</item>
     </style>
 </resources>

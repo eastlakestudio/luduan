@@ -1,10 +1,6 @@
 .DS_Store
 .build/
 .swiftpm/
-*.xcodeproj
-!*.xcodeproj/xcshareddata/
-!*.xcodeproj/xcshareddata/xcschemes/
-!*.xcodeproj/xcshareddata/xcschemes/*.xcscheme
 *.xcworkspace
 xcuserdata/
 DerivedData/
@@ -13,3 +9,6 @@ build/ipa_temp/
 *.ipa
 build/ipa/*.plist
 build/ipa/*.log
+android/app/build/
+android/.gradle/
+android/local.properties
