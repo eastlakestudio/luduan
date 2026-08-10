@@ -140,6 +140,9 @@ function init() {
     document.getElementById('msg').textContent = '';
     document.getElementById('result').style.display = 'none';
 
+    // 随机打乱字块顺序（正确字随机分行）
+    const shuffled = [...lv.tiles].sort(() => Math.random() - 0.5);
+
     // 答题槽
     const slotsEl = document.getElementById('slots');
     slotsEl.innerHTML = '';
@@ -150,24 +153,25 @@ function init() {
         slotsEl.appendChild(s);
     }
 
-    // 字块
+    // 字块（使用打乱后的顺序）
     const tilesEl = document.getElementById('tiles');
     tilesEl.innerHTML = '';
-    lv.tiles.forEach((t, idx) => {
+    shuffled.forEach((t, idx) => {
         const el = document.createElement('div');
         el.className = 'tile';
         el.textContent = t;
-        el.onclick = () => selectTile(idx, el);
+        el.dataset.char = t;
+        el.onclick = () => selectTile(t, el);
         tilesEl.appendChild(el);
     });
 }
 
-function selectTile(idx, el) {
+function selectTile(char, el) {
     const lv = levels[currentLevel];
     if (selected.length >= lv.phrase.length) return;
     if (el.classList.contains('used')) return;
     el.classList.add('used');
-    selected.push({idx, char: lv.tiles[idx], el});
+    selected.push({char: char, el: el});
     updateSlots();
 }
 
