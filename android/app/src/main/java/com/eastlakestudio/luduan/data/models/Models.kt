@@ -14,7 +14,7 @@ enum class BadgeCategory(val rawValue: String) {
 @Serializable
 data class LevelModel(val id: String, val theme: CultureTheme, val title: String, val categoryName: String = "",
     val targetPhrase: String, val tileMatrix: List<String>, val annotation: String,
-    val story: String, val source: String, val rewardBadgeId: String? = null)
+    val story: String, val source: String, val rewardBadgeId: String? = null, val badgeId: String? = null)
 @Serializable
 data class BadgeModel(val id: String, val name: String, val sealText: String, val category: String,
     val description: String, val requirementDescription: String, val imageName: String? = null)

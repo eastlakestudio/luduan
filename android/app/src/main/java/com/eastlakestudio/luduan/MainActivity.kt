@@ -3,11 +3,16 @@ package com.eastlakestudio.luduan
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
 import com.eastlakestudio.luduan.data.models.LevelModel
 import com.eastlakestudio.luduan.ui.screens.*
 import com.eastlakestudio.luduan.ui.theme.*
@@ -24,15 +29,38 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val repo = (application as LuDuanApp).repository
         setContent {
-            MaterialTheme(colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()) {
+            val dark = isSystemInDarkTheme()
+            SideEffect {
+                WindowCompat.getInsetsController(window, window.decorView).apply {
+                    isAppearanceLightStatusBars = !dark
+                    isAppearanceLightNavigationBars = !dark
+                }
+            }
+            MaterialTheme(colorScheme = if (dark) darkColorScheme() else lightColorScheme()) {
                 var screen by remember { mutableStateOf<Screen>(Screen.Dashboard) }
                 var dashboardTab by remember { mutableStateOf(0) }
+                var scrollToIndex by remember { mutableStateOf(-1) }
                 Surface(Modifier.fillMaxSize(), color = adaptivePaper()) {
-                    val current = screen
-                    when (current) {
-                        is Screen.Dashboard -> DashboardScreen(repo, { l -> screen = Screen.Puzzle(l) }, { screen = Screen.BadgeGallery }, dashboardTab, { dashboardTab = it })
-                        is Screen.BadgeGallery -> BadgeGalleryScreen(repo) { screen = Screen.Dashboard }
-                        is Screen.Puzzle -> PuzzleGameScreen(current.level, repo, { screen = Screen.Dashboard }, { n -> screen = Screen.Puzzle(n) })
+                    when (val current = screen) {
+                        is Screen.Dashboard -> DashboardScreen(
+                            repo = repo,
+                            onLevelClick = { l, cardIdx ->
+                                scrollToIndex = cardIdx
+                                screen = Screen.Puzzle(l)
+                            },
+                            onBadgeGalleryClick = { screen = Screen.BadgeGallery },
+                            initialTab = dashboardTab,
+                            onTabChange = { dashboardTab = it },
+                            scrollToIndex = scrollToIndex,
+                            onScrolled = { scrollToIndex = -1 }
+                        )
+                        is Screen.BadgeGallery -> BadgeGalleryScreen(repo = repo, onBack = { screen = Screen.Dashboard })
+                        is Screen.Puzzle -> PuzzleGameScreen(
+                            level = current.level,
+                            repo = repo,
+                            onBack = { screen = Screen.Dashboard },
+                            onNextLevel = { n -> screen = Screen.Puzzle(n) }
+                        )
                     }
                 }
             }

@@ -38,24 +38,10 @@ public final class Classic10000LevelsEngine {
     }
     
     private static let cachedAllSeeds: [ClassicalSeedItem] = {
-        let fileNames = [
-            "shiji", "shangshu", "zhouyi", "liji", "daxue", "hanshu", "houhanshu",
-            "sanguozhi", "zizhitongjian", "zhanguoce", "zhuangzi", "xunzi", "hanfeizi",
-            "sunzibingfa", "huainanzi", "lvshichunqiu", "chuci", "zhaomingwenxuan", "wenxindiaolong",
-            "tangshi", "songci", "huajianyuefu", "zhuzijiaxun", "sanguoyanyi", "shuihuzhuan",
-            "liaozhaizhiyi", "shihan", "shijing", "tangsong", "lunyu", "daodejing",
-            "mengzi", "zhongyong", "guoyu", "chunqiu", "yanshijiaxun",
-            "chuanxilu", "caigentan", "rizhilu", "xiaochuangyouji",
-            "zengguofanjiashu", "xiyouji", "hongloumeng"
-        ]
-        var combined: [ClassicalSeedItem] = []
-        for fn in fileNames {
-            combined.append(contentsOf: loadSeeds(named: fn))
-        }
-        return combined
+        return loadSeeds(named: "master_10000")
     }()
     
-    /// 获取所有 17 个已加载的 JSON 种子库集合（已优化为静态只读缓存）
+    /// 获取所有已加载的种子库集合
     public static var allCombinedSeeds: [ClassicalSeedItem] {
         return cachedAllSeeds
     }
@@ -68,29 +54,7 @@ public final class Classic10000LevelsEngine {
         let allSeeds = allCombinedSeeds
         let seedCount = max(1, allSeeds.count)
         
-        let rawSeed: ClassicalSeedItem
-        
-        if safeIndex < 2500 {
-            // 先秦与诗经典籍源头 (0..<2500)
-            let items = loadSeeds(named: "shijing") + loadSeeds(named: "lunyu") + loadSeeds(named: "daodejing") + loadSeeds(named: "mengzi") + loadSeeds(named: "zhouyi") + loadSeeds(named: "shangshu") + loadSeeds(named: "liji") + loadSeeds(named: "daxue") + loadSeeds(named: "zhongyong") + loadSeeds(named: "guoyu") + loadSeeds(named: "chunqiu")
-            rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[safeIndex % items.count]
-        } else if safeIndex < 5500 {
-            // 两汉三国史册 (2500..<5500)
-            let items = loadSeeds(named: "shiji") + loadSeeds(named: "hanshu") + loadSeeds(named: "houhanshu") + loadSeeds(named: "sanguozhi") + loadSeeds(named: "zhanguoce") + loadSeeds(named: "zizhitongjian") + loadSeeds(named: "shihan")
-            rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 2500) % items.count]
-        } else if safeIndex < 7000 {
-            // 魏晋南北朝 (5500..<7000)
-            let items = loadSeeds(named: "yanshijiaxun") + loadSeeds(named: "wenxindiaolong") + loadSeeds(named: "zhaomingwenxuan") + loadSeeds(named: "chuci")
-            rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 5500) % items.count]
-        } else if safeIndex < 8800 {
-            // 唐宋诗词史鉴 (7000..<8800)
-            let items = loadSeeds(named: "tangshi") + loadSeeds(named: "songci") + loadSeeds(named: "huajianyuefu") + loadSeeds(named: "tangsong")
-            rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 7000) % items.count]
-        } else {
-            // 明清名著与家书 (8800..<10000)
-            let items = loadSeeds(named: "chuanxilu") + loadSeeds(named: "caigentan") + loadSeeds(named: "rizhilu") + loadSeeds(named: "xiaochuangyouji") + loadSeeds(named: "zengguofanjiashu") + loadSeeds(named: "zhuzijiaxun") + loadSeeds(named: "xiyouji") + loadSeeds(named: "sanguoyanyi") + loadSeeds(named: "shuihuzhuan") + loadSeeds(named: "hongloumeng") + loadSeeds(named: "liaozhaizhiyi")
-            rawSeed = items.isEmpty ? allSeeds[safeIndex % seedCount] : items[(safeIndex - 8800) % items.count]
-        }
+        let rawSeed = allSeeds[safeIndex % seedCount]
         
         let theme: CultureTheme
         if rawSeed.source.contains("诗经") {

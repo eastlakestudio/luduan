@@ -4,7 +4,7 @@ import org.json.JSONArray
 
 object LevelEngine {
     const val TOTAL_LEVELS = 10000
-    private val seedFiles = listOf("shihan","shijing","tangsong","lunyu","daodejing","mengzi","zhongyong","guoyu","chunqiu","yanshijiaxun","chuanxilu","caigentan","rizhilu","xiaochuangyouji","zengguofanjiashu","xiyouji","hongloumeng")
+    private val seedFiles = listOf("words")
     private val seedsCache = mutableMapOf<String, List<ClassicalSeedItem>>()
     private val allSeeds: List<ClassicalSeedItem> get() = seedFiles.flatMap { loadSeeds(it) }
     private fun loadSeeds(name: String): List<ClassicalSeedItem> = seedsCache.getOrPut(name) { emptyList() }
@@ -24,33 +24,41 @@ object LevelEngine {
 
     fun level(index: Int, jsonLoader: (String) -> String?, categoryName: String = ""): LevelModel {
         val si = index.coerceIn(0, TOTAL_LEVELS - 1); val ln = si + 1
-        val theme: CultureTheme; val seed: ClassicalSeedItem
-        if (si < 2500) { theme = CultureTheme.SHIJING
-            val items = listOf("shijing","lunyu","daodejing","mengzi","zhongyong","guoyu","chunqiu").flatMap { loadSeeds(it, jsonLoader) }
-            seed = items.getOrElse(si % items.size) { allSeedsDynamic(jsonLoader)[si % allSeedsDynamic(jsonLoader).size] }
-        } else if (si < 5500) { theme = CultureTheme.SHIHAN
-            val items = loadSeeds("shihan", jsonLoader)
-            seed = items.getOrElse((si-2500) % items.size) { allSeedsDynamic(jsonLoader)[si % allSeedsDynamic(jsonLoader).size] }
-        } else if (si < 7000) { theme = CultureTheme.SHIHAN
-            val items = loadSeeds("yanshijiaxun", jsonLoader) + loadSeeds("shihan", jsonLoader)
-            seed = items.getOrElse((si-5500) % items.size) { allSeedsDynamic(jsonLoader)[si % allSeedsDynamic(jsonLoader).size] }
-        } else if (si < 8800) { theme = CultureTheme.TANGSONG
-            val items = loadSeeds("tangsong", jsonLoader)
-            seed = items.getOrElse((si-7000) % items.size) { allSeedsDynamic(jsonLoader)[si % allSeedsDynamic(jsonLoader).size] }
-        } else { theme = CultureTheme.SHIJING
-            val items = listOf("chuanxilu","caigentan","rizhilu","xiaochuangyouji","zengguofanjiashu","xiyouji","hongloumeng").flatMap { loadSeeds(it, jsonLoader) }
-            seed = items.getOrElse((si-8800) % items.size) { allSeedsDynamic(jsonLoader)[si % allSeedsDynamic(jsonLoader).size] }
-        }
+        val seeds = allSeedsDynamic(jsonLoader)
+        val seed = seeds.getOrElse(si) { seeds[si % maxOf(1, seeds.size)] }
+        val theme = CultureTheme.SHIJING
         return LevelModel("level_$ln", theme, "第 $ln 关", categoryName, seed.phrase,
             genTiles(seed.phrase, si), seed.annotation, seed.story, seed.source)
     }
-    private val dis = listOf("天","地","玄","黄","宇","宙","洪","荒","日","月","盈","昂","辰","宿","列","张")
+    fun parseSeedsPublic(json: String): List<ClassicalSeedItem> = parseSeeds(json)
+
+    fun levelFromWord(seed: ClassicalSeedItem, categoryName: String, badgeId: String? = null): LevelModel {
+        val si = (seed.phrase.hashCode() and 0x7fffffff)
+        return LevelModel("badge_word_$si", CultureTheme.SHIJING, categoryName, categoryName,
+            seed.phrase, genTiles(seed.phrase, si), seed.annotation, seed.story, seed.source, null, badgeId)
+    }
+
+    private val pool = listOf(
+        "天","地","人","心","上","下","不","一","大","小","中","分","生","年","道","说",
+        "子","水","火","木","金","土","日","月","星","山","河","海","云","雨","风","雪",
+        "春","夏","秋","冬","花","草","树","石","龙","凤","虎","鹤","马","牛","羊","鱼",
+        "诗","书","画","剑","琴","棋","茶","酒","梦","情","义","信","德","善","美","真",
+        "行","知","思","言","声","色","光","影","空","满","开","落","飞","远","近","高",
+        "白","青","红","黑","黄","紫","翠","碧","苍","丹","朱","素","彩","辉","灿","霞",
+        "朝","暮","晨","夕","岁","时","今","古","先","后","始","终","来","去","起","伏",
+        "国","家","城","门","路","桥","船","车","钟","鼓","旗","弓","刀","枪","盾","甲"
+    )
     private fun genTiles(phrase: String, si: Int): List<String> {
-        val r = phrase.map { it.toString() }.toMutableList(); val t = maxOf(16, r.size + 4)
-        var d = si % dis.size
-        while (r.size < t) { val c = dis[d % dis.size]; if (c !in r) r.add(c); d += 7 }
+        val r = phrase.map { it.toString() }.toMutableList()
+        val t = maxOf(16, r.size + 4)
+        val phraseSet = r.toSet()
         var s = si * 997 + 13
-        for (i in r.size - 1 downTo 1) { s = (s * 1103515245 + 12345) and 0x7fffffff; val j = s % (i + 1); val tmp = r[i]; r[i] = r[j]; r[j] = tmp }
+        fun rng(): Int { s = (s * 1103515245 + 12345) and 0x7fffffff; return s }
+        while (r.size < t) {
+            val c = pool[rng() % pool.size]
+            if (c !in phraseSet && c !in r) { r.add(c); phraseSet.plus(c) }
+        }
+        for (i in r.size - 1 downTo 1) { val j = rng() % (i + 1); val tmp = r[i]; r[i] = r[j]; r[j] = tmp }
         return r
     }
 }

@@ -12,8 +12,8 @@ android {
         applicationId = "com.eastlakestudio.luduan"
         minSdk = 26
         targetSdk = 34
-        versionCode = 9
-        versionName = "1.0.0"
+        versionCode = 10
+        versionName = "1.1.0"
     }
 
     signingConfigs {
@@ -38,6 +38,21 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
     buildFeatures { compose = true }
+
+    // 自动从 shared/data 同步共享数据
+    val sharedDir = file("../../shared/data")
+    if (sharedDir.exists()) {
+        val assetsDir = file("src/main/assets")
+        tasks.matching { it.name.startsWith("preBuild") }.configureEach {
+            doFirst {
+                listOf("words.json", "book_words.json", "badges.json", "badge_word_map.json").forEach { f ->
+                    val src = file("$sharedDir/$f")
+                    val dstDir = if (f == "words.json") "$assetsDir/seeds" else assetsDir.path
+                    if (src.exists()) { src.copyTo(file("$dstDir/$f"), overwrite = true) }
+                }
+            }
+        }
+    }
     composeOptions { kotlinCompilerExtensionVersion = "1.5.4" }
     packaging {
         resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" }
@@ -60,4 +75,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
     implementation("androidx.navigation:navigation-compose:2.7.6")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("com.google.zxing:core:3.5.2")
 }

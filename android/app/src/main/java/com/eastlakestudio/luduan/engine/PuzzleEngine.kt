@@ -31,9 +31,13 @@ class PuzzleEngine(val level: LevelModel) {
     }
     fun provideHintProgressive(): Int {
         hintStage += 1; val tc = level.targetPhrase.map { it.toString() }
-        if (hintStage >= 3) { selectedIndices.clear(); for (c in tc) { val idx = tiles.indexOfFirst { it == c && it !in selectedIndices.map { i -> tiles[i] } }; if (idx >= 0 && idx !in selectedIndices) selectedIndices.add(idx) }; if (selectedIndices.size == tc.size) checkAnswer(); return tc.size }
-        val cnt = minOf(selectedIndices.size + 1, tc.size); selectedIndices.clear()
-        for (i in 0 until cnt) { val idx = tiles.indexOfFirst { it == tc[i] && it !in selectedIndices.map { j -> tiles[j] } }; if (idx >= 0) { selectedIndices.add(idx); highlightedTileIndex = idx } }
+        if (hintStage >= 3) {
+            selectedIndices.clear()
+            for (c in tc) { val idx = tiles.indices.firstOrNull { i -> tiles[i] == c && i !in selectedIndices }; if (idx != null) selectedIndices.add(idx) }
+            return tc.size
+        }
+        val cnt = minOf(hintStage, tc.size); selectedIndices.clear()
+        for (i in 0 until cnt) { val idx = tiles.indices.firstOrNull { j -> tiles[j] == tc[i] && j !in selectedIndices }; if (idx != null) { selectedIndices.add(idx); highlightedTileIndex = idx } }
         return cnt
     }
 }

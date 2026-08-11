@@ -1,7 +1,15 @@
 package com.eastlakestudio.luduan.ui.screens
 
-import androidx.compose.animation.core.*
-import androidx.compose.foundation.*
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Typeface
+import android.graphics.BitmapFactory
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.*
 import androidx.compose.foundation.rememberScrollState
@@ -13,36 +21,53 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import com.eastlakestudio.luduan.data.GameRepository
+import com.eastlakestudio.luduan.data.models.BadgeModel
+import com.eastlakestudio.luduan.ui.components.BadgeImageView
 import com.eastlakestudio.luduan.ui.components.LuText
-import com.eastlakestudio.luduan.data.models.LevelModel
-import com.eastlakestudio.luduan.engine.PuzzleEngine
+import com.eastlakestudio.luduan.ui.components.ShareHelper
 import com.eastlakestudio.luduan.ui.theme.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
-fun PuzzleGameScreen(level: LevelModel, repo: GameRepository, onBack: () -> Unit, onNextLevel: (LevelModel) -> Unit) {
-    val engine = remember(level) { PuzzleEngine(level) }
+fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, repo: GameRepository, onBack: () -> Unit, onNextLevel: (com.eastlakestudio.luduan.data.models.LevelModel) -> Unit) {
+    var currentLevel by remember { mutableStateOf(level) }
+    val engine = remember(currentLevel) { com.eastlakestudio.luduan.engine.PuzzleEngine(currentLevel) }
     val scope = rememberCoroutineScope()
-    val multi = level.targetPhrase.length > 4
+    val ctx = LocalContext.current
+    val multi = currentLevel.targetPhrase.length > 4
     var showStory by remember { mutableStateOf(false) }
     var showMs by remember { mutableStateOf(false) }
     var showHint by remember { mutableStateOf(false) }
+    var newlyUnlockedBadge by remember { mutableStateOf<BadgeModel?>(null) }
+    var showVictoryShare by remember { mutableStateOf(false) }
     var shake by remember { mutableFloatStateOf(0f) }
+    val phrases by repo.learnedPhrases.collectAsState()
+    val learnedCount = phrases.size
 
     LaunchedEffect(engine.isCompleted) {
         if (engine.isCompleted) {
-            repo.completeLevel(level); val c = repo.learnedPhrases.value.size; delay(400)
-            if (c > 0 && c % 10 == 0) showMs = true else showStory = true
+            val unlockedBid = repo.completeLevel(currentLevel)
+            val c = repo.learnedPhrases.value.size
+            delay(400)
+            if (unlockedBid != null) {
+                newlyUnlockedBadge = repo.badges.firstOrNull { it.id == unlockedBid }
+            }
+            if (c > 0 && c % 10 == 0) showVictoryShare = true
+            else showStory = true
         }
     }
     LaunchedEffect(engine.lastCheckState) {
-        if (engine.lastCheckState == PuzzleEngine.CheckState.INCORRECT) {
+        if (engine.lastCheckState == com.eastlakestudio.luduan.engine.PuzzleEngine.CheckState.INCORRECT) {
             scope.launch { for (i in 0..3) { shake = if (i % 2 == 0) -10f else 10f; delay(50) }; shake = 0f }
         }
     }
@@ -51,22 +76,24 @@ fun PuzzleGameScreen(level: LevelModel, repo: GameRepository, onBack: () -> Unit
         Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp), verticalAlignment = Alignment.CenterVertically) {
             TextButton(onBack) { Text("\u2190", color = adaptiveXuan(), fontSize = 20.sp) }
             Spacer(Modifier.width(8.dp))
-            Text(level.categoryName.ifEmpty { level.title }, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif, modifier = Modifier.weight(1f))
+            Text(currentLevel.categoryName.ifEmpty { currentLevel.title }, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif, modifier = Modifier.weight(1f))
+            Text("\u5df2\u5b66 $learnedCount \u8bcd", color = adaptiveCinnabar(), fontSize = 13.sp, fontFamily = FontFamily.Serif)
+            Spacer(Modifier.width(8.dp))
             TextButton({ showHint = true }) { Text("\u2728", fontSize = 16.sp) }
         }
         Card(Modifier.fillMaxWidth().padding(horizontal = 16.dp), shape = RoundedCornerShape(12.dp), colors = CardDefaults.cardColors(adaptiveCard())) {
             Column(Modifier.padding(16.dp)) {
-                Text("\u7ebf\u7d22", color = adaptiveGold(), fontSize = 14.sp, fontFamily = FontFamily.Serif)
+                Text("\u91ca\u4e49", color = adaptiveGold(), fontSize = 14.sp, fontFamily = FontFamily.Serif)
                 Spacer(Modifier.height(4.dp))
-                Text(level.annotation, color = adaptiveXuan(), fontSize = 18.sp, fontFamily = FontFamily.Serif, maxLines = 2)
+                Text(currentLevel.annotation, color = adaptiveXuan(), fontSize = 18.sp, fontFamily = FontFamily.Serif, maxLines = 2)
             }
         }
         Spacer(Modifier.weight(1f))
         if (engine.hintStage > 0) {
-            LuText("甪\u7aef\u6307\u5f15\uff1a\u5df2\u9501\u5b9a ${engine.hintStage} \u4e2a\u6b63\u786e\u5b57\uff01", color = adaptiveXuan(), fontSize = 13.sp, modifier = Modifier.padding(horizontal = 16.dp))
+            LuText("\u752a\u7aef\u6307\u5f15\uff1a\u5df2\u9501\u5b9a ${engine.hintStage} \u4e2a\u6b63\u786e\u5b57\uff01", color = adaptiveXuan(), fontSize = 13.sp, modifier = Modifier.padding(horizontal = 16.dp))
             Spacer(Modifier.height(4.dp))
         }
-        val tc = level.targetPhrase.length; val cc = if (tc == 8) 4 else minOf(tc, 5); val sh = if (multi) 58.dp else 72.dp
+        val tc = currentLevel.targetPhrase.length; val cc = if (tc == 8) 4 else minOf(tc, 5); val sh = if (multi) 58.dp else 72.dp
         LazyVerticalGrid(GridCells.Fixed(cc), Modifier.padding(horizontal = 16.dp).offset(x = shake.dp), horizontalArrangement = Arrangement.spacedBy(if (multi) 6.dp else 8.dp), verticalArrangement = Arrangement.spacedBy(if (multi) 6.dp else 10.dp), userScrollEnabled = false) {
             items(tc) { idx ->
                 val sel = idx < engine.selectedIndices.size; val ch = if (sel) engine.tiles[engine.selectedIndices[idx]] else null
@@ -93,24 +120,70 @@ fun PuzzleGameScreen(level: LevelModel, repo: GameRepository, onBack: () -> Unit
         }
     }
 
-    if (showStory) AlertDialog({ showStory = false }, title = { Text("\u300c${level.targetPhrase}\u300d\u51fa\u81ea\u300a${level.source}\u300b", color = adaptiveCinnabar(), fontFamily = FontFamily.Serif) },
-        text = { Column(Modifier.verticalScroll(rememberScrollState())) {
-            Text("\u5df2\u901a\u8fc7 ${repo.learnedPhrases.value.size} \u8bcd", color = adaptiveCinnabar(), fontSize = 15.sp, fontFamily = FontFamily.Serif)
-            Spacer(Modifier.height(8.dp))
-            Text(level.annotation, color = adaptiveXuan(), fontSize = 16.sp, fontFamily = FontFamily.Serif); Spacer(Modifier.height(12.dp)); Text(level.story, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif) } },
-        confirmButton = { TextButton({ showStory = false; repo.nextLevel(level)?.let(onNextLevel) }) { Text("\u8fdb\u5165\u4e0b\u4e00\u5173 >", color = adaptiveCinnabar()) } },
-        dismissButton = { TextButton({ showStory = false }) { Text(text = "\u5173\u95ed", color = Color.Gray) } }, containerColor = adaptivePaper())
+    // 通关弹窗
+    if (showStory) FullScreenStory(currentLevel, learnedCount, { showStory = false; repo.nextLevel(currentLevel)?.let { currentLevel = it } }, { showStory = false; repo.nextLevel(currentLevel)?.let { currentLevel = it } })
 
-    if (showMs) AlertDialog({ showMs = false }, title = { LuText("甪\u7aef\u5b57\u6e38", color = adaptiveCinnabar(), fontSize = 22.sp, fontFamily = FontFamily.Serif) },
-        text = { Column { LuText("\u795e\u517d甪\u7aef\u4f34\u5b66 \u00b7 \u4e07\u5173\u5178\u7c4d\u53e4\u98ce\u624b\u6e38", color = Color.Gray, fontSize = 12.sp); if (level.story.isNotEmpty()) { Spacer(Modifier.height(12.dp)); Text("\u201c${level.story}\u201d", color = adaptiveXuan(), fontSize = 16.sp, fontFamily = FontFamily.Serif) } } },
-        confirmButton = { TextButton({ showMs = false; repo.nextLevel(level)?.let(onNextLevel) }) { Text("\u7ee7\u7eed\u52c7\u95ef\u4e0b\u4e00\u5173 >", color = adaptiveCinnabar()) } },
-        dismissButton = { TextButton({ showMs = false }) { Text(text = "\u5173\u95ed", color = Color.Gray) } }, containerColor = adaptivePaper())
+    // 每10词里程碑 → 直接弹出分享页
+
+    // 勋章解锁弹窗（含分享）
+    if (newlyUnlockedBadge != null) {
+        val badge = newlyUnlockedBadge!!
+        AlertDialog({ newlyUnlockedBadge = null }, title = { Text("\u52cb\u7ae0\u89e3\u9501\uff01", color = adaptiveGold(), fontSize = 20.sp, fontFamily = FontFamily.Serif) },
+            text = { Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+                BadgeImageView(ctx, badge.imageName, badge.sealText, true, 80)
+                Spacer(Modifier.height(8.dp))
+                Text(badge.name, color = adaptiveCinnabar(), fontSize = 18.sp, fontFamily = FontFamily.Serif)
+                Spacer(Modifier.height(8.dp))
+                Text(badge.description, color = adaptiveXuan(), fontSize = 14.sp, textAlign = TextAlign.Center)
+            }},
+            confirmButton = {
+                Row {
+                    TextButton({ newlyUnlockedBadge = null }) { Text("\u5173\u95ed", color = Color.Gray) }
+                    TextButton({
+                        showVictoryShare = true
+                    }) { Text("\u5206\u4eab", color = adaptiveCinnabar()) }
+                }
+            }, containerColor = adaptivePaper())
+    }
 
     if (showHint) {
         val bt = when (engine.hintStage) { 0 -> "\u63d0\u793a 1 \u4e2a\u6b63\u786e\u5b57\u5757"; 1 -> "\u63d0\u793a 2 \u4e2a\u6b63\u786e\u5b57\u5757"; else -> "\u89e3\u9501\u5168\u90e8\u6b63\u786e\u5b57\u901a\u5173" }
-        AlertDialog({ showHint = false }, title = { LuText("甪\u7aef\u7075\u611f", color = adaptiveCinnabar(), fontFamily = FontFamily.Serif) },
-            text = { Column(Modifier.verticalScroll(rememberScrollState())) { Text("\u5178\u7c4d\u51fa\u5904\uff1a${level.source}", color = adaptiveGold(), fontSize = 15.sp, fontFamily = FontFamily.Serif); Spacer(Modifier.height(12.dp)); Text(level.story, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif) } },
-            confirmButton = { if (engine.hintStage < 3) TextButton({ engine.provideHintProgressive() }) { Text(bt, color = adaptiveCinnabar()) } else TextButton({ showHint = false }) { Text("\u5b8c\u6210", color = adaptiveCinnabar()) } },
+        AlertDialog({ showHint = false }, title = { LuText("\u752a\u7aef\u7075\u611f", color = adaptiveCinnabar(), fontFamily = FontFamily.Serif) },
+            text = { Column(Modifier.verticalScroll(rememberScrollState())) { Text("\u5178\u7c4d\u51fa\u5904\uff1a${currentLevel.source}", color = adaptiveGold(), fontSize = 15.sp, fontFamily = FontFamily.Serif); Spacer(Modifier.height(12.dp)); Text(currentLevel.story, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif) } },
+            confirmButton = { if (engine.hintStage < 3) TextButton({ engine.provideHintProgressive(); if (engine.hintStage >= 3) showHint = false }) { Text(bt, color = adaptiveCinnabar()) } else TextButton({ showHint = false }) { Text("\u5b8c\u6210", color = adaptiveCinnabar()) } },
             dismissButton = { TextButton({ showHint = false }) { Text(text = "\u5173\u95ed", color = Color.Gray) } }, containerColor = adaptivePaper())
+    }
+
+    if (showVictoryShare) {
+        VictoryShareDialog(
+            learnedCount = learnedCount,
+            source = currentLevel.source,
+            story = currentLevel.story,
+            onDismiss = { showVictoryShare = false }
+        )
+    }
+}
+
+@Composable
+private fun FullScreenStory(level: com.eastlakestudio.luduan.data.models.LevelModel, learnedCount: Int, onDismiss: () -> Unit, onNext: () -> Unit) {
+    Dialog(onDismissRequest = onDismiss) {
+        Surface(Modifier.fillMaxSize(), color = adaptivePaper()) {
+            Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp)) {
+                Text(level.source, color = adaptiveCinnabar(), fontSize = 22.sp, fontFamily = FontFamily.Serif)
+                Spacer(Modifier.height(8.dp)); Text("\u5df2\u901a\u8fc7 $learnedCount \u8bcd", color = adaptiveGold(), fontSize = 14.sp)
+                Spacer(Modifier.height(20.dp)); Divider(color = adaptiveBorder()); Spacer(Modifier.height(20.dp))
+                Text("\u3010\u53e4\u6587\u539f\u6587\u3011", color = adaptiveGold(), fontSize = 15.sp, fontFamily = FontFamily.Serif)
+                Spacer(Modifier.height(8.dp)); Text(level.story, color = adaptiveXuan(), fontSize = 18.sp, fontFamily = FontFamily.Serif)
+                Spacer(Modifier.height(8.dp)); Text("\u2014\u2014 \u51fa\u5904\uff1a${level.source}", color = Color.Gray, fontSize = 13.sp, textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth())
+                Spacer(Modifier.height(20.dp)); Divider(color = adaptiveBorder()); Spacer(Modifier.height(20.dp))
+                Text("\u3010\u5b57\u8bcd\u91ca\u4e49\u3011", color = adaptiveBamboo(), fontSize = 15.sp, fontFamily = FontFamily.Serif)
+                Spacer(Modifier.height(8.dp)); Text(level.annotation, color = adaptiveXuan(), fontSize = 17.sp, fontFamily = FontFamily.Serif)
+                Spacer(Modifier.weight(1f))
+                Row(Modifier.fillMaxWidth().padding(top = 24.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    TextButton(onDismiss, Modifier.weight(1f)) { Text("\u5173\u95ed", color = Color.Gray, fontSize = 16.sp) }
+                    Button(onNext, Modifier.weight(1f), colors = ButtonDefaults.buttonColors(containerColor = adaptiveCinnabar())) { Text("\u4e0b\u4e00\u5173 >", color = PaperWhite, fontSize = 16.sp) }
+                }
+            }
+        }
     }
 }
