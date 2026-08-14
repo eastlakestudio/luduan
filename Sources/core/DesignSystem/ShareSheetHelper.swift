@@ -35,7 +35,7 @@ public struct ShareSheetHelper {
     #endif
     
     public static func share(items: [Any]) {
-        #if canImport(UIKit)
+        #if canImport(UIKit) && !APP_EXTENSION
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let rootViewController = windowScene.windows.first?.rootViewController else {
             return

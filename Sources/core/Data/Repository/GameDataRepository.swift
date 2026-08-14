@@ -16,15 +16,25 @@ public final class GameDataRepository: ObservableObject {
     private var completedCountCache: [String: Int] = [:]
     
     private let userProgressKey = "luDuanUserProgress_v2"
+    private static let appGroupSuiteName = "group.com.eastlakestudio.luduan"
+    
+    private var sharedUserDefaults: UserDefaults? {
+        UserDefaults(suiteName: GameDataRepository.appGroupSuiteName)
+    }
     
     public init() {
-        if let kcData = KeychainStore.load(key: userProgressKey),
+        let sharedDefaults = UserDefaults(suiteName: GameDataRepository.appGroupSuiteName)
+        if let sharedData = sharedDefaults?.data(forKey: userProgressKey),
+           let decoded = try? JSONDecoder().decode(UserProgressModel.self, from: sharedData) {
+            self.userProgress = decoded
+        } else if let kcData = KeychainStore.load(key: userProgressKey),
            let decoded = try? JSONDecoder().decode(UserProgressModel.self, from: kcData) {
             self.userProgress = decoded
+            saveProgress() // Sync to shared defaults
         } else if let udData = UserDefaults.standard.data(forKey: userProgressKey),
                   let decoded = try? JSONDecoder().decode(UserProgressModel.self, from: udData) {
             self.userProgress = decoded
-            saveProgress()
+            saveProgress() // Sync to shared defaults
         } else {
             self.userProgress = UserProgressModel()
         }
@@ -77,13 +87,13 @@ public final class GameDataRepository: ObservableObject {
         return res
     }()
     
-    private static let academicPhrasesMapping: [String: [String]] = {
+    private static let academicPhrasesMapping: [String: Set<String>] = {
         guard let url = Bundle.module.url(forResource: "academic_phrases", withExtension: "json"),
               let data = try? Data(contentsOf: url),
               let dict = try? JSONDecoder().decode([String: [String]].self, from: data) else {
             return [:]
         }
-        return dict
+        return dict.mapValues { Set($0) }
     }()
     
     /// 获取某部典籍收录的所有去重词汇名句
@@ -389,6 +399,7 @@ public final class GameDataRepository: ObservableObject {
     
     private func saveProgress() {
         if let encoded = try? JSONEncoder().encode(userProgress) {
+            sharedUserDefaults?.set(encoded, forKey: userProgressKey)
             KeychainStore.save(key: userProgressKey, data: encoded)
             UserDefaults.standard.set(encoded, forKey: userProgressKey)
         }

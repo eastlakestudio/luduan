@@ -7,6 +7,7 @@ import luDuanCore
 struct LuduanApp: App {
     @StateObject private var repository = GameDataRepository.shared
     @State private var showingLaunchScreen = true
+    @State private var pendingDeepLinkLevelId: String? = nil
     
     var body: some Scene {
         WindowGroup {
@@ -15,12 +16,26 @@ struct LuduanApp: App {
                     LaunchScreenView(isPresented: $showingLaunchScreen)
                         .transition(.opacity)
                 } else {
-                    MainDashboardView()
+                    MainDashboardView(pendingDeepLinkLevelId: $pendingDeepLinkLevelId)
                         .environmentObject(repository)
                         .transition(.opacity)
                 }
             }
             .animation(.easeInOut(duration: 0.4), value: showingLaunchScreen)
+            .onOpenURL { url in
+                // 处理 widget 深度链接：luduan://level/{levelId}
+                guard url.scheme == "luduan",
+                      url.host == "level",
+                      !url.lastPathComponent.isEmpty else { return }
+                let levelId = url.lastPathComponent
+                // 如果还在启动页，先跳过启动页再跳转
+                if showingLaunchScreen {
+                    showingLaunchScreen = false
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    pendingDeepLinkLevelId = levelId
+                }
+            }
         }
     }
 }

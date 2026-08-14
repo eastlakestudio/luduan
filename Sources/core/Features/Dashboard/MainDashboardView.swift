@@ -3,6 +3,8 @@ import SwiftUI
 public struct MainDashboardView: View {
     @EnvironmentObject private var repository: GameDataRepository
     
+    @Binding var pendingDeepLinkLevelId: String?
+    
     @State private var selectedDimension: ThemeDimension = .academic
     @State private var activeGameLevel: LevelModel? = nil
     @State private var showingBadgeGallery = false
@@ -10,7 +12,9 @@ public struct MainDashboardView: View {
     
     private static var bannerCache: Image? = nil
     
-    public init() {}
+    public init(pendingDeepLinkLevelId: Binding<String?> = .constant(nil)) {
+        self._pendingDeepLinkLevelId = pendingDeepLinkLevelId
+    }
     
     public var body: some View {
         NavigationStack {
@@ -80,6 +84,13 @@ public struct MainDashboardView: View {
             .sheet(isPresented: $showingBadgeGallery) {
                 BadgeGalleryView()
                     .environmentObject(repository)
+            }
+            .onChange(of: pendingDeepLinkLevelId) { newValue in
+                guard let levelId = newValue else { return }
+                if let level = repository.levels.first(where: { $0.id == levelId }) {
+                    activeGameLevel = level
+                }
+                pendingDeepLinkLevelId = nil
             }
         }
     }
