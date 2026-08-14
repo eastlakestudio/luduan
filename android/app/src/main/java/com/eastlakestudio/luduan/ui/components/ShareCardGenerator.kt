@@ -80,7 +80,7 @@ object ShareCardGenerator {
 
         // QR codes
         val qrSize = 130
-        val labels = listOf("\u5b89\u5353\u4e0b\u8f7d", "App Store", "\u5b98\u7f51")
+        val labels = listOf("\u5b89\u5353\u4e0b\u8f7d", "\u82f9\u679c\u5e94\u7528", "\u5b98\u7f51")
         val urls = listOf(
             "https://eastlakestudio.github.io/luduan/luduan-v1.1.0.apk",
             "https://apps.apple.com/app/id6799431765",

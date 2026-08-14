@@ -110,7 +110,7 @@ fun VictoryShareCard(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 QrItem(androidQR, "\u5b89\u5353\u4e0b\u8f7d")
-                QrItem(iosQR, "App Store")
+                QrItem(iosQR, "\u82f9\u679c\u5e94\u7528")
                 QrItem(webQR, "\u5b98\u7f51")
             }
 

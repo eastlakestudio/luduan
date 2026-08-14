@@ -141,7 +141,7 @@ private fun VictoryCardPreview(
 
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
                 QrPreview(androidQR, "\u5b89\u5353\u4e0b\u8f7d")
-                QrPreview(iosQR, "App Store")
+                QrPreview(iosQR, "\u82f9\u679c\u5e94\u7528")
                 QrPreview(webQR, "\u5b98\u7f51")
             }
 

@@ -113,19 +113,21 @@ struct IdiomWidgetEntryView: View {
 private extension IdiomWidgetEntryView {
     func smallView(level: LevelModel) -> some View {
         ZStack(alignment: .bottomTrailing) {
-            // 成语居中展示
+            // 成语居中展示（单行不折行，5字及以上自动适配字号）
             VStack(spacing: 5) {
                 Spacer()
                 Text(level.targetPhrase)
-                    .font(.system(size: 28, weight: .bold, design: .serif))
+                    .font(.system(size: smallPhraseFontSize(for: level.targetPhrase), weight: .bold, design: .serif))
                     .foregroundStyle(.primary)
-                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                 Text(level.source)
                     .font(.system(size: 11, weight: .regular, design: .serif))
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
+                    .minimumScaleFactor(0.7)
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -241,6 +243,6 @@ struct IdiomWidget: Widget {
         }
         .configurationDisplayName("随机未学成语")
         .description("在桌面随时学习一个新成语典故。")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
