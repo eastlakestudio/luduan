@@ -162,30 +162,12 @@
     "imageName": "badge_default_theme"
   },
   {
-    "id": "badge_book_观沧海 / 碣石篇",
-    "name": "观沧海 / 碣石篇",
-    "sealText": "典籍\n观沧",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《观沧海 / 碣石篇》。",
-    "requirementDescription": "掌握所有出自《观沧海 / 碣石篇》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
     "id": "badge_book_观沧海",
     "name": "观沧海",
     "sealText": "典籍\n观沧",
     "category": "典籍名篇",
     "description": "博览群书，熟读《观沧海》。",
     "requirementDescription": "掌握所有出自《观沧海》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_龟虽寿 / 神龟虽寿",
-    "name": "龟虽寿 / 神龟虽寿",
-    "sealText": "典籍\n龟虽",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《龟虽寿 / 神龟虽寿》。",
-    "requirementDescription": "掌握所有出自《龟虽寿 / 神龟虽寿》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -864,12 +846,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_ 魏书",
-    "name": " 魏书",
-    "sealText": "典籍\n 魏",
+    "id": "badge_book_魏书",
+    "name": "魏书",
+    "sealText": "典籍\n魏书",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《 魏书》。",
-    "requirementDescription": "掌握所有出自《 魏书》的词汇解锁",
+    "description": "博览群书，熟读《魏书》。",
+    "requirementDescription": "掌握所有出自《魏书》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -879,15 +861,6 @@
     "category": "典籍名篇",
     "description": "博览群书，熟读《〈魏书〉目录序》。",
     "requirementDescription": "掌握所有出自《〈魏书〉目录序》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_魏书",
-    "name": "魏书",
-    "sealText": "典籍\n魏书",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《魏书》。",
-    "requirementDescription": "掌握所有出自《魏书》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1260,12 +1233,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_元和十年自朗州至京戏赠看花诸君子 / 玄都观桃花",
-    "name": "元和十年自朗州至京戏赠看花诸君子 / 玄都观桃花",
+    "id": "badge_book_元和十年自朗州至京戏赠看花诸君子",
+    "name": "元和十年自朗州至京戏赠看花诸君子",
     "sealText": "典籍\n元和",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《元和十年自朗州至京戏赠看花诸君子 / 玄都观桃花》。",
-    "requirementDescription": "掌握所有出自《元和十年自朗州至京戏赠看花诸君子 / 玄都观桃花》的词汇解锁",
+    "description": "博览群书，熟读《元和十年自朗州至京戏赠看花诸君子》。",
+    "requirementDescription": "掌握所有出自《元和十年自朗州至京戏赠看花诸君子》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1314,12 +1287,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_和乐天春词 / 春词",
-    "name": "和乐天春词 / 春词",
+    "id": "badge_book_和乐天春词",
+    "name": "和乐天春词",
     "sealText": "典籍\n和乐",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《和乐天春词 / 春词》。",
-    "requirementDescription": "掌握所有出自《和乐天春词 / 春词》的词汇解锁",
+    "description": "博览群书，熟读《和乐天春词》。",
+    "requirementDescription": "掌握所有出自《和乐天春词》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1386,12 +1359,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_杨柳枝 / 柳枝词",
-    "name": "杨柳枝 / 柳枝词",
+    "id": "badge_book_杨柳枝",
+    "name": "杨柳枝",
     "sealText": "典籍\n杨柳",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《杨柳枝 / 柳枝词》。",
-    "requirementDescription": "掌握所有出自《杨柳枝 / 柳枝词》的词汇解锁",
+    "description": "博览群书，熟读《杨柳枝》。",
+    "requirementDescription": "掌握所有出自《杨柳枝》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1611,30 +1584,30 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_夏日浮舟过陈大水亭 / 浮舟过滕逸人别业",
-    "name": "夏日浮舟过陈大水亭 / 浮舟过滕逸人别业",
+    "id": "badge_book_夏日浮舟过陈大水亭",
+    "name": "夏日浮舟过陈大水亭",
     "sealText": "典籍\n夏日",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《夏日浮舟过陈大水亭 / 浮舟过滕逸人别业》。",
-    "requirementDescription": "掌握所有出自《夏日浮舟过陈大水亭 / 浮舟过滕逸人别业》的词汇解锁",
+    "description": "博览群书，熟读《夏日浮舟过陈大水亭》。",
+    "requirementDescription": "掌握所有出自《夏日浮舟过陈大水亭》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_夜归鹿门山歌 / 夜归鹿门歌",
-    "name": "夜归鹿门山歌 / 夜归鹿门歌",
+    "id": "badge_book_夜归鹿门山歌",
+    "name": "夜归鹿门山歌",
     "sealText": "典籍\n夜归",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《夜归鹿门山歌 / 夜归鹿门歌》。",
-    "requirementDescription": "掌握所有出自《夜归鹿门山歌 / 夜归鹿门歌》的词汇解锁",
+    "description": "博览群书，熟读《夜归鹿门山歌》。",
+    "requirementDescription": "掌握所有出自《夜归鹿门山歌》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_宿业师山房期丁大不至 / 宿业师山房待丁大不至",
-    "name": "宿业师山房期丁大不至 / 宿业师山房待丁大不至",
+    "id": "badge_book_宿业师山房期丁大不至",
+    "name": "宿业师山房期丁大不至",
     "sealText": "典籍\n宿业",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《宿业师山房期丁大不至 / 宿业师山房待丁大不至》。",
-    "requirementDescription": "掌握所有出自《宿业师山房期丁大不至 / 宿业师山房待丁大不至》的词汇解锁",
+    "description": "博览群书，熟读《宿业师山房期丁大不至》。",
+    "requirementDescription": "掌握所有出自《宿业师山房期丁大不至》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1656,12 +1629,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_岁暮归南山 / 归故园作 / 归终南山",
-    "name": "岁暮归南山 / 归故园作 / 归终南山",
+    "id": "badge_book_岁暮归南山",
+    "name": "岁暮归南山",
     "sealText": "典籍\n岁暮",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《岁暮归南山 / 归故园作 / 归终南山》。",
-    "requirementDescription": "掌握所有出自《岁暮归南山 / 归故园作 / 归终南山》的词汇解锁",
+    "description": "博览群书，熟读《岁暮归南山》。",
+    "requirementDescription": "掌握所有出自《岁暮归南山》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1674,21 +1647,21 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_早寒江上有怀 / 早寒有怀 / 江上思归",
-    "name": "早寒江上有怀 / 早寒有怀 / 江上思归",
+    "id": "badge_book_早寒江上有怀",
+    "name": "早寒江上有怀",
     "sealText": "典籍\n早寒",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《早寒江上有怀 / 早寒有怀 / 江上思归》。",
-    "requirementDescription": "掌握所有出自《早寒江上有怀 / 早寒有怀 / 江上思归》的词汇解锁",
+    "description": "博览群书，熟读《早寒江上有怀》。",
+    "requirementDescription": "掌握所有出自《早寒江上有怀》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_春中喜王九相寻 / 晚春",
-    "name": "春中喜王九相寻 / 晚春",
+    "id": "badge_book_春中喜王九相寻",
+    "name": "春中喜王九相寻",
     "sealText": "典籍\n春中",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《春中喜王九相寻 / 晚春》。",
-    "requirementDescription": "掌握所有出自《春中喜王九相寻 / 晚春》的词汇解锁",
+    "description": "博览群书，熟读《春中喜王九相寻》。",
+    "requirementDescription": "掌握所有出自《春中喜王九相寻》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1710,21 +1683,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_望洞庭湖赠张丞相 / 临洞庭",
-    "name": "望洞庭湖赠张丞相 / 临洞庭",
+    "id": "badge_book_望洞庭湖赠张丞相",
+    "name": "望洞庭湖赠张丞相",
     "sealText": "典籍\n望洞",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《望洞庭湖赠张丞相 / 临洞庭》。",
-    "requirementDescription": "掌握所有出自《望洞庭湖赠张丞相 / 临洞庭》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_望洞庭湖赠张丞相 / 临洞庭湖赠张丞相",
-    "name": "望洞庭湖赠张丞相 / 临洞庭湖赠张丞相",
-    "sealText": "典籍\n望洞",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《望洞庭湖赠张丞相 / 临洞庭湖赠张丞相》。",
-    "requirementDescription": "掌握所有出自《望洞庭湖赠张丞相 / 临洞庭湖赠张丞相》的词汇解锁",
+    "description": "博览群书，熟读《望洞庭湖赠张丞相》。",
+    "requirementDescription": "掌握所有出自《望洞庭湖赠张丞相》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1734,15 +1698,6 @@
     "category": "典籍名篇",
     "description": "博览群书，熟读《清明即事》。",
     "requirementDescription": "掌握所有出自《清明即事》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_清明日宴梅道士房 / 宴梅道士山房",
-    "name": "清明日宴梅道士房 / 宴梅道士山房",
-    "sealText": "典籍\n清明",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《清明日宴梅道士房 / 宴梅道士山房》。",
-    "requirementDescription": "掌握所有出自《清明日宴梅道士房 / 宴梅道士山房》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1773,12 +1728,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_留别王侍御维 / 留别王维",
-    "name": "留别王侍御维 / 留别王维",
+    "id": "badge_book_留别王侍御维",
+    "name": "留别王侍御维",
     "sealText": "典籍\n留别",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《留别王侍御维 / 留别王维》。",
-    "requirementDescription": "掌握所有出自《留别王侍御维 / 留别王维》的词汇解锁",
+    "description": "博览群书，熟读《留别王侍御维》。",
+    "requirementDescription": "掌握所有出自《留别王侍御维》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1809,12 +1764,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_秦中感秋寄远上人 / 秦中寄远上人",
-    "name": "秦中感秋寄远上人 / 秦中寄远上人",
+    "id": "badge_book_秦中感秋寄远上人",
+    "name": "秦中感秋寄远上人",
     "sealText": "典籍\n秦中",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《秦中感秋寄远上人 / 秦中寄远上人》。",
-    "requirementDescription": "掌握所有出自《秦中感秋寄远上人 / 秦中寄远上人》的词汇解锁",
+    "description": "博览群书，熟读《秦中感秋寄远上人》。",
+    "requirementDescription": "掌握所有出自《秦中感秋寄远上人》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1863,12 +1818,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_送杜十四之江南 / 送杜晃进士之东吴",
-    "name": "送杜十四之江南 / 送杜晃进士之东吴",
+    "id": "badge_book_送杜十四之江南",
+    "name": "送杜十四之江南",
     "sealText": "典籍\n送杜",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《送杜十四之江南 / 送杜晃进士之东吴》。",
-    "requirementDescription": "掌握所有出自《送杜十四之江南 / 送杜晃进士之东吴》的词汇解锁",
+    "description": "博览群书，熟读《送杜十四之江南》。",
+    "requirementDescription": "掌握所有出自《送杜十四之江南》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -1917,12 +1872,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_列女操 / 烈女操",
-    "name": "列女操 / 烈女操",
+    "id": "badge_book_列女操",
+    "name": "列女操",
     "sealText": "典籍\n列女",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《列女操 / 烈女操》。",
-    "requirementDescription": "掌握所有出自《列女操 / 烈女操》的词汇解锁",
+    "description": "博览群书，熟读《列女操》。",
+    "requirementDescription": "掌握所有出自《列女操》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -2250,12 +2205,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_走马川行奉送出师西征 / 走马川行奉送封大夫出师西征",
-    "name": "走马川行奉送出师西征 / 走马川行奉送封大夫出师西征",
+    "id": "badge_book_走马川行奉送出师西征",
+    "name": "走马川行奉送出师西征",
     "sealText": "典籍\n走马",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《走马川行奉送出师西征 / 走马川行奉送封大夫出师西征》。",
-    "requirementDescription": "掌握所有出自《走马川行奉送出师西征 / 走马川行奉送封大夫出师西征》的词汇解锁",
+    "description": "博览群书，熟读《走马川行奉送出师西征》。",
+    "requirementDescription": "掌握所有出自《走马川行奉送出师西征》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -2385,15 +2340,6 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_望月怀远 / 望月怀古",
-    "name": "望月怀远 / 望月怀古",
-    "sealText": "典籍\n望月",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《望月怀远 / 望月怀古》。",
-    "requirementDescription": "掌握所有出自《望月怀远 / 望月怀古》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
     "id": "badge_book_望月怀远",
     "name": "望月怀远",
     "sealText": "典籍\n望月",
@@ -2403,12 +2349,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_湖口望庐山瀑布泉 / 湖口望庐山瀑布水",
-    "name": "湖口望庐山瀑布泉 / 湖口望庐山瀑布水",
+    "id": "badge_book_湖口望庐山瀑布泉",
+    "name": "湖口望庐山瀑布泉",
     "sealText": "典籍\n湖口",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《湖口望庐山瀑布泉 / 湖口望庐山瀑布水》。",
-    "requirementDescription": "掌握所有出自《湖口望庐山瀑布泉 / 湖口望庐山瀑布水》的词汇解锁",
+    "description": "博览群书，熟读《湖口望庐山瀑布泉》。",
+    "requirementDescription": "掌握所有出自《湖口望庐山瀑布泉》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -2466,12 +2412,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_乐游原 / 登乐游原",
-    "name": "乐游原 / 登乐游原",
+    "id": "badge_book_乐游原",
+    "name": "乐游原",
     "sealText": "典籍\n乐游",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《乐游原 / 登乐游原》。",
-    "requirementDescription": "掌握所有出自《乐游原 / 登乐游原》的词汇解锁",
+    "description": "博览群书，熟读《乐游原》。",
+    "requirementDescription": "掌握所有出自《乐游原》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -2898,15 +2844,6 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_隋宫 / 隋堤",
-    "name": "隋宫 / 隋堤",
-    "sealText": "典籍\n隋宫",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《隋宫 / 隋堤》。",
-    "requirementDescription": "掌握所有出自《隋宫 / 隋堤》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
     "id": "badge_book_隋宫",
     "name": "隋宫",
     "sealText": "典籍\n隋宫",
@@ -2988,12 +2925,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_三五七言 / 秋风词",
-    "name": "三五七言 / 秋风词",
-    "sealText": "典籍\n三五",
+    "id": "badge_book_秋风词",
+    "name": "秋风词",
+    "sealText": "典籍\n秋风",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《三五七言 / 秋风词》。",
-    "requirementDescription": "掌握所有出自《三五七言 / 秋风词》的词汇解锁",
+    "description": "博览群书，熟读《秋风词》。",
+    "requirementDescription": "掌握所有出自《秋风词》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -3105,12 +3042,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_与史郎中钦听黄鹤楼上吹笛 / 题北榭碑",
-    "name": "与史郎中钦听黄鹤楼上吹笛 / 题北榭碑",
+    "id": "badge_book_与史郎中钦听黄鹤楼上吹笛",
+    "name": "与史郎中钦听黄鹤楼上吹笛",
     "sealText": "典籍\n与史",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《与史郎中钦听黄鹤楼上吹笛 / 题北榭碑》。",
-    "requirementDescription": "掌握所有出自《与史郎中钦听黄鹤楼上吹笛 / 题北榭碑》的词汇解锁",
+    "description": "博览群书，熟读《与史郎中钦听黄鹤楼上吹笛》。",
+    "requirementDescription": "掌握所有出自《与史郎中钦听黄鹤楼上吹笛》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -3537,12 +3474,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_听蜀僧濬弹琴 / 听蜀僧浚弹琴",
-    "name": "听蜀僧濬弹琴 / 听蜀僧浚弹琴",
+    "id": "badge_book_听蜀僧濬弹琴",
+    "name": "听蜀僧濬弹琴",
     "sealText": "典籍\n听蜀",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《听蜀僧濬弹琴 / 听蜀僧浚弹琴》。",
-    "requirementDescription": "掌握所有出自《听蜀僧濬弹琴 / 听蜀僧浚弹琴》的词汇解锁",
+    "description": "博览群书，熟读《听蜀僧濬弹琴》。",
+    "requirementDescription": "掌握所有出自《听蜀僧濬弹琴》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -3708,21 +3645,21 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_客中行 / 客中作",
-    "name": "客中行 / 客中作",
+    "id": "badge_book_客中行",
+    "name": "客中行",
     "sealText": "典籍\n客中",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《客中行 / 客中作》。",
-    "requirementDescription": "掌握所有出自《客中行 / 客中作》的词汇解锁",
+    "description": "博览群书，熟读《客中行》。",
+    "requirementDescription": "掌握所有出自《客中行》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_宣城见杜鹃花 / 子规",
-    "name": "宣城见杜鹃花 / 子规",
+    "id": "badge_book_宣城见杜鹃花",
+    "name": "宣城见杜鹃花",
     "sealText": "典籍\n宣城",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《宣城见杜鹃花 / 子规》。",
-    "requirementDescription": "掌握所有出自《宣城见杜鹃花 / 子规》的词汇解锁",
+    "description": "博览群书，熟读《宣城见杜鹃花》。",
+    "requirementDescription": "掌握所有出自《宣城见杜鹃花》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -3732,15 +3669,6 @@
     "category": "典籍名篇",
     "description": "博览群书，熟读《宣州九日闻崔四侍御与宇文太守游敬亭余时登响山不同此赏醉后寄崔侍御》。",
     "requirementDescription": "掌握所有出自《宣州九日闻崔四侍御与宇文太守游敬亭余时登响山不同此赏醉后寄崔侍御》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_宣州谢脁楼饯别校书叔云 / 陪侍御叔华登楼歌",
-    "name": "宣州谢脁楼饯别校书叔云 / 陪侍御叔华登楼歌",
-    "sealText": "典籍\n宣州",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《宣州谢脁楼饯别校书叔云 / 陪侍御叔华登楼歌》。",
-    "requirementDescription": "掌握所有出自《宣州谢脁楼饯别校书叔云 / 陪侍御叔华登楼歌》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -3960,12 +3888,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_思边 / 春怨",
-    "name": "思边 / 春怨",
+    "id": "badge_book_思边",
+    "name": "思边",
     "sealText": "典籍\n思边",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《思边 / 春怨》。",
-    "requirementDescription": "掌握所有出自《思边 / 春怨》的词汇解锁",
+    "description": "博览群书，熟读《思边》。",
+    "requirementDescription": "掌握所有出自《思边》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -4032,21 +3960,21 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_日出行 / 日出入行",
-    "name": "日出行 / 日出入行",
+    "id": "badge_book_日出行",
+    "name": "日出行",
     "sealText": "典籍\n日出",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《日出行 / 日出入行》。",
-    "requirementDescription": "掌握所有出自《日出行 / 日出入行》的词汇解锁",
+    "description": "博览群书，熟读《日出行》。",
+    "requirementDescription": "掌握所有出自《日出行》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_早发白帝城 / 白帝下江陵",
-    "name": "早发白帝城 / 白帝下江陵",
+    "id": "badge_book_早发白帝城",
+    "name": "早发白帝城",
     "sealText": "典籍\n早发",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《早发白帝城 / 白帝下江陵》。",
-    "requirementDescription": "掌握所有出自《早发白帝城 / 白帝下江陵》的词汇解锁",
+    "description": "博览群书，熟读《早发白帝城》。",
+    "requirementDescription": "掌握所有出自《早发白帝城》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -4068,21 +3996,21 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_春夜宴桃李园序 / 春夜宴从弟桃花园序",
-    "name": "春夜宴桃李园序 / 春夜宴从弟桃花园序",
+    "id": "badge_book_春夜宴桃李园序",
+    "name": "春夜宴桃李园序",
     "sealText": "典籍\n春夜",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《春夜宴桃李园序 / 春夜宴从弟桃花园序》。",
-    "requirementDescription": "掌握所有出自《春夜宴桃李园序 / 春夜宴从弟桃花园序》的词汇解锁",
+    "description": "博览群书，熟读《春夜宴桃李园序》。",
+    "requirementDescription": "掌握所有出自《春夜宴桃李园序》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_春夜洛城闻笛 / 春夜洛阳城闻笛",
-    "name": "春夜洛城闻笛 / 春夜洛阳城闻笛",
+    "id": "badge_book_春夜洛城闻笛",
+    "name": "春夜洛城闻笛",
     "sealText": "典籍\n春夜",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《春夜洛城闻笛 / 春夜洛阳城闻笛》。",
-    "requirementDescription": "掌握所有出自《春夜洛城闻笛 / 春夜洛阳城闻笛》的词汇解锁",
+    "description": "博览群书，熟读《春夜洛城闻笛》。",
+    "requirementDescription": "掌握所有出自《春夜洛城闻笛》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -5013,12 +4941,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_西施 / 咏苎萝山",
-    "name": "西施 / 咏苎萝山",
+    "id": "badge_book_西施",
+    "name": "西施",
     "sealText": "典籍\n西施",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《西施 / 咏苎萝山》。",
-    "requirementDescription": "掌握所有出自《西施 / 咏苎萝山》的词汇解锁",
+    "description": "博览群书，熟读《西施》。",
+    "requirementDescription": "掌握所有出自《西施》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -6174,21 +6102,21 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_南陵道中 / 寄远",
-    "name": "南陵道中 / 寄远",
+    "id": "badge_book_南陵道中",
+    "name": "南陵道中",
     "sealText": "典籍\n南陵",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《南陵道中 / 寄远》。",
-    "requirementDescription": "掌握所有出自《南陵道中 / 寄远》的词汇解锁",
+    "description": "博览群书，熟读《南陵道中》。",
+    "requirementDescription": "掌握所有出自《南陵道中》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_叹花 / 怅诗",
-    "name": "叹花 / 怅诗",
+    "id": "badge_book_叹花",
+    "name": "叹花",
     "sealText": "典籍\n叹花",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《叹花 / 怅诗》。",
-    "requirementDescription": "掌握所有出自《叹花 / 怅诗》的词汇解锁",
+    "description": "博览群书，熟读《叹花》。",
+    "requirementDescription": "掌握所有出自《叹花》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -6759,12 +6687,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_孤雁 / 后飞雁",
-    "name": "孤雁 / 后飞雁",
+    "id": "badge_book_孤雁",
+    "name": "孤雁",
     "sealText": "典籍\n孤雁",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《孤雁 / 后飞雁》。",
-    "requirementDescription": "掌握所有出自《孤雁 / 后飞雁》的词汇解锁",
+    "description": "博览群书，熟读《孤雁》。",
+    "requirementDescription": "掌握所有出自《孤雁》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -6822,12 +6750,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_宿江边阁 / 后西阁",
-    "name": "宿江边阁 / 后西阁",
+    "id": "badge_book_宿江边阁",
+    "name": "宿江边阁",
     "sealText": "典籍\n宿江",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《宿江边阁 / 后西阁》。",
-    "requirementDescription": "掌握所有出自《宿江边阁 / 后西阁》的词汇解锁",
+    "description": "博览群书，熟读《宿江边阁》。",
+    "requirementDescription": "掌握所有出自《宿江边阁》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -6984,12 +6912,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_春远 / 春运",
-    "name": "春远 / 春运",
+    "id": "badge_book_春远",
+    "name": "春远",
     "sealText": "典籍\n春远",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《春远 / 春运》。",
-    "requirementDescription": "掌握所有出自《春远 / 春运》的词汇解锁",
+    "description": "博览群书，熟读《春远》。",
+    "requirementDescription": "掌握所有出自《春远》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -7164,12 +7092,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_泊岳阳城下 / 泊岳阳楼下",
-    "name": "泊岳阳城下 / 泊岳阳楼下",
+    "id": "badge_book_泊岳阳城下",
+    "name": "泊岳阳城下",
     "sealText": "典籍\n泊岳",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《泊岳阳城下 / 泊岳阳楼下》。",
-    "requirementDescription": "掌握所有出自《泊岳阳城下 / 泊岳阳楼下》的词汇解锁",
+    "description": "博览群书，熟读《泊岳阳城下》。",
+    "requirementDescription": "掌握所有出自《泊岳阳城下》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -7983,12 +7911,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_长沙驿前南楼感旧 / 昔与德公别于此",
-    "name": "长沙驿前南楼感旧 / 昔与德公别于此",
+    "id": "badge_book_长沙驿前南楼感旧",
+    "name": "长沙驿前南楼感旧",
     "sealText": "典籍\n长沙",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《长沙驿前南楼感旧 / 昔与德公别于此》。",
-    "requirementDescription": "掌握所有出自《长沙驿前南楼感旧 / 昔与德公别于此》的词汇解锁",
+    "description": "博览群书，熟读《长沙驿前南楼感旧》。",
+    "requirementDescription": "掌握所有出自《长沙驿前南楼感旧》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8037,12 +7965,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_南歌子词二首 / 新添声杨柳枝词",
-    "name": "南歌子词二首 / 新添声杨柳枝词",
+    "id": "badge_book_南歌子词二首",
+    "name": "南歌子词二首",
     "sealText": "典籍\n南歌",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《南歌子词二首 / 新添声杨柳枝词》。",
-    "requirementDescription": "掌握所有出自《南歌子词二首 / 新添声杨柳枝词》的词汇解锁",
+    "description": "博览群书，熟读《南歌子词二首》。",
+    "requirementDescription": "掌握所有出自《南歌子词二首》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8100,12 +8028,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_拂舞词 / 公无渡河",
-    "name": "拂舞词 / 公无渡河",
+    "id": "badge_book_拂舞词",
+    "name": "拂舞词",
     "sealText": "典籍\n拂舞",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《拂舞词 / 公无渡河》。",
-    "requirementDescription": "掌握所有出自《拂舞词 / 公无渡河》的词汇解锁",
+    "description": "博览群书，熟读《拂舞词》。",
+    "requirementDescription": "掌握所有出自《拂舞词》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8133,15 +8061,6 @@
     "category": "典籍名篇",
     "description": "博览群书，熟读《杨柳八首》。",
     "requirementDescription": "掌握所有出自《杨柳八首》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_杨柳枝",
-    "name": "杨柳枝",
-    "sealText": "典籍\n杨柳",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《杨柳枝》。",
-    "requirementDescription": "掌握所有出自《杨柳枝》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8181,12 +8100,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_碧磵驿晓思 / 碧涧驿晓思",
-    "name": "碧磵驿晓思 / 碧涧驿晓思",
+    "id": "badge_book_碧磵驿晓思",
+    "name": "碧磵驿晓思",
     "sealText": "典籍\n碧磵",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《碧磵驿晓思 / 碧涧驿晓思》。",
-    "requirementDescription": "掌握所有出自《碧磵驿晓思 / 碧涧驿晓思》的词汇解锁",
+    "description": "博览群书，熟读《碧磵驿晓思》。",
+    "requirementDescription": "掌握所有出自《碧磵驿晓思》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8262,12 +8181,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_题卢处士山居 / 处士卢岵山居",
-    "name": "题卢处士山居 / 处士卢岵山居",
+    "id": "badge_book_题卢处士山居",
+    "name": "题卢处士山居",
     "sealText": "典籍\n题卢",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《题卢处士山居 / 处士卢岵山居》。",
-    "requirementDescription": "掌握所有出自《题卢处士山居 / 处士卢岵山居》的词汇解锁",
+    "description": "博览群书，熟读《题卢处士山居》。",
+    "requirementDescription": "掌握所有出自《题卢处士山居》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8334,12 +8253,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_蜀中九日 / 九日登高",
-    "name": "蜀中九日 / 九日登高",
+    "id": "badge_book_蜀中九日",
+    "name": "蜀中九日",
     "sealText": "典籍\n蜀中",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《蜀中九日 / 九日登高》。",
-    "requirementDescription": "掌握所有出自《蜀中九日 / 九日登高》的词汇解锁",
+    "description": "博览群书，熟读《蜀中九日》。",
+    "requirementDescription": "掌握所有出自《蜀中九日》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8352,12 +8271,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_送杜少府之任蜀州 / 送杜少府之任蜀川",
-    "name": "送杜少府之任蜀州 / 送杜少府之任蜀川",
+    "id": "badge_book_送杜少府之任蜀州",
+    "name": "送杜少府之任蜀州",
     "sealText": "典籍\n送杜",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《送杜少府之任蜀州 / 送杜少府之任蜀川》。",
-    "requirementDescription": "掌握所有出自《送杜少府之任蜀州 / 送杜少府之任蜀川》的词汇解锁",
+    "description": "博览群书，熟读《送杜少府之任蜀州》。",
+    "requirementDescription": "掌握所有出自《送杜少府之任蜀州》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8550,12 +8469,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_九月九日忆山东兄弟 / 九月九忆山东兄弟",
-    "name": "九月九日忆山东兄弟 / 九月九忆山东兄弟",
+    "id": "badge_book_九月九日忆山东兄弟",
+    "name": "九月九日忆山东兄弟",
     "sealText": "典籍\n九月",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《九月九日忆山东兄弟 / 九月九忆山东兄弟》。",
-    "requirementDescription": "掌握所有出自《九月九日忆山东兄弟 / 九月九忆山东兄弟》的词汇解锁",
+    "description": "博览群书，熟读《九月九日忆山东兄弟》。",
+    "requirementDescription": "掌握所有出自《九月九日忆山东兄弟》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8802,15 +8721,6 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_杂诗三首 / 杂咏三首",
-    "name": "杂诗三首 / 杂咏三首",
-    "sealText": "典籍\n杂诗",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《杂诗三首 / 杂咏三首》。",
-    "requirementDescription": "掌握所有出自《杂诗三首 / 杂咏三首》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
     "id": "badge_book_杂诗三首",
     "name": "杂诗三首",
     "sealText": "典籍\n杂诗",
@@ -8829,12 +8739,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_汉江临泛 / 汉江临眺",
-    "name": "汉江临泛 / 汉江临眺",
+    "id": "badge_book_汉江临泛",
+    "name": "汉江临泛",
     "sealText": "典籍\n汉江",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《汉江临泛 / 汉江临眺》。",
-    "requirementDescription": "掌握所有出自《汉江临泛 / 汉江临眺》的词汇解锁",
+    "description": "博览群书，熟读《汉江临泛》。",
+    "requirementDescription": "掌握所有出自《汉江临泛》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8883,12 +8793,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_积雨辋川庄作 / 秋归辋川庄作",
-    "name": "积雨辋川庄作 / 秋归辋川庄作",
+    "id": "badge_book_积雨辋川庄作",
+    "name": "积雨辋川庄作",
     "sealText": "典籍\n积雨",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《积雨辋川庄作 / 秋归辋川庄作》。",
-    "requirementDescription": "掌握所有出自《积雨辋川庄作 / 秋归辋川庄作》的词汇解锁",
+    "description": "博览群书，熟读《积雨辋川庄作》。",
+    "requirementDescription": "掌握所有出自《积雨辋川庄作》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -8919,12 +8829,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_终南别业 / 初至山中 / 入山寄城中故人",
-    "name": "终南别业 / 初至山中 / 入山寄城中故人",
+    "id": "badge_book_终南别业",
+    "name": "终南别业",
     "sealText": "典籍\n终南",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《终南别业 / 初至山中 / 入山寄城中故人》。",
-    "requirementDescription": "掌握所有出自《终南别业 / 初至山中 / 入山寄城中故人》的词汇解锁",
+    "description": "博览群书，熟读《终南别业》。",
+    "requirementDescription": "掌握所有出自《终南别业》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9018,15 +8928,6 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_送别 / 山中送别 / 送友",
-    "name": "送别 / 山中送别 / 送友",
-    "sealText": "典籍\n送别",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《送别 / 山中送别 / 送友》。",
-    "requirementDescription": "掌握所有出自《送别 / 山中送别 / 送友》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
     "id": "badge_book_送别",
     "name": "送别",
     "sealText": "典籍\n送别",
@@ -9063,12 +8964,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_送沈子归江东 / 送沈子福之江东",
-    "name": "送沈子归江东 / 送沈子福之江东",
+    "id": "badge_book_送沈子归江东",
+    "name": "送沈子归江东",
     "sealText": "典籍\n送沈",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《送沈子归江东 / 送沈子福之江东》。",
-    "requirementDescription": "掌握所有出自《送沈子归江东 / 送沈子福之江东》的词汇解锁",
+    "description": "博览群书，熟读《送沈子归江东》。",
+    "requirementDescription": "掌握所有出自《送沈子归江东》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9081,12 +8982,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_送綦毋潜落第还乡 / 送别",
-    "name": "送綦毋潜落第还乡 / 送别",
+    "id": "badge_book_送綦毋潜落第还乡",
+    "name": "送綦毋潜落第还乡",
     "sealText": "典籍\n送綦",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《送綦毋潜落第还乡 / 送别》。",
-    "requirementDescription": "掌握所有出自《送綦毋潜落第还乡 / 送别》的词汇解锁",
+    "description": "博览群书，熟读《送綦毋潜落第还乡》。",
+    "requirementDescription": "掌握所有出自《送綦毋潜落第还乡》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9135,15 +9036,6 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_酬郭给事 / 赠郭给事",
-    "name": "酬郭给事 / 赠郭给事",
-    "sealText": "典籍\n酬郭",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《酬郭给事 / 赠郭给事》。",
-    "requirementDescription": "掌握所有出自《酬郭给事 / 赠郭给事》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
     "id": "badge_book_酬郭给事",
     "name": "酬郭给事",
     "sealText": "典籍\n酬郭",
@@ -9162,12 +9054,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_青溪 / 过青溪水作",
-    "name": "青溪 / 过青溪水作",
+    "id": "badge_book_青溪",
+    "name": "青溪",
     "sealText": "典籍\n青溪",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《青溪 / 过青溪水作》。",
-    "requirementDescription": "掌握所有出自《青溪 / 过青溪水作》的词汇解锁",
+    "description": "博览群书，熟读《青溪》。",
+    "requirementDescription": "掌握所有出自《青溪》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9234,12 +9126,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_买花 / 牡丹",
-    "name": "买花 / 牡丹",
+    "id": "badge_book_买花",
+    "name": "买花",
     "sealText": "典籍\n买花",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《买花 / 牡丹》。",
-    "requirementDescription": "掌握所有出自《买花 / 牡丹》的词汇解锁",
+    "description": "博览群书，熟读《买花》。",
+    "requirementDescription": "掌握所有出自《买花》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9747,12 +9639,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_草 / 赋得古原草送别",
-    "name": "草 / 赋得古原草送别",
-    "sealText": "典籍\n草 ",
+    "id": "badge_book_赋得古原草送别",
+    "name": "赋得古原草送别",
+    "sealText": "典籍\n赋得",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《草 / 赋得古原草送别》。",
-    "requirementDescription": "掌握所有出自《草 / 赋得古原草送别》的词汇解锁",
+    "description": "博览群书，熟读《赋得古原草送别》。",
+    "requirementDescription": "掌握所有出自《赋得古原草送别》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9900,12 +9792,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_咏柳 / 柳枝词",
-    "name": "咏柳 / 柳枝词",
+    "id": "badge_book_咏柳",
+    "name": "咏柳",
     "sealText": "典籍\n咏柳",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《咏柳 / 柳枝词》。",
-    "requirementDescription": "掌握所有出自《咏柳 / 柳枝词》的词汇解锁",
+    "description": "博览群书，熟读《咏柳》。",
+    "requirementDescription": "掌握所有出自《咏柳》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9915,15 +9807,6 @@
     "category": "典籍名篇",
     "description": "博览群书，熟读《回乡偶书二首》。",
     "requirementDescription": "掌握所有出自《回乡偶书二首》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_剑客 / 述剑",
-    "name": "剑客 / 述剑",
-    "sealText": "典籍\n剑客",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《剑客 / 述剑》。",
-    "requirementDescription": "掌握所有出自《剑客 / 述剑》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -9963,12 +9846,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_寻隐者不遇 / 孙革访羊尊师诗",
-    "name": "寻隐者不遇 / 孙革访羊尊师诗",
+    "id": "badge_book_寻隐者不遇",
+    "name": "寻隐者不遇",
     "sealText": "典籍\n寻隐",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《寻隐者不遇 / 孙革访羊尊师诗》。",
-    "requirementDescription": "掌握所有出自《寻隐者不遇 / 孙革访羊尊师诗》的词汇解锁",
+    "description": "博览群书，熟读《寻隐者不遇》。",
+    "requirementDescription": "掌握所有出自《寻隐者不遇》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -10170,12 +10053,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_淮上喜会梁川故人 / 淮上喜会梁州故人",
-    "name": "淮上喜会梁川故人 / 淮上喜会梁州故人",
+    "id": "badge_book_淮上喜会梁川故人",
+    "name": "淮上喜会梁川故人",
     "sealText": "典籍\n淮上",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《淮上喜会梁川故人 / 淮上喜会梁州故人》。",
-    "requirementDescription": "掌握所有出自《淮上喜会梁川故人 / 淮上喜会梁州故人》的词汇解锁",
+    "description": "博览群书，熟读《淮上喜会梁川故人》。",
+    "requirementDescription": "掌握所有出自《淮上喜会梁川故人》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -10188,12 +10071,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_秋夜寄邱员外 / 秋夜寄丘二十二员外",
-    "name": "秋夜寄邱员外 / 秋夜寄丘二十二员外",
+    "id": "badge_book_秋夜寄邱员外",
+    "name": "秋夜寄邱员外",
     "sealText": "典籍\n秋夜",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《秋夜寄邱员外 / 秋夜寄丘二十二员外》。",
-    "requirementDescription": "掌握所有出自《秋夜寄邱员外 / 秋夜寄丘二十二员外》的词汇解锁",
+    "description": "博览群书，熟读《秋夜寄邱员外》。",
+    "requirementDescription": "掌握所有出自《秋夜寄邱员外》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -10206,12 +10089,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_赋得暮雨送李胄 / 赋得暮雨送李曹",
-    "name": "赋得暮雨送李胄 / 赋得暮雨送李曹",
+    "id": "badge_book_赋得暮雨送李胄",
+    "name": "赋得暮雨送李胄",
     "sealText": "典籍\n赋得",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《赋得暮雨送李胄 / 赋得暮雨送李曹》。",
-    "requirementDescription": "掌握所有出自《赋得暮雨送李胄 / 赋得暮雨送李曹》的词汇解锁",
+    "description": "博览群书，熟读《赋得暮雨送李胄》。",
+    "requirementDescription": "掌握所有出自《赋得暮雨送李胄》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -10323,12 +10206,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_早春呈水部张十八员外 / 初春小雨 / 早春",
-    "name": "早春呈水部张十八员外 / 初春小雨 / 早春",
+    "id": "badge_book_早春呈水部张十八员外",
+    "name": "早春呈水部张十八员外",
     "sealText": "典籍\n早春",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《早春呈水部张十八员外 / 初春小雨 / 早春》。",
-    "requirementDescription": "掌握所有出自《早春呈水部张十八员外 / 初春小雨 / 早春》的词汇解锁",
+    "description": "博览群书，熟读《早春呈水部张十八员外》。",
+    "requirementDescription": "掌握所有出自《早春呈水部张十八员外》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -10476,21 +10359,21 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_于易水送人 / 于易水送别",
-    "name": "于易水送人 / 于易水送别",
+    "id": "badge_book_于易水送人",
+    "name": "于易水送人",
     "sealText": "典籍\n于易",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《于易水送人 / 于易水送别》。",
-    "requirementDescription": "掌握所有出自《于易水送人 / 于易水送别》的词汇解锁",
+    "description": "博览群书，熟读《于易水送人》。",
+    "requirementDescription": "掌握所有出自《于易水送人》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_咏蝉 / 在狱咏蝉",
-    "name": "咏蝉 / 在狱咏蝉",
+    "id": "badge_book_咏蝉",
+    "name": "咏蝉",
     "sealText": "典籍\n咏蝉",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《咏蝉 / 在狱咏蝉》。",
-    "requirementDescription": "掌握所有出自《咏蝉 / 在狱咏蝉》的词汇解锁",
+    "description": "博览群书，熟读《咏蝉》。",
+    "requirementDescription": "掌握所有出自《咏蝉》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -10512,12 +10395,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_东平别前卫县李寀少府 / 送前卫县李宷少府",
-    "name": "东平别前卫县李寀少府 / 送前卫县李宷少府",
+    "id": "badge_book_东平别前卫县李寀少府",
+    "name": "东平别前卫县李寀少府",
     "sealText": "典籍\n东平",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《东平别前卫县李寀少府 / 送前卫县李宷少府》。",
-    "requirementDescription": "掌握所有出自《东平别前卫县李寀少府 / 送前卫县李宷少府》的词汇解锁",
+    "description": "博览群书，熟读《东平别前卫县李寀少府》。",
+    "requirementDescription": "掌握所有出自《东平别前卫县李寀少府》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -10557,12 +10440,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_和王七玉门关听吹笛 / 塞上闻笛",
-    "name": "和王七玉门关听吹笛 / 塞上闻笛",
+    "id": "badge_book_和王七玉门关听吹笛",
+    "name": "和王七玉门关听吹笛",
     "sealText": "典籍\n和王",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《和王七玉门关听吹笛 / 塞上闻笛》。",
-    "requirementDescription": "掌握所有出自《和王七玉门关听吹笛 / 塞上闻笛》的词汇解锁",
+    "description": "博览群书，熟读《和王七玉门关听吹笛》。",
+    "requirementDescription": "掌握所有出自《和王七玉门关听吹笛》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -11709,12 +11592,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_和王介甫明妃曲二首 / 明妃曲和王介甫作",
-    "name": "和王介甫明妃曲二首 / 明妃曲和王介甫作",
+    "id": "badge_book_和王介甫明妃曲二首",
+    "name": "和王介甫明妃曲二首",
     "sealText": "典籍\n和王",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《和王介甫明妃曲二首 / 明妃曲和王介甫作》。",
-    "requirementDescription": "掌握所有出自《和王介甫明妃曲二首 / 明妃曲和王介甫作》的词汇解锁",
+    "description": "博览群书，熟读《和王介甫明妃曲二首》。",
+    "requirementDescription": "掌握所有出自《和王介甫明妃曲二首》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -11907,12 +11790,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_梅花 / 梅",
-    "name": "梅花 / 梅",
+    "id": "badge_book_梅花",
+    "name": "梅花",
     "sealText": "典籍\n梅花",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《梅花 / 梅》。",
-    "requirementDescription": "掌握所有出自《梅花 / 梅》的词汇解锁",
+    "description": "博览群书，熟读《梅花》。",
+    "requirementDescription": "掌握所有出自《梅花》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -12267,21 +12150,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_惠崇春江晚景 / 惠崇春江晓景",
-    "name": "惠崇春江晚景 / 惠崇春江晓景",
+    "id": "badge_book_惠崇春江晚景",
+    "name": "惠崇春江晚景",
     "sealText": "典籍\n惠崇",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《惠崇春江晚景 / 惠崇春江晓景》。",
-    "requirementDescription": "掌握所有出自《惠崇春江晚景 / 惠崇春江晓景》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_惠州一绝 / 食荔枝",
-    "name": "惠州一绝 / 食荔枝",
-    "sealText": "典籍\n惠州",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《惠州一绝 / 食荔枝》。",
-    "requirementDescription": "掌握所有出自《惠州一绝 / 食荔枝》的词汇解锁",
+    "description": "博览群书，熟读《惠崇春江晚景》。",
+    "requirementDescription": "掌握所有出自《惠崇春江晚景》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -12519,12 +12393,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_记承天寺夜游 / 记承天夜游",
-    "name": "记承天寺夜游 / 记承天夜游",
+    "id": "badge_book_记承天寺夜游",
+    "name": "记承天寺夜游",
     "sealText": "典籍\n记承",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《记承天寺夜游 / 记承天夜游》。",
-    "requirementDescription": "掌握所有出自《记承天寺夜游 / 记承天夜游》的词汇解锁",
+    "description": "博览群书，熟读《记承天寺夜游》。",
+    "requirementDescription": "掌握所有出自《记承天寺夜游》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -12543,15 +12417,6 @@
     "category": "典籍名篇",
     "description": "博览群书，熟读《赠写御容妙善师》。",
     "requirementDescription": "掌握所有出自《赠写御容妙善师》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_赠刘景文 / 冬景",
-    "name": "赠刘景文 / 冬景",
-    "sealText": "典籍\n赠刘",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《赠刘景文 / 冬景》。",
-    "requirementDescription": "掌握所有出自《赠刘景文 / 冬景》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -12645,12 +12510,12 @@
     "imageName": "badge_default_book"
   },
   {
-    "id": "badge_book_阳关曲 / 中秋月",
-    "name": "阳关曲 / 中秋月",
+    "id": "badge_book_阳关曲",
+    "name": "阳关曲",
     "sealText": "典籍\n阳关",
     "category": "典籍名篇",
-    "description": "博览群书，熟读《阳关曲 / 中秋月》。",
-    "requirementDescription": "掌握所有出自《阳关曲 / 中秋月》的词汇解锁",
+    "description": "博览群书，熟读《阳关曲》。",
+    "requirementDescription": "掌握所有出自《阳关曲》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
@@ -13839,15 +13704,6 @@
     "category": "典籍名篇",
     "description": "博览群书，熟读《七哀诗二首》。",
     "requirementDescription": "掌握所有出自《七哀诗二首》的词汇解锁",
-    "imageName": "badge_default_book"
-  },
-  {
-    "id": "badge_book_明史 ",
-    "name": "明史 ",
-    "sealText": "典籍\n明史",
-    "category": "典籍名篇",
-    "description": "博览群书，熟读《明史 》。",
-    "requirementDescription": "掌握所有出自《明史 》的词汇解锁",
     "imageName": "badge_default_book"
   },
   {
