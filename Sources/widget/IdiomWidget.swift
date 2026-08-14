@@ -123,24 +123,28 @@ struct IdiomWidgetEntryView: View {
 private extension IdiomWidgetEntryView {
     func smallView(level: LevelModel) -> some View {
         ZStack(alignment: .bottomTrailing) {
-            // 成语居中展示（单行不折行，5字及以上自动适配字号）
-            VStack(spacing: 5) {
-                Spacer()
-                Text(level.targetPhrase)
-                    .font(.system(size: smallPhraseFontSize(for: level.targetPhrase), weight: .bold, design: .serif))
-                    .foregroundStyle(.primary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.6)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                Text(level.source)
-                    .font(.system(size: 11, weight: .regular, design: .serif))
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
-                Spacer()
+            Link(destination: URL(string: "luduan://level/\(level.id)")!) {
+                // 成语居中展示（单行不折行，5字及以上自动适配字号）
+                VStack(spacing: 5) {
+                    Spacer()
+                    Text(level.targetPhrase)
+                        .font(.system(size: smallPhraseFontSize(for: level.targetPhrase), weight: .bold, design: .serif))
+                        .foregroundStyle(.primary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.6)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                    Text(level.source)
+                        .font(.system(size: 11, weight: .regular, design: .serif))
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .contentShape(Rectangle())
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .buttonStyle(.plain)
 
             // chevron.right 叠加在右下角，不占独立空间
             Button(intent: NextIdiomIntent(levelId: level.id, currentSource: level.source)) {
@@ -152,7 +156,6 @@ private extension IdiomWidgetEntryView {
             }
             .buttonStyle(.plain)
         }
-        .widgetURL(URL(string: "luduan://level/\(level.id)"))
     }
 }
 
@@ -163,52 +166,56 @@ private extension IdiomWidgetEntryView {
         // story = 古文原文；annotation = 白话释义（不显示）
         let originalText = level.story.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        return VStack(alignment: .leading, spacing: 6) {
-            // 顶部：词句占 2/3，出处占 1/3
-            GeometryReader { geo in
-                HStack(spacing: 0) {
-                    Text(level.targetPhrase)
-                        .font(.system(size: 24, weight: .bold, design: .serif))
-                        .foregroundStyle(.primary)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.7)
-                        .frame(width: geo.size.width * 2 / 3, alignment: .leading)
-                    Text(level.source)
-                        .font(.system(size: 11, weight: .regular, design: .serif))
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.7)
-                        .frame(width: geo.size.width / 3, alignment: .trailing)
-                }
-            }
-            .frame(height: 30)
+        return ZStack(alignment: .bottomTrailing) {
+            Link(destination: URL(string: "luduan://level/\(level.id)")!) {
+                VStack(alignment: .leading, spacing: 6) {
+                    // 顶部：词句占 2/3，出处占 1/3
+                    GeometryReader { geo in
+                        HStack(spacing: 0) {
+                            Text(level.targetPhrase)
+                                .font(.system(size: 24, weight: .bold, design: .serif))
+                                .foregroundStyle(.primary)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.7)
+                                .frame(width: geo.size.width * 2 / 3, alignment: .leading)
+                            Text(level.source)
+                                .font(.system(size: 11, weight: .regular, design: .serif))
+                                .foregroundStyle(.secondary)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.7)
+                                .frame(width: geo.size.width / 3, alignment: .trailing)
+                        }
+                    }
+                    .frame(height: 30)
 
-            // 中部：原文居中，chevron.right 叠加在文字区域右下角
-            ZStack(alignment: .bottomTrailing) {
-                if !originalText.isEmpty {
-                    Text(originalText)
-                        .font(.system(size: adaptiveFontSize(for: originalText),
-                                      weight: .regular, design: .serif))
-                        .foregroundStyle(.primary.opacity(0.88))
-                        .lineSpacing(adaptiveLineSpacing(for: originalText))
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    // 中部：原文居中
+                    if !originalText.isEmpty {
+                        Text(originalText)
+                            .font(.system(size: adaptiveFontSize(for: originalText),
+                                          weight: .regular, design: .serif))
+                            .foregroundStyle(.primary.opacity(0.88))
+                            .lineSpacing(adaptiveLineSpacing(for: originalText))
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    } else {
+                        Spacer()
+                    }
                 }
-
-                // chevron.right 浮层叠加，不占独立布局空间
-                Button(intent: NextIdiomIntent(levelId: level.id, currentSource: level.source)) {
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 14, weight: .light))
-                        .foregroundStyle(.primary.opacity(0.25))
-                        .padding(10)
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .contentShape(Rectangle())
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .buttonStyle(.plain)
+
+            // chevron.right 浮层叠加，不占独立布局空间
+            Button(intent: NextIdiomIntent(levelId: level.id, currentSource: level.source)) {
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 14, weight: .light))
+                    .foregroundStyle(.primary.opacity(0.25))
+                    .padding(10)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .widgetURL(URL(string: "luduan://level/\(level.id)"))
     }
 }
 
