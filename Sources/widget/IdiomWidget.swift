@@ -123,28 +123,24 @@ struct IdiomWidgetEntryView: View {
 private extension IdiomWidgetEntryView {
     func smallView(level: LevelModel) -> some View {
         ZStack(alignment: .bottomTrailing) {
-            Link(destination: URL(string: "luduan://level/\(level.id)")!) {
-                // 成语居中展示（单行不折行，5字及以上自动适配字号）
-                VStack(spacing: 5) {
-                    Spacer()
-                    Text(level.targetPhrase)
-                        .font(.system(size: smallPhraseFontSize(for: level.targetPhrase), weight: .bold, design: .serif))
-                        .foregroundStyle(.primary)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.6)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
-                    Text(level.source)
-                        .font(.system(size: 11, weight: .regular, design: .serif))
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.7)
-                    Spacer()
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .contentShape(Rectangle())
+            // 成语居中展示（单行不折行，5字及以上自动适配字号）
+            VStack(spacing: 5) {
+                Spacer()
+                Text(level.targetPhrase)
+                    .font(.system(size: smallPhraseFontSize(for: level.targetPhrase), weight: .bold, design: .serif))
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                Text(level.source)
+                    .font(.system(size: 11, weight: .regular, design: .serif))
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                Spacer()
             }
-            .buttonStyle(.plain)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             // chevron.right 叠加在右下角，不占独立空间
             Button(intent: NextIdiomIntent(levelId: level.id, currentSource: level.source)) {
