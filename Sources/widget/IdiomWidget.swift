@@ -202,6 +202,10 @@ private extension IdiomWidgetEntryView {
 
 private extension IdiomWidgetEntryView {
 
+    func smallPhraseFontSize(for text: String) -> CGFloat {
+        return text.count >= 5 ? 18 : 24
+    }
+
     /// 根据原文字数动态调节字号：字少字大，字多字小
     func adaptiveFontSize(for text: String) -> CGFloat {
         switch text.count {
