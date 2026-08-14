@@ -26,17 +26,7 @@ struct IdiomProvider: TimelineProvider {
         let base = Date()
         var lastSource: String? = nil
 
-        let defaults = UserDefaults(suiteName: "group.com.eastlakestudio.luduan")
-        if let pinnedIndex = defaults?.value(forKey: "widgetPinnedIndex") as? Int,
-           pinnedIndex >= 0 && pinnedIndex < total {
-            let pinnedLevel = repo.levels[pinnedIndex]
-            entries.append(IdiomEntry(date: base, level: pinnedLevel))
-            lastSource = pinnedLevel.source
-            defaults?.removeObject(forKey: "widgetPinnedIndex")
-        }
-
-        let startIdx = entries.count
-        for i in startIdx ..< 6 {
+        for i in 0 ..< 6 {
             let level = pickRandom(repo: repo, total: total, excludingSource: lastSource)
             lastSource = level.source
             let entryDate = Calendar.current.date(byAdding: .hour, value: i * 4, to: base)!
@@ -147,8 +137,6 @@ private extension IdiomWidgetEntryView {
                 Image(systemName: "chevron.right")
                     .font(.system(size: 13, weight: .light))
                     .foregroundStyle(.primary.opacity(0.28))
-                    .padding(10)
-                    .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
         }
@@ -200,8 +188,6 @@ private extension IdiomWidgetEntryView {
                     Image(systemName: "chevron.right")
                         .font(.system(size: 14, weight: .light))
                         .foregroundStyle(.primary.opacity(0.25))
-                        .padding(10)
-                        .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
             }
@@ -215,10 +201,6 @@ private extension IdiomWidgetEntryView {
 // MARK: - Helpers
 
 private extension IdiomWidgetEntryView {
-
-    func smallPhraseFontSize(for text: String) -> CGFloat {
-        return text.count >= 5 ? 18 : 24
-    }
 
     /// 根据原文字数动态调节字号：字少字大，字多字小
     func adaptiveFontSize(for text: String) -> CGFloat {
