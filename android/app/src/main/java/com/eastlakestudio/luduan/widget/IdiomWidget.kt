@@ -17,6 +17,7 @@ import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.provideContent
+import androidx.glance.appwidget.updateAll
 import androidx.glance.background
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
@@ -128,7 +129,10 @@ class IdiomWidget : GlanceAppWidget() {
         val brandSize = if (isSmall) 10.sp else if (isLarge) 14.sp else 12.sp
 
         Box(
-            modifier = GlanceModifier.fillMaxSize().background(Color(0xFFFCF8F0)).padding(12.dp)
+            modifier = GlanceModifier.fillMaxSize()
+                .background(Color(0xFFFCF8F0))
+                .clickable(actionRunCallback<OpenAppAction>())
+                .padding(12.dp)
         ) {
             Column(modifier = GlanceModifier.fillMaxSize()) {
                 Row(modifier = GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -196,10 +200,10 @@ class OpenAppAction : androidx.glance.appwidget.action.ActionCallback {
     }
 }
 
-// 下一词：随机换词并刷新所有 widget
+// 下一词：随机换词并刷新所有 widget 实例（含各尺寸）
 class NextWordAction : androidx.glance.appwidget.action.ActionCallback {
     override suspend fun onAction(context: Context, glanceId: GlanceId, parameters: ActionParameters) {
         WordStore.next(context)
-        IdiomWidget().update(context, glanceId)
+        IdiomWidget().updateAll(context)
     }
 }
