@@ -95,7 +95,7 @@ public struct MilestoneCelebrationModalView: View {
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.cloudGold, lineWidth: 2))
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("《甪端字游》")
+                        Text("《文绉绉-甪端》")
                             .font(.system(.headline, design: .serif))
                             .bold()
                             .foregroundColor(.cinnabarRed)
@@ -148,7 +148,7 @@ public struct MilestoneCelebrationModalView: View {
                         )
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("《甪端字游》App Store 官方正版")
+                        Text("《文绉绉-甪端》App Store 官方正版")
                             .font(.system(size: 13, weight: .bold, design: .serif))
                             .foregroundColor(.cinnabarRed)
                         
@@ -193,7 +193,7 @@ public struct MilestoneCelebrationModalView: View {
     
     @MainActor
     private func shareMilestonePoster() {
-        let shareText = "【甪端字游】我已累计通关 \(completedCount) 词古风字游！神兽甪端伴学，万关典籍名篇。快来一起体验《甪端字游》！"
+        let shareText = "【文绉绉-甪端】我已累计通关 \(completedCount) 词古风字游！神兽甪端伴学，万关典籍名篇。快来一起体验《文绉绉-甪端》！"
         
         #if canImport(UIKit)
         // 只截取金框卡片内容 + 适当外延（固定宽度，高度自适应）

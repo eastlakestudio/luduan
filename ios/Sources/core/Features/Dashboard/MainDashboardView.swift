@@ -82,7 +82,7 @@ public struct MainDashboardView: View {
     
     private var dashboardTopBar: some View {
         HStack {
-            Text("甪端字游")
+            Text("文绉绉-甪端字游")
                 .font(.system(size: 22, weight: .bold, design: .serif))
                 .foregroundColor(.xuanBlack)
             

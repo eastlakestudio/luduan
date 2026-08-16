@@ -47,6 +47,15 @@ public struct LaunchScreenView: View {
                 .padding(.top, 20)
                 
                 VStack(spacing: 6) {
+                    // 主标题：文绉绉（大字，与下方"甪端字游"四字宽度对齐）
+                    Text("文 绉 绉")
+                        .font(.system(size: 64, weight: .bold, design: .serif))
+                        .foregroundColor(.bambooGreen)
+                        .kerning(8)
+                        .frame(width: 266) // 4字×58 + 3×6 spacing = 250，微调居中
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+
                     HStack(spacing: 6) {
                         let titlePairs: [(String, String)] = [("lù", "甪"), ("duān", "端"), ("zì", "字"), ("yóu", "游")]
                         ForEach(titlePairs, id: \.0) { pinyin, hanzi in

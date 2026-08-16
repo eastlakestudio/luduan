@@ -230,7 +230,6 @@
 		95B68C772251D5F617860AF2 /* badge_prac_40.png in Resources */ = {isa = PBXBuildFile; fileRef = B067CC1E23E58769E146B2F3 /* badge_prac_40.png */; };
 		95D872BB6B2321516435DE43 /* badge_prac_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 0BB9F5313147DD1F39BCD97C /* badge_prac_29.png */; };
 		98187634C27426E1C91377BB /* badge_luyou.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C6B0DBA1A2140453BC924 /* badge_luyou.jpg */; };
-		98C3A0DBD2BE83FCCB935E9F /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB14BDB42944FC56EF30C79 /* SpeechRecognitionManager.swift */; };
 		9965D41FE19E56D519CFF97C /* ThreeStateBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B2FC582E49D894A161DB8 /* ThreeStateBadgeView.swift */; };
 		9997C29D5113C734C9EAF74B /* PresetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE98D45CC6BEA7769D4955E0 /* PresetData.swift */; };
 		9A40D4F8E7B9F41D64BEE91B /* badge_prac_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 22D2524D9220F8DE1FA34690 /* badge_prac_7.png */; };
@@ -329,7 +328,6 @@
 		E84C08C4B5233ED9B82F9F26 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A71886DEF3105A081D0F8 /* LaunchScreenView.swift */; };
 		E8710FF934003DF6A2951A02 /* badge_shiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841F202C58D41B5CF9D4EB91 /* badge_shiji.jpg */; };
 		E963109C03F8255CC3170A91 /* LuduanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FFE095755D322E915318F /* LuduanApp.swift */; };
-		EA860E4E7A64FA831E6C0E70 /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB14BDB42944FC56EF30C79 /* SpeechRecognitionManager.swift */; };
 		EAC831D3977DBE98BE70BD8B /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B333E93E63B1B0577F032F1 /* ColorExtensions.swift */; };
 		EBD255695DC9A26B8A4FD9B7 /* PuzzleGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ACCA8C4154158E3FBE7E1D /* PuzzleGameView.swift */; };
 		EC0045998B285E8BA0C34B0B /* badge_prac_28.png in Resources */ = {isa = PBXBuildFile; fileRef = 911D9AE7587C386F9398BBB2 /* badge_prac_28.png */; };
@@ -517,7 +515,6 @@
 		A8B7C2E7A9F24879CF220CA0 /* badge_lubu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_lubu.jpg; sourceTree = "<group>"; };
 		A8ED2BA2619DDA4E81366859 /* fw_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fw_10.png; sourceTree = "<group>"; };
 		AAF3D6B2419F0E9613DE23C9 /* PetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetModel.swift; sourceTree = "<group>"; };
-		ADB14BDB42944FC56EF30C79 /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		AEBE88990D8FD5F7549331D5 /* badge_hanyu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_hanyu.jpg; sourceTree = "<group>"; };
 		AFD4E642B862EC9FB94F0C7C /* badge_wangwei.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_wangwei.jpg; sourceTree = "<group>"; };
 		AFFA206A2D8D5F973CB3B41E /* badge_academic_jinshi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_academic_jinshi.jpg; sourceTree = "<group>"; };
@@ -882,7 +879,6 @@
 			isa = PBXGroup;
 			children = (
 				6027E83FFCA523B144FDC122 /* KeychainStore.swift */,
-				ADB14BDB42944FC56EF30C79 /* SpeechRecognitionManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1368,7 +1364,6 @@
 				35A47B35F33466343C7CA066 /* SharePosterCardView.swift in Sources */,
 				178EB54988D55CEC66DBE8CD /* ShareSheetHelper.swift in Sources */,
 				8B2519A8422D1448506C882E /* SoundManager.swift in Sources */,
-				EA860E4E7A64FA831E6C0E70 /* SpeechRecognitionManager.swift in Sources */,
 				4B56E5305E9ABD4C3C42A758 /* StoryCardModalView.swift in Sources */,
 				620984B8241F0F9D84E0C8A1 /* ThemeSelectionView.swift in Sources */,
 				2897CDB3D639C2DD7C4D399A /* ThreeStateBadgeView.swift in Sources */,
@@ -1412,7 +1407,6 @@
 				BA2ABE71ADC988BB0DA42575 /* SharePosterCardView.swift in Sources */,
 				15C19F2D01123ABB84E4E356 /* ShareSheetHelper.swift in Sources */,
 				9DFCFA57E2EA305630AD9C52 /* SoundManager.swift in Sources */,
-				98C3A0DBD2BE83FCCB935E9F /* SpeechRecognitionManager.swift in Sources */,
 				7334F9D80B052E40A26D2569 /* StoryCardModalView.swift in Sources */,
 				6E20BFE6E4FF9E2B282C2DF0 /* ThemeSelectionView.swift in Sources */,
 				9965D41FE19E56D519CFF97C /* ThreeStateBadgeView.swift in Sources */,

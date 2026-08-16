@@ -25,7 +25,7 @@ targets:
     info:
       path: AppSupport/Info.plist
       properties:
-        CFBundleDisplayName: 文绉绉-甪端
+        CFBundleDisplayName: 文绉绉
         CFBundleName: luDuan
         CFBundleShortVersionString: "1.2.0"
         CFBundleVersion: "12"
@@ -42,8 +42,6 @@ targets:
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
         UIRequiresFullScreen: true
-        NSMicrophoneUsageDescription: "文绉绉·甪端需要使用麦克风，让你用语音拼字闯关。"
-        NSSpeechRecognitionUsageDescription: "文绉绉·甪端使用语音识别，把你口述的字词转为拼字输入。"
         CFBundleURLTypes:
           - CFBundleURLName: com.eastlakestudio.luduan
             CFBundleURLSchemes:

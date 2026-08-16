@@ -67,7 +67,6 @@
 
 **核心技术栈：**
 - **UI 框架**：SwiftUI + Combine
-- **音频与语音**：AVFoundation (`AVAudioEngine`) + Speech (`SFSpeechRecognizer`)
 - **持久化（四重）**：App Group UserDefaults + Keychain + Standard UserDefaults + Documents 文件
 - **工程构建**：XcodeGen (`project.yml`)
 - **质量保证**：XCTest 自动化单元测试，76+ 测试用例 100% 绿色通过

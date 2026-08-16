@@ -28,12 +28,12 @@ public struct SharePosterCardView: View {
                     )
                     
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("lù  duān  zì  yóu")
+                        Text("wén  zhuō  zhuō · lù  duān")
                             .font(.system(size: 11, weight: .bold, design: .serif))
                             .foregroundColor(.cloudGold)
                             .tracking(3)
-                        
-                        Text("《甪端字游》")
+
+                        Text("《文绉绉-甪端》")
                             .font(.system(size: 22, weight: .bold, design: .serif))
                             .foregroundColor(.cinnabarRed)
                     }
@@ -139,7 +139,7 @@ public struct SharePosterCardView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "sparkles")
                                 .foregroundColor(.cloudGold)
-                            Text("《甪端字游》App Store 官方正版")
+                            Text("《文绉绉-甪端》App Store 官方正版")
                                 .font(.system(size: 13, weight: .bold, design: .serif))
                                 .foregroundColor(.cinnabarRed)
                         }
