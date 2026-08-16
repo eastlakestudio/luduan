@@ -39,9 +39,10 @@ fun BadgeGalleryScreen(repo: GameRepository, onBack: () -> Unit) {
             Spacer(Modifier.weight(1f))
             Text("$uc / $tc", color = adaptiveCinnabar(), fontSize = 16.sp, fontFamily = FontFamily.Serif)
         }
-        val cats = BadgeCategory.entries.toList()
+        // 去掉"全部"与"处世修养"，只保留 学阶功名 / 典籍名篇 / 人物名将
+        val cats = listOf(BadgeCategory.ACADEMIC, BadgeCategory.CLASSICS, BadgeCategory.CHARACTER)
+        if (sel == null) sel = cats[0]
         LazyRow(Modifier.fillMaxWidth().padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            item { FilterChip(sel == null, { sel = null }, { Text("\u5168\u90e8") }) }
             items(cats.size) { i -> FilterChip(sel == cats[i], { sel = cats[i] }, { Text(cats[i].rawValue) }) }
         }
         Spacer(Modifier.height(12.dp))

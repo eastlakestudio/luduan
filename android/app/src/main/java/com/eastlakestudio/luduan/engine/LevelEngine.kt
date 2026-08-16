@@ -50,7 +50,8 @@ object LevelEngine {
     )
     private fun genTiles(phrase: String, si: Int): List<String> {
         val r = phrase.map { it.toString() }.toMutableList()
-        val t = maxOf(16, r.size + 4)
+        // 三行 12 字矩阵：目标字 + 干扰字补足到 12（目标字多于 12 时自然扩展）
+        val t = maxOf(12, r.size + 2)
         val phraseSet = r.toSet()
         var s = si * 997 + 13
         fun rng(): Int { s = (s * 1103515245 + 12345) and 0x7fffffff; return s }

@@ -48,7 +48,13 @@ fun DashboardScreen(
             Column(Modifier.weight(1f)) {
                 val dashCtx = LocalContext.current
                 val titleBmp = remember(dashCtx) { try { BitmapFactory.decodeStream(dashCtx.assets.open("text/title_header.png")) } catch (e: Exception) { null } }
-                if (titleBmp != null) Image(titleBmp.asImageBitmap(), "title", Modifier.widthIn(max = 160.dp), contentScale = ContentScale.Fit)
+                if (titleBmp != null) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Image(titleBmp.asImageBitmap(), "title", Modifier.widthIn(max = 130.dp), contentScale = ContentScale.Fit)
+                        Spacer(Modifier.width(6.dp))
+                        Text("\u6587\u7EC9\u7EC9-", color = adaptiveBamboo(), fontSize = 16.sp, fontFamily = FontFamily.Serif)
+                    }
+                }
                 Text("\u5df2\u5b66 $learnedCount \u8bcd", color = adaptiveXuan(), fontSize = 14.sp)
             }
             TextButton(onBadgeGalleryClick) { Text("\u52cb\u7ae0\u9986", color = adaptiveCinnabar(), fontSize = 14.sp) }

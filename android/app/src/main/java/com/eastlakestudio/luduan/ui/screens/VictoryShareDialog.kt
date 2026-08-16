@@ -80,7 +80,7 @@ fun VictoryShareDialog(
                                     val b = bounds.bottom.toInt().coerceIn(t + 1, full.height)
                                     Bitmap.createBitmap(full, l, t, r - l, b - t)
                                 }
-                                val text = "\u3010\u752a\u7aef\u5b57\u6e38\u3011\u6211\u5df2\u7d2f\u8ba1\u901a\u5173 $learnedCount \u8bcd\u53e4\u98ce\u5b57\u6e38\uff01\u795e\u517d\u752a\u7aef\u4f34\u5b66\uff0c\u4e07\u5173\u5178\u7c4d\u540d\u7bc7\u3002"
+                                val text = "\u3010\u6587\u7EC9\u7EC9-\u752a\u7aef\u3011\u6211\u5df2\u7d2f\u8ba1\u901a\u5173 $learnedCount \u8bcd\u53e4\u98ce\u5b57\u6e38\uff01\u795e\u517d\u752a\u7aef\u4f34\u5b66\uff0c\u4e07\u5173\u5178\u7c4d\u540d\u7bc7\u3002"
                                 ShareHelper.shareImageAndText(ctx, bmp, text)
                                 sharing = false
                             }
@@ -104,8 +104,8 @@ private fun VictoryCardPreview(
     modifier: Modifier = Modifier
 ) {
     val ctx = LocalContext.current
-    val titleBmp = remember {
-        try { BitmapFactory.decodeStream(ctx.assets.open("text/title_header.png")) }
+    val iconBmp = remember {
+        try { BitmapFactory.decodeStream(ctx.assets.open("text/icon_beast.png")) }
         catch (e: Exception) { null }
     }
     val iosQR = remember { QRCodeGen.generate("https://apps.apple.com/app/id6799431765", 150) }
@@ -120,8 +120,14 @@ private fun VictoryCardPreview(
             Modifier.padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            if (titleBmp != null) {
-                Image(titleBmp.asImageBitmap(), null, Modifier.widthIn(max = 140.dp), contentScale = ContentScale.Fit)
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                if (iconBmp != null) {
+                    Image(iconBmp.asImageBitmap(), null, Modifier.size(36.dp).clip(RoundedCornerShape(8.dp)), contentScale = ContentScale.Fit)
+                }
+                Spacer(Modifier.width(8.dp))
+                Text("\u6587\u7EC9\u7EC9", color = adaptiveBamboo(), fontSize = 22.sp, fontFamily = FontFamily.Serif)
+                Spacer(Modifier.width(8.dp))
+                Text("\u752a\u7aef\u5b57\u6e38", color = adaptiveBamboo(), fontSize = 22.sp, fontFamily = FontFamily.Serif)
             }
 
             Spacer(Modifier.height(4.dp))
@@ -132,7 +138,7 @@ private fun VictoryCardPreview(
             if (story.isNotEmpty()) {
                 Text(story.take(120) + if (story.length > 120) "\u2026" else "", color = Color(0xFF333333), fontSize = 16.sp, fontFamily = FontFamily.Serif, lineHeight = 26.sp)
                 Spacer(Modifier.height(8.dp))
-                Text("\u2014\u2014 $source", color = Color.Gray, fontSize = 12.sp, textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth())
+                Text(source, color = Color.Gray, fontSize = 12.sp, textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth())
             }
 
             Spacer(Modifier.height(16.dp))
@@ -144,9 +150,6 @@ private fun VictoryCardPreview(
                 QrPreview(iosQR, "\u82f9\u679c\u5e94\u7528")
                 QrPreview(webQR, "\u5b98\u7f51")
             }
-
-            Spacer(Modifier.height(8.dp))
-            Text("eastlakestudio.github.io/luduan", color = Color.Gray, fontSize = 10.sp)
         }
     }
 }
