@@ -25,10 +25,10 @@ targets:
     info:
       path: AppSupport/Info.plist
       properties:
-        CFBundleDisplayName: 甪端
+        CFBundleDisplayName: 文绉绉-甪端
         CFBundleName: luDuan
-        CFBundleShortVersionString: "1.0.1"
-        CFBundleVersion: "10"
+        CFBundleShortVersionString: "1.2.0"
+        CFBundleVersion: "12"
         ITSAppUsesNonExemptEncryption: false
         LSRequiresIPhoneOS: true
         UILaunchScreen: {}
@@ -42,8 +42,8 @@ targets:
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
         UIRequiresFullScreen: true
-        NSMicrophoneUsageDescription: "甪端字游需要使用麦克风，让你用语音拼字闯关。"
-        NSSpeechRecognitionUsageDescription: "甪端字游使用语音识别，把你口述的字词转为拼字输入。"
+        NSMicrophoneUsageDescription: "文绉绉·甪端需要使用麦克风，让你用语音拼字闯关。"
+        NSSpeechRecognitionUsageDescription: "文绉绉·甪端使用语音识别，把你口述的字词转为拼字输入。"
         CFBundleURLTypes:
           - CFBundleURLName: com.eastlakestudio.luduan
             CFBundleURLSchemes:
@@ -52,8 +52,8 @@ targets:
       base:
         TARGETED_DEVICE_FAMILY: "1,2"
         PRODUCT_BUNDLE_IDENTIFIER: com.eastlakestudio.luduan
-        MARKETING_VERSION: "1.0.1"
-        CURRENT_PROJECT_VERSION: "10"
+        MARKETING_VERSION: "1.2.0"
+        CURRENT_PROJECT_VERSION: "12"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     entitlements:
       path: AppSupport/luDuan.entitlements
@@ -74,16 +74,16 @@ targets:
       properties:
         CFBundleDisplayName: 甪端小组件
         CFBundleName: luDuanWidget
-        CFBundleShortVersionString: "1.0.1"
-        CFBundleVersion: "10"
+        CFBundleShortVersionString: "1.2.0"
+        CFBundleVersion: "12"
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
       base:
         TARGETED_DEVICE_FAMILY: "1,2"
         PRODUCT_BUNDLE_IDENTIFIER: com.eastlakestudio.luduan.widget
-        MARKETING_VERSION: "1.0.1"
-        CURRENT_PROJECT_VERSION: "10"
+        MARKETING_VERSION: "1.2.0"
+        CURRENT_PROJECT_VERSION: "12"
         OTHER_SWIFT_FLAGS: "-DAPP_EXTENSION"
     entitlements:
       path: AppSupport/luDuanWidget.entitlements

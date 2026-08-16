@@ -1,8 +1,9 @@
-# 甪端字游 (LuDuan Words) — 产品需求文档 + 功能规格
+# 文绉绉·甪端 (luDuan) — 产品需求文档 + 功能规格
 
 ## 1. 产品概述
 
-- 应用名称：甪端字游 (LuDuan Words)
+- 应用名称：文绉绉·甪端 (luDuan) — 原名《甪端字游》
+- 当前版本：v1.2.0 (Build 12)
 - 目标平台：iOS 17.0+ (SwiftUI) / Android 8.0+ (Kotlin + Jetpack Compose)
 - 应用分类：教育 / 图书
 - 商业模式：付费下载（一次性买断，单机纯净，无内购，无需网络）

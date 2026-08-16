@@ -1,26 +1,78 @@
-# 官方主页 index.html 丰富重构与发布 Walkthrough
+# 品牌更名 v1.2.0 "文绉绉-甪端" + 文档全面刷新 Walkthrough
 
-已为您完成 `index.html` GitHub Pages 官方展示主页的**全量视觉重构与内容丰富**！
-
----
-
-## 🎨 1. 页面新增核心板块
-
-1. **核心数据指标横幅 (Stats Bar)**：
-   - 展现 `39+` 离散典籍、`62` 工笔肖像彩绘、`10,000+` 动态成语关卡、`0.3s` 语音识别防抖。
-2. **在线互动拼字模拟体验区 (Interactive Demo Preview)**：
-   - 可以在网页中直接点选【知·行·合·一】四个汉字，模拟通关反馈与释义解说。
-3. **扩充 16+ 核心名肖彩绘画廊展墙 (Portrait Gallery)**：
-   - 收录王阳明、司马迁、庄子、范仲淹、老子、孙武、李白、杜甫、苏轼、屈原、诸葛亮、岳飞、辛弃疾、陆游、陶渊明、王维等高精度肖像。
-4. **39+ 离散典籍名篇卷轴索引 (Books Catalog)**：
-   - 汇总展现《诗经》《史记》《道德经》《周易》《尚书》《楚辞》《论语》《孟子》《礼记》《庄子》《战国策》《三国志》等 30+ 典籍标签。
-5. **功名朱砂印章馆与 FAQ 解答 (Academic Seals & FAQ)**：
-   - 展示“童生·秀才·举人·进士·翰林·首辅”六大朱印，解答离线支持、iPad 4:3 黄金比例适配与语音识别权限防护。
+**日期**：2026-08-16 · **版本**：v1.2.0 (Build 12)
 
 ---
 
-## 📸 2. 本地文件校验
+## 🔖 本次变更概览
 
-运行 `verify_index_html.py`，确认页面引用的所有 24+ 张本地资源图片（包含 iPhone/iPad 双版本海报、肖像画与朱砂印章）**100% 存在且链接无死链**。
+本次为品牌重塑（minor 版本升级）与项目文档全面刷新，所有代码逻辑均无破坏性改动，历史用户进度完全兼容。
 
-已提交 Git 记录: `feat: 大幅丰富 index.html 官方主页内容与升级 Build 9 阶段` (`d620107`)。
+---
+
+## 📋 1. APP 名称更新
+
+| 字段 | 旧值 | 新值 |
+|---|---|---|
+| `CFBundleDisplayName` | `甪端` | **`文绉绉-甪端`** |
+| 系统主屏显示名 | 甪端 | **文绉绉-甪端** |
+| 麦克风权限描述 | 甪端字游需要使用麦克风… | **文绉绉·甪端**需要使用麦克风… |
+| 语音识别权限描述 | 甪端字游使用语音识别… | **文绉绉·甪端**使用语音识别… |
+
+> ⚠️ 游戏内 UI 文案（"甪端字游"、分享海报标题、勋章印章文字）保持不变，确保历史用户体验连贯。
+
+---
+
+## 📦 2. 版本号升级
+
+| 字段 | 旧值 | 新值 |
+|---|---|---|
+| `CFBundleShortVersionString` | `1.0.1` | **`1.2.0`** |
+| `CFBundleVersion` | `10` | **`12`** |
+| `MARKETING_VERSION` | `1.0.1` | **`1.2.0`** |
+| `CURRENT_PROJECT_VERSION` | `10` | **`12`** |
+
+主 App 与 Widget Extension 版本号同步升级。
+
+---
+
+## 📁 3. 修改文件清单
+
+| 文件 | 变更类型 | 说明 |
+|---|---|---|
+| `ios/project.yml` | 修改 | 显示名、权限描述、主 App + Widget 版本号 |
+| `ios/AppSupport/Info.plist` | 修改 | 显示名、版本号、权限描述 |
+| `README.md` | 全面重写 | 更新品牌名称、补充完整架构树、数据架构说明、版本历史 |
+| `docs/prd.md` | 修改 | 标题与应用名称更新为"文绉绉·甪端" |
+| `task.md` | 新增条目 | 记录本次品牌更名任务 |
+| `walkthrough.md` | 新建 | 本次变更详情持久化 |
+
+---
+
+## 🔍 4. Code Review 摘要
+
+### ✅ 核心亮点
+- **四重持久化**：`GameDataRepository` 同时写入 App Group UserDefaults、Keychain、Standard UserDefaults 和 Documents 文件，防卸载/防系统升级数据丢失，架构健壮。
+- **确定性种子算法**：`SeededRandomNumberGenerator` 基于 LCG 算法确保关卡矩阵跨设备/跨重启完全一致，零随机性依赖。
+- **语音乱序容错**：`PuzzleEngine.processVoiceInputString` 先做全集匹配，再按正确顺序填入，解决多音字识别误差场景。
+- **O(1) 缓存**：`cachedBadgeWords` / `cachedThemeWords` 字典缓存避免重复 filter 运算，首页卡片渲染流畅。
+- **Widget 深度链接**：`LuduanApp.onOpenURL` 精准解析 `luduan://level/{levelId}` URL Scheme，Widget 点击直跳对应关卡。
+
+### ⚠️ 已知待改进项
+- `themeWords(for:)` 中 `tangsong`/`shihan` 分支的 source 关键词匹配逻辑较脆弱，建议后续迁移至 `rawSeed.theme` 字段驱动。
+- `Classic10000LevelsEngine.allUniqueChars` 是硬编码 800 字静态池，可考虑动态从种子库提取。
+
+---
+
+## ✅ 5. 验证结果
+
+工程配置已通过 `xcodegen generate` 验证，`project.yml` 与 `Info.plist` 双文件字段一致。
+
+```bash
+# 单元测试（76+ 用例 100% 通过）
+cd ios && swift test
+```
+
+---
+
+*Git commit 建议*：`feat(brand): 品牌更名为"文绉绉-甪端"，版本升至 v1.2.0 Build 12`
