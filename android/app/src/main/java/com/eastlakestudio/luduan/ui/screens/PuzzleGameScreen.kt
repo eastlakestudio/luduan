@@ -50,11 +50,13 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
     var showHint by remember { mutableStateOf(false) }
     var newlyUnlockedBadge by remember { mutableStateOf<BadgeModel?>(null) }
     var showVictoryShare by remember { mutableStateOf(false) }
+    var allDone by remember { mutableStateOf(false) }
+    var pendingAllDone by remember { mutableStateOf(false) }
     var shake by remember { mutableFloatStateOf(0f) }
     val phrases by repo.learnedPhrases.collectAsState()
     val learnedCount = phrases.size
 
-    LaunchedEffect(engine.isCompleted) {
+    LaunchedEffect(engine.isCompleted, currentLevel.id) {
         if (engine.isCompleted) {
             val unlockedBid = repo.completeLevel(currentLevel)
             val c = repo.learnedPhrases.value.size
@@ -62,7 +64,9 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
             if (unlockedBid != null) {
                 newlyUnlockedBadge = repo.badges.firstOrNull { it.id == unlockedBid }
             }
-            if (c > 0 && c % 10 == 0) showVictoryShare = true
+            if (unlockedBid != null) {
+                // 勋章解锁优先弹勋章分享，跳过里程碑/故事弹窗
+            } else if (c > 0 && c % 10 == 0) showVictoryShare = true
             else showStory = true
         }
     }
@@ -121,7 +125,21 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
     }
 
     // 通关弹窗
-    if (showStory) FullScreenStory(currentLevel, learnedCount, { showStory = false; repo.nextLevel(currentLevel)?.let { currentLevel = it } }, { showStory = false; repo.nextLevel(currentLevel)?.let { currentLevel = it } })
+    fun advanceOrFinish(closeFlag: () -> Unit) {
+        closeFlag()
+        val next = repo.nextLevel(currentLevel)
+        if (next != null) {
+            currentLevel = next
+        } else if (newlyUnlockedBadge == null) {
+            allDone = true
+        } else {
+            pendingAllDone = true
+        }
+    }
+
+    if (showStory) FullScreenStory(currentLevel, learnedCount,
+        { advanceOrFinish { showStory = false } },
+        { advanceOrFinish { showStory = false } })
 
     // 每10词里程碑 → 直接弹出分享页
 
@@ -143,7 +161,14 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
             phrase = randomWord?.phrase ?: "",
             source = randomWord?.source ?: currentLevel.source,
             story = randomWord?.story ?: "",
-            onDismiss = { newlyUnlockedBadge = null }
+            onDismiss = {
+                newlyUnlockedBadge = null
+                if (pendingAllDone) { pendingAllDone = false; allDone = true }
+                else if (!showVictoryShare && !showStory) {
+                    val next = repo.nextLevel(currentLevel)
+                    if (next != null) currentLevel = next else allDone = true
+                }
+            }
         )
     }
 
@@ -155,14 +180,25 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
             dismissButton = { TextButton({ showHint = false }) { Text(text = "\u5173\u95ed", color = Color.Gray) } }, containerColor = adaptivePaper())
     }
 
+    if (allDone) {
+        AlertDialog({ allDone = false; onBack() },
+            title = { Text("\u672c\u5377\u5df2\u5168\u90e8\u5b8c\u6210\uff01", color = adaptiveGold(), fontSize = 20.sp, fontFamily = FontFamily.Serif) },
+            text = { Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+                Text("\u606d\u559c\u5b8c\u6210\u300c${currentLevel.categoryName}\u300d\u5168\u90e8\u8bcd\u53e5", color = adaptiveCinnabar(), fontSize = 16.sp, fontFamily = FontFamily.Serif, textAlign = TextAlign.Center)
+                Spacer(Modifier.height(8.dp))
+                Text("\u8fd4\u56de\u4e66\u67b6\u9009\u62e9\u5176\u4ed6\u5178\u7c4d\u7ee7\u7eed\u6311\u6218", color = adaptiveXuan(), fontSize = 13.sp, textAlign = TextAlign.Center)
+            }},
+            confirmButton = { Button({ allDone = false; onBack() }, colors = ButtonDefaults.buttonColors(containerColor = adaptiveCinnabar())) { Text("\u8fd4\u56de\u4e66\u67b6", color = PaperWhite) } },
+            containerColor = adaptivePaper())
+    }
+
     if (showVictoryShare) {
         VictoryShareDialog(
             learnedCount = learnedCount,
             source = currentLevel.source,
             story = currentLevel.story,
             onDismiss = {
-                showVictoryShare = false
-                repo.nextLevel(currentLevel)?.let { currentLevel = it }
+                advanceOrFinish { showVictoryShare = false }
             }
         )
     }

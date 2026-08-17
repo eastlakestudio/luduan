@@ -36,6 +36,10 @@
             android:theme="@style/Theme.LuDuan.Trampoline" />
 
         <receiver
+            android:name=".widget.WidgetFallbackRefreshReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name=".widget.IdiomWidgetReceiver"
             android:exported="false">
             <intent-filter>

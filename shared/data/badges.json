@@ -6,7 +6,7 @@
     "category": "功名学阶",
     "description": "荣登童生之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 1 级难度的成语名句解锁",
-    "imageName": "badge_level_1"
+    "imageName": "badge_academic_tongsheng"
   },
   {
     "id": "badge_level_2",
@@ -15,7 +15,7 @@
     "category": "功名学阶",
     "description": "荣登秀才之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 2 级难度的成语名句解锁",
-    "imageName": "badge_level_2"
+    "imageName": "badge_academic_xiucai"
   },
   {
     "id": "badge_level_3",
@@ -24,7 +24,7 @@
     "category": "功名学阶",
     "description": "荣登举人之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 3 级难度的成语名句解锁",
-    "imageName": "badge_level_3"
+    "imageName": "badge_academic_juren"
   },
   {
     "id": "badge_level_4",
@@ -33,7 +33,7 @@
     "category": "功名学阶",
     "description": "荣登贡士之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 4 级难度的成语名句解锁",
-    "imageName": "badge_level_4"
+    "imageName": "badge_academic_jinshi"
   },
   {
     "id": "badge_level_5",
@@ -42,7 +42,7 @@
     "category": "功名学阶",
     "description": "荣登进士之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 5 级难度的成语名句解锁",
-    "imageName": "badge_level_5"
+    "imageName": "badge_academic_jinshi"
   },
   {
     "id": "badge_level_6",
@@ -51,7 +51,7 @@
     "category": "功名学阶",
     "description": "荣登翰林之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 6 级难度的成语名句解锁",
-    "imageName": "badge_level_6"
+    "imageName": "badge_academic_hanlin"
   },
   {
     "id": "badge_level_7",
@@ -60,7 +60,7 @@
     "category": "功名学阶",
     "description": "荣登内阁之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 7 级难度的成语名句解锁",
-    "imageName": "badge_level_7"
+    "imageName": "badge_academic_hanlin"
   },
   {
     "id": "badge_level_8",
@@ -69,7 +69,7 @@
     "category": "功名学阶",
     "description": "荣登首辅之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 8 级难度的成语名句解锁",
-    "imageName": "badge_level_8"
+    "imageName": "badge_academic_shoufu"
   },
   {
     "id": "badge_level_9",
@@ -78,7 +78,7 @@
     "category": "功名学阶",
     "description": "荣登帝师之列，满腹经纶，学贯古今。",
     "requirementDescription": "掌握所有 9 级难度的成语名句解锁",
-    "imageName": "badge_level_9"
+    "imageName": "badge_academic_shoufu"
   },
   {
     "id": "badge_theme_修身齐家",
@@ -14311,569 +14311,569 @@
   },
   {
     "id": "badge_char_1",
-    "name": "guanyu",
-    "sealText": "guanyu",
+    "name": "关羽",
+    "sealText": "关羽",
     "category": "人物名将",
     "description": "guanyu相关传世词句",
     "requirementDescription": "完成guanyu相关词句",
-    "imageName": "badge_关羽"
+    "imageName": "badge_guanyu"
   },
   {
     "id": "badge_char_2",
-    "name": "liuxiang",
-    "sealText": "liuxiang",
+    "name": "刘向",
+    "sealText": "刘向",
     "category": "人物名将",
     "description": "liuxiang相关传世词句",
     "requirementDescription": "完成liuxiang相关词句",
-    "imageName": "badge_刘向"
+    "imageName": "badge_liuxiang"
   },
   {
     "id": "badge_char_3",
-    "name": "liubang",
-    "sealText": "liubang",
+    "name": "刘邦",
+    "sealText": "刘邦",
     "category": "人物名将",
     "description": "liubang相关传世词句",
     "requirementDescription": "完成liubang相关词句",
-    "imageName": "badge_刘邦"
+    "imageName": "badge_liubang"
   },
   {
     "id": "badge_char_4",
-    "name": "baozheng",
-    "sealText": "baozheng",
+    "name": "包拯",
+    "sealText": "包拯",
     "category": "人物名将",
     "description": "baozheng相关传世词句",
     "requirementDescription": "完成baozheng相关词句",
-    "imageName": "badge_包拯"
+    "imageName": "badge_baozheng"
   },
   {
     "id": "badge_char_5",
-    "name": "weiqing",
-    "sealText": "weiqing",
+    "name": "卫青",
+    "sealText": "卫青",
     "category": "人物名将",
     "description": "weiqing相关传世词句",
     "requirementDescription": "完成weiqing相关词句",
-    "imageName": "badge_卫青"
+    "imageName": "badge_weiqing"
   },
   {
     "id": "badge_char_6",
-    "name": "simaguang",
-    "sealText": "simaguang",
+    "name": "司马光",
+    "sealText": "司马光",
     "category": "人物名将",
     "description": "simaguang相关传世词句",
     "requirementDescription": "完成simaguang相关词句",
-    "imageName": "badge_司马光"
+    "imageName": "badge_simaguang"
   },
   {
     "id": "badge_char_7",
-    "name": "simaqian",
-    "sealText": "simaqian",
+    "name": "司马迁",
+    "sealText": "司马迁",
     "category": "人物名将",
     "description": "simaqian相关传世词句",
     "requirementDescription": "完成simaqian相关词句",
-    "imageName": "badge_司马迁"
+    "imageName": "badge_simaqian"
   },
   {
     "id": "badge_char_8",
-    "name": "lubu",
-    "sealText": "lubu",
+    "name": "吕布",
+    "sealText": "吕布",
     "category": "人物名将",
     "description": "lubu相关传世词句",
     "requirementDescription": "完成lubu相关词句",
-    "imageName": "badge_吕布"
+    "imageName": "badge_lubu"
   },
   {
     "id": "badge_char_9",
-    "name": "zhouyu",
-    "sealText": "zhouyu",
+    "name": "周瑜",
+    "sealText": "周瑜",
     "category": "人物名将",
     "description": "zhouyu相关传世词句",
     "requirementDescription": "完成zhouyu相关词句",
-    "imageName": "badge_周瑜"
+    "imageName": "badge_zhouyu"
   },
   {
     "id": "badge_char_10",
-    "name": "mozi",
-    "sealText": "mozi",
+    "name": "墨子",
+    "sealText": "墨子",
     "category": "人物名将",
     "description": "mozi相关传世词句",
     "requirementDescription": "完成mozi相关词句",
-    "imageName": "badge_墨子"
+    "imageName": "badge_mozi"
   },
   {
     "id": "badge_char_11",
-    "name": "jiangwei",
-    "sealText": "jiangwei",
+    "name": "姜维",
+    "sealText": "姜维",
     "category": "人物名将",
     "description": "jiangwei相关传世词句",
     "requirementDescription": "完成jiangwei相关词句",
-    "imageName": "badge_姜维"
+    "imageName": "badge_jiangwei"
   },
   {
     "id": "badge_char_12",
-    "name": "kongzi",
-    "sealText": "kongzi",
+    "name": "孔子",
+    "sealText": "孔子",
     "category": "人物名将",
     "description": "kongzi相关传世词句",
     "requirementDescription": "完成kongzi相关词句",
-    "imageName": "badge_孔子"
+    "imageName": "badge_kongzi"
   },
   {
     "id": "badge_char_13",
-    "name": "sunwu",
-    "sealText": "sunwu",
+    "name": "孙武",
+    "sealText": "孙武",
     "category": "人物名将",
     "description": "sunwu相关传世词句",
     "requirementDescription": "完成sunwu相关词句",
-    "imageName": "badge_孙武"
+    "imageName": "badge_sunwu"
   },
   {
     "id": "badge_char_14",
-    "name": "menghaoran",
-    "sealText": "menghaoran",
+    "name": "孟浩然",
+    "sealText": "孟浩然",
     "category": "人物名将",
     "description": "menghaoran相关传世词句",
     "requirementDescription": "完成menghaoran相关词句",
-    "imageName": "badge_孟浩然"
+    "imageName": "badge_menghaoran"
   },
   {
     "id": "badge_char_15",
-    "name": "quyuan",
-    "sealText": "quyuan",
+    "name": "屈原",
+    "sealText": "屈原",
     "category": "人物名将",
     "description": "quyuan相关传世词句",
     "requirementDescription": "完成quyuan相关词句",
-    "imageName": "badge_屈原"
+    "imageName": "badge_quyuan"
   },
   {
     "id": "badge_char_16",
-    "name": "yuefei",
-    "sealText": "yuefei",
+    "name": "岳飞",
+    "sealText": "岳飞",
     "category": "人物名将",
     "description": "yuefei相关传世词句",
     "requirementDescription": "完成yuefei相关词句",
-    "imageName": "badge_岳飞"
+    "imageName": "badge_yuefei"
   },
   {
     "id": "badge_char_17",
-    "name": "zhuangzi",
-    "sealText": "zhuangzi",
+    "name": "庄子",
+    "sealText": "庄子",
     "category": "人物名将",
     "description": "zhuangzi相关传世词句",
     "requirementDescription": "完成zhuangzi相关词句",
-    "imageName": "badge_庄子"
+    "imageName": "badge_zhuangzi"
   },
   {
     "id": "badge_char_18",
-    "name": "zhangliang",
-    "sealText": "zhangliang",
+    "name": "张良",
+    "sealText": "张良",
     "category": "人物名将",
     "description": "zhangliang相关传世词句",
     "requirementDescription": "完成zhangliang相关词句",
-    "imageName": "badge_张良"
+    "imageName": "badge_zhangliang"
   },
   {
     "id": "badge_char_19",
-    "name": "zhangheng",
-    "sealText": "zhangheng",
+    "name": "张衡",
+    "sealText": "张衡",
     "category": "人物名将",
     "description": "zhangheng相关传世词句",
     "requirementDescription": "完成zhangheng相关词句",
-    "imageName": "badge_张衡"
+    "imageName": "badge_zhangheng"
   },
   {
     "id": "badge_char_20",
-    "name": "zhangfei",
-    "sealText": "zhangfei",
+    "name": "张飞",
+    "sealText": "张飞",
     "category": "人物名将",
     "description": "zhangfei相关传世词句",
     "requirementDescription": "完成zhangfei相关词句",
-    "imageName": "badge_张飞"
+    "imageName": "badge_zhangfei"
   },
   {
     "id": "badge_char_21",
-    "name": "fangxuanling",
-    "sealText": "fangxuanling",
+    "name": "房玄龄",
+    "sealText": "房玄龄",
     "category": "人物名将",
     "description": "fangxuanling相关传世词句",
     "requirementDescription": "完成fangxuanling相关词句",
-    "imageName": "badge_房玄龄"
+    "imageName": "badge_fangxuanling"
   },
   {
     "id": "badge_char_22",
-    "name": "wentianxiang",
-    "sealText": "wentianxiang",
+    "name": "文天祥",
+    "sealText": "文天祥",
     "category": "人物名将",
     "description": "wentianxiang相关传世词句",
     "requirementDescription": "完成wentianxiang相关词句",
-    "imageName": "badge_文天祥"
+    "imageName": "badge_wentianxiang"
   },
   {
     "id": "badge_char_23",
-    "name": "caocao",
-    "sealText": "caocao",
+    "name": "曹操",
+    "sealText": "曹操",
     "category": "人物名将",
     "description": "caocao相关传世词句",
     "requirementDescription": "完成caocao相关词句",
-    "imageName": "badge_曹操"
+    "imageName": "badge_caocao"
   },
   {
     "id": "badge_char_24",
-    "name": "caoxueqin",
-    "sealText": "caoxueqin",
+    "name": "曹雪芹",
+    "sealText": "曹雪芹",
     "category": "人物名将",
     "description": "caoxueqin相关传世词句",
     "requirementDescription": "完成caoxueqin相关词句",
-    "imageName": "badge_曹雪芹"
+    "imageName": "badge_caoxueqin"
   },
   {
     "id": "badge_char_25",
-    "name": "zengguofan",
-    "sealText": "zengguofan",
+    "name": "曾国藩",
+    "sealText": "曾国藩",
     "category": "人物名将",
     "description": "zengguofan相关传世词句",
     "requirementDescription": "完成zengguofan相关词句",
-    "imageName": "badge_曾国藩"
+    "imageName": "badge_zengguofan"
   },
   {
     "id": "badge_char_26",
-    "name": "lishangyin",
-    "sealText": "lishangyin",
+    "name": "李商隐",
+    "sealText": "李商隐",
     "category": "人物名将",
     "description": "lishangyin相关传世词句",
     "requirementDescription": "完成lishangyin相关词句",
-    "imageName": "badge_李商隐"
+    "imageName": "badge_lishangyin"
   },
   {
     "id": "badge_char_27",
-    "name": "liqingzhao",
-    "sealText": "liqingzhao",
+    "name": "李清照",
+    "sealText": "李清照",
     "category": "人物名将",
     "description": "liqingzhao相关传世词句",
     "requirementDescription": "完成liqingzhao相关词句",
-    "imageName": "badge_李清照"
+    "imageName": "badge_liqingzhao"
   },
   {
     "id": "badge_char_28",
-    "name": "libai",
-    "sealText": "libai",
+    "name": "李白",
+    "sealText": "李白",
     "category": "人物名将",
     "description": "libai相关传世词句",
     "requirementDescription": "完成libai相关词句",
-    "imageName": "badge_李白"
+    "imageName": "badge_libai"
   },
   {
     "id": "badge_char_29",
-    "name": "duruhui",
-    "sealText": "duruhui",
+    "name": "杜如晦",
+    "sealText": "杜如晦",
     "category": "人物名将",
     "description": "duruhui相关传世词句",
     "requirementDescription": "完成duruhui相关词句",
-    "imageName": "badge_杜如晦"
+    "imageName": "badge_duruhui"
   },
   {
     "id": "badge_char_30",
-    "name": "dumu",
-    "sealText": "dumu",
+    "name": "杜牧",
+    "sealText": "杜牧",
     "category": "人物名将",
     "description": "dumu相关传世词句",
     "requirementDescription": "完成dumu相关词句",
-    "imageName": "badge_杜牧"
+    "imageName": "badge_dumu"
   },
   {
     "id": "badge_char_31",
-    "name": "dufu",
-    "sealText": "dufu",
+    "name": "杜甫",
+    "sealText": "杜甫",
     "category": "人物名将",
     "description": "dufu相关传世词句",
     "requirementDescription": "完成dufu相关词句",
-    "imageName": "badge_杜甫"
+    "imageName": "badge_dufu"
   },
   {
     "id": "badge_char_32",
-    "name": "linzexu",
-    "sealText": "linzexu",
+    "name": "林则徐",
+    "sealText": "林则徐",
     "category": "人物名将",
     "description": "linzexu相关传世词句",
     "requirementDescription": "完成linzexu相关词句",
-    "imageName": "badge_林则徐"
+    "imageName": "badge_linzexu"
   },
   {
     "id": "badge_char_33",
-    "name": "liuzongyuan",
-    "sealText": "liuzongyuan",
+    "name": "柳宗元",
+    "sealText": "柳宗元",
     "category": "人物名将",
     "description": "liuzongyuan相关传世词句",
     "requirementDescription": "完成liuzongyuan相关词句",
-    "imageName": "badge_柳宗元"
+    "imageName": "badge_liuzongyuan"
   },
   {
     "id": "badge_char_34",
-    "name": "ouyangxiu",
-    "sealText": "ouyangxiu",
+    "name": "欧阳修",
+    "sealText": "欧阳修",
     "category": "人物名将",
     "description": "ouyangxiu相关传世词句",
     "requirementDescription": "完成ouyangxiu相关词句",
-    "imageName": "badge_欧阳修"
+    "imageName": "badge_ouyangxiu"
   },
   {
     "id": "badge_char_35",
-    "name": "wanganshi",
-    "sealText": "wanganshi",
+    "name": "王安石",
+    "sealText": "王安石",
     "category": "人物名将",
     "description": "wanganshi相关传世词句",
     "requirementDescription": "完成wanganshi相关词句",
-    "imageName": "badge_王安石"
+    "imageName": "badge_wanganshi"
   },
   {
     "id": "badge_char_36",
-    "name": "wangwei",
-    "sealText": "wangwei",
+    "name": "王维",
+    "sealText": "王维",
     "category": "人物名将",
     "description": "wangwei相关传世词句",
     "requirementDescription": "完成wangwei相关词句",
-    "imageName": "badge_王维"
+    "imageName": "badge_wangwei"
   },
   {
     "id": "badge_char_37",
-    "name": "wangyangming",
-    "sealText": "wangyangming",
+    "name": "王阳明",
+    "sealText": "王阳明",
     "category": "人物名将",
     "description": "wangyangming相关传世词句",
     "requirementDescription": "完成wangyangming相关词句",
-    "imageName": "badge_王阳明"
+    "imageName": "badge_wangyangming"
   },
   {
     "id": "badge_char_38",
-    "name": "bangu",
-    "sealText": "bangu",
+    "name": "班固",
+    "sealText": "班固",
     "category": "人物名将",
     "description": "bangu相关传世词句",
     "requirementDescription": "完成bangu相关词句",
-    "imageName": "badge_班固"
+    "imageName": "badge_bangu"
   },
   {
     "id": "badge_char_39",
-    "name": "baijuyi",
-    "sealText": "baijuyi",
+    "name": "白居易",
+    "sealText": "白居易",
     "category": "人物名将",
     "description": "baijuyi相关传世词句",
     "requirementDescription": "完成baijuyi相关词句",
-    "imageName": "badge_白居易"
+    "imageName": "badge_baijuyi"
   },
   {
     "id": "badge_char_40",
-    "name": "zuchongzhi",
-    "sealText": "zuchongzhi",
+    "name": "祖冲之",
+    "sealText": "祖冲之",
     "category": "人物名将",
     "description": "zuchongzhi相关传世词句",
     "requirementDescription": "完成zuchongzhi相关词句",
-    "imageName": "badge_祖冲之"
+    "imageName": "badge_zuchongzhi"
   },
   {
     "id": "badge_char_41",
-    "name": "jixiaolan",
-    "sealText": "jixiaolan",
+    "name": "纪晓岚",
+    "sealText": "纪晓岚",
     "category": "人物名将",
     "description": "jixiaolan相关传世词句",
     "requirementDescription": "完成jixiaolan相关词句",
-    "imageName": "badge_纪晓岚"
+    "imageName": "badge_jixiaolan"
   },
   {
     "id": "badge_char_42",
-    "name": "laozi",
-    "sealText": "laozi",
+    "name": "老子",
+    "sealText": "老子",
     "category": "人物名将",
     "description": "laozi相关传世词句",
     "requirementDescription": "完成laozi相关词句",
-    "imageName": "badge_老子"
+    "imageName": "badge_laozi"
   },
   {
     "id": "badge_char_43",
-    "name": "sushi",
-    "sealText": "sushi",
+    "name": "苏轼",
+    "sealText": "苏轼",
     "category": "人物名将",
     "description": "sushi相关传世词句",
     "requirementDescription": "完成sushi相关词句",
-    "imageName": "badge_苏轼"
+    "imageName": "badge_sushi"
   },
   {
     "id": "badge_char_44",
-    "name": "fanzhongyan",
-    "sealText": "fanzhongyan",
+    "name": "范仲淹",
+    "sealText": "范仲淹",
     "category": "人物名将",
     "description": "fanzhongyan相关传世词句",
     "requirementDescription": "完成fanzhongyan相关词句",
-    "imageName": "badge_范仲淹"
+    "imageName": "badge_fanzhongyan"
   },
   {
     "id": "badge_char_45",
-    "name": "fanye",
-    "sealText": "fanye",
+    "name": "范晔",
+    "sealText": "范晔",
     "category": "人物名将",
     "description": "fanye相关传世词句",
     "requirementDescription": "完成fanye相关词句",
-    "imageName": "badge_范晔"
+    "imageName": "badge_fanye"
   },
   {
     "id": "badge_char_46",
-    "name": "xunzi",
-    "sealText": "xunzi",
+    "name": "荀子",
+    "sealText": "荀子",
     "category": "人物名将",
     "description": "xunzi相关传世词句",
     "requirementDescription": "完成xunzi相关词句",
-    "imageName": "badge_荀子"
+    "imageName": "badge_xunzi"
   },
   {
     "id": "badge_char_47",
-    "name": "xunyu",
-    "sealText": "xunyu",
+    "name": "荀彧",
+    "sealText": "荀彧",
     "category": "人物名将",
     "description": "xunyu相关传世词句",
     "requirementDescription": "完成xunyu相关词句",
-    "imageName": "badge_荀彧"
+    "imageName": "badge_xunyu"
   },
   {
     "id": "badge_char_48",
-    "name": "xiaohe",
-    "sealText": "xiaohe",
+    "name": "萧何",
+    "sealText": "萧何",
     "category": "人物名将",
     "description": "xiaohe相关传世词句",
     "requirementDescription": "完成xiaohe相关词句",
-    "imageName": "badge_萧何"
+    "imageName": "badge_xiaohe"
   },
   {
     "id": "badge_char_49",
-    "name": "zhugeliang",
-    "sealText": "zhugeliang",
+    "name": "诸葛亮",
+    "sealText": "诸葛亮",
     "category": "人物名将",
     "description": "zhugeliang相关传世词句",
     "requirementDescription": "完成zhugeliang相关词句",
-    "imageName": "badge_诸葛亮"
+    "imageName": "badge_zhugeliang"
   },
   {
     "id": "badge_char_50",
-    "name": "jiayi",
-    "sealText": "jiayi",
+    "name": "贾谊",
+    "sealText": "贾谊",
     "category": "人物名将",
     "description": "jiayi相关传世词句",
     "requirementDescription": "完成jiayi相关词句",
-    "imageName": "badge_贾谊"
+    "imageName": "badge_jiayi"
   },
   {
     "id": "badge_char_51",
-    "name": "xinqiji",
-    "sealText": "xinqiji",
+    "name": "辛弃疾",
+    "sealText": "辛弃疾",
     "category": "人物名将",
     "description": "xinqiji相关传世词句",
     "requirementDescription": "完成xinqiji相关词句",
-    "imageName": "badge_辛弃疾"
+    "imageName": "badge_xinqiji"
   },
   {
     "id": "badge_char_52",
-    "name": "zhengchenggong",
-    "sealText": "zhengchenggong",
+    "name": "郑成功",
+    "sealText": "郑成功",
     "category": "人物名将",
     "description": "zhengchenggong相关传世词句",
     "requirementDescription": "完成zhengchenggong相关词句",
-    "imageName": "badge_郑成功"
+    "imageName": "badge_zhengchenggong"
   },
   {
     "id": "badge_char_53",
-    "name": "guojia",
-    "sealText": "guojia",
+    "name": "郭嘉",
+    "sealText": "郭嘉",
     "category": "人物名将",
     "description": "guojia相关传世词句",
     "requirementDescription": "完成guojia相关词句",
-    "imageName": "badge_郭嘉"
+    "imageName": "badge_guojia"
   },
   {
     "id": "badge_char_54",
-    "name": "luyou",
-    "sealText": "luyou",
+    "name": "陆游",
+    "sealText": "陆游",
     "category": "人物名将",
     "description": "luyou相关传世词句",
     "requirementDescription": "完成luyou相关词句",
-    "imageName": "badge_陆游"
+    "imageName": "badge_luyou"
   },
   {
     "id": "badge_char_55",
-    "name": "chenshou",
-    "sealText": "chenshou",
+    "name": "陈寿",
+    "sealText": "陈寿",
     "category": "人物名将",
     "description": "chenshou相关传世词句",
     "requirementDescription": "完成chenshou相关词句",
-    "imageName": "badge_陈寿"
+    "imageName": "badge_chenshou"
   },
   {
     "id": "badge_char_56",
-    "name": "taoyuanming",
-    "sealText": "taoyuanming",
+    "name": "陶渊明",
+    "sealText": "陶渊明",
     "category": "人物名将",
     "description": "taoyuanming相关传世词句",
     "requirementDescription": "完成taoyuanming相关词句",
-    "imageName": "badge_陶渊明"
+    "imageName": "badge_taoyuanming"
   },
   {
     "id": "badge_char_57",
-    "name": "huoqubing",
-    "sealText": "huoqubing",
+    "name": "霍去病",
+    "sealText": "霍去病",
     "category": "人物名将",
     "description": "huoqubing相关传世词句",
     "requirementDescription": "完成huoqubing相关词句",
-    "imageName": "badge_霍去病"
+    "imageName": "badge_huoqubing"
   },
   {
     "id": "badge_char_58",
-    "name": "hanxin",
-    "sealText": "hanxin",
+    "name": "韩信",
+    "sealText": "韩信",
     "category": "人物名将",
     "description": "hanxin相关传世词句",
     "requirementDescription": "完成hanxin相关词句",
-    "imageName": "badge_韩信"
+    "imageName": "badge_hanxin"
   },
   {
     "id": "badge_char_59",
-    "name": "hanyu",
-    "sealText": "hanyu",
+    "name": "韩愈",
+    "sealText": "韩愈",
     "category": "人物名将",
     "description": "hanyu相关传世词句",
     "requirementDescription": "完成hanyu相关词句",
-    "imageName": "badge_韩愈"
+    "imageName": "badge_hanyu"
   },
   {
     "id": "badge_char_60",
-    "name": "hanfeizi",
-    "sealText": "hanfeizi",
+    "name": "韩非",
+    "sealText": "韩非",
     "category": "人物名将",
     "description": "hanfeizi相关传世词句",
     "requirementDescription": "完成hanfeizi相关词句",
-    "imageName": "badge_韩非"
+    "imageName": "badge_hanfeizi"
   },
   {
     "id": "badge_char_61",
-    "name": "xiangyu",
-    "sealText": "xiangyu",
+    "name": "项羽",
+    "sealText": "项羽",
     "category": "人物名将",
     "description": "xiangyu相关传世词句",
     "requirementDescription": "完成xiangyu相关词句",
-    "imageName": "badge_项羽"
+    "imageName": "badge_xiangyu"
   },
   {
     "id": "badge_char_62",
-    "name": "weizheng",
-    "sealText": "weizheng",
+    "name": "魏征",
+    "sealText": "魏征",
     "category": "人物名将",
     "description": "weizheng相关传世词句",
     "requirementDescription": "完成weizheng相关词句",
-    "imageName": "badge_魏征"
+    "imageName": "badge_weizheng"
   },
   {
     "id": "badge_char_63",
-    "name": "lusu",
-    "sealText": "lusu",
+    "name": "鲁肃",
+    "sealText": "鲁肃",
     "category": "人物名将",
     "description": "lusu相关传世词句",
     "requirementDescription": "完成lusu相关词句",
-    "imageName": "badge_鲁肃"
+    "imageName": "badge_lusu"
   }
 ]

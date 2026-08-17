@@ -157,8 +157,8 @@ class GameRepository private constructor(private val ctx: Context) {
                 if (w.phrase == currentPhrase) foundCurrent = true
             }
         }
-        // Wrap around
-        return levelForBadge(badgeId, skipCompleted = true)
+        // 词池全部完成 → 返回 null，由 UI 提示"本卷已全部完成"
+        return null
     }
 
     fun nextLevel(cur: LevelModel): LevelModel? {

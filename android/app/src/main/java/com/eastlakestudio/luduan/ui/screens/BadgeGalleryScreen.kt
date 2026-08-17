@@ -28,7 +28,7 @@ import com.eastlakestudio.luduan.ui.theme.*
 @Composable
 fun BadgeGalleryScreen(repo: GameRepository, onBack: () -> Unit) {
     val uc = repo.unlockedBadges.value.size; val tc = repo.badges.size
-    var sel by remember { mutableStateOf<BadgeCategory?>(null) }
+    var sel by remember { mutableStateOf(BadgeCategory.ACADEMIC) }
     var selectedBadge by remember { mutableStateOf<com.eastlakestudio.luduan.data.models.BadgeModel?>(null) }
     val filtered = remember(sel) { sel?.let { c -> repo.badges.filter { BadgeCategory.from(it.category) == c } } ?: repo.badges }
     Column(Modifier.fillMaxSize().background(adaptivePaper())) {
@@ -41,7 +41,6 @@ fun BadgeGalleryScreen(repo: GameRepository, onBack: () -> Unit) {
         }
         // 去掉"全部"与"处世修养"，只保留 学阶功名 / 典籍名篇 / 人物名将
         val cats = listOf(BadgeCategory.ACADEMIC, BadgeCategory.CLASSICS, BadgeCategory.CHARACTER)
-        if (sel == null) sel = cats[0]
         LazyRow(Modifier.fillMaxWidth().padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             items(cats.size) { i -> FilterChip(sel == cats[i], { sel = cats[i] }, { Text(cats[i].rawValue) }) }
         }
