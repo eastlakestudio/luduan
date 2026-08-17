@@ -48,7 +48,7 @@ fun DashboardScreen(
         Row(Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text("\u6587\u7EC9\u7EC9", color = adaptiveBamboo(), fontSize = 22.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Serif)
+                    Text("\u6587\u7EC9\u7EC9", color = adaptiveCinnabar(), fontSize = 22.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Serif)
                     Spacer(Modifier.width(8.dp))
                     Text("\u752a\u7aef", color = adaptiveCinnabar(), fontSize = 22.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Serif)
                 }

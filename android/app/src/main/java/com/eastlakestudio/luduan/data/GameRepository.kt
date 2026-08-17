@@ -34,7 +34,7 @@ class GameRepository private constructor(private val ctx: Context) {
     private val jl: (String) -> String? = { n -> try { ctx.assets.open("seeds/$n.json").bufferedReader().use { it.readText() } } catch (e: Exception) { null } }
 
     // Issue 3: 每枚勋章分配不同的词池（不再用关卡区段，直接均分全部去重词）
-    data class BadgeRange(val badge: BadgeModel, val uniquePhrases: Set<String>)
+    data class BadgeRange(val badge: BadgeModel, val uniquePhrases: Set<String>, val orderedPhrases: List<String> = emptyList())
     val badgeRanges: Map<String, BadgeRange> by lazy { computeBadgeRanges() }
 
     init { loadFromStorage() }
@@ -80,14 +80,15 @@ class GameRepository private constructor(private val ctx: Context) {
             val rawMap = org.json.JSONObject(mapText)
             for (badge in badges) {
                 val arr = rawMap.optJSONArray(badge.id)
-                val phrases = if (arr != null) {
-                    (0 until arr.length()).mapNotNull { idxToPhrase[arr.getInt(it)] }.toSet()
-                } else emptySet()
-                result[badge.id] = BadgeRange(badge, phrases)
+                val ordered = if (arr != null) {
+                    (0 until arr.length()).mapNotNull { idxToPhrase[arr.getInt(it)] }
+                } else emptyList()
+                val phrases = ordered.toSet()
+                result[badge.id] = BadgeRange(badge, phrases, ordered)
             }
         } catch (e: Exception) {
             Log.e(TAG, "badge_word_map load failed", e)
-            for (badge in badges) result[badge.id] = BadgeRange(badge, emptySet())
+            for (badge in badges) result[badge.id] = BadgeRange(badge, emptySet(), emptyList())
         }
         return result
     }
@@ -128,34 +129,29 @@ class GameRepository private constructor(private val ctx: Context) {
 
     fun levelForBadge(badgeId: String, skipCompleted: Boolean = true): LevelModel? {
         val range = badgeRanges[badgeId] ?: return null
-        val words = allWords()
-        val phrases = range.uniquePhrases
         val categoryName = range.badge.name
-        for (w in words) {
-            if (w.phrase in phrases && (!skipCompleted || w.phrase !in _phrases.value)) {
+        val byPhrase = allWords().associateBy { it.phrase }
+        val ordered = range.orderedPhrases.mapNotNull { byPhrase[it] }
+        for (w in ordered) {
+            if (!skipCompleted || w.phrase !in _phrases.value) {
                 return LevelEngine.levelFromWord(w, categoryName, badgeId)
             }
         }
         // All completed, return first
-        for (w in words) {
-            if (w.phrase in phrases) return LevelEngine.levelFromWord(w, categoryName, badgeId)
-        }
-        return null
+        return ordered.firstOrNull()?.let { LevelEngine.levelFromWord(it, categoryName, badgeId) }
     }
 
     fun nextLevelForBadge(badgeId: String, currentPhrase: String): LevelModel? {
         val range = badgeRanges[badgeId] ?: return null
-        val words = allWords()
-        val phrases = range.uniquePhrases
         val categoryName = range.badge.name
+        val byPhrase = allWords().associateBy { it.phrase }
+        val ordered = range.orderedPhrases.mapNotNull { byPhrase[it] }
         var foundCurrent = false
-        for (w in words) {
-            if (w.phrase in phrases) {
-                if (foundCurrent && w.phrase !in _phrases.value) {
-                    return LevelEngine.levelFromWord(w, categoryName, badgeId)
-                }
-                if (w.phrase == currentPhrase) foundCurrent = true
+        for (w in ordered) {
+            if (foundCurrent && w.phrase !in _phrases.value) {
+                return LevelEngine.levelFromWord(w, categoryName, badgeId)
             }
+            if (w.phrase == currentPhrase) foundCurrent = true
         }
         // 词池全部完成 → 返回 null，由 UI 提示"本卷已全部完成"
         return null

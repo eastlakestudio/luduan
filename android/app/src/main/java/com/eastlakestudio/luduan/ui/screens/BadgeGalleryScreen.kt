@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -70,8 +71,8 @@ fun BadgeGalleryScreen(repo: GameRepository, onBack: () -> Unit) {
             Surface(Modifier.fillMaxWidth().fillMaxHeight(0.7f), color = adaptivePaper(), shape = RoundedCornerShape(16.dp)) {
                 Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        BadgeImageView(LocalContext.current, b.imageName, b.sealText, un, 64)
-                        Spacer(Modifier.width(12.dp))
+                        BadgeImageView(LocalContext.current, b.imageName, b.sealText, un, 128)
+                        Spacer(Modifier.width(16.dp))
                         Column(Modifier.weight(1f)) {
                             Text(b.name, color = adaptiveCinnabar(), fontSize = 18.sp, fontFamily = FontFamily.Serif)
                             Text(if (un) "\u5df2\u89e3\u9501" else "\u672a\u89e3\u9501", color = if (un) adaptiveGold() else Color.Gray, fontSize = 13.sp)
@@ -82,23 +83,27 @@ fun BadgeGalleryScreen(repo: GameRepository, onBack: () -> Unit) {
                     Spacer(Modifier.height(8.dp))
                     Text(b.description, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif)
                     Spacer(Modifier.height(16.dp))
-                    Text("\u3010\u89e3\u9501\u65b9\u5f0f\u3011", color = adaptiveGold(), fontSize = 13.sp, fontFamily = FontFamily.Serif)
-                    Text(b.requirementDescription, color = adaptiveXuan(), fontSize = 14.sp)
-                    Spacer(Modifier.height(16.dp))
-                    Text("\u3010\u4ee3\u8868\u8bcd\u53e5\u3011", color = adaptiveGold(), fontSize = 13.sp, fontFamily = FontFamily.Serif)
-                    // 代表词句 + 原文（词池中已学的优先，否则第一条）
+                    // 代表词句 + 原文（按词池精选顺序：已学优先、否则取首条）
                     val repWord = remember(b.id) {
                         val range = repo.badgeRanges[b.id]
-                        val pool = repo.allWordsPublic().filter { it.phrase in (range?.uniquePhrases ?: emptySet()) }
+                        val byPhrase = repo.allWordsPublic().associateBy { it.phrase }
+                        val pool = range?.orderedPhrases?.mapNotNull { byPhrase[it] }.orEmpty()
                         val learned = pool.filter { it.phrase in repo.learnedPhrases.value }
                         (learned.ifEmpty { pool }).firstOrNull()
                     }
                     if (repWord != null) {
-                        Text("\u3010${repWord.phrase}\u3011", color = Color(0xFF333333), fontSize = 15.sp, fontFamily = FontFamily.Serif)
-                        Spacer(Modifier.height(4.dp))
-                        Text(repWord.story.take(80) + if (repWord.story.length > 80) "\u2026" else "", color = adaptiveXuan(), fontSize = 13.sp, fontFamily = FontFamily.Serif, lineHeight = 21.sp)
-                        Spacer(Modifier.height(4.dp))
-                        Text(repWord.source, color = Color.Gray, fontSize = 11.sp, textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth())
+                        val src = repWord.source
+                        val dynasty = if ("\u00b7" in src) src.substringBefore("\u00b7") else ""
+                        val figure = if ("\u00b7" in src) src.substringAfter("\u00b7").substringBefore("\u300a").trim() else ""
+                        if (dynasty.isNotEmpty() || figure.isNotEmpty()) {
+                            Text("\u671d\u4ee3\uff1a${dynasty}\u3000\u4eba\u7269\uff1a${figure}", color = adaptiveCinnabar(), fontSize = 14.sp, fontFamily = FontFamily.Serif)
+                            Spacer(Modifier.height(8.dp))
+                        }
+                        Text("\u3010${repWord.phrase}\u3011", color = Color(0xFF333333), fontSize = 20.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Serif)
+                        Spacer(Modifier.height(6.dp))
+                        Text(repWord.story.take(80) + if (repWord.story.length > 80) "\u2026" else "", color = adaptiveXuan(), fontSize = 17.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Serif, lineHeight = 25.sp)
+                        Spacer(Modifier.height(6.dp))
+                        Text(repWord.source, color = Color.Gray, fontSize = 13.sp, fontWeight = FontWeight.Bold, textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth())
                     }
                     Spacer(Modifier.height(16.dp))
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {

@@ -54,8 +54,7 @@ fun BadgeImageView(ctx: Context, imageName: String?, sealText: String, isUnlocke
             else ColorFilter.colorMatrix(androidx.compose.ui.graphics.ColorMatrix().apply { setToSaturation(0f) })
         Image(
             bmp.asImageBitmap(), sealText,
-            Modifier.size(size.dp).clip(RoundedCornerShape((size*0.15).dp))
-                .border(2.dp, Color(0xFFD4A04A), RoundedCornerShape((size*0.15).dp)),
+            Modifier.size(size.dp).clip(RoundedCornerShape((size*0.15).dp)),
             contentScale = ContentScale.Crop,
             colorFilter = colorFilter,
             alpha = if (isUnlocked) 1f else 0.45f

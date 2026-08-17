@@ -14,8 +14,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 
 /**
- * 透明 Trampoline Activity：前台执行换词 + 刷新 widget 后立即 finish。
+ * 透明 Trampoline Activity：前台执行换词 + 单次刷新。
  * 解决 ColorOS 进程冻结导致 actionRunCallback 偶发不生效的问题。
+ *
+ * 刷新策略（简化版，避免闪烁）：
+ * - 只做一次 updateAll（Glance session 提交即视为成功）
+ * - 仅当 updateAll 超时/异常时，排一个 alarm 兜底重试
+ * - 正常路径无第二次刷新，消除视觉跳动
  */
 class NextWordTrampolineActivity : ComponentActivity() {
 
@@ -23,16 +28,23 @@ class NextWordTrampolineActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
         lifecycleScope.launch(Dispatchers.Main) {
+            var refreshOk = false
             try {
                 kotlinx.coroutines.withContext(Dispatchers.IO) {
                     WordStore.next(applicationContext)
                 }
-                withTimeoutOrNull(2000) {
+                // 单次刷新；成功提交即完成
+                refreshOk = withTimeoutOrNull(2500) {
                     IdiomWidget().updateAll(applicationContext)
-                }
-            } catch (_: Exception) {}
-            // 立即刷新可能被 launcher 节流丢弃；再排一个 300ms 后的兜底刷新
-            scheduleFallbackRefresh(applicationContext, delayMillis = 300)
+                    true
+                } ?: false
+            } catch (_: Exception) {
+                refreshOk = false
+            }
+            // 仅失败时兜底重试一次（正常路径不触发，避免闪烁）
+            if (!refreshOk) {
+                scheduleFallbackRefresh(applicationContext, delayMillis = 400)
+            }
             finish()
             overridePendingTransition(0, 0)
         }
@@ -54,7 +66,7 @@ class NextWordTrampolineActivity : ComponentActivity() {
     }
 }
 
-/** 兜底刷新 receiver：错开 launcher 节流窗口后再刷一次 */
+/** 兜底刷新 receiver：仅在主刷新失败时由 alarm 触发一次 */
 class WidgetFallbackRefreshReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val pending = goAsync()
@@ -64,7 +76,6 @@ class WidgetFallbackRefreshReceiver : BroadcastReceiver() {
                     IdiomWidget().updateAll(context.applicationContext)
                 }
             } catch (_: Exception) {}
-            // 保险起见再排一次更长延迟的第二兜底（仅当还有一次未消费）
             pending.finish()
         }
     }

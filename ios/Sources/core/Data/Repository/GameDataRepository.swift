@@ -122,13 +122,8 @@ public final class GameDataRepository: ObservableObject {
                     }
                 }
             }
-            if phrases.isEmpty && badge.category == .character {
-                let name = badge.name
-                let matches = self.allWords.filter { $0.source.contains(name) || $0.story.contains(name) }
-                for w in matches.prefix(5) {
-                    phrases.insert(w.phrase)
-                }
-            }
+            // v1.3.0: 移除 source+story 文本兜底（story 注释误关联），
+            // 词池一律以 badge_word_map 索引为准（与 Android 一致）
             badgeRanges[badge.id] = phrases
         }
     }
@@ -269,9 +264,7 @@ public final class GameDataRepository: ObservableObject {
         if let firstUnlearned = words.first(where: { !userProgress.learnedPhrases.contains($0.phrase) }) {
             return Classic10000LevelsEngine.levelFromWord(firstUnlearned, categoryName: categoryName, badgeId: badgeId)
         }
-        if let b = badge {
-            return levelForBadge(b, skipCompleted: false)
-        }
+        // v1.3.0: 词池全部完成 → 返回 nil，由 UI 弹"本卷已全部完成"（不再 wrap 幽灵关卡）
         return nil
     }
 
