@@ -73,6 +73,7 @@
 		22AA725907ECB0D08E48B79C /* PuzzleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA020A71BD168B7E670D0F5A /* PuzzleEngine.swift */; };
 		22DF896ED878B0D630CE7446 /* badge_xinqiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 90B0AD6FF4AC8D1276DFCE2D /* badge_xinqiji.jpg */; };
 		261374E1B2894D6B0A2C44FB /* GameDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3860A598C35A7E1E3865DD /* GameDataRepository.swift */; };
+		267F8D3B55C5ABA4BCCBE7C1 /* BadgeUnlockShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69469C5B3BF09D9EFFF63CDC /* BadgeUnlockShareView.swift */; };
 		268FC0F98568FDD0F8B21FCA /* badge_prac_17.png in Resources */ = {isa = PBXBuildFile; fileRef = 61C55B824C11009D5D043F67 /* badge_prac_17.png */; };
 		2897CDB3D639C2DD7C4D399A /* ThreeStateBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B2FC582E49D894A161DB8 /* ThreeStateBadgeView.swift */; };
 		29181B84EC28C2354474A1A7 /* badge_prac_20.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2E9B42D735B64A55CFBB0D /* badge_prac_20.png */; };
@@ -245,6 +246,7 @@
 		9DB7231AD06B5411C9E153D2 /* badge_hanyu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEBE88990D8FD5F7549331D5 /* badge_hanyu.jpg */; };
 		9DFCFA57E2EA305630AD9C52 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D70B5BAC29BD2B94E8140 /* SoundManager.swift */; };
 		9E9F830FA2FB7D4C9D9DAF15 /* master_10000.json in Resources */ = {isa = PBXBuildFile; fileRef = D20B935266D584DE9B984E26 /* master_10000.json */; };
+		9F9359424A3E61128C3F992F /* BadgeUnlockShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69469C5B3BF09D9EFFF63CDC /* BadgeUnlockShareView.swift */; };
 		9FA23B5E880CEE687DEC8F49 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B333E93E63B1B0577F032F1 /* ColorExtensions.swift */; };
 		9FB29AC78819A8F11F13B0FF /* PinyinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076810E94DB8BF3ADBB74CDF /* PinyinHelper.swift */; };
 		A05608A51705E90DFF9FADB6 /* badge_linzexu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DF51E799D17CB4FECD540BC5 /* badge_linzexu.jpg */; };
@@ -464,6 +466,7 @@
 		63B2D69BFE9192AF54D735AF /* badge_shijing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_shijing.jpg; sourceTree = "<group>"; };
 		67C4B213882FB8CB682366E2 /* badge_prac_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge_prac_24.png; sourceTree = "<group>"; };
 		67C578B5A6F1749EA682D2FC /* badge_prac_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge_prac_10.png; sourceTree = "<group>"; };
+		69469C5B3BF09D9EFFF63CDC /* BadgeUnlockShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeUnlockShareView.swift; sourceTree = "<group>"; };
 		6B790C37F521F947B02F6B17 /* badge_prac_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge_prac_3.png; sourceTree = "<group>"; };
 		6E5BC5B62EFCE254F97575B5 /* badge_zhangheng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_zhangheng.jpg; sourceTree = "<group>"; };
 		6F6A34D07F11B40F545A8220 /* badge_jiayi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_jiayi.jpg; sourceTree = "<group>"; };
@@ -929,6 +932,7 @@
 		F5DFBFF34C00A3FDF9422D5C /* PuzzleGame */ = {
 			isa = PBXGroup;
 			children = (
+				69469C5B3BF09D9EFFF63CDC /* BadgeUnlockShareView.swift */,
 				CE899349B3A710AA0B78A315 /* MilestoneCelebrationModalView.swift */,
 				D1ACCA8C4154158E3FBE7E1D /* PuzzleGameView.swift */,
 				0DA9648C6F5AACFC37E8136A /* StoryCardModalView.swift */,
@@ -1337,6 +1341,7 @@
 				AF812C3388147B81819D7C91 /* AncientButtonView.swift in Sources */,
 				EE29A2863DBDB4F5C5648356 /* BadgeGalleryView.swift in Sources */,
 				1DB260064CE1F2C2B2EDCD48 /* BadgeModel.swift in Sources */,
+				9F9359424A3E61128C3F992F /* BadgeUnlockShareView.swift in Sources */,
 				B36FD7CF2EF8553C51F93AC3 /* BundleModuleShim.swift in Sources */,
 				446D16502BFDA9A1E1E0155E /* ChenghuangLevelMapView.swift in Sources */,
 				9A811CC94985D684DC3FC819 /* ChineseSealView.swift in Sources */,
@@ -1380,6 +1385,7 @@
 				3F13CD90D8F39993D18CFA35 /* AncientButtonView.swift in Sources */,
 				3150747CB785E399D3FF9302 /* BadgeGalleryView.swift in Sources */,
 				11C0A04EFC961C241AB373EF /* BadgeModel.swift in Sources */,
+				267F8D3B55C5ABA4BCCBE7C1 /* BadgeUnlockShareView.swift in Sources */,
 				A9C610395C68F76703082930 /* BundleModuleShim.swift in Sources */,
 				014FAEFD62B2C383B31223E4 /* ChenghuangLevelMapView.swift in Sources */,
 				52B2DAE0D8B18349AB532950 /* ChineseSealView.swift in Sources */,
@@ -1431,7 +1437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AppSupport/luDuanWidget.entitlements;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_FILE = AppSupport/WidgetInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1510,7 +1516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AppSupport/luDuanWidget.entitlements;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_FILE = AppSupport/WidgetInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1532,7 +1538,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppSupport/luDuan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_FILE = AppSupport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1552,7 +1558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AppSupport/luDuan.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_FILE = AppSupport/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (

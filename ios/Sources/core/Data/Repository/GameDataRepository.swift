@@ -149,7 +149,8 @@ public final class GameDataRepository: ObservableObject {
         return userProgress.learnedPhrases.contains(phrase)
     }
     
-    public func completeLevel(_ level: LevelModel) {
+    @discardableResult
+    public func completeLevel(_ level: LevelModel) -> BadgeModel? {
         userProgress.learnedPhrases.insert(level.targetPhrase)
         userProgress.totalScore += 10
         
@@ -157,15 +158,18 @@ public final class GameDataRepository: ObservableObject {
             userProgress.unlockedBadgeIds.insert(badgeId)
         }
         
+        var newlyUnlocked: BadgeModel? = nil
         for badge in badges {
             if userProgress.unlockedBadgeIds.contains(badge.id) { continue }
             if let range = badgeRanges[badge.id], !range.isEmpty {
                 if range.isSubset(of: userProgress.learnedPhrases) {
                     userProgress.unlockedBadgeIds.insert(badge.id)
+                    newlyUnlocked = badge
                 }
             }
         }
         saveProgress()
+        return newlyUnlocked
     }
 
     public func isBadgeUnlocked(_ badgeId: String) -> Bool {
@@ -257,12 +261,14 @@ public final class GameDataRepository: ObservableObject {
         
         if let currentIndex = words.firstIndex(where: { $0.phrase == currentPhrase }) {
             let remaining = words.suffix(from: currentIndex + 1)
-            if let next = remaining.first(where: { !userProgress.learnedPhrases.contains($0.phrase) }) {
+            if !remaining.isEmpty, let next = remaining.first(where: { !userProgress.learnedPhrases.contains($0.phrase) }) {
                 return Classic10000LevelsEngine.levelFromWord(next, categoryName: categoryName, badgeId: badgeId)
             }
         }
         if let firstUnlearned = words.first(where: { !userProgress.learnedPhrases.contains($0.phrase) }) {
-            return Classic10000LevelsEngine.levelFromWord(firstUnlearned, categoryName: categoryName, badgeId: badgeId)
+            if firstUnlearned.phrase != currentPhrase {
+                return Classic10000LevelsEngine.levelFromWord(firstUnlearned, categoryName: categoryName, badgeId: badgeId)
+            }
         }
         // v1.3.0: 词池全部完成 → 返回 nil，由 UI 弹"本卷已全部完成"（不再 wrap 幽灵关卡）
         return nil

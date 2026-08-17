@@ -10,6 +10,7 @@ public struct PuzzleGameView: View {
     @State private var showingMilestoneModal = false
     @State private var showingInspirationSheet = false
     @State private var shakeIncorrect = false
+    @State private var newlyUnlockedBadge: BadgeModel? = nil
     
     public init(level: LevelModel) {
         self.initialLevel = level
@@ -87,10 +88,24 @@ public struct PuzzleGameView: View {
         .sheet(isPresented: $showingInspirationSheet) {
             inspirationSourceModal
         }
+        .sheet(item: $newlyUnlockedBadge) { badge in
+            BadgeUnlockShareView(
+                badge: badge,
+                fallbackLevel: engine.level,
+                onDismiss: {
+                    if let next = repository.nextLevel(after: engine.level) {
+                        loadLevel(next)
+                    } else {
+                        dismiss()
+                    }
+                }
+            )
+            .environmentObject(repository)
+        }
         .onChange(of: engine.isCompleted) { _, completed in
             if completed {
-                // 1. 先保存关卡进度
-                repository.completeLevel(engine.level)
+                // 1. 先保存关卡进度（勋章解锁优先弹勋章捷报，跳过里程碑/故事弹窗）
+                let unlockedBadge = repository.completeLevel(engine.level)
                 let count = repository.userProgress.learnedPhrases.count
                 
                 #if DEBUG
@@ -102,7 +117,9 @@ public struct PuzzleGameView: View {
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + (isMilestone ? 0.4 : 0.25)) {
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
-                        if isMilestone {
+                        if let badge = unlockedBadge {
+                            newlyUnlockedBadge = badge
+                        } else if isMilestone {
                             showingMilestoneModal = true
                         } else {
                             showingStoryModal = true

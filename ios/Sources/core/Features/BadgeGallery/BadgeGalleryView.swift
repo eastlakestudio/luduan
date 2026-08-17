@@ -138,16 +138,13 @@ public struct BadgeGalleryView: View {
     
     private var categoryPicker: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
-                categoryChip(title: "全部", isSelected: selectedCategory == nil) {
-                    selectedCategory = nil
-                }
-                
+            HStack(alignment: .center, spacing: 10) {
                 ForEach(displayedCategories) { category in
                     categoryChip(title: category.rawValue, isSelected: selectedCategory == category) {
                         selectedCategory = category
                     }
                 }
+                Spacer(minLength: 20)
             }
             .padding(.horizontal, 20)
         }
