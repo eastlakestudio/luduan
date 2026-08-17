@@ -85,6 +85,22 @@ fun BadgeGalleryScreen(repo: GameRepository, onBack: () -> Unit) {
                     Text("\u3010\u89e3\u9501\u65b9\u5f0f\u3011", color = adaptiveGold(), fontSize = 13.sp, fontFamily = FontFamily.Serif)
                     Text(b.requirementDescription, color = adaptiveXuan(), fontSize = 14.sp)
                     Spacer(Modifier.height(16.dp))
+                    Text("\u3010\u4ee3\u8868\u8bcd\u53e5\u3011", color = adaptiveGold(), fontSize = 13.sp, fontFamily = FontFamily.Serif)
+                    // 代表词句 + 原文（词池中已学的优先，否则第一条）
+                    val repWord = remember(b.id) {
+                        val range = repo.badgeRanges[b.id]
+                        val pool = repo.allWordsPublic().filter { it.phrase in (range?.uniquePhrases ?: emptySet()) }
+                        val learned = pool.filter { it.phrase in repo.learnedPhrases.value }
+                        (learned.ifEmpty { pool }).firstOrNull()
+                    }
+                    if (repWord != null) {
+                        Text("\u3010${repWord.phrase}\u3011", color = Color(0xFF333333), fontSize = 15.sp, fontFamily = FontFamily.Serif)
+                        Spacer(Modifier.height(4.dp))
+                        Text(repWord.story.take(80) + if (repWord.story.length > 80) "\u2026" else "", color = adaptiveXuan(), fontSize = 13.sp, fontFamily = FontFamily.Serif, lineHeight = 21.sp)
+                        Spacer(Modifier.height(4.dp))
+                        Text(repWord.source, color = Color.Gray, fontSize = 11.sp, textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth())
+                    }
+                    Spacer(Modifier.height(16.dp))
                     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
                         TextButton({ selectedBadge = null }) { Text("\u5173\u95ed", color = Color.Gray) }
                     }

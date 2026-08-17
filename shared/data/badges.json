@@ -14314,8 +14314,8 @@
     "name": "关羽",
     "sealText": "关羽",
     "category": "人物名将",
-    "description": "guanyu相关传世词句",
-    "requirementDescription": "完成guanyu相关词句",
+    "description": "关羽相关传世词句",
+    "requirementDescription": "完成关羽相关词句",
     "imageName": "badge_guanyu"
   },
   {
@@ -14323,8 +14323,8 @@
     "name": "刘向",
     "sealText": "刘向",
     "category": "人物名将",
-    "description": "liuxiang相关传世词句",
-    "requirementDescription": "完成liuxiang相关词句",
+    "description": "刘向相关传世词句",
+    "requirementDescription": "完成刘向相关词句",
     "imageName": "badge_liuxiang"
   },
   {
@@ -14332,26 +14332,17 @@
     "name": "刘邦",
     "sealText": "刘邦",
     "category": "人物名将",
-    "description": "liubang相关传世词句",
-    "requirementDescription": "完成liubang相关词句",
+    "description": "刘邦相关传世词句",
+    "requirementDescription": "完成刘邦相关词句",
     "imageName": "badge_liubang"
-  },
-  {
-    "id": "badge_char_4",
-    "name": "包拯",
-    "sealText": "包拯",
-    "category": "人物名将",
-    "description": "baozheng相关传世词句",
-    "requirementDescription": "完成baozheng相关词句",
-    "imageName": "badge_baozheng"
   },
   {
     "id": "badge_char_5",
     "name": "卫青",
     "sealText": "卫青",
     "category": "人物名将",
-    "description": "weiqing相关传世词句",
-    "requirementDescription": "完成weiqing相关词句",
+    "description": "卫青相关传世词句",
+    "requirementDescription": "完成卫青相关词句",
     "imageName": "badge_weiqing"
   },
   {
@@ -14359,8 +14350,8 @@
     "name": "司马光",
     "sealText": "司马光",
     "category": "人物名将",
-    "description": "simaguang相关传世词句",
-    "requirementDescription": "完成simaguang相关词句",
+    "description": "司马光相关传世词句",
+    "requirementDescription": "完成司马光相关词句",
     "imageName": "badge_simaguang"
   },
   {
@@ -14368,8 +14359,8 @@
     "name": "司马迁",
     "sealText": "司马迁",
     "category": "人物名将",
-    "description": "simaqian相关传世词句",
-    "requirementDescription": "完成simaqian相关词句",
+    "description": "司马迁相关传世词句",
+    "requirementDescription": "完成司马迁相关词句",
     "imageName": "badge_simaqian"
   },
   {
@@ -14377,8 +14368,8 @@
     "name": "吕布",
     "sealText": "吕布",
     "category": "人物名将",
-    "description": "lubu相关传世词句",
-    "requirementDescription": "完成lubu相关词句",
+    "description": "吕布相关传世词句",
+    "requirementDescription": "完成吕布相关词句",
     "imageName": "badge_lubu"
   },
   {
@@ -14386,8 +14377,8 @@
     "name": "周瑜",
     "sealText": "周瑜",
     "category": "人物名将",
-    "description": "zhouyu相关传世词句",
-    "requirementDescription": "完成zhouyu相关词句",
+    "description": "周瑜相关传世词句",
+    "requirementDescription": "完成周瑜相关词句",
     "imageName": "badge_zhouyu"
   },
   {
@@ -14395,8 +14386,8 @@
     "name": "墨子",
     "sealText": "墨子",
     "category": "人物名将",
-    "description": "mozi相关传世词句",
-    "requirementDescription": "完成mozi相关词句",
+    "description": "墨子相关传世词句",
+    "requirementDescription": "完成墨子相关词句",
     "imageName": "badge_mozi"
   },
   {
@@ -14404,8 +14395,8 @@
     "name": "姜维",
     "sealText": "姜维",
     "category": "人物名将",
-    "description": "jiangwei相关传世词句",
-    "requirementDescription": "完成jiangwei相关词句",
+    "description": "姜维相关传世词句",
+    "requirementDescription": "完成姜维相关词句",
     "imageName": "badge_jiangwei"
   },
   {
@@ -14413,8 +14404,8 @@
     "name": "孔子",
     "sealText": "孔子",
     "category": "人物名将",
-    "description": "kongzi相关传世词句",
-    "requirementDescription": "完成kongzi相关词句",
+    "description": "孔子相关传世词句",
+    "requirementDescription": "完成孔子相关词句",
     "imageName": "badge_kongzi"
   },
   {
@@ -14422,8 +14413,8 @@
     "name": "孙武",
     "sealText": "孙武",
     "category": "人物名将",
-    "description": "sunwu相关传世词句",
-    "requirementDescription": "完成sunwu相关词句",
+    "description": "孙武相关传世词句",
+    "requirementDescription": "完成孙武相关词句",
     "imageName": "badge_sunwu"
   },
   {
@@ -14431,8 +14422,8 @@
     "name": "孟浩然",
     "sealText": "孟浩然",
     "category": "人物名将",
-    "description": "menghaoran相关传世词句",
-    "requirementDescription": "完成menghaoran相关词句",
+    "description": "孟浩然相关传世词句",
+    "requirementDescription": "完成孟浩然相关词句",
     "imageName": "badge_menghaoran"
   },
   {
@@ -14440,8 +14431,8 @@
     "name": "屈原",
     "sealText": "屈原",
     "category": "人物名将",
-    "description": "quyuan相关传世词句",
-    "requirementDescription": "完成quyuan相关词句",
+    "description": "屈原相关传世词句",
+    "requirementDescription": "完成屈原相关词句",
     "imageName": "badge_quyuan"
   },
   {
@@ -14449,8 +14440,8 @@
     "name": "岳飞",
     "sealText": "岳飞",
     "category": "人物名将",
-    "description": "yuefei相关传世词句",
-    "requirementDescription": "完成yuefei相关词句",
+    "description": "岳飞相关传世词句",
+    "requirementDescription": "完成岳飞相关词句",
     "imageName": "badge_yuefei"
   },
   {
@@ -14458,8 +14449,8 @@
     "name": "庄子",
     "sealText": "庄子",
     "category": "人物名将",
-    "description": "zhuangzi相关传世词句",
-    "requirementDescription": "完成zhuangzi相关词句",
+    "description": "庄子相关传世词句",
+    "requirementDescription": "完成庄子相关词句",
     "imageName": "badge_zhuangzi"
   },
   {
@@ -14467,8 +14458,8 @@
     "name": "张良",
     "sealText": "张良",
     "category": "人物名将",
-    "description": "zhangliang相关传世词句",
-    "requirementDescription": "完成zhangliang相关词句",
+    "description": "张良相关传世词句",
+    "requirementDescription": "完成张良相关词句",
     "imageName": "badge_zhangliang"
   },
   {
@@ -14476,8 +14467,8 @@
     "name": "张衡",
     "sealText": "张衡",
     "category": "人物名将",
-    "description": "zhangheng相关传世词句",
-    "requirementDescription": "完成zhangheng相关词句",
+    "description": "张衡相关传世词句",
+    "requirementDescription": "完成张衡相关词句",
     "imageName": "badge_zhangheng"
   },
   {
@@ -14485,8 +14476,8 @@
     "name": "张飞",
     "sealText": "张飞",
     "category": "人物名将",
-    "description": "zhangfei相关传世词句",
-    "requirementDescription": "完成zhangfei相关词句",
+    "description": "张飞相关传世词句",
+    "requirementDescription": "完成张飞相关词句",
     "imageName": "badge_zhangfei"
   },
   {
@@ -14494,8 +14485,8 @@
     "name": "房玄龄",
     "sealText": "房玄龄",
     "category": "人物名将",
-    "description": "fangxuanling相关传世词句",
-    "requirementDescription": "完成fangxuanling相关词句",
+    "description": "房玄龄相关传世词句",
+    "requirementDescription": "完成房玄龄相关词句",
     "imageName": "badge_fangxuanling"
   },
   {
@@ -14503,8 +14494,8 @@
     "name": "文天祥",
     "sealText": "文天祥",
     "category": "人物名将",
-    "description": "wentianxiang相关传世词句",
-    "requirementDescription": "完成wentianxiang相关词句",
+    "description": "文天祥相关传世词句",
+    "requirementDescription": "完成文天祥相关词句",
     "imageName": "badge_wentianxiang"
   },
   {
@@ -14512,8 +14503,8 @@
     "name": "曹操",
     "sealText": "曹操",
     "category": "人物名将",
-    "description": "caocao相关传世词句",
-    "requirementDescription": "完成caocao相关词句",
+    "description": "曹操相关传世词句",
+    "requirementDescription": "完成曹操相关词句",
     "imageName": "badge_caocao"
   },
   {
@@ -14521,8 +14512,8 @@
     "name": "曹雪芹",
     "sealText": "曹雪芹",
     "category": "人物名将",
-    "description": "caoxueqin相关传世词句",
-    "requirementDescription": "完成caoxueqin相关词句",
+    "description": "曹雪芹相关传世词句",
+    "requirementDescription": "完成曹雪芹相关词句",
     "imageName": "badge_caoxueqin"
   },
   {
@@ -14530,8 +14521,8 @@
     "name": "曾国藩",
     "sealText": "曾国藩",
     "category": "人物名将",
-    "description": "zengguofan相关传世词句",
-    "requirementDescription": "完成zengguofan相关词句",
+    "description": "曾国藩相关传世词句",
+    "requirementDescription": "完成曾国藩相关词句",
     "imageName": "badge_zengguofan"
   },
   {
@@ -14539,8 +14530,8 @@
     "name": "李商隐",
     "sealText": "李商隐",
     "category": "人物名将",
-    "description": "lishangyin相关传世词句",
-    "requirementDescription": "完成lishangyin相关词句",
+    "description": "李商隐相关传世词句",
+    "requirementDescription": "完成李商隐相关词句",
     "imageName": "badge_lishangyin"
   },
   {
@@ -14548,8 +14539,8 @@
     "name": "李清照",
     "sealText": "李清照",
     "category": "人物名将",
-    "description": "liqingzhao相关传世词句",
-    "requirementDescription": "完成liqingzhao相关词句",
+    "description": "李清照相关传世词句",
+    "requirementDescription": "完成李清照相关词句",
     "imageName": "badge_liqingzhao"
   },
   {
@@ -14557,8 +14548,8 @@
     "name": "李白",
     "sealText": "李白",
     "category": "人物名将",
-    "description": "libai相关传世词句",
-    "requirementDescription": "完成libai相关词句",
+    "description": "李白相关传世词句",
+    "requirementDescription": "完成李白相关词句",
     "imageName": "badge_libai"
   },
   {
@@ -14566,8 +14557,8 @@
     "name": "杜如晦",
     "sealText": "杜如晦",
     "category": "人物名将",
-    "description": "duruhui相关传世词句",
-    "requirementDescription": "完成duruhui相关词句",
+    "description": "杜如晦相关传世词句",
+    "requirementDescription": "完成杜如晦相关词句",
     "imageName": "badge_duruhui"
   },
   {
@@ -14575,8 +14566,8 @@
     "name": "杜牧",
     "sealText": "杜牧",
     "category": "人物名将",
-    "description": "dumu相关传世词句",
-    "requirementDescription": "完成dumu相关词句",
+    "description": "杜牧相关传世词句",
+    "requirementDescription": "完成杜牧相关词句",
     "imageName": "badge_dumu"
   },
   {
@@ -14584,8 +14575,8 @@
     "name": "杜甫",
     "sealText": "杜甫",
     "category": "人物名将",
-    "description": "dufu相关传世词句",
-    "requirementDescription": "完成dufu相关词句",
+    "description": "杜甫相关传世词句",
+    "requirementDescription": "完成杜甫相关词句",
     "imageName": "badge_dufu"
   },
   {
@@ -14593,8 +14584,8 @@
     "name": "林则徐",
     "sealText": "林则徐",
     "category": "人物名将",
-    "description": "linzexu相关传世词句",
-    "requirementDescription": "完成linzexu相关词句",
+    "description": "林则徐相关传世词句",
+    "requirementDescription": "完成林则徐相关词句",
     "imageName": "badge_linzexu"
   },
   {
@@ -14602,8 +14593,8 @@
     "name": "柳宗元",
     "sealText": "柳宗元",
     "category": "人物名将",
-    "description": "liuzongyuan相关传世词句",
-    "requirementDescription": "完成liuzongyuan相关词句",
+    "description": "柳宗元相关传世词句",
+    "requirementDescription": "完成柳宗元相关词句",
     "imageName": "badge_liuzongyuan"
   },
   {
@@ -14611,8 +14602,8 @@
     "name": "欧阳修",
     "sealText": "欧阳修",
     "category": "人物名将",
-    "description": "ouyangxiu相关传世词句",
-    "requirementDescription": "完成ouyangxiu相关词句",
+    "description": "欧阳修相关传世词句",
+    "requirementDescription": "完成欧阳修相关词句",
     "imageName": "badge_ouyangxiu"
   },
   {
@@ -14620,8 +14611,8 @@
     "name": "王安石",
     "sealText": "王安石",
     "category": "人物名将",
-    "description": "wanganshi相关传世词句",
-    "requirementDescription": "完成wanganshi相关词句",
+    "description": "王安石相关传世词句",
+    "requirementDescription": "完成王安石相关词句",
     "imageName": "badge_wanganshi"
   },
   {
@@ -14629,8 +14620,8 @@
     "name": "王维",
     "sealText": "王维",
     "category": "人物名将",
-    "description": "wangwei相关传世词句",
-    "requirementDescription": "完成wangwei相关词句",
+    "description": "王维相关传世词句",
+    "requirementDescription": "完成王维相关词句",
     "imageName": "badge_wangwei"
   },
   {
@@ -14638,8 +14629,8 @@
     "name": "王阳明",
     "sealText": "王阳明",
     "category": "人物名将",
-    "description": "wangyangming相关传世词句",
-    "requirementDescription": "完成wangyangming相关词句",
+    "description": "王阳明相关传世词句",
+    "requirementDescription": "完成王阳明相关词句",
     "imageName": "badge_wangyangming"
   },
   {
@@ -14647,8 +14638,8 @@
     "name": "班固",
     "sealText": "班固",
     "category": "人物名将",
-    "description": "bangu相关传世词句",
-    "requirementDescription": "完成bangu相关词句",
+    "description": "班固相关传世词句",
+    "requirementDescription": "完成班固相关词句",
     "imageName": "badge_bangu"
   },
   {
@@ -14656,8 +14647,8 @@
     "name": "白居易",
     "sealText": "白居易",
     "category": "人物名将",
-    "description": "baijuyi相关传世词句",
-    "requirementDescription": "完成baijuyi相关词句",
+    "description": "白居易相关传世词句",
+    "requirementDescription": "完成白居易相关词句",
     "imageName": "badge_baijuyi"
   },
   {
@@ -14665,8 +14656,8 @@
     "name": "祖冲之",
     "sealText": "祖冲之",
     "category": "人物名将",
-    "description": "zuchongzhi相关传世词句",
-    "requirementDescription": "完成zuchongzhi相关词句",
+    "description": "祖冲之相关传世词句",
+    "requirementDescription": "完成祖冲之相关词句",
     "imageName": "badge_zuchongzhi"
   },
   {
@@ -14674,8 +14665,8 @@
     "name": "纪晓岚",
     "sealText": "纪晓岚",
     "category": "人物名将",
-    "description": "jixiaolan相关传世词句",
-    "requirementDescription": "完成jixiaolan相关词句",
+    "description": "纪晓岚相关传世词句",
+    "requirementDescription": "完成纪晓岚相关词句",
     "imageName": "badge_jixiaolan"
   },
   {
@@ -14683,8 +14674,8 @@
     "name": "老子",
     "sealText": "老子",
     "category": "人物名将",
-    "description": "laozi相关传世词句",
-    "requirementDescription": "完成laozi相关词句",
+    "description": "老子相关传世词句",
+    "requirementDescription": "完成老子相关词句",
     "imageName": "badge_laozi"
   },
   {
@@ -14692,8 +14683,8 @@
     "name": "苏轼",
     "sealText": "苏轼",
     "category": "人物名将",
-    "description": "sushi相关传世词句",
-    "requirementDescription": "完成sushi相关词句",
+    "description": "苏轼相关传世词句",
+    "requirementDescription": "完成苏轼相关词句",
     "imageName": "badge_sushi"
   },
   {
@@ -14701,8 +14692,8 @@
     "name": "范仲淹",
     "sealText": "范仲淹",
     "category": "人物名将",
-    "description": "fanzhongyan相关传世词句",
-    "requirementDescription": "完成fanzhongyan相关词句",
+    "description": "范仲淹相关传世词句",
+    "requirementDescription": "完成范仲淹相关词句",
     "imageName": "badge_fanzhongyan"
   },
   {
@@ -14710,8 +14701,8 @@
     "name": "范晔",
     "sealText": "范晔",
     "category": "人物名将",
-    "description": "fanye相关传世词句",
-    "requirementDescription": "完成fanye相关词句",
+    "description": "范晔相关传世词句",
+    "requirementDescription": "完成范晔相关词句",
     "imageName": "badge_fanye"
   },
   {
@@ -14719,8 +14710,8 @@
     "name": "荀子",
     "sealText": "荀子",
     "category": "人物名将",
-    "description": "xunzi相关传世词句",
-    "requirementDescription": "完成xunzi相关词句",
+    "description": "荀子相关传世词句",
+    "requirementDescription": "完成荀子相关词句",
     "imageName": "badge_xunzi"
   },
   {
@@ -14728,8 +14719,8 @@
     "name": "荀彧",
     "sealText": "荀彧",
     "category": "人物名将",
-    "description": "xunyu相关传世词句",
-    "requirementDescription": "完成xunyu相关词句",
+    "description": "荀彧相关传世词句",
+    "requirementDescription": "完成荀彧相关词句",
     "imageName": "badge_xunyu"
   },
   {
@@ -14737,8 +14728,8 @@
     "name": "萧何",
     "sealText": "萧何",
     "category": "人物名将",
-    "description": "xiaohe相关传世词句",
-    "requirementDescription": "完成xiaohe相关词句",
+    "description": "萧何相关传世词句",
+    "requirementDescription": "完成萧何相关词句",
     "imageName": "badge_xiaohe"
   },
   {
@@ -14746,8 +14737,8 @@
     "name": "诸葛亮",
     "sealText": "诸葛亮",
     "category": "人物名将",
-    "description": "zhugeliang相关传世词句",
-    "requirementDescription": "完成zhugeliang相关词句",
+    "description": "诸葛亮相关传世词句",
+    "requirementDescription": "完成诸葛亮相关词句",
     "imageName": "badge_zhugeliang"
   },
   {
@@ -14755,8 +14746,8 @@
     "name": "贾谊",
     "sealText": "贾谊",
     "category": "人物名将",
-    "description": "jiayi相关传世词句",
-    "requirementDescription": "完成jiayi相关词句",
+    "description": "贾谊相关传世词句",
+    "requirementDescription": "完成贾谊相关词句",
     "imageName": "badge_jiayi"
   },
   {
@@ -14764,8 +14755,8 @@
     "name": "辛弃疾",
     "sealText": "辛弃疾",
     "category": "人物名将",
-    "description": "xinqiji相关传世词句",
-    "requirementDescription": "完成xinqiji相关词句",
+    "description": "辛弃疾相关传世词句",
+    "requirementDescription": "完成辛弃疾相关词句",
     "imageName": "badge_xinqiji"
   },
   {
@@ -14773,8 +14764,8 @@
     "name": "郑成功",
     "sealText": "郑成功",
     "category": "人物名将",
-    "description": "zhengchenggong相关传世词句",
-    "requirementDescription": "完成zhengchenggong相关词句",
+    "description": "郑成功相关传世词句",
+    "requirementDescription": "完成郑成功相关词句",
     "imageName": "badge_zhengchenggong"
   },
   {
@@ -14782,8 +14773,8 @@
     "name": "郭嘉",
     "sealText": "郭嘉",
     "category": "人物名将",
-    "description": "guojia相关传世词句",
-    "requirementDescription": "完成guojia相关词句",
+    "description": "郭嘉相关传世词句",
+    "requirementDescription": "完成郭嘉相关词句",
     "imageName": "badge_guojia"
   },
   {
@@ -14791,8 +14782,8 @@
     "name": "陆游",
     "sealText": "陆游",
     "category": "人物名将",
-    "description": "luyou相关传世词句",
-    "requirementDescription": "完成luyou相关词句",
+    "description": "陆游相关传世词句",
+    "requirementDescription": "完成陆游相关词句",
     "imageName": "badge_luyou"
   },
   {
@@ -14800,8 +14791,8 @@
     "name": "陈寿",
     "sealText": "陈寿",
     "category": "人物名将",
-    "description": "chenshou相关传世词句",
-    "requirementDescription": "完成chenshou相关词句",
+    "description": "陈寿相关传世词句",
+    "requirementDescription": "完成陈寿相关词句",
     "imageName": "badge_chenshou"
   },
   {
@@ -14809,8 +14800,8 @@
     "name": "陶渊明",
     "sealText": "陶渊明",
     "category": "人物名将",
-    "description": "taoyuanming相关传世词句",
-    "requirementDescription": "完成taoyuanming相关词句",
+    "description": "陶渊明相关传世词句",
+    "requirementDescription": "完成陶渊明相关词句",
     "imageName": "badge_taoyuanming"
   },
   {
@@ -14818,8 +14809,8 @@
     "name": "霍去病",
     "sealText": "霍去病",
     "category": "人物名将",
-    "description": "huoqubing相关传世词句",
-    "requirementDescription": "完成huoqubing相关词句",
+    "description": "霍去病相关传世词句",
+    "requirementDescription": "完成霍去病相关词句",
     "imageName": "badge_huoqubing"
   },
   {
@@ -14827,8 +14818,8 @@
     "name": "韩信",
     "sealText": "韩信",
     "category": "人物名将",
-    "description": "hanxin相关传世词句",
-    "requirementDescription": "完成hanxin相关词句",
+    "description": "韩信相关传世词句",
+    "requirementDescription": "完成韩信相关词句",
     "imageName": "badge_hanxin"
   },
   {
@@ -14836,8 +14827,8 @@
     "name": "韩愈",
     "sealText": "韩愈",
     "category": "人物名将",
-    "description": "hanyu相关传世词句",
-    "requirementDescription": "完成hanyu相关词句",
+    "description": "韩愈相关传世词句",
+    "requirementDescription": "完成韩愈相关词句",
     "imageName": "badge_hanyu"
   },
   {
@@ -14845,8 +14836,8 @@
     "name": "韩非",
     "sealText": "韩非",
     "category": "人物名将",
-    "description": "hanfeizi相关传世词句",
-    "requirementDescription": "完成hanfeizi相关词句",
+    "description": "韩非相关传世词句",
+    "requirementDescription": "完成韩非相关词句",
     "imageName": "badge_hanfeizi"
   },
   {
@@ -14854,8 +14845,8 @@
     "name": "项羽",
     "sealText": "项羽",
     "category": "人物名将",
-    "description": "xiangyu相关传世词句",
-    "requirementDescription": "完成xiangyu相关词句",
+    "description": "项羽相关传世词句",
+    "requirementDescription": "完成项羽相关词句",
     "imageName": "badge_xiangyu"
   },
   {
@@ -14863,8 +14854,8 @@
     "name": "魏征",
     "sealText": "魏征",
     "category": "人物名将",
-    "description": "weizheng相关传世词句",
-    "requirementDescription": "完成weizheng相关词句",
+    "description": "魏征相关传世词句",
+    "requirementDescription": "完成魏征相关词句",
     "imageName": "badge_weizheng"
   },
   {
@@ -14872,8 +14863,8 @@
     "name": "鲁肃",
     "sealText": "鲁肃",
     "category": "人物名将",
-    "description": "lusu相关传世词句",
-    "requirementDescription": "完成lusu相关词句",
+    "description": "鲁肃相关传世词句",
+    "requirementDescription": "完成鲁肃相关词句",
     "imageName": "badge_lusu"
   }
 ]
