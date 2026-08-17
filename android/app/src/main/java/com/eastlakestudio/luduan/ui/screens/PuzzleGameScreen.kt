@@ -125,25 +125,26 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
 
     // 每10词里程碑 → 直接弹出分享页
 
-    // 勋章解锁弹窗（含分享）
+    // 勋章解锁 → 直接弹出勋章分享页（徽章图 + 随机原文 + 二维码）
     if (newlyUnlockedBadge != null) {
         val badge = newlyUnlockedBadge!!
-        AlertDialog({ newlyUnlockedBadge = null }, title = { Text("\u52cb\u7ae0\u89e3\u9501\uff01", color = adaptiveGold(), fontSize = 20.sp, fontFamily = FontFamily.Serif) },
-            text = { Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
-                BadgeImageView(ctx, badge.imageName, badge.sealText, true, 80)
-                Spacer(Modifier.height(8.dp))
-                Text(badge.name, color = adaptiveCinnabar(), fontSize = 18.sp, fontFamily = FontFamily.Serif)
-                Spacer(Modifier.height(8.dp))
-                Text(badge.description, color = adaptiveXuan(), fontSize = 14.sp, textAlign = TextAlign.Center)
-            }},
-            confirmButton = {
-                Row {
-                    TextButton({ newlyUnlockedBadge = null }) { Text("\u5173\u95ed", color = Color.Gray) }
-                    TextButton({
-                        showVictoryShare = true
-                    }) { Text("\u5206\u4eab", color = adaptiveCinnabar()) }
-                }
-            }, containerColor = adaptivePaper())
+        // 从该勋章词池随机选一条已完成词的原文
+        val randomWord = remember(badge.id) {
+            val range = repo.badgeRanges[badge.id]
+            val words = repo.allWordsPublic().filter { it.phrase in (range?.uniquePhrases ?: emptySet()) }
+            val learned = words.filter { it.phrase in repo.learnedPhrases.value }
+            (if (learned.isNotEmpty()) learned else words).randomOrNull()
+        }
+        BadgeShareDialog(
+            badgeName = badge.name,
+            badgeImageName = badge.imageName,
+            badgeSealText = badge.sealText,
+            badgeDescription = badge.description,
+            phrase = randomWord?.phrase ?: "",
+            source = randomWord?.source ?: currentLevel.source,
+            story = randomWord?.story ?: "",
+            onDismiss = { newlyUnlockedBadge = null }
+        )
     }
 
     if (showHint) {
@@ -159,7 +160,10 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
             learnedCount = learnedCount,
             source = currentLevel.source,
             story = currentLevel.story,
-            onDismiss = { showVictoryShare = false }
+            onDismiss = {
+                showVictoryShare = false
+                repo.nextLevel(currentLevel)?.let { currentLevel = it }
+            }
         )
     }
 }

@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="甪端"
+        android:label="文绉绉"
         android:supportsRtl="true"
         android:theme="@style/Theme.LuDuan"
         tools:targetApi="31">
@@ -29,6 +29,11 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.LuDuan"/>
+
+        <activity
+            android:name=".widget.NextWordTrampolineActivity"
+            android:exported="false"
+            android:theme="@style/Theme.LuDuan.Trampoline" />
 
         <receiver
             android:name=".widget.IdiomWidgetReceiver"

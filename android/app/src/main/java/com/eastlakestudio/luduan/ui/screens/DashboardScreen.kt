@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -46,14 +47,10 @@ fun DashboardScreen(
     Column(Modifier.fillMaxSize().background(adaptivePaper())) {
         Row(Modifier.fillMaxWidth().padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {
-                val dashCtx = LocalContext.current
-                val titleBmp = remember(dashCtx) { try { BitmapFactory.decodeStream(dashCtx.assets.open("text/title_header.png")) } catch (e: Exception) { null } }
-                if (titleBmp != null) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Image(titleBmp.asImageBitmap(), "title", Modifier.widthIn(max = 130.dp), contentScale = ContentScale.Fit)
-                        Spacer(Modifier.width(6.dp))
-                        Text("\u6587\u7EC9\u7EC9-", color = adaptiveBamboo(), fontSize = 16.sp, fontFamily = FontFamily.Serif)
-                    }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text("\u6587\u7EC9\u7EC9", color = adaptiveBamboo(), fontSize = 22.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Serif)
+                    Spacer(Modifier.width(8.dp))
+                    Text("\u752a\u7aef", color = adaptiveCinnabar(), fontSize = 22.sp, fontWeight = FontWeight.Bold, fontFamily = FontFamily.Serif)
                 }
                 Text("\u5df2\u5b66 $learnedCount \u8bcd", color = adaptiveXuan(), fontSize = 14.sp)
             }

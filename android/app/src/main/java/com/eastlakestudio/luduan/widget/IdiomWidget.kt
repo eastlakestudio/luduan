@@ -36,12 +36,12 @@ import androidx.glance.unit.ColorProvider
 import org.json.JSONArray
 import java.util.Random
 
-data class DailyWord(val phrase: String, val annotation: String, val source: String)
+data class DailyWord(val phrase: String, val story: String, val source: String)
 
 object WordStore {
     private const val PREFS = "idiom_widget"
     private const val KEY_PHRASE = "phrase"
-    private const val KEY_ANNOTATION = "annotation"
+    private const val KEY_STORY = "story"
     private const val KEY_SOURCE = "source"
 
     private val presets = listOf(
@@ -55,57 +55,77 @@ object WordStore {
         DailyWord("鹏程万里", "抟扶摇而上者九万里。", "《庄子·逍遥游》"),
     )
 
-    fun current(context: Context): DailyWord {
-        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        val p = prefs.getString(KEY_PHRASE, null) ?: return randomFromLibrary(context) ?: presets[0]
-        return DailyWord(p, prefs.getString(KEY_ANNOTATION, "")!!, prefs.getString(KEY_SOURCE, "")!!)
+    // 进程内缓存：只解析一次 2.8MB JSON，后续换词毫秒级
+    @Volatile private var cachedWords: List<DailyWord>? = null
+    private val rnd = java.util.Random()
+
+    private fun library(context: Context): List<DailyWord> {
+        cachedWords?.let { return it }
+        return synchronized(this) {
+            cachedWords?.let { return it }
+            val list = try {
+                val text = context.assets.open("seeds/words.json").bufferedReader().use { it.readText() }
+                val arr = JSONArray(text)
+                (0 until arr.length()).mapNotNull { i ->
+                    val o = arr.getJSONObject(i)
+                    val phrase = o.optString("phrase", "")
+                    if (phrase.length == 4) {
+                        DailyWord(phrase, o.optString("story", ""), o.optString("source", ""))
+                    } else null
+                }
+            } catch (e: Exception) { emptyList() }
+            cachedWords = list
+            list
+        }
     }
 
-    /** 随机换词（手动"下一词"），确保与当前不同 */
+    fun current(context: Context): DailyWord {
+        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val p = prefs.getString(KEY_PHRASE, null)
+            ?: return random(context)  // 首次：随机选并保存
+        return DailyWord(p, prefs.getString(KEY_STORY, "")!!, prefs.getString(KEY_SOURCE, "")!!)
+    }
+
+    /** 随机换词，确保与当前不同 */
     fun next(context: Context): DailyWord {
         val cur = current(context).phrase
+        val lib = library(context)
         var word: DailyWord
         var attempts = 0
         do {
-            word = randomFromLibrary(context) ?: presets[Random().nextInt(presets.size)]
+            word = if (lib.isNotEmpty()) lib[rnd.nextInt(lib.size)] else presets[rnd.nextInt(presets.size)]
             attempts++
         } while (word.phrase == cur && attempts < 8)
         save(context, word)
         return word
     }
 
+    private fun random(context: Context): DailyWord {
+        val lib = library(context)
+        val w = if (lib.isNotEmpty()) lib[rnd.nextInt(lib.size)] else presets[rnd.nextInt(presets.size)]
+        save(context, w)
+        return w
+    }
+
     private fun save(context: Context, w: DailyWord) {
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
             .putString(KEY_PHRASE, w.phrase)
-            .putString(KEY_ANNOTATION, w.annotation)
+            .putString(KEY_STORY, w.story)
             .putString(KEY_SOURCE, w.source)
             .apply()
-    }
-
-    private fun randomFromLibrary(context: Context): DailyWord? {
-        return try {
-            val text = context.assets.open("seeds/words.json").bufferedReader().use { it.readText() }
-            val arr = JSONArray(text)
-            if (arr.length() == 0) return null
-            // 真·随机，优先 4 字词
-            val rnd = Random(System.nanoTime())
-            for (i in 0 until 12) {
-                val o = arr.getJSONObject(rnd.nextInt(arr.length()))
-                val phrase = o.optString("phrase", "")
-                if (phrase.length == 4) {
-                    val w = DailyWord(phrase, o.optString("annotation", ""), o.optString("source", ""))
-                    save(context, w)
-                    return w
-                }
-            }
-            null
-        } catch (e: Exception) { null }
     }
 }
 
 class IdiomWidget : GlanceAppWidget() {
-    // 响应式布局：小 (2x2) / 中 (4x2) / 大 (4x4)
-    override val sizeMode = androidx.glance.appwidget.SizeMode.Responsive(setOf(androidx.compose.ui.unit.DpSize(140.dp, 140.dp), androidx.compose.ui.unit.DpSize(250.dp, 140.dp), androidx.compose.ui.unit.DpSize(250.dp, 250.dp)))
+    // 响应式布局：覆盖 2x2 / 2x3 / 3x2 / 4x2 / 4x3 / 4x4 / 5x4 等常见格
+    // 原则：宽或高任一 >140dp 即显示原文+出处，仅 2x2 隐藏
+    override val sizeMode = androidx.glance.appwidget.SizeMode.Responsive(setOf(
+        androidx.compose.ui.unit.DpSize(140.dp, 140.dp),  // 2x2（无原文）
+        androidx.compose.ui.unit.DpSize(140.dp, 250.dp),  // 2x3 / 2x4（有原文）
+        androidx.compose.ui.unit.DpSize(250.dp, 140.dp),  // 3x2 / 4x2（有原文）
+        androidx.compose.ui.unit.DpSize(250.dp, 250.dp),  // 4x3 / 4x4 / 5x4（有原文+大字）
+        androidx.compose.ui.unit.DpSize(320.dp, 250.dp)   // 5x4+ 超宽
+    ))
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val word = WordStore.current(context)
@@ -118,67 +138,58 @@ class IdiomWidget : GlanceAppWidget() {
 
     @Composable
     private fun WidgetContent(word: DailyWord) {
+        val context = androidx.glance.LocalContext.current
         // LocalSize 由响应式 sizeMode 提供，据此动态调整字号与内容
         val size = androidx.glance.LocalSize.current
-        val isSmall = size.width < 200.dp
-        val isLarge = size.height > 200.dp
+        // 全部尺寸都显示原文+出处；仅字号随尺寸缩放
+        val isLarge = size.width > 260.dp && size.height > 200.dp
+        val isCompact = size.width <= 145.dp && size.height <= 145.dp  // 2x2 紧凑档
 
-        val phraseSize = if (isSmall) 26.sp else if (isLarge) 40.sp else 32.sp
-        val annSize = if (isSmall) 10.sp else if (isLarge) 16.sp else 13.sp
-        val srcSize = if (isSmall) 9.sp else if (isLarge) 13.sp else 11.sp
-        val brandSize = if (isSmall) 10.sp else if (isLarge) 14.sp else 12.sp
+        val phraseSize = if (isCompact) 22.sp else if (isLarge) 40.sp else 32.sp
+        val annSize = if (isCompact) 13.sp else if (isLarge) 20.sp else 16.sp
+        val srcSize = if (isCompact) 10.sp else if (isLarge) 14.sp else 12.sp
+        val storyMax = if (isCompact) 16 else if (isLarge) 70 else 48
+        val storyLines = if (isCompact) 2 else if (isLarge) 4 else 3
 
         Box(
             modifier = GlanceModifier.fillMaxSize()
                 .background(Color(0xFFFCF8F0))
                 .clickable(actionRunCallback<OpenAppAction>())
-                .padding(12.dp)
+                .padding(if (isCompact) 8.dp else 12.dp)
         ) {
             Column(modifier = GlanceModifier.fillMaxSize()) {
-                Row(modifier = GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                    Text(
-                        "文绉绉-甪端",
-                        style = TextStyle(color = ColorProvider(Color(0xFF8B1A1A)), fontSize = brandSize, fontWeight = FontWeight.Bold)
-                    )
-                    Spacer(GlanceModifier.defaultWeight())
-                    Text(
-                        "每日一词",
-                        style = TextStyle(color = ColorProvider(Color(0xFFBA860B)), fontSize = brandSize)
-                    )
-                }
-                Spacer(GlanceModifier.height(6.dp))
                 Text(
                     word.phrase,
-                    style = TextStyle(color = ColorProvider(Color(0xFF8B1A1A)), fontSize = phraseSize, fontWeight = FontWeight.Bold),
+                    style = TextStyle(color = ColorProvider(Color(0xFF8B1A1A)), fontSize = phraseSize, fontWeight = FontWeight.Bold, fontFamily = androidx.glance.text.FontFamily("serif")),
                     maxLines = 1
                 )
-                if (!isSmall) {
-                    // 小尺寸(2x2)不显示原文释义
-                    Spacer(GlanceModifier.height(if (isLarge) 10.dp else 6.dp))
-                    Text(
-                        word.annotation.take(if (isLarge) 60 else 36) + if (word.annotation.length > (if (isLarge) 60 else 36)) "…" else "",
-                        style = TextStyle(color = ColorProvider(Color(0xFF333333)), fontSize = annSize),
-                        maxLines = if (isLarge) 3 else 2
-                    )
-                }
+                Spacer(GlanceModifier.height(if (isCompact) 4.dp else if (isLarge) 10.dp else 6.dp))
+                Text(
+                    word.story.take(storyMax) + if (word.story.length > storyMax) "…" else "",
+                    style = TextStyle(color = ColorProvider(Color(0xFF333333)), fontSize = annSize, fontFamily = androidx.glance.text.FontFamily("serif")),
+                    maxLines = storyLines
+                )
                 Spacer(GlanceModifier.defaultWeight())
-                // 底部行：出处居左，下一词箭头按钮居右下角
+                // 底部行：出处居左，箭头永远居右下角
                 Row(modifier = GlanceModifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        "—— ${word.source.take(18)}",
-                        style = TextStyle(color = ColorProvider(Color(0xFF888888)), fontSize = srcSize),
+                        word.source.take(if (isCompact) 10 else 20),
+                        style = TextStyle(color = ColorProvider(Color(0xFF888888)), fontSize = srcSize, fontFamily = androidx.glance.text.FontFamily("serif")),
                         maxLines = 1
                     )
                     Spacer(GlanceModifier.defaultWeight())
                     Box(
-                        modifier = GlanceModifier.clickable(actionRunCallback<NextWordAction>())
-                            .padding(6.dp),
+                        modifier = GlanceModifier.clickable(
+                            androidx.glance.appwidget.action.actionStartActivity(
+                                android.content.Intent(context, NextWordTrampolineActivity::class.java)
+                            )
+                        ).padding(4.dp),
                         contentAlignment = Alignment.Center
                     ) {
                         Image(
                             provider = androidx.glance.ImageProvider(R.drawable.ic_next_word),
                             contentDescription = "下一词",
-                            modifier = GlanceModifier.size(if (isSmall) 14.dp else 18.dp)
+                            modifier = GlanceModifier.size(if (isCompact) 13.dp else 18.dp)
                         )
                     }
                 }
@@ -200,10 +211,4 @@ class OpenAppAction : androidx.glance.appwidget.action.ActionCallback {
     }
 }
 
-// 下一词：随机换词并刷新所有 widget 实例（含各尺寸）
-class NextWordAction : androidx.glance.appwidget.action.ActionCallback {
-    override suspend fun onAction(context: Context, glanceId: GlanceId, parameters: ActionParameters) {
-        WordStore.next(context)
-        IdiomWidget().updateAll(context)
-    }
-}
+

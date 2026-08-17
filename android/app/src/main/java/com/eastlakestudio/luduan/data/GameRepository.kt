@@ -117,6 +117,7 @@ class GameRepository private constructor(private val ctx: Context) {
     }
 
     private var wordsCache: List<ClassicalSeedItem>? = null
+    fun allWordsPublic(): List<ClassicalSeedItem> = allWords()
     private fun allWords(): List<ClassicalSeedItem> {
         wordsCache?.let { return it }
         val text = jl("words") ?: return emptyList()
