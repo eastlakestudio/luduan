@@ -11,7 +11,7 @@ public struct LaunchScreenView: View {
     private var luDuanImage: Image {
         #if canImport(UIKit)
         if let url = Bundle.module.url(forResource: "luDuan_mascot_user", withExtension: "png") ??
-                     Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg", subdirectory: "BadgeImages"),
+                     Bundle.module.url(forResource: "luDuan_splash_banner", withExtension: "jpg", subdirectory: "shared/data/badges"),
            let data = try? Data(contentsOf: url),
            let uiImage = UIImage(data: data) {
             return Image(uiImage: uiImage)

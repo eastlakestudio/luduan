@@ -139,9 +139,6 @@ public struct SharePosterCardView: View {
                         HStack(spacing: 4) {
                             Image(systemName: "sparkles")
                                 .foregroundColor(.cloudGold)
-                            Text("《文绉绉-甪端》App Store 官方正版")
-                                .font(.system(size: 13, weight: .bold, design: .serif))
-                                .foregroundColor(.cinnabarRed)
                         }
                         
                         Text("扫码体验神兽伴学 · 畅游万关国学典籍")

@@ -148,10 +148,6 @@ public struct MilestoneCelebrationModalView: View {
                         )
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("《文绉绉-甪端》App Store 官方正版")
-                            .font(.system(size: 13, weight: .bold, design: .serif))
-                            .foregroundColor(.cinnabarRed)
-                        
                         Text("扫码或搜索下载 · 体验神兽伴学与典籍手游")
                             .font(.system(size: 11, weight: .medium, design: .serif))
                             .foregroundColor(.xuanBlack)

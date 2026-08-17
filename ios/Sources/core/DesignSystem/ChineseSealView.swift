@@ -237,9 +237,9 @@ public struct ChineseSealView: View {
         let bundles = [Bundle.main, Bundle.module, Bundle(for: GameDataRepository.self)]
         for bundle in bundles {
             if bundle.url(forResource: name, withExtension: "jpg") != nil ||
-               bundle.url(forResource: name, withExtension: "jpg", subdirectory: "BadgeImages") != nil ||
+               bundle.url(forResource: name, withExtension: "jpg", subdirectory: "shared/data/badges") != nil ||
                bundle.url(forResource: name, withExtension: "png") != nil ||
-               bundle.url(forResource: name, withExtension: "png", subdirectory: "BadgeImages") != nil {
+               bundle.url(forResource: name, withExtension: "png", subdirectory: "shared/data/badges") != nil {
                 return true
             }
         }
@@ -265,9 +265,9 @@ public struct ChineseSealView: View {
             let bundles = [Bundle.main, Bundle.module, Bundle(for: GameDataRepository.self)]
             for bundle in bundles {
                 if let url = bundle.url(forResource: targetName, withExtension: "jpg") ??
-                             bundle.url(forResource: targetName, withExtension: "jpg", subdirectory: "BadgeImages") ??
+                             bundle.url(forResource: targetName, withExtension: "jpg", subdirectory: "shared/data/badges") ??
                              bundle.url(forResource: targetName, withExtension: "png") ??
-                             bundle.url(forResource: targetName, withExtension: "png", subdirectory: "BadgeImages"),
+                             bundle.url(forResource: targetName, withExtension: "png", subdirectory: "shared/data/badges"),
                    let data = try? Data(contentsOf: url),
                    let uiImage = UIImage(data: data) {
                     loadedImage = Image(uiImage: uiImage)
@@ -279,9 +279,9 @@ public struct ChineseSealView: View {
         let bundles = [Bundle.main, Bundle.module]
         for bundle in bundles {
             if let url = bundle.url(forResource: targetName, withExtension: "jpg") ??
-                         bundle.url(forResource: targetName, withExtension: "jpg", subdirectory: "BadgeImages") ??
+                         bundle.url(forResource: targetName, withExtension: "jpg", subdirectory: "shared/data/badges") ??
                          bundle.url(forResource: targetName, withExtension: "png") ??
-                         bundle.url(forResource: targetName, withExtension: "png", subdirectory: "BadgeImages"),
+                         bundle.url(forResource: targetName, withExtension: "png", subdirectory: "shared/data/badges"),
                let data = try? Data(contentsOf: url),
                let nsImage = NSImage(data: data) {
                 loadedImage = Image(nsImage: nsImage)
