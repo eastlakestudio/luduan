@@ -219,10 +219,10 @@ public struct PuzzleGameView: View {
                     .font(.system(size: isMultiRowPhrase ? 17 : 18, weight: .semibold, design: .serif))
                     .foregroundColor(.xuanBlack)
                     .lineSpacing(4)
-                    .lineLimit(2)
+                    .lineLimit(4)
                     .truncationMode(.tail)
                     .frame(maxWidth: .infinity, alignment: .topLeading)
-                    .frame(height: isMultiRowPhrase ? 70 : 78)
+                    .frame(minHeight: isMultiRowPhrase ? 96 : 104, alignment: .topLeading)
             }
         }
     }

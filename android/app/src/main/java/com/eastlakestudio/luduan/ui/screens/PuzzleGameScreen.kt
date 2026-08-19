@@ -89,7 +89,7 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
             Column(Modifier.padding(16.dp)) {
                 Text("\u91ca\u4e49", color = adaptiveGold(), fontSize = 14.sp, fontFamily = FontFamily.Serif)
                 Spacer(Modifier.height(4.dp))
-                Text(currentLevel.annotation, color = adaptiveXuan(), fontSize = 18.sp, fontFamily = FontFamily.Serif, maxLines = 2)
+                Text(currentLevel.annotation, color = adaptiveXuan(), fontSize = 18.sp, fontFamily = FontFamily.Serif, maxLines = 4, modifier = Modifier.fillMaxWidth().heightIn(min = 84.dp))
             }
         }
         Spacer(Modifier.weight(1f))
