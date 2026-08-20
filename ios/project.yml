@@ -28,7 +28,7 @@ targets:
         CFBundleDisplayName: 文绉绉
         CFBundleName: luDuan
         CFBundleShortVersionString: "1.2.0"
-        CFBundleVersion: "13"
+        CFBundleVersion: "14"
         ITSAppUsesNonExemptEncryption: false
         LSRequiresIPhoneOS: true
         UILaunchScreen: {}
@@ -51,7 +51,7 @@ targets:
         TARGETED_DEVICE_FAMILY: "1,2"
         PRODUCT_BUNDLE_IDENTIFIER: com.eastlakestudio.luduan
         MARKETING_VERSION: "1.2.0"
-        CURRENT_PROJECT_VERSION: "13"
+        CURRENT_PROJECT_VERSION: "14"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
     entitlements:
       path: AppSupport/luDuan.entitlements
@@ -73,7 +73,7 @@ targets:
         CFBundleDisplayName: 甪端小组件
         CFBundleName: luDuanWidget
         CFBundleShortVersionString: "1.2.0"
-        CFBundleVersion: "13"
+        CFBundleVersion: "14"
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
@@ -81,7 +81,7 @@ targets:
         TARGETED_DEVICE_FAMILY: "1,2"
         PRODUCT_BUNDLE_IDENTIFIER: com.eastlakestudio.luduan.widget
         MARKETING_VERSION: "1.2.0"
-        CURRENT_PROJECT_VERSION: "13"
+        CURRENT_PROJECT_VERSION: "14"
         OTHER_SWIFT_FLAGS: "-DAPP_EXTENSION"
     entitlements:
       path: AppSupport/luDuanWidget.entitlements

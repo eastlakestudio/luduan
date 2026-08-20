@@ -94,6 +94,14 @@ public final class PuzzleEngine: ObservableObject {
     /// 提示阶段：0 为未提示，1 为已提示 1 个字，2 为已提示 2 个字，3 为已提示全部
     @Published public private(set) var hintStage: Int = 0
     
+    /// 是否已提示读音（空槽位显示目标字拼音，不揭示汉字本身）
+    @Published public private(set) var isPinyinHintRevealed: Bool = false
+    
+    /// 提示读音
+    public func revealPinyinHint() {
+        isPinyinHintRevealed = true
+    }
+    
     /// 重新载入新关卡（全量刷新 16 字乱序矩阵）
     public func resetForNewLevel(_ newLevel: LevelModel) {
         self.level = newLevel
@@ -103,6 +111,7 @@ public final class PuzzleEngine: ObservableObject {
         self.highlightedTileIndex = nil
         self.lastCheckState = .idle
         self.hintStage = 0
+        self.isPinyinHintRevealed = false
     }
     
     /// 一键清空已选字块

@@ -25,24 +25,23 @@ public struct PuzzleGameView: View {
         ZStack {
             Color.paperWhite.ignoresSafeArea()
             
-            VStack(spacing: isMultiRowPhrase ? 10 : 16) {
-                // 顶栏：返回、关卡标题与灵感提示按钮
+            VStack(spacing: 12) {
+                // 顶栏：返回、关卡标题与灵感提示按钮（位置与高度固定，不受填词行数影响）
                 headerView
+                    .frame(height: 40, alignment: .center)
+                    .padding(.top, 48)
                 
-                // 核心解谜题目：字词释义卡片
+                // 核心解谜题目：字词释义卡片（高度固定）
                 annotationClueCard
+                    .frame(height: 180)
                 
-                Spacer()
-                
-                // 已选字结果框 (支持长句/双排自适应)
+                // 弹性区：已选字结果框（支持长句/双排自适应，居中于剩余空间）
+                Spacer(minLength: 8)
                 targetInputSlotsView
+                Spacer(minLength: 8)
                 
-                Spacer()
-                
-                // 字块矩阵 Grid
+                // 字块矩阵 Grid（高度固定，锚定于底部）
                 tileMatrixGrid
-                
-                Spacer()
                 
                 // 操作按钮组：重置 与 下一个（纯图标设计）
                 bottomControlBar
@@ -188,7 +187,6 @@ public struct PuzzleGameView: View {
                     .clipShape(Circle())
             }
         }
-        .padding(.top, isMultiRowPhrase ? 42 : 54)
     }
     
     private func skipCurrentLevel() {
@@ -216,13 +214,13 @@ public struct PuzzleGameView: View {
                 }
                 Divider()
                 Text(engine.level.annotation)
-                    .font(.system(size: isMultiRowPhrase ? 17 : 18, weight: .semibold, design: .serif))
+                    .font(.system(size: 17, weight: .semibold, design: .serif))
                     .foregroundColor(.xuanBlack)
-                    .lineSpacing(4)
-                    .lineLimit(4)
+                    .lineSpacing(5)
+                    .lineLimit(3)
                     .truncationMode(.tail)
                     .frame(maxWidth: .infinity, alignment: .topLeading)
-                    .frame(minHeight: isMultiRowPhrase ? 96 : 104, alignment: .topLeading)
+                    .frame(height: 91, alignment: .topLeading)
             }
         }
     }
@@ -279,8 +277,8 @@ public struct PuzzleGameView: View {
                     .cornerRadius(12)
                 }
                 
-                AncientButtonView(title: "心领神会 · 一键通解", iconName: "sparkles", style: .primary) {
-                    _ = engine.provideAllHints()
+                AncientButtonView(title: engine.isPinyinHintRevealed ? "已提示读音 · 继续" : "提示读音", iconName: "speaker.wave.2.fill", style: .primary) {
+                    engine.revealPinyinHint()
                     showingInspirationSheet = false
                 }
             }
@@ -292,42 +290,73 @@ public struct PuzzleGameView: View {
         let targetCount = engine.level.targetPhrase.count
         let colCount = (targetCount == 8) ? 4 : min(targetCount, 5)
         let columns = Array(repeating: GridItem(.flexible(), spacing: isMultiRowPhrase ? 6 : 8), count: colCount)
-        let slotHeight: CGFloat = isMultiRowPhrase ? 58 : 72
-        let charFontSize: CGFloat = isMultiRowPhrase ? 26 : 32
-        let pinyinFontSize: CGFloat = isMultiRowPhrase ? 15 : 18
+        let slotHeight: CGFloat = isMultiRowPhrase ? 66 : 78
+        let charFontSize: CGFloat = isMultiRowPhrase ? 24 : 28
+        let pinyinFontSize: CGFloat = isMultiRowPhrase ? 11 : 13
+        let pinyinReservedHeight: CGFloat = isMultiRowPhrase ? 15 : 17
         
         return LazyVGrid(columns: columns, spacing: isMultiRowPhrase ? 6 : 10) {
             ForEach(0..<targetCount, id: \.self) { idx in
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .strokeBorder(Color.borderAncient, lineWidth: 2)
-                        .background(RoundedRectangle(cornerRadius: 12).fill(Color.cardSurface))
-                        .frame(height: slotHeight)
-                    
+                let targetChar = engine.level.targetPhrase.map { String($0) }[idx]
+                let isHan = targetChar.unicodeScalars.first.map { $0.value >= 0x4E00 && $0.value <= 0x9FFF } ?? false
+                
+                Button(action: {
+                    SoundManager.shared.playTapSound()
                     if idx < engine.selectedIndices.count {
-                        let tileIndex = engine.selectedIndices[idx]
-                        let char = engine.tiles[tileIndex]
-                        let py = PinyinHelper.pinyin(for: char)
+                        engine.unselectTile(at: idx)
+                    }
+                }) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 12)
+                            .strokeBorder(Color.borderAncient, lineWidth: 2)
+                            .background(RoundedRectangle(cornerRadius: 12).fill(Color.cardSurface))
+                            .frame(height: slotHeight)
                         
                         VStack(spacing: 2) {
-                            Text(py)
-                                .font(.system(size: pinyinFontSize, weight: .bold, design: .serif))
-                                .foregroundColor(.cinnabarRed.opacity(0.9))
-                            Text(char)
-                                .font(.system(size: charFontSize, weight: .bold, design: .serif))
-                                .foregroundColor(.cinnabarRed)
+                            if idx < engine.selectedIndices.count {
+                                let tileIndex = engine.selectedIndices[idx]
+                                let char = engine.tiles[tileIndex]
+                                let py = PinyinHelper.pinyin(for: char)
+                                
+                                VStack(spacing: 2) {
+                                    Text(py)
+                                        .font(.system(size: pinyinFontSize, weight: .bold, design: .serif))
+                                        .foregroundColor(.cinnabarRed.opacity(0.9))
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.6)
+                                    Text(char)
+                                        .font(.system(size: charFontSize, weight: .bold, design: .serif))
+                                        .foregroundColor(.cinnabarRed)
+                                }
+                            } else if engine.isPinyinHintRevealed && isHan {
+                                // 提示读音：空槽金色显示目标字拼音（不揭示汉字）
+                                VStack(spacing: 2) {
+                                    Text(PinyinHelper.pinyin(for: targetChar))
+                                        .font(.system(size: pinyinFontSize, weight: .bold, design: .serif))
+                                        .foregroundColor(.cloudGold)
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.6)
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.25))
+                                        .frame(width: 28, height: 3)
+                                        .cornerRadius(1.5)
+                                }
+                            } else {
+                                // 未填字：预留拼音行占位，保持布局高度一致
+                                VStack(spacing: 2) {
+                                    Text(" ")
+                                        .font(.system(size: pinyinFontSize, weight: .bold))
+                                        .frame(height: pinyinReservedHeight)
+                                    Rectangle()
+                                        .fill(Color.gray.opacity(0.25))
+                                        .frame(width: 28, height: 3)
+                                        .cornerRadius(1.5)
+                                }
+                            }
                         }
-                        .onTapGesture {
-                            SoundManager.shared.playTapSound()
-                            engine.unselectTile(at: idx)
-                        }
-                    } else {
-                        Rectangle()
-                            .fill(Color.gray.opacity(0.25))
-                            .frame(width: 28, height: 3)
-                            .cornerRadius(1.5)
                     }
                 }
+                .buttonStyle(.plain)
             }
         }
         .padding(.horizontal, 10)
@@ -342,9 +371,9 @@ public struct PuzzleGameView: View {
             GridItem(.flexible()),
             GridItem(.flexible())
         ]
-        let tileHeight: CGFloat = isMultiRowPhrase ? 48 : 60
-        let charFontSize: CGFloat = isMultiRowPhrase ? 24 : 28
-        let gridSpacing: CGFloat = isMultiRowPhrase ? 10 : 14
+        let tileHeight: CGFloat = 50
+        let charFontSize: CGFloat = 24
+        let gridSpacing: CGFloat = 12
         
         return LazyVGrid(columns: columns, spacing: gridSpacing) {
             ForEach(0..<engine.tiles.count, id: \.self) { tileIndex in
