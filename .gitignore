@@ -4,6 +4,7 @@
 *.xcworkspace
 xcuserdata/
 DerivedData/
+ios/build/
 build/*.xcarchive
 build/ipa_temp/
 *.ipa
