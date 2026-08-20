@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.eastlakestudio.luduan.data.GameRepository
 import com.eastlakestudio.luduan.data.models.BadgeModel
+import com.eastlakestudio.luduan.engine.PinyinHelper
 import com.eastlakestudio.luduan.ui.components.BadgeImageView
 import com.eastlakestudio.luduan.ui.components.LuText
 import com.eastlakestudio.luduan.ui.components.ShareHelper
@@ -93,27 +94,34 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
             }
         }
         Spacer(Modifier.weight(1f))
-        if (engine.hintStage > 0) {
-            LuText("\u752a\u7aef\u6307\u5f15\uff1a\u5df2\u9501\u5b9a ${engine.hintStage} \u4e2a\u6b63\u786e\u5b57\uff01", color = adaptiveXuan(), fontSize = 13.sp, modifier = Modifier.padding(horizontal = 16.dp))
-            Spacer(Modifier.height(4.dp))
-        }
-        val tc = currentLevel.targetPhrase.length; val cc = if (tc == 8) 4 else minOf(tc, 5); val sh = if (multi) 58.dp else 72.dp
+        val tc = currentLevel.targetPhrase.length; val cc = if (tc == 8) 4 else minOf(tc, 5); val sh = if (multi) 64.dp else 76.dp
+        val pyFs = if (multi) 11.sp else 13.sp; val chFs = if (multi) 24.sp else 28.sp
         LazyVerticalGrid(GridCells.Fixed(cc), Modifier.padding(horizontal = 16.dp).offset(x = shake.dp), horizontalArrangement = Arrangement.spacedBy(if (multi) 6.dp else 8.dp), verticalArrangement = Arrangement.spacedBy(if (multi) 6.dp else 10.dp), userScrollEnabled = false) {
             items(tc) { idx ->
                 val sel = idx < engine.selectedIndices.size; val ch = if (sel) engine.tiles[engine.selectedIndices[idx]] else null
+                val targetChar = currentLevel.targetPhrase[idx].toString()
+                val isHan = targetChar[0] in '\u4e00'..'\u9fff'
+                val py = when {
+                    ch != null -> PinyinHelper.pinyin(ch)
+                    engine.isPinyinHintRevealed && isHan -> PinyinHelper.pinyin(targetChar)
+                    else -> null
+                }
                 Box(Modifier.height(sh).clip(RoundedCornerShape(12.dp)).background(adaptiveCard()).border(2.dp, if (sel) adaptiveCinnabar() else adaptiveBorder(), RoundedCornerShape(12.dp)).clickable { if (sel) engine.unselectTile(idx) }, Alignment.Center) {
-                    if (ch != null) Text(text = ch, color = adaptiveCinnabar(), fontSize = 28.sp, fontFamily = FontFamily.Serif)
-                    else Box(Modifier.width(28.dp).height(3.dp).background(Color.Gray.copy(alpha = 0.25f)).clip(RoundedCornerShape(1.5.dp)))
+                    Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+                        Text(py ?: " ", color = if (ch != null) adaptiveCinnabar().copy(alpha = 0.9f) else adaptiveGold(), fontSize = pyFs, fontFamily = FontFamily.Serif, fontWeight = FontWeight.Bold, modifier = Modifier.height(if (multi) 15.dp else 17.dp))
+                        if (ch != null) Text(text = ch, color = adaptiveCinnabar(), fontSize = chFs, fontFamily = FontFamily.Serif)
+                        else Box(Modifier.width(28.dp).height(3.dp).background(Color.Gray.copy(alpha = 0.25f)).clip(RoundedCornerShape(1.5.dp)))
+                    }
                 }
             }
         }
         Spacer(Modifier.height(16.dp))
         LazyVerticalGrid(GridCells.Fixed(4), Modifier.fillMaxWidth().padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(12.dp), verticalArrangement = Arrangement.spacedBy(12.dp), userScrollEnabled = false) {
             items(engine.tiles.size) { ti ->
-                val sel = ti in engine.selectedIndices; val hl = engine.highlightedTileIndex == ti; val th = if (multi) 44.dp else 56.dp
+                val sel = ti in engine.selectedIndices; val hl = engine.highlightedTileIndex == ti; val th = if (multi) 44.dp else 54.dp; val tf = if (multi) 22.sp else 24.sp
                 val bc = when { sel -> adaptiveCinnabar(); hl -> adaptiveGold(); else -> adaptiveBorder() }
                 Box(Modifier.height(th).clip(RoundedCornerShape(12.dp)).background(if (sel) adaptiveCinnabar().copy(alpha = 0.1f) else adaptiveCard()).border(if (hl) 3.dp else if (sel) 2.dp else 1.dp, bc, RoundedCornerShape(12.dp)).clickable(enabled = !sel) { engine.selectTile(ti) }, Alignment.Center) {
-                    Text(text = engine.tiles[ti], color = if (sel) adaptiveCinnabar() else adaptiveXuan(), fontSize = 24.sp, fontFamily = FontFamily.Serif)
+                    Text(text = engine.tiles[ti], color = if (sel) adaptiveCinnabar() else adaptiveXuan(), fontSize = tf, fontFamily = FontFamily.Serif)
                 }
             }
         }
@@ -173,11 +181,10 @@ fun PuzzleGameScreen(level: com.eastlakestudio.luduan.data.models.LevelModel, re
     }
 
     if (showHint) {
-        val bt = when (engine.hintStage) { 0 -> "\u63d0\u793a 1 \u4e2a\u6b63\u786e\u5b57\u5757"; 1 -> "\u63d0\u793a 2 \u4e2a\u6b63\u786e\u5b57\u5757"; else -> "\u89e3\u9501\u5168\u90e8\u6b63\u786e\u5b57\u901a\u5173" }
-        AlertDialog({ showHint = false }, title = { LuText("\u752a\u7aef\u7075\u611f", color = adaptiveCinnabar(), fontFamily = FontFamily.Serif) },
-            text = { Column(Modifier.verticalScroll(rememberScrollState())) { Text("\u5178\u7c4d\u51fa\u5904\uff1a${currentLevel.source}", color = adaptiveGold(), fontSize = 15.sp, fontFamily = FontFamily.Serif); Spacer(Modifier.height(12.dp)); Text(currentLevel.story, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif) } },
-            confirmButton = { if (engine.hintStage < 3) TextButton({ engine.provideHintProgressive(); if (engine.hintStage >= 3) showHint = false }) { Text(bt, color = adaptiveCinnabar()) } else TextButton({ showHint = false }) { Text("\u5b8c\u6210", color = adaptiveCinnabar()) } },
-            dismissButton = { TextButton({ showHint = false }) { Text(text = "\u5173\u95ed", color = Color.Gray) } }, containerColor = adaptivePaper())
+        AlertDialog({ showHint = false }, title = { LuText("甪端灵感", color = adaptiveCinnabar(), fontFamily = FontFamily.Serif) },
+            text = { Column(Modifier.verticalScroll(rememberScrollState())) { Text("典籍出处：${currentLevel.source}", color = adaptiveGold(), fontSize = 15.sp, fontFamily = FontFamily.Serif); Spacer(Modifier.height(12.dp)); Text(currentLevel.story, color = adaptiveXuan(), fontSize = 15.sp, fontFamily = FontFamily.Serif) } },
+            confirmButton = { TextButton({ engine.revealPinyinHint(); showHint = false }) { Text(if (engine.isPinyinHintRevealed) "已提示读音 · 继续" else "提示读音", color = adaptiveCinnabar()) } },
+            dismissButton = { TextButton({ showHint = false }) { Text(text = "关闭", color = Color.Gray) } }, containerColor = adaptivePaper())
     }
 
     if (allDone) {

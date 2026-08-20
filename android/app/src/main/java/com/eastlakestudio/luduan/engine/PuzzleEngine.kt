@@ -12,9 +12,13 @@ class PuzzleEngine(val level: LevelModel) {
     var isCompleted by mutableStateOf(false); private set
     var hintStage by mutableStateOf(0); private set
     var highlightedTileIndex by mutableStateOf<Int?>(null); private set
+    var isPinyinHintRevealed by mutableStateOf(false); private set
     enum class CheckState { IDLE, SUCCESS, INCORRECT }
     var lastCheckState by mutableStateOf(CheckState.IDLE); private set
     val currentInput: String get() = selectedIndices.map { tiles[it] }.joinToString("")
+
+    /** 提示读音：在空槽位显示目标字拼音（不揭示汉字本身） */
+    fun revealPinyinHint() { isPinyinHintRevealed = true }
 
     fun selectTile(index: Int) {
         if (index !in tiles.indices || index in selectedIndices || selectedIndices.size >= level.targetPhrase.length) return
