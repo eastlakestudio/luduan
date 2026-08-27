@@ -182,6 +182,8 @@ struct IdiomWidgetEntryView: View {
                 switch family {
                 case .systemSmall:
                     smallView(level: level)
+                case .systemLarge:
+                    largeView(level: level)
                 default:
                     mediumView(level: level)
                 }
@@ -233,7 +235,7 @@ private extension IdiomWidgetEntryView {
                     .frame(maxWidth: .infinity)
                 
                 Text(level.source)
-                    .font(.system(size: 11, weight: .regular, design: .serif))
+                    .font(.system(size: 12, weight: .regular, design: .serif))
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)
@@ -260,7 +262,7 @@ private extension IdiomWidgetEntryView {
     }
 }
 
-// MARK: - Medium / Large Widget
+// MARK: - Medium Widget
 
 private extension IdiomWidgetEntryView {
     func mediumView(level: LevelModel) -> some View {
@@ -272,7 +274,7 @@ private extension IdiomWidgetEntryView {
             // 顶部：词句与出处
             HStack(alignment: .firstTextBaseline) {
                 Text(level.targetPhrase)
-                    .font(.system(size: level.targetPhrase.count > 6 ? 19 : 23, weight: .bold, design: .serif))
+                    .font(.system(size: level.targetPhrase.count > 6 ? 21 : 25, weight: .bold, design: .serif))
                     .foregroundStyle(.primary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.55)
@@ -280,7 +282,7 @@ private extension IdiomWidgetEntryView {
                 Spacer(minLength: 6)
                 
                 Text(level.source)
-                    .font(.system(size: 11, weight: .regular, design: .serif))
+                    .font(.system(size: 13, weight: .regular, design: .serif))
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.65)
@@ -321,6 +323,114 @@ private extension IdiomWidgetEntryView {
     }
 }
 
+// MARK: - Large Widget
+
+private extension IdiomWidgetEntryView {
+    func largeView(level: LevelModel) -> some View {
+        let rawStory = level.story.trimmingCharacters(in: .whitespacesAndNewlines)
+        let annotation = level.annotation.trimmingCharacters(in: .whitespacesAndNewlines)
+        let originalText = !rawStory.isEmpty ? rawStory : annotation
+
+        return VStack(alignment: .leading, spacing: 10) {
+            // 顶部：词句标题、拼音与出处
+            HStack(alignment: .center) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(level.targetPhrase)
+                        .font(.system(size: 26, weight: .bold, design: .serif))
+                        .foregroundStyle(.primary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.7)
+                    
+                    Text(level.source)
+                        .font(.system(size: 13, weight: .medium, design: .serif))
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+
+                Spacer()
+
+                // 祥瑞朱印风格标识
+                Text("文绉绉")
+                    .font(.system(size: 11, weight: .bold, design: .serif))
+                    .foregroundColor(Color(red: 0.78, green: 0.24, blue: 0.12))
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 3)
+                    .background(Color(red: 0.78, green: 0.24, blue: 0.12).opacity(0.12))
+                    .cornerRadius(4)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 4)
+                            .stroke(Color(red: 0.78, green: 0.24, blue: 0.12).opacity(0.4), lineWidth: 1)
+                    )
+            }
+
+            Divider()
+                .opacity(0.3)
+
+            // 中部：古文原文（大画幅自适应大字号）
+            VStack(alignment: .leading, spacing: 4) {
+                Text("【原文典故】")
+                    .font(.system(size: 11, weight: .bold, design: .serif))
+                    .foregroundStyle(.secondary)
+
+                Text(originalText)
+                    .font(.system(size: largeAdaptiveFontSize(for: originalText),
+                                  weight: .regular, design: .serif))
+                    .foregroundStyle(.primary.opacity(0.92))
+                    .lineSpacing(largeAdaptiveLineSpacing(for: originalText))
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+            }
+
+            Spacer(minLength: 4)
+
+            // 下方：字词释义卡片与切换按钮
+            if !annotation.isEmpty && annotation != originalText {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("【典籍释义】")
+                        .font(.system(size: 11, weight: .bold, design: .serif))
+                        .foregroundStyle(.secondary)
+
+                    Text(cleanAnnotation(annotation))
+                        .font(.system(size: 13, weight: .regular, design: .serif))
+                        .foregroundStyle(.primary.opacity(0.8))
+                        .lineLimit(2)
+                        .lineSpacing(3)
+                }
+                .padding(8)
+                .background(Color.primary.opacity(0.04))
+                .cornerRadius(8)
+            }
+
+            // 底部操作栏
+            HStack {
+                Text("点击进入游戏探索")
+                    .font(.system(size: 11, design: .serif))
+                    .foregroundStyle(.secondary)
+
+                Spacer()
+
+                Button(intent: NextIdiomIntent(targetPhrase: level.targetPhrase, currentSource: level.source)) {
+                    HStack(spacing: 4) {
+                        Text("换一则")
+                            .font(.system(size: 12, weight: .medium, design: .serif))
+                        Image(systemName: "arrow.clockwise")
+                            .font(.system(size: 11, weight: .bold))
+                    }
+                    .foregroundStyle(.secondary)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(.regularMaterial)
+                    .clipShape(Capsule())
+                    .shadow(color: .black.opacity(0.08), radius: 2, x: 0, y: 1)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .widgetURL(URL(string: "luduan://level/\(level.id)"))
+    }
+}
+
 // MARK: - Helpers
 
 private extension IdiomWidgetEntryView {
@@ -329,18 +439,40 @@ private extension IdiomWidgetEntryView {
         return text.count >= 5 ? 18 : 24
     }
 
-    /// 根据原文字数动态调节字号：字少字大，字多字小
+    /// Medium 中尺寸字号自适应：字少字大，字多字小
     func adaptiveFontSize(for text: String) -> CGFloat {
         switch text.count {
-        case ..<15:  return 22
-        case 15..<30: return 19
-        case 30..<60: return 16
-        default:      return 14
+        case ..<16:   return 28
+        case 16..<30: return 23.5
+        case 30..<50: return 19
+        case 50..<80: return 16.5
+        default:      return 15
         }
     }
 
     func adaptiveLineSpacing(for text: String) -> CGFloat {
-        adaptiveFontSize(for: text) < 16 ? 5 : 7
+        let size = adaptiveFontSize(for: text)
+        if size >= 26 {
+            return 8
+        } else if size >= 20 {
+            return 6
+        } else {
+            return 4
+        }
+    }
+
+    /// Large 大尺寸字号自适应：空间更大，字号更挺拔
+    func largeAdaptiveFontSize(for text: String) -> CGFloat {
+        switch text.count {
+        case ..<20:   return 25
+        case 20..<40: return 22
+        case 40..<70: return 19
+        default:      return 16.5
+        }
+    }
+
+    func largeAdaptiveLineSpacing(for text: String) -> CGFloat {
+        largeAdaptiveFontSize(for: text) >= 22 ? 8 : 6
     }
 
     func cleanAnnotation(_ text: String) -> String {
@@ -370,6 +502,6 @@ struct IdiomWidget: Widget {
         }
         .configurationDisplayName("随机未学成语")
         .description("在桌面随时学习一个新成语典故。")
-        .supportedFamilies([.systemSmall, .systemMedium])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }

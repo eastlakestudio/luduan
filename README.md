@@ -1,6 +1,6 @@
 # 文绉绉·甪端 (luDuan) — 中国传统典籍语音拼字与名肖游赏
 
-> **版本**：v1.2.0 (Build 12) · iOS 17.0+ · SwiftUI · 已上架 App Store
+> **版本**：v1.3.0 (Build 15) · iOS 17.0+ · SwiftUI · 已上架 App Store
 
 <p align="center">
   <img src="docs/screenshot_iphone.png" width="45%" alt="iPhone App Store 宣传海报 (1242x2688)">
