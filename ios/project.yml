@@ -68,6 +68,11 @@ targets:
     sources:
       - path: Sources/widget
       - path: Sources/core
+        excludes:
+          - "Resources/BadgeImages/**"
+          - "Resources/BadgeImages"
+          - "Resources/*.jpg"
+          - "Resources/*.png"
       - path: AppSupport/BundleModuleShim.swift
     info:
       path: AppSupport/WidgetInfo.plist
