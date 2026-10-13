@@ -1,6 +1,13 @@
 # 《文绉绉·甪端》全量勋章与系统功能任务清单
 
 ### 🎯 进度汇总（最新）
+- **[x] 桌面小组件每秒数字刷新 DEMO (NumberTickerWidget)**
+  - [x] 制定实施方案 (Implementation Plan)
+  - [x] 模块化实现 `NumberTickerWidget.swift` (包含正数秒表、倒计时数字、等宽排版)
+  - [x] 注册到 `luDuanWidgetBundle.swift` 并支持多种尺寸
+  - [x] 编写配套单元测试 `NumberTickerWidgetTests.swift`
+  - [x] 修复 macOS 条件编译保证 `swift test` 与 `xcodebuild luDuanWidget` 全量通过
+  - [x] 生成 `walkthrough.md` 变更记录与使用说明
 - **[x] 品牌更名 v1.2.0（文绉绉-甪端）+ 文档全面刷新** (APP 显示名更新为"文绉绉-甪端"，版本升至 v1.2.0 Build 12，同步 Info.plist / project.yml / README / PRD / walkthrough 全文档)
 
 

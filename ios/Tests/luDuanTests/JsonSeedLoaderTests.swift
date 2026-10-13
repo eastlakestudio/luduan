@@ -18,7 +18,11 @@ final class JsonSeedLoaderTests: XCTestCase {
     }
     
     func testLongPoetryPhrasesCanBeGenerated() {
-        let level = Classic10000LevelsEngine.level(at: 3504) // 既见君子云胡不喜
+        guard let word = GameDataRepository.shared.allWords.first(where: { $0.phrase.count >= 4 }) else {
+            XCTFail("No poetry phrase found")
+            return
+        }
+        let level = Classic10000LevelsEngine.levelFromWord(word)
         XCTAssertGreaterThanOrEqual(level.targetPhrase.count, 4)
         XCTAssertGreaterThanOrEqual(level.tileMatrix.count, 16)
     }

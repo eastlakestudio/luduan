@@ -35,6 +35,7 @@
 		1334DD25BE45730A48BEA7F0 /* badge_wangyangming.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C184364752623FDFCC8FC5C4 /* badge_wangyangming.jpg */; };
 		15C19F2D01123ABB84E4E356 /* ShareSheetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1603E2B9DF85EBB7194AFA6 /* ShareSheetHelper.swift */; };
 		15E15154ABA59FF786E62379 /* fw_09.png in Resources */ = {isa = PBXBuildFile; fileRef = 770965157E761E6A35255223 /* fw_09.png */; };
+		16AF62539EF889CD9D40E941 /* NumberTickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAE7D467EC53BDA48BD913E /* NumberTickerModel.swift */; };
 		16D156E88BAE1AFD03CFB37B /* badge_prac_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 0078FBE203058C7DAE94BBC6 /* badge_prac_12.png */; };
 		16F3EE14BCDCFE2AE887612F /* badge_simaguang.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EC594286BDC9C87640B6BE69 /* badge_simaguang.jpg */; };
 		172B91FE58CCCFDA4FFA1852 /* badge_prac_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 06BCE4C02F15F479BFA5BE40 /* badge_prac_1.png */; };
@@ -119,6 +120,7 @@
 		7334F9D80B052E40A26D2569 /* StoryCardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA9648C6F5AACFC37E8136A /* StoryCardModalView.swift */; };
 		73F652B4DFF6224552146C38 /* academic_phrases.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C721FBCA8AB07CD1CFAA34E /* academic_phrases.json */; };
 		746D5457AD7277573F201AAE /* PaperCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB9BE1656FA554AA78593C /* PaperCardView.swift */; };
+		74E68C3E2FA28FB6187A7A2C /* ResetTickerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B972E4CC7605A03CCF49B /* ResetTickerIntent.swift */; };
 		772BE691EA4C3E94765CE877 /* PaperCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB9BE1656FA554AA78593C /* PaperCardView.swift */; };
 		78CD3E5D04486F47DD43B1C5 /* fw_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F0B27746B8BB05CA5BF324C /* fw_03.png */; };
 		7918DEA6A8AC25519AEC2B25 /* badge_prac_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 762B392B548B939D620118F0 /* badge_prac_4.png */; };
@@ -154,6 +156,7 @@
 		9D3679473CC03C20023BDF1C /* badge_baozheng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7DDBD6FF47A3C6472418E11E /* badge_baozheng.jpg */; };
 		9DB7231AD06B5411C9E153D2 /* badge_hanyu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEBE88990D8FD5F7549331D5 /* badge_hanyu.jpg */; };
 		9DFCFA57E2EA305630AD9C52 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32D70B5BAC29BD2B94E8140 /* SoundManager.swift */; };
+		9E8A1ABC5EE857C51981BB94 /* ResetTickerIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566B972E4CC7605A03CCF49B /* ResetTickerIntent.swift */; };
 		9E9F830FA2FB7D4C9D9DAF15 /* master_10000.json in Resources */ = {isa = PBXBuildFile; fileRef = D20B935266D584DE9B984E26 /* master_10000.json */; };
 		9F9359424A3E61128C3F992F /* BadgeUnlockShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69469C5B3BF09D9EFFF63CDC /* BadgeUnlockShareView.swift */; };
 		9FA23B5E880CEE687DEC8F49 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B333E93E63B1B0577F032F1 /* ColorExtensions.swift */; };
@@ -174,6 +177,7 @@
 		AFD1671AE36742020864789E /* badge_zhengchenggong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87310FEB9B60D09CA2371298 /* badge_zhengchenggong.jpg */; };
 		B2905E27CF1F6FD690D24305 /* PetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF3D6B2419F0E9613DE23C9 /* PetModel.swift */; };
 		B36FD7CF2EF8553C51F93AC3 /* BundleModuleShim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE45ED4AE85160B31FE37A /* BundleModuleShim.swift */; };
+		B70B35C343A8BEBBF978EB94 /* NumberTickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAE7D467EC53BDA48BD913E /* NumberTickerModel.swift */; };
 		BA2ABE71ADC988BB0DA42575 /* SharePosterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946BDCCA22688BF57C1EC5CB /* SharePosterCardView.swift */; };
 		BB2C8DF78BF56D42987D0055 /* book_phrases.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FF70E52AD967C05C77190F8 /* book_phrases.json */; };
 		BDFB8AAD4BF7E4AD0A949085 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C41CBA9F738911D05B0D04 /* ViewExtensions.swift */; };
@@ -207,6 +211,7 @@
 		E21285227619D10DC4FFC30B /* badge_caocao.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E99852DE55270EB76D11DF9A /* badge_caocao.jpg */; };
 		E3177C605007B77C0C0E0904 /* LevelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7C1BE0331184EFF923C44 /* LevelModel.swift */; };
 		E35ECF2C7365B0AAD4016665 /* badge_liuzongyuan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1DB83BA7BBED7A0F24782C0 /* badge_liuzongyuan.jpg */; };
+		E37DB68DC7B551864B33C4D6 /* NumberTickerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F5912A90365C5F6E18CE67 /* NumberTickerWidget.swift */; };
 		E5DB1F5F2BEC5F96507D4FEE /* badge_zhouyu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA95746CF44336A4F9652D5C /* badge_zhouyu.jpg */; };
 		E84C08C4B5233ED9B82F9F26 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6A71886DEF3105A081D0F8 /* LaunchScreenView.swift */; };
 		E8710FF934003DF6A2951A02 /* badge_shiji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841F202C58D41B5CF9D4EB91 /* badge_shiji.jpg */; };
@@ -312,6 +317,7 @@
 		3EC09FB81616A3BAFF3712BB /* badge_prac_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge_prac_13.png; sourceTree = "<group>"; };
 		3F0B27746B8BB05CA5BF324C /* fw_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fw_03.png; sourceTree = "<group>"; };
 		3F8072B5A43734B381F39D8B /* badge_duruhui.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_duruhui.jpg; sourceTree = "<group>"; };
+		3FAE7D467EC53BDA48BD913E /* NumberTickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTickerModel.swift; sourceTree = "<group>"; };
 		4074BC147A1BF1C4A9DF03C1 /* badge_prac_31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge_prac_31.png; sourceTree = "<group>"; };
 		40FE883187C1587EBD80F008 /* badge_libai.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_libai.jpg; sourceTree = "<group>"; };
 		43464100571C46B75B4BEEEE /* badge_academic_tongsheng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badge_academic_tongsheng.jpg; sourceTree = "<group>"; };
@@ -326,6 +332,8 @@
 		50BCA621646C599886863EF7 /* fw_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fw_01.png; sourceTree = "<group>"; };
 		51C37BBF71E63A0F5EF36BA4 /* badge_prac_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badge_prac_18.png; sourceTree = "<group>"; };
 		5384F4A562FDBE4E1951BC80 /* chenghuang_mascot_mini.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chenghuang_mascot_mini.jpg; sourceTree = "<group>"; };
+		566B972E4CC7605A03CCF49B /* ResetTickerIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetTickerIntent.swift; sourceTree = "<group>"; };
+		57F5912A90365C5F6E18CE67 /* NumberTickerWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTickerWidget.swift; sourceTree = "<group>"; };
 		5A86E654D257E4539E2E288B /* fw_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fw_11.png; sourceTree = "<group>"; };
 		5C721FBCA8AB07CD1CFAA34E /* academic_phrases.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = academic_phrases.json; sourceTree = "<group>"; };
 		5D5B077DEB348E9781BE471A /* fw_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fw_05.png; sourceTree = "<group>"; };
@@ -662,6 +670,7 @@
 			children = (
 				33959A9BB1403D4EFEAC0B92 /* IdiomWidget.swift */,
 				4E7B9AB9EA33CF8E8B9C9577 /* luDuanWidgetBundle.swift */,
+				57F5912A90365C5F6E18CE67 /* NumberTickerWidget.swift */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -712,6 +721,7 @@
 			isa = PBXGroup;
 			children = (
 				22FDAD695C654590F2437D89 /* NextIdiomIntent.swift */,
+				566B972E4CC7605A03CCF49B /* ResetTickerIntent.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -771,6 +781,14 @@
 			path = AppSupport;
 			sourceTree = "<group>";
 		};
+		C92D5D25546E3D25CF2DC25B /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				3FAE7D467EC53BDA48BD913E /* NumberTickerModel.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
 		CD249223AD2FE8461E83B3B1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,6 +799,7 @@
 				6DA5DB085A038F4EB7C4C958 /* LevelSelection */,
 				5DC4D5D12631BC3AA3723ADB /* PetEvolution */,
 				F5DFBFF34C00A3FDF9422D5C /* PuzzleGame */,
+				C92D5D25546E3D25CF2DC25B /* Widget */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1102,6 +1121,7 @@
 				53B8CBEBF9AFF737BDD5B0FA /* MainDashboardView.swift in Sources */,
 				09646E88841BC3E8336D1026 /* MilestoneCelebrationModalView.swift in Sources */,
 				D13FEB1DF3B0BB5DFA419F98 /* NextIdiomIntent.swift in Sources */,
+				16AF62539EF889CD9D40E941 /* NumberTickerModel.swift in Sources */,
 				772BE691EA4C3E94765CE877 /* PaperCardView.swift in Sources */,
 				958A3857B7C2CE2303A8C6D5 /* PetEvolutionView.swift in Sources */,
 				49F05EAFB5BE2F4EE4FA0AF8 /* PetModel.swift in Sources */,
@@ -1110,6 +1130,7 @@
 				8E835C9708FC7EDF959C6F91 /* PuzzleEngine.swift in Sources */,
 				04137FE258E1AF1C30DD7768 /* PuzzleGameView.swift in Sources */,
 				A233C0976CEA1410E7A97CB2 /* QRCodeView.swift in Sources */,
+				74E68C3E2FA28FB6187A7A2C /* ResetTickerIntent.swift in Sources */,
 				35A47B35F33466343C7CA066 /* SharePosterCardView.swift in Sources */,
 				178EB54988D55CEC66DBE8CD /* ShareSheetHelper.swift in Sources */,
 				8B2519A8422D1448506C882E /* SoundManager.swift in Sources */,
@@ -1146,6 +1167,8 @@
 				C9CFE38548E7C4E1FA7E34C6 /* MainDashboardView.swift in Sources */,
 				61B1D05CD9486E547B26E327 /* MilestoneCelebrationModalView.swift in Sources */,
 				D8C184EB0A4157B6E1BEB91C /* NextIdiomIntent.swift in Sources */,
+				B70B35C343A8BEBBF978EB94 /* NumberTickerModel.swift in Sources */,
+				E37DB68DC7B551864B33C4D6 /* NumberTickerWidget.swift in Sources */,
 				746D5457AD7277573F201AAE /* PaperCardView.swift in Sources */,
 				49CE1FEA5EF1869A9D8E39C3 /* PetEvolutionView.swift in Sources */,
 				B2905E27CF1F6FD690D24305 /* PetModel.swift in Sources */,
@@ -1154,6 +1177,7 @@
 				22AA725907ECB0D08E48B79C /* PuzzleEngine.swift in Sources */,
 				EBD255695DC9A26B8A4FD9B7 /* PuzzleGameView.swift in Sources */,
 				D15CDF546CDDC984490B54C2 /* QRCodeView.swift in Sources */,
+				9E8A1ABC5EE857C51981BB94 /* ResetTickerIntent.swift in Sources */,
 				BA2ABE71ADC988BB0DA42575 /* SharePosterCardView.swift in Sources */,
 				15C19F2D01123ABB84E4E356 /* ShareSheetHelper.swift in Sources */,
 				9DFCFA57E2EA305630AD9C52 /* SoundManager.swift in Sources */,

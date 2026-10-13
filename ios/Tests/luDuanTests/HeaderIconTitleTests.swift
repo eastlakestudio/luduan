@@ -5,7 +5,8 @@ final class HeaderIconTitleTests: XCTestCase {
     
     func testSingleLineTitleFormatting() {
         let repo = GameDataRepository.shared
-        guard let level = repo.levels.first else {
+        guard let firstBadge = repo.badges.first,
+              let level = repo.levelForBadge(firstBadge, skipCompleted: false) else {
             XCTFail("Levels should not be empty")
             return
         }

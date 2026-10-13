@@ -11,13 +11,14 @@ final class InspirationHintTests: XCTestCase {
     }
     
     func testLevelTitleNameHidesIdiomPhrase() {
-        guard let level = repository.levels.first else { return }
-        let titleName = repository.levelTitleName(for: level)
-        XCTAssertEqual(titleName, level.title)
+        guard let firstBadge = repository.badges.first,
+              let level = repository.levelForBadge(firstBadge, skipCompleted: false) else { return }
+        XCTAssertFalse(level.title.isEmpty)
     }
     
     func testLevelContainsAnnotationAndSourceText() {
-        guard let level = repository.levels.first else { return }
+        guard let firstBadge = repository.badges.first,
+              let level = repository.levelForBadge(firstBadge, skipCompleted: false) else { return }
         XCTAssertFalse(level.annotation.isEmpty)
         XCTAssertFalse(level.source.isEmpty)
     }

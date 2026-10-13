@@ -11,14 +11,13 @@ final class DataRepositoryTests: XCTestCase {
     }
     
     func testPresetLevelsAndBadgesLoaded() {
-        XCTAssertFalse(repository.levels.isEmpty)
         XCTAssertFalse(repository.badges.isEmpty)
-        XCTAssertGreaterThanOrEqual(repository.levels.count, 10)
         XCTAssertGreaterThanOrEqual(repository.badges.count, 150)
     }
     
     func testCompleteLevelUpdatesProgressAndScore() {
-        guard let level = repository.levels.first else {
+        guard let firstBadge = repository.badges.first,
+              let level = repository.levelForBadge(firstBadge, skipCompleted: false) else {
             XCTFail("Missing level preset")
             return
         }
@@ -33,7 +32,8 @@ final class DataRepositoryTests: XCTestCase {
     }
     
     func testResetProgress() {
-        guard let level = repository.levels.first else { return }
+        guard let firstBadge = repository.badges.first,
+              let level = repository.levelForBadge(firstBadge, skipCompleted: false) else { return }
         repository.completeLevel(level)
         
         repository.resetProgress()

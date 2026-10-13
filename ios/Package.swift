@@ -32,6 +32,11 @@ let package = Package(
             name: "luDuanTests",
             dependencies: ["luDuanCore"],
             path: "Tests/luDuanTests"
+        ),
+        .testTarget(
+            name: "NumberTickerTests",
+            dependencies: ["luDuanCore"],
+            path: "Tests/NumberTickerTests"
         )
     ]
 )

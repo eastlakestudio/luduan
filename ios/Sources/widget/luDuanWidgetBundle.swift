@@ -5,5 +5,6 @@ import WidgetKit
 struct luDuanWidgetBundle: WidgetBundle {
     var body: some Widget {
         IdiomWidget()
+        NumberTickerWidget()
     }
 }

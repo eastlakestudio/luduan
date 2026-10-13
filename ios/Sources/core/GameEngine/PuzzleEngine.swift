@@ -134,6 +134,21 @@ public final class PuzzleEngine: ObservableObject {
         }
     }
     
+    /// 请求单字提示：高亮并返回下一个目标字在字块矩阵中的索引
+    @discardableResult
+    public func provideHint() -> Int? {
+        guard selectedIndices.count < level.targetPhrase.count else { return nil }
+        let targetList = Array(level.targetPhrase).map { String($0) }
+        let nextTargetChar = targetList[selectedIndices.count]
+        if let idx = tiles.enumerated().first(where: { (tIdx, tStr) in
+            tStr == nextTargetChar && !selectedIndices.contains(tIdx)
+        })?.offset {
+            highlightedTileIndex = idx
+            return idx
+        }
+        return nil
+    }
+
     /// 一键揭晓全句答案并完成解谜
     @discardableResult
     public func provideAllHints() -> Int {

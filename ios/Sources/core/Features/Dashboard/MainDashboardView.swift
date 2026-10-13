@@ -51,8 +51,8 @@ public struct MainDashboardView: View {
             }
             #if os(iOS)
             .navigationBarHidden(true)
-            #endif
             .toolbar(.hidden, for: .navigationBar)
+            #endif
             #if os(iOS)
             .fullScreenCover(item: $activeGameLevel) { level in
                 PuzzleGameView(level: level)
